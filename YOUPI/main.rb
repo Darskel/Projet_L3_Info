@@ -27,14 +27,10 @@ i = 0
 j = 0
 k = 0
 
+# création des boutons, connection des signaux et placement sur la grille
 while i < 100 do
     bouttons[i] = Boutton_grille.creer(css.cssW)
-    bouton =  bouttons[i].boutton
-    boutton = bouttons[i]
-    bouton.signal_connect("clicked"){ |o|
-        o.change_couleur(css.cssW, css.cssB, css.cssG)
-        win.show_all
-    }
+    bouttons[i].signal(css.cssW, css.cssB, css.cssG)
 
     grille.attach(bouttons[i].boutton,k , j, 1, 1)
     k +=1
