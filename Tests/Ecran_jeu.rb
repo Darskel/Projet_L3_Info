@@ -38,6 +38,6 @@ class Ecran_jeu
     # Permet de passer à l'écran du menu
     def vers_menu()
         @win.remove(@boite)
-        Ecran_menu.creer(@win)
+        @ecr  = Ecran_menu.creer(@win)
     end
 end

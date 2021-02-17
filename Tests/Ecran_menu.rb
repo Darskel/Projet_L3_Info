@@ -28,8 +28,12 @@ class Ecran_menu
         ##
         # Ajout des signaux des boutons
         @quitter.signal_connect("clicked"){
-            exit(true)
+            @win.destroy
             Gtk.main_quit
+            begin
+                exit!
+            rescue SystemExit
+            end
         }
         @jouer.signal_connect("clicked"){
             vers_jeu()
@@ -109,6 +113,6 @@ class Ecran_menu
     # Permet de changer la fenetre pour aller afficher l'écran de jeu
     def vers_jeu()
         @win.remove(@boite1)
-        Ecran_jeu.creer(@win)
+        @ecr = Ecran_jeu.creer(@win)
     end
 end

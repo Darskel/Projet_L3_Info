@@ -13,9 +13,9 @@ win.set_title("FILL A PIX")
 win.fullscreen
 #win.set_default_size(600, 400)
 
-Ecran_menu.creer(win)
 
 win.signal_connect('destroy'){
     Gtk.main_quit
 }
 
+Ecran_menu.creer(win)
