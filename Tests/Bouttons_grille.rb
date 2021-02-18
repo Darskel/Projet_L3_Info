@@ -7,8 +7,8 @@ class Boutton_grille
 
     ##
     # * +css+   Le css a appliquer sur le boutton à l'init
-    def Boutton_grille.creer(css)
-        new(css)
+    def Boutton_grille.creer(contenu, css)
+        new(contenu, css)
     end
 
     private_class_method
@@ -17,9 +17,9 @@ class Boutton_grille
 
     ##
     # * +css+   Le css a appliquer sur le boutton à l'init
-    def initialize(css)
+    def initialize(contenu, css)
         @couleur = "white"
-        @boutton = Gtk::Button.new(:label => " ")
+        @boutton = Gtk::Button.new(:label => contenu)
         @boutton.style_context.add_provider(css, Gtk::StyleProvider::PRIORITY_USER)
     end
 

@@ -14,29 +14,36 @@ class Grille_jeu
     def initialize()
         @grille = Gtk::Grid.new()
         @grille.set_vexpand(true) #étend la grille pour occuper la place disponible
-        @bouttons = Array.new(100)
+        @bouttons = Array.new(25, Array.new)
 
         @css = Css.new()
 
         @grille.set_row_homogeneous(true)
         @grille.set_column_homogeneous(true)
 
-        i = 0
-        j = 0
-        k = 0
+        charger("grille1.txt")
+    end
 
-        # création des boutons, connection des signaux et placement sur la grille
-        while i < 100 do
-            @bouttons[i] = Boutton_grille.creer(@css.cssW)
-            @bouttons[i].signal(@css.cssW, @css.cssB, @css.cssG)
+    def charger(nom_grille)
+        file = File.open(nom_grille)
+        file_data = file.readlines.map(&:chomp)
+        ligne_grille = file_data[1]
+        ligne_solution = file_data[2]
+        @nbLignes = file_data[0].split(' ')[0].to_i
+        @nbColonnes = file_data[0].split(' ')[1].to_i
+        file.close
 
-            @grille.attach(@bouttons[i].boutton,k , j, 1, 1)
-            k +=1
-            if k == 10
-                k = 0
-                j +=1
+        i_bouton = 0
+        0.upto(@nbLignes-1) do |i|
+            0.upto(@nbColonnes-1) do |j|
+                # création des boutons, connection des signaux et placement sur la grille
+                @bouttons[i][j] = Boutton_grille.creer(ligne_grille[i_bouton], @css.cssW)
+                i_bouton += 1
+                @bouttons[i][j].signal(@css.cssW, @css.cssB, @css.cssG)
+
+                @grille.attach(@bouttons[i][j].boutton, j, i, 1, 1)
             end
-            i += 1
         end
+        
     end
 end
