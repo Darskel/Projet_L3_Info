@@ -11,7 +11,7 @@ win = Gtk::Window.new()
 win.set_title("FILL A PIX")
 #win.maximize
 win.fullscreen
-#win.set_default_size(600, 400)
+#win.set_default_size(1000, 500)
 
 
 win.signal_connect('destroy'){

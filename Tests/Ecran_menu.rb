@@ -96,12 +96,15 @@ class Ecran_menu
         @quitter.style_context.add_provider(quitterImage, Gtk::StyleProvider::PRIORITY_USER)  
         @quitter.set_size_request(width, height) 
 
+        screen = @win.screen()
+
         ##
         #Ajout des boutons et box dans les containers
-        @boite.put(@jouer, (Gdk::Screen.default.width / 2) - widthOptionsPrincipales*1.40, 300)
-        @boite.put(@tuto, (Gdk::Screen.default.width / 2) - widthOptionsPrincipales*1.40, 500)
-        @boite.put(@option, (Gdk::Screen.default.width / 2) - widthOptionsPrincipales*1.40, 700)
-        @boite.put(@quitter, (Gdk::Screen.default.width * 0.67- widthOptionsPrincipales) - 10, Gdk::Screen.default.height * 0.88)
+        #@boite.put(@jouer, ((Gdk::Screen.default.width) *0.4 - widthOptionsPrincipales), 300)
+        @boite.put(@jouer, (screen.width() *0.4 - widthOptionsPrincipales), 300)
+        @boite.put(@tuto, ((Gdk::Screen.default.width) *0.4 - widthOptionsPrincipales), 500)
+        @boite.put(@option, ((Gdk::Screen.default.width) *0.4 - widthOptionsPrincipales), 700)
+        @boite.put(@quitter, (Gdk::Screen.default.width * 0.67- widthOptionsPrincipales) , Gdk::Screen.default.height * 0.88)
 
         @win.add(@boite1)
 
