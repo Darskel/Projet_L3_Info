@@ -46,6 +46,7 @@ class Ecran_menu
         jouerImage.load(data: <<-CSS)
         button {
             background-image: url("../maquettes/image18-3.png");
+            background-size: 100% 100%;
             border: unset;
         }
         CSS
@@ -55,6 +56,7 @@ class Ecran_menu
         tutoImage.load(data: <<-CSS)
         button {
             background-image: url("../maquettes/image18-5.png");
+            background-size: 100% 100%;
             border: unset;
         }
         CSS
@@ -64,6 +66,7 @@ class Ecran_menu
         optionImage.load(data: <<-CSS)
         button {
             background-image: url("../maquettes/image18.png");
+            background-size: 100% 100%;
             border: unset;
         }
         CSS
@@ -73,14 +76,17 @@ class Ecran_menu
         quitterImage.load(data: <<-CSS)
         button {
             background-image: url("../maquettes/quitter.png");
+            background-size: 100% 100%;
             border: unset;
         }
         CSS
 
-        widthOptionsPrincipales = 1134
-        heightOptionsPrincipales = 215
-        width = 438
-        height = 101
+        screen = @win.screen()
+
+        widthOptionsPrincipales = 500
+        heightOptionsPrincipales = 100
+        width = 200
+        height = 75
 
         ##
         # Ajout du CSS aux bouton et on leur donne leur taille
@@ -96,11 +102,9 @@ class Ecran_menu
         @quitter.style_context.add_provider(quitterImage, Gtk::StyleProvider::PRIORITY_USER)  
         @quitter.set_size_request(width, height) 
 
-        screen = @win.screen()
-
         ##
         #Ajout des boutons et box dans les containers
-        @boite.put(@jouer, (screen.width() *0.012), 300)
+        @boite.put(@jouer, (screen.width() *0.2), 300)
         @boite.put(@tuto, (screen.width() *0.012), 500)
         @boite.put(@option, (screen.width() *0.012), 700)
         @boite.put(@quitter, (screen.width() *0.12) , screen.height() * 0.88)
