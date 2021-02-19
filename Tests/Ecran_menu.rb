@@ -85,8 +85,8 @@ class Ecran_menu
 
         widthOptionsPrincipales = 500
         heightOptionsPrincipales = 100
-        width = 200
-        height = 75
+        width = 150
+        height = 50
 
         ##
         # Ajout du CSS aux bouton et on leur donne leur taille
@@ -104,10 +104,10 @@ class Ecran_menu
 
         ##
         #Ajout des boutons et box dans les containers
-        @boite.put(@jouer, (screen.width() *0.2), 300)
-        @boite.put(@tuto, (screen.width() *0.012), 500)
-        @boite.put(@option, (screen.width() *0.012), 700)
-        @boite.put(@quitter, (screen.width() *0.12) , screen.height() * 0.88)
+        @boite.put(@jouer, (1200 *0.25), 675 * 0.3)
+        @boite.put(@tuto, (1200 *0.25), 675 * 0.5)
+        @boite.put(@option, (1200 *0.25), 675 * 0.7)
+        @boite.put(@quitter, (1200 *0.85) , 675 * 0.875)
 
         @win.add(@boite1)
 

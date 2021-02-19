@@ -10,8 +10,8 @@ load "Ecran_menu.rb"
 win = Gtk::Window.new()
 win.set_title("FILL A PIX")
 #win.maximize
-win.fullscreen
-#win.set_default_size(1000, 500)
+#win.fullscreen
+win.set_default_size(1200, 675)
 
 
 win.signal_connect('destroy'){
