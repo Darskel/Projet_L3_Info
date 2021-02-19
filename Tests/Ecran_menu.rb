@@ -100,11 +100,10 @@ class Ecran_menu
 
         ##
         #Ajout des boutons et box dans les containers
-        #@boite.put(@jouer, ((Gdk::Screen.default.width) *0.4 - widthOptionsPrincipales), 300)
-        @boite.put(@jouer, (screen.width() *0.4 - widthOptionsPrincipales), 300)
-        @boite.put(@tuto, ((Gdk::Screen.default.width) *0.4 - widthOptionsPrincipales), 500)
-        @boite.put(@option, ((Gdk::Screen.default.width) *0.4 - widthOptionsPrincipales), 700)
-        @boite.put(@quitter, (Gdk::Screen.default.width * 0.67- widthOptionsPrincipales) , Gdk::Screen.default.height * 0.88)
+        @boite.put(@jouer, (screen.width() *0.012), 300)
+        @boite.put(@tuto, (screen.width() *0.012), 500)
+        @boite.put(@option, (screen.width() *0.012), 700)
+        @boite.put(@quitter, (screen.width() *0.12) , screen.height() * 0.88)
 
         @win.add(@boite1)
 
