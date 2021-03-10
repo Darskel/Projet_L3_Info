@@ -2,7 +2,8 @@
 ##
 # Classe qui permet d'accèder au menu principal
 ##
-# * +win+   La fenetre de l'application
+# * +win+               La fenetre de l'application
+# * +layoutManager+     Le layout principal pour le placement dans la fenetre
 class Ecran_menu
     
 
@@ -13,26 +14,26 @@ class Ecran_menu
     private_class_method :new
 
     ##
-    #
+    # Création du contenu de l'écran du menu principal
     ##
     # * +win+   La fenetre de l'application
     def initialize(win)
         @win = win
 
-        @boite = Gtk::Fixed.new()
-        @boite1 = Gtk::Box.new(:vertical)
+        boite = Gtk::Fixed.new()
+        @layoutManager = Gtk::Box.new(:vertical)
 
-        @jouer = Gtk::Button.new(:label => "")
-        @tuto = Gtk::Button.new(:label => "")
-        @option = Gtk::Button.new(:label => "")
-        @quitter = Gtk::Button.new(:label => "")
+        jouer = Gtk::Button.new(:label => "")
+        tuto = Gtk::Button.new(:label => "")
+        option = Gtk::Button.new(:label => "")
+        quitter = Gtk::Button.new(:label => "")
 
-        @boite.add(Gtk::Image.new(:file => "../maquettes/menu.png"))
-        @boite1.add(@boite)
+        boite.add(Gtk::Image.new(:file => "../maquettes/menu.png"))
+        @layoutManager.add(boite)
 
         ##
         # Ajout des signaux des boutons
-        @quitter.signal_connect("clicked"){
+        quitter.signal_connect("clicked"){
             @win.destroy
             Gtk.main_quit
             begin
@@ -40,52 +41,19 @@ class Ecran_menu
             rescue SystemExit
             end
         }
-        @jouer.signal_connect("clicked"){
+        jouer.signal_connect("clicked"){
             vers_jeu()
         }
-        @tuto.signal_connect("clicked"){
+        tuto.signal_connect("clicked"){
             vers_tuto()
         }
 
         ##
         # Création des CSS pour les boutons 
-        jouerImage = Gtk::CssProvider.new
-
-        jouerImage.load(data: <<-CSS)
-        button {
-            opacity: 0;
-            border: unset;
-        }
-        CSS
-
-        tutoImage = Gtk::CssProvider.new
-
-        tutoImage.load(data: <<-CSS)
-        button {
-            opacity: 0;
-            border: unset;
-        }
-        CSS
-
-        optionImage = Gtk::CssProvider.new
-
-        optionImage.load(data: <<-CSS)
-        button {
-            opacity: 0;
-            border: unset;
-        }
-        CSS
-
-        quitterImage = Gtk::CssProvider.new
-
-        quitterImage.load(data: <<-CSS)
-        button {
-            opacity: 0;
-            border: unset;
-        }
-        CSS
-
-        screen = @win.screen()
+        jouerImage = ajouteCss(2)
+        tutoImage = ajouteCss(2)
+        optionImage = ajouteCss(2)
+        quitterImage = ajouteCss(2)
 
         widthOptionsPrincipales = 500
         heightOptionsPrincipales = 100
@@ -97,34 +65,27 @@ class Ecran_menu
 
         ##
         # Ajout du CSS aux bouton et on leur donne leur taille
-        @jouer.style_context.add_provider(jouerImage, Gtk::StyleProvider::PRIORITY_USER)
-        @jouer.set_size_request(widthOptionsPrincipales, heightOptionsPrincipales)
-
-        @option.style_context.add_provider(optionImage, Gtk::StyleProvider::PRIORITY_USER)  
-        @option.set_size_request(widthOptionsPrincipales*1.3, heightOptionsPrincipales) 
-
-        @tuto.style_context.add_provider(tutoImage, Gtk::StyleProvider::PRIORITY_USER)  
-        @tuto.set_size_request(widthOptionsPrincipales * 1.37, heightOptionsPrincipales * 1.05) 
-
-        @quitter.style_context.add_provider(quitterImage, Gtk::StyleProvider::PRIORITY_USER)  
-        @quitter.set_size_request(width, height) 
+        ajoutecssProvider(jouer, jouerImage, widthOptionsPrincipales, heightOptionsPrincipales)
+        ajoutecssProvider(option, optionImage, widthOptionsPrincipales * 1.3, heightOptionsPrincipales)
+        ajoutecssProvider(tuto, tutoImage, widthOptionsPrincipales * 1.37, heightOptionsPrincipales * 1.05)
+        ajoutecssProvider(quitter, quitterImage, width, height)
 
         ##
         #Ajout des boutons et box dans les containers
-        @boite.put(@jouer, (widthEcran *0.243), heightEcran * 0.34)
-        @boite.put(@tuto, (widthEcran *0.15), heightEcran * 0.52)
-        @boite.put(@option, (widthEcran *0.18), heightEcran * 0.71)
-        @boite.put(@quitter, (widthEcran *0.75) , heightEcran * 0.89)
+        boite.put(jouer, (widthEcran *0.243), heightEcran * 0.34)
+        boite.put(tuto, (widthEcran *0.15), heightEcran * 0.53)
+        boite.put(option, (widthEcran *0.18), heightEcran * 0.73)
+        boite.put(quitter, (widthEcran *0.75) , heightEcran * 0.89)
 
-        @win.add(@boite1)
+        @win.add(@layoutManager)
 
         #######################################################
         aDelete = Gtk::Button.new(:label => "Jeu")
         aDelete.signal_connect("clicked"){
-            @win.remove(@boite1)
+            @win.remove(@layoutManager)
             Ecran_jeu.creer(@win)
         }
-        @boite.put(aDelete, 0 , 0)
+        boite.put(aDelete, 0 , 0)
         #######################################################
 
         @win.show_all
@@ -134,14 +95,14 @@ class Ecran_menu
     ##
     # Permet de changer la fenetre pour aller afficher l'écran de jeu
     def vers_jeu()
-        @win.remove(@boite1)
-        @ecr = EcranJouer.creer(@win)
+        @win.remove(@layoutManager)
+        EcranJouer.creer(@win)
     end
 
     ##
     # Permet de changer la fenetre pour aller afficher l'écran du mode tutoriel
     def vers_tuto()
-        @win.remove(@boite1)
-        @ecr = Tuto.creer(@win)
+        @win.remove(@layoutManager)
+        Tuto.creer(@win)
     end
 end
