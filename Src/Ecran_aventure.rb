@@ -23,7 +23,7 @@ class Ecran_aventure
         @progression = Gtk::Button.new(:label => "")
         @quitter = Gtk::Button.new(:label => "")
 
-        @boite.add(Gtk::Image.new(:file => "../maquettes/aventure_chap3.png"))
+        @boite.add(Gtk::Image.new(:file => "../maquettes/menu-aventure.png"))
         @boite1.add(@boite)
 
         ##
@@ -43,8 +43,7 @@ class Ecran_aventure
 
         flecheImage.load(data: <<-CSS)
         button {
-            background-image: url("../maquettes/fleche_retour.png");
-            background-size: 100% 100%;
+            opacity: 0;
             border: unset;
         }
         CSS
@@ -53,8 +52,7 @@ class Ecran_aventure
 
         demarrerImage.load(data: <<-CSS)
         button {
-            background-image: url("../maquettes/image_demarrer.png");
-            background-size: 100% 100%;
+            opacity: 0;
             border: unset;
         }
         CSS
@@ -63,8 +61,7 @@ class Ecran_aventure
 
         reprendreImage.load(data: <<-CSS)
         button {
-            background-image: url("../maquettes/image_reprendre.png");
-            background-size: 100% 100%;
+            opacity: 0;
             border: unset;
         }
         CSS
@@ -73,8 +70,7 @@ class Ecran_aventure
 
         progressionImage.load(data: <<-CSS)
         button {
-            background-image: url("../maquettes/image_progression.png");
-            background-size: 100% 100%;
+            /* opacity: 0;*/
             border: unset;
         }
         CSS
@@ -83,8 +79,7 @@ class Ecran_aventure
 
         quitterImage.load(data: <<-CSS)
         button {
-            background-image: url("../maquettes/quitter.png");
-            background-size: 100% 100%;
+            /* opacity: 0;*/
             border: unset;
         }
         CSS
@@ -111,7 +106,7 @@ class Ecran_aventure
 
         @progression.style_context.add_provider(progressionImage, Gtk::StyleProvider::PRIORITY_USER)  
         @progression.set_size_request(widthOptionsPrincipales, heightOptionsPrincipales) 
-        @progression.set_size_request(500, 80)
+        @progression.set_size_request(550, 80)
 
         @quitter.style_context.add_provider(quitterImage, Gtk::StyleProvider::PRIORITY_USER)  
         @quitter.set_size_request(width, height) 
@@ -121,7 +116,7 @@ class Ecran_aventure
         @boite.put(@fleche, 20, 5)
         @boite.put(@demarrer, (1200 *0.25), 675 * 0.5)
         @boite.put(@reprendre, (1200 *0.25), 675 * 0.65)
-        @boite.put(@progression, (1200 *0.25), 675 * 0.8)
+        @boite.put(@progression, (1200 *0.20), 675 * 0.8)
         @boite.put(@quitter, (1200 *0.85) , 675 * 0.875)
 
         @win.add(@boite1)
