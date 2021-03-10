@@ -23,7 +23,7 @@ class Ecran_aventure
         @progression = Gtk::Button.new(:label => "")
         @quitter = Gtk::Button.new(:label => "")
 
-        @boite.add(Gtk::Image.new(:file => "../maquettes/aventure.png"))
+        @boite.add(Gtk::Image.new(:file => "../maquettes/aventure_chap3.png"))
         @boite1.add(@boite)
 
         ##
