@@ -1,3 +1,8 @@
+
+##
+#
+##
+# * +win+   La fenetre de l'application
 class Ecran_menu
     
 
@@ -45,8 +50,7 @@ class Ecran_menu
 
         jouerImage.load(data: <<-CSS)
         button {
-            background-image: url("../maquettes/image18-3.png");
-            background-size: 100% 100%;
+            opacity: 0;
             border: unset;
         }
         CSS
@@ -55,8 +59,7 @@ class Ecran_menu
 
         tutoImage.load(data: <<-CSS)
         button {
-            background-image: url("../maquettes/image18-5.png");
-            background-size: 100% 100%;
+            opacity: 0;
             border: unset;
         }
         CSS
@@ -65,8 +68,7 @@ class Ecran_menu
 
         optionImage.load(data: <<-CSS)
         button {
-            background-image: url("../maquettes/image18.png");
-            background-size: 100% 100%;
+            opacity: 0;
             border: unset;
         }
         CSS
@@ -75,8 +77,7 @@ class Ecran_menu
 
         quitterImage.load(data: <<-CSS)
         button {
-            background-image: url("../maquettes/quitter.png");
-            background-size: 100% 100%;
+            opacity: 0;
             border: unset;
         }
         CSS
@@ -85,8 +86,8 @@ class Ecran_menu
 
         widthOptionsPrincipales = 500
         heightOptionsPrincipales = 100
-        width = 150
-        height = 50
+        width = 280
+        height = 57
 
         ##
         # Ajout du CSS aux bouton et on leur donne leur taille
@@ -94,20 +95,20 @@ class Ecran_menu
         @jouer.set_size_request(widthOptionsPrincipales, heightOptionsPrincipales)
 
         @option.style_context.add_provider(optionImage, Gtk::StyleProvider::PRIORITY_USER)  
-        @option.set_size_request(widthOptionsPrincipales, heightOptionsPrincipales) 
+        @option.set_size_request(widthOptionsPrincipales*1.3, heightOptionsPrincipales) 
 
         @tuto.style_context.add_provider(tutoImage, Gtk::StyleProvider::PRIORITY_USER)  
-        @tuto.set_size_request(widthOptionsPrincipales, heightOptionsPrincipales) 
+        @tuto.set_size_request(widthOptionsPrincipales * 1.37, heightOptionsPrincipales * 1.05) 
 
         @quitter.style_context.add_provider(quitterImage, Gtk::StyleProvider::PRIORITY_USER)  
         @quitter.set_size_request(width, height) 
 
         ##
         #Ajout des boutons et box dans les containers
-        @boite.put(@jouer, (1200 *0.25), 675 * 0.3)
-        @boite.put(@tuto, (1200 *0.25), 675 * 0.5)
-        @boite.put(@option, (1200 *0.25), 675 * 0.7)
-        @boite.put(@quitter, (1200 *0.85) , 675 * 0.875)
+        @boite.put(@jouer, (1200 *0.243), 675 * 0.34)
+        @boite.put(@tuto, (1200 *0.15), 675 * 0.52)
+        @boite.put(@option, (1200 *0.18), 675 * 0.71)
+        @boite.put(@quitter, (1200 *0.75) , 675 * 0.89)
 
         @win.add(@boite1)
 
@@ -119,6 +120,6 @@ class Ecran_menu
     # Permet de changer la fenetre pour aller afficher l'écran de jeu
     def vers_jeu()
         @win.remove(@boite1)
-        @ecr = Ecran_jeu.creer(@win)
+        @ecr = EcranJouer.creer(@win)
     end
 end
