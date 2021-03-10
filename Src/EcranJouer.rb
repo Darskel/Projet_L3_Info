@@ -37,6 +37,9 @@ class EcranJouer
         @aventure.signal_connect("clicked"){
             vers_jeu()
         }
+        @libre.signal_connect("clicked"){
+            vers_libre()
+        }
 
         ##
         # Création des CSS pour les boutons 
@@ -97,10 +100,17 @@ class EcranJouer
     end
 
     ##
-    # Permet de changer la fenetre pour aller afficher l'écran de jeu
+    # Permet de changer la fenetre pour aller afficher l'écran aventure
     def vers_jeu()
         @win.remove(@layoutManager)
         @ecr = Ecran_aventure.creer(@win)
+    end
+
+    ##
+    # Permet de changer la fenetre pour aller afficher l'écran libre
+    def vers_libre()
+        @win.remove(@layoutManager)
+        @ecr = Ecran_libre.creer(@win)
     end
 
     ##
