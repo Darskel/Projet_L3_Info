@@ -43,6 +43,9 @@ class Ecran_menu
         @jouer.signal_connect("clicked"){
             vers_jeu()
         }
+        @tuto.signal_connect("clicked"){
+            vers_tuto()
+        }
 
         ##
         # Création des CSS pour les boutons 
@@ -130,5 +133,12 @@ class Ecran_menu
     def vers_jeu()
         @win.remove(@boite1)
         @ecr = EcranJouer.creer(@win)
+    end
+
+    ##
+    # Permet de changer la fenetre pour aller afficher l'écran du mode tutoriel
+    def vers_tuto()
+        @win.remove(@boite1)
+        @ecr = Tuto.creer(@win)
     end
 end
