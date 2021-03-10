@@ -42,8 +42,6 @@ class Ecran_jeu
         espaceJeu.add(grille.grille)
         espaceJeu.add(textfield2)
 
-        #espaceJeu.set_homogeneous true
-
         @layoutManager.add(espaceJeu)
         @layoutManager.add(@quit)
         @win.add(@layoutManager)

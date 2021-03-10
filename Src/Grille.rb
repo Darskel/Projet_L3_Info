@@ -11,19 +11,21 @@ class Grille_jeu
 
     attr_reader :grille
 
+    ##
+    # Création de la grille
     def initialize()
         @grille = Gtk::Grid.new()
-        @grille.set_vexpand(true) #étend la grille pour occuper la place disponible
         @bouttons = Array.new(25, Array.new)
 
         @css = Css.new()
 
-        #@grille.set_row_homogeneous(true)
-        #@grille.set_column_homogeneous(true)
-
         charger("grille1.txt")
     end
 
+    ##
+    # Charge la grille spécifiée en paramètre
+    ##
+    # * +nom_grille+    Le nom du fichier a charger
     def charger(nom_grille)
         file = File.open(nom_grille)
         file_data = file.readlines.map(&:chomp)

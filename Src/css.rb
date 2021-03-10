@@ -1,6 +1,9 @@
 ##
 # Classe représentant les différents css possibles
 class Css
+
+    ##
+    # Création des différents css pour les boutons de la grille
     def initialize()
         @cssW = Gtk::CssProvider.new
         @cssB = Gtk::CssProvider.new
