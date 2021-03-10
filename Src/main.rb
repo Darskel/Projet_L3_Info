@@ -8,6 +8,8 @@ load "Ecran_aventure.rb"
 load "Ecran_libre.rb"
 load "Ecran_menu.rb"
 load "Tuto.rb"
+load "Utils.rb"
+
 
 ##
 # Création de la fenetre

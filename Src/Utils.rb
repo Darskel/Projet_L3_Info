@@ -1,6 +1,6 @@
     ##
     # Permet de passer à l'écran du menu
-    def vers_menu(window,boite)
+    def vers_menu(window, boite)
         @win = window
         @win.remove(boite)
         @ecr  = Ecran_menu.creer(@win)
@@ -42,10 +42,20 @@
     ## Applique le css au bouton et lui applique la taille voulue
     ##
     # * +bouton+    Le bouton auquel appliqué les modifications
-    # * +css+       Le css a appliqué
+    # * +css+       Le css a appliquer
     # * +witdh+     Largeur voulue pour le bouton
     # * +height+     Hauteur voulue pour le bouton
     def ajoutecssProvider(bouton, css, width, height)
         bouton.style_context.add_provider(css, Gtk::StyleProvider::PRIORITY_USER)
         bouton.set_size_request(width, height)
+    end
+
+    def ajouteBouton(boite, bouton, typeCss, w, h, x, y, callback, win, box)
+        css = ajouteCss(typeCss)
+        ajoutecssProvider(bouton, css, w, h)
+        
+        bouton.signal_connect("clicked"){
+            callback.call(win, box)
+        }
+        boite.put(bouton, x, y)
     end
