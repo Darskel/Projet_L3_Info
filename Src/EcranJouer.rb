@@ -50,6 +50,10 @@ class EcranJouer
             opacity: 0;
             border: unset;
         }
+        button:hover {
+            opacity: 0.1;
+            border: 1px solid black;
+        }
         CSS
 
         libreImage = Gtk::CssProvider.new
@@ -58,6 +62,10 @@ class EcranJouer
         button {
             opacity: 0;
             border: unset;
+        }
+        button:hover {
+            opacity: 0.1;
+            border: 1px solid black;
         }
         CSS
 
@@ -86,7 +94,7 @@ class EcranJouer
         @aventure.set_size_request(widthOptionsPrincipales, heightOptionsPrincipales)
 
         @libre.style_context.add_provider(libreImage, Gtk::StyleProvider::PRIORITY_USER)
-        @libre.set_size_request(widthOptionsPrincipales, heightOptionsPrincipales)
+        @libre.set_size_request(widthOptionsPrincipales * 0.7, heightOptionsPrincipales)
         
         @fermer.style_context.add_provider(fermerImage, Gtk::StyleProvider::PRIORITY_USER)
         @fermer.set_size_request(width, height)
@@ -94,7 +102,7 @@ class EcranJouer
         ##
         #Ajout des boutons et box dans les containers
         @boite.put(@aventure, (widthEcran *0.355), heightEcran * 0.53)
-        @boite.put(@libre, (widthEcran *0.355), heightEcran * 0.7)
+        @boite.put(@libre, (widthEcran *0.39), heightEcran * 0.68)
         @boite.put(@fermer, (widthEcran *0.63), heightEcran * 0.24)
 
         @win.add(@layoutManager)
