@@ -44,6 +44,7 @@ class Boutton_grille
         return self
     end
 
+    
     ##
     # Créer le signal pour les interactions du bouton
     ##

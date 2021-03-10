@@ -92,6 +92,9 @@ class Ecran_menu
         width = 280
         height = 57
 
+        widthEcran = 1200
+        heightEcran = 675
+
         ##
         # Ajout du CSS aux bouton et on leur donne leur taille
         @jouer.style_context.add_provider(jouerImage, Gtk::StyleProvider::PRIORITY_USER)
@@ -108,10 +111,10 @@ class Ecran_menu
 
         ##
         #Ajout des boutons et box dans les containers
-        @boite.put(@jouer, (1200 *0.243), 675 * 0.34)
-        @boite.put(@tuto, (1200 *0.15), 675 * 0.52)
-        @boite.put(@option, (1200 *0.18), 675 * 0.71)
-        @boite.put(@quitter, (1200 *0.75) , 675 * 0.89)
+        @boite.put(@jouer, (widthEcran *0.243), heightEcran * 0.34)
+        @boite.put(@tuto, (widthEcran *0.15), heightEcran * 0.52)
+        @boite.put(@option, (widthEcran *0.18), heightEcran * 0.71)
+        @boite.put(@quitter, (widthEcran *0.75) , heightEcran * 0.89)
 
         @win.add(@boite1)
 

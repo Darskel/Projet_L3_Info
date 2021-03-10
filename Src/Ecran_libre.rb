@@ -91,6 +91,9 @@ class Ecran_libre
         width = 150
         height = 50
 
+        widthEcran = 1200
+        heightEcran = 675
+
         ##
         # Ajout du CSS aux bouton et on leur donne leur taille
         @fleche.style_context.add_provider(flecheImage, Gtk::StyleProvider::PRIORITY_USER)
@@ -114,10 +117,10 @@ class Ecran_libre
         ##
         #Ajout des boutons et box dans les containers
         @boite.put(@fleche, 20, 5)
-        @boite.put(@demarrer, (1200 *0.25), 675 * 0.5)
-        @boite.put(@reprendre, (1200 *0.25), 675 * 0.65)
-        @boite.put(@progression, (1200 *0.20), 675 * 0.8)
-        @boite.put(@quitter, (1200 *0.85) , 675 * 0.875)
+        @boite.put(@demarrer, (widthEcran *0.25), heightEcran * 0.5)
+        @boite.put(@reprendre, (widthEcran *0.25), heightEcran * 0.65)
+        @boite.put(@progression, (widthEcran *0.20), heightEcran * 0.8)
+        @boite.put(@quitter, (widthEcran *0.85) , heightEcran * 0.875)
 
         @win.add(@boite1)
 

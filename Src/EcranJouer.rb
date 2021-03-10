@@ -77,6 +77,9 @@ class EcranJouer
         width = 31
         height = 19
 
+        widthEcran = 1200
+        heightEcran = 675
+
         ##
         # Ajout du CSS aux bouton et on leur donne leur taille
         @aventure.style_context.add_provider(aventureImage, Gtk::StyleProvider::PRIORITY_USER)
@@ -90,9 +93,9 @@ class EcranJouer
 
         ##
         #Ajout des boutons et box dans les containers
-        @boite.put(@aventure, (1200 *0.355), 675 * 0.53)
-        @boite.put(@libre, (1200 *0.355), 675 * 0.7)
-        @boite.put(@fermer, (1200 *0.63), 675 * 0.24)
+        @boite.put(@aventure, (widthEcran *0.355), heightEcran * 0.53)
+        @boite.put(@libre, (widthEcran *0.355), heightEcran * 0.7)
+        @boite.put(@fermer, (widthEcran *0.63), heightEcran * 0.24)
 
         @win.add(@layoutManager)
 
