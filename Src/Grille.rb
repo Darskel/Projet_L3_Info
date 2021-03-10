@@ -11,11 +11,18 @@ class Grille_jeu
 
     attr_reader :grille
 
+    def Grille_jeu.creer(joues)
+        new(joues)
+    end
+
+    private_class_method :new
+
     ##
     # Création de la grille
-    def initialize()
+    def initialize(joues)
         @grille = Gtk::Grid.new()
         @bouttons = Array.new(25, Array.new)
+        @joues = joues
 
         @css = Css.new()
 
@@ -39,7 +46,7 @@ class Grille_jeu
         0.upto(@nbLignes-1) do |i|
             0.upto(@nbColonnes-1) do |j|
                 # création des boutons, connection des signaux et placement sur la grille
-                @bouttons[i][j] = Boutton_grille.creer(ligne_grille[i_bouton], @css.cssW)
+                @bouttons[i][j] = Boutton_grille.creer(ligne_grille[i_bouton], @css.cssW, @joues, i, j)
                 i_bouton += 1
                 @bouttons[i][j].signal(@css.cssW, @css.cssB, @css.cssG)
 
@@ -47,5 +54,18 @@ class Grille_jeu
             end
         end
         
+    end
+
+    ##
+    # Remet la couleur du bouton après un undo
+    ##
+    # * +coup+  le coup a restitué
+    def revert(coup)
+        print(coup)
+        #sleep(100)
+        @bouttons[coup.indiceI][coup.indiceJ].couleur= coup.couleur
+        @bouttons[coup.indiceI][coup.indiceJ].updateCouleur
+        ################# CRASH ICI
+        return self
     end
 end

@@ -1,27 +1,46 @@
+load "coup_joue.rb"
+
 ##
 # La classe représente un bouton dans la grille du jeu
 ##
 # * +couleur+   la couleur actuellement appliquée au bouton
 # * +boutton+   Instance de la classe Gtk::Button
+# * +indiceI+   Indice du bouton en x
+# * +indiceJ+   Indice du bouton en y
+# * +joues+     Tableau des coups joués
 class Boutton_grille
 
     ##
-    # * +css+   Le css a appliquer sur le boutton à l'init
-    def Boutton_grille.creer(contenu, css)
-        new(contenu, css)
+    # Constructeur de la classe
+    ##
+    # * +css+       Le css a appliquer sur le boutton à l'init
+    # * +indiceI+   Indice du bouton en x
+    # * +indiceJ+   Indice du bouton en y
+    # * +joues+     Tableau des coups joués
+    # * +contenu+   Texte du bouton
+    def Boutton_grille.creer(contenu, css, joues, indiceI, indiceJ)
+        new(contenu, css, joues, indiceI, indiceJ)
     end
 
     private_class_method
 
     attr_reader :boutton
+    attr_writer :couleur
 
     ##
-    # * +css+   Le css a appliquer sur le boutton à l'init
-    def initialize(contenu, css)
+    # Initialisation de l'instance
+    ##
+    # * +css+       Le css a appliquer sur le boutton à l'init
+    # * +indiceI+   Indice du bouton en x
+    # * +indiceJ+   Indice du bouton en y
+    # * +joues+     Tableau des coups joués
+    # * +contenu+   Texte du bouton
+    def initialize(contenu, css, joues, indiceI, indiceJ)
         @couleur = "white"
         @boutton = Gtk::Button.new(:label => contenu)
         @boutton.style_context.add_provider(css, Gtk::StyleProvider::PRIORITY_USER)
         @boutton.set_size_request(5, 5) 
+        @joues, @indiceI, @indiceJ = joues, indiceI, indiceJ
     end
 
     ##
@@ -44,6 +63,19 @@ class Boutton_grille
         return self
     end
 
+    ##
+    # met a jour la couleur du bouton après un undo
+    def updateCouleur()
+        if @couleur == "white"
+            @boutton.style_context.add_provider(cssB, Gtk::StyleProvider::PRIORITY_USER)
+        elsif @couleur == "black"
+            @boutton.style_context.add_provider(cssG, Gtk::StyleProvider::PRIORITY_USER)
+        else
+            @boutton.style_context.add_provider(cssW, Gtk::StyleProvider::PRIORITY_USER)
+        end
+        return self
+    end
+
     
     ##
     # Créer le signal pour les interactions du bouton
@@ -53,6 +85,7 @@ class Boutton_grille
     # * +cssG+  css pour la couleur grey
     def signal(cssW, cssB, cssG)
         @boutton.signal_connect("clicked"){ |o|
+            @joues.push(Coup_joue.creer(@indiceI, @indiceJ, @couleur))
             change_couleur(cssW, cssB, cssG)
         }
         return self
