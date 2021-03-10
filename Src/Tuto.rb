@@ -18,58 +18,26 @@ class Tuto
         @boutonBack = Gtk::Button.new()
         @boutonOptions = Gtk::Button.new()
 
-        #Css des boutons pour les rendres invisibles
-        retourMenucss = Gtk::CssProvider.new()
-        backCss = Gtk::CssProvider.new()
-        optionsCss = Gtk::CssProvider.new()
-        retourMenucss.load(data: <<-CSS)
-        button {
-            opacity: 0;
-            border: unset;
-        }
-        CSS
-        optionsCss.load(data: <<-CSS)
-        button {
-            opacity: 0;
-            border: unset;
-        }
-        CSS
-        backCss.load(data: <<-CSS)
-        button {
-            opacity: 0;
-            border: unset;
-        }
-        CSS
-
-        @retourMenu.style_context.add_provider(retourMenucss, Gtk::StyleProvider::PRIORITY_USER)
-        @retourMenu.set_size_request(55, 45)
-        @retourMenu.signal_connect("clicked"){
-            vers_menu(@window,@box2)
-        }
-        
-        @boutonOptions.style_context.add_provider(optionsCss, Gtk::StyleProvider::PRIORITY_USER)
-        @boutonOptions.set_size_request(60, 60)
-        @boutonOptions.signal_connect("clicked"){
-            #FonctionQuiOuvreLesOptions
-        }
-
-        @boutonBack.style_context.add_provider(backCss, Gtk::StyleProvider::PRIORITY_USER)
-        @boutonBack.set_size_request(60, 60)
-        @boutonBack.signal_connect("clicked"){
-            #FonctionQuifaitLeRetourArriere
-        }
-
+        #Ajout du fond 
         @box.add(Gtk::Image.new(:file => "../maquettes/TutorielV2.png"))
         @box2.add(@box)
 
-        @box.put(@retourMenu,(1200 *0.015), 675 * 0.025)
+        #Ajout des différents boutons, de leur css respectif ainsi que de leurs évents liés
+        ajouteBouton(@box,@retourMenu,1,55,45,(1200 *0.015), 675 * 0.025,method(:vers_menu),@window,@box2)
+        ajouteBouton(@box,@boutonBack,1,60,60,(1200*0.89), 675*0.02,nil,@window,@box2)
+        ajouteBouton(@box,@boutonOptions,1,60,60,(1200*0.94), 675*0.02,nil,@window,@box2)
         @box.put(@suivant,(1200 *0.85), 675 * 0.5)
-        @box.put(@boutonOptions, 1200*0.94, 675*0.02)
-        @box.put(@boutonBack,1200*0.89, 675*0.02)
+
+        #Placement du texte dans la bulle du capitaine
+        @techniqueText = "Première règle : Aucune \n     case autour d'une \n       case 0 n'est valide "
+        @labelTechnique = Gtk::Label.new(@techniqueText)
+        @box.put(@labelTechnique,(1200 *0.16), 675 * 0.2)
         
+        
+        @grilleTuto = Grille_jeu.new()
+        @box.put(@grilleTuto.grille, (1200 *0.31), 675 * 0.16)
+
         @window.add(@box2)
         @window.show_all
     end
 end
-
-#gtkbox horizontal avec text gauche + grille + text droit 

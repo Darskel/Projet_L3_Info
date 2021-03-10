@@ -1,9 +1,8 @@
     ##
     # Permet de passer à l'écran du menu
-    def vers_menu(window, boite)
-        @win = window
-        @win.remove(boite)
-        @ecr  = Ecran_menu.creer(@win)
+    def vers_menu(window,boite)
+        window.remove(boite)
+        @ecr  = Ecran_menu.creer(window)
     end
 
 
