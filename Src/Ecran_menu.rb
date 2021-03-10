@@ -1,6 +1,6 @@
 
 ##
-#
+# Classe qui permet d'accèder au menu principal
 ##
 # * +win+   La fenetre de l'application
 class Ecran_menu
