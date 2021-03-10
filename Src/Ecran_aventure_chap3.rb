@@ -103,12 +103,15 @@ class Ecran_aventure
 
         @demarrer.style_context.add_provider(demarrerImage, Gtk::StyleProvider::PRIORITY_USER)
         @demarrer.set_size_request(widthOptionsPrincipales, heightOptionsPrincipales)
+        @demarrer.set_size_request(500, 80)
 
         @reprendre.style_context.add_provider(reprendreImage, Gtk::StyleProvider::PRIORITY_USER)  
         @reprendre.set_size_request(widthOptionsPrincipales, heightOptionsPrincipales) 
+        @reprendre.set_size_request(500, 80)
 
         @progression.style_context.add_provider(progressionImage, Gtk::StyleProvider::PRIORITY_USER)  
         @progression.set_size_request(widthOptionsPrincipales, heightOptionsPrincipales) 
+        @progression.set_size_request(500, 80)
 
         @quitter.style_context.add_provider(quitterImage, Gtk::StyleProvider::PRIORITY_USER)  
         @quitter.set_size_request(width, height) 
@@ -117,8 +120,8 @@ class Ecran_aventure
         #Ajout des boutons et box dans les containers
         @boite.put(@fleche, 20, 5)
         @boite.put(@demarrer, (1200 *0.25), 675 * 0.5)
-        @boite.put(@reprendre, (1200 *0.25), 675 * 0.7)
-        @boite.put(@progression, (1200 *0.25), 675 * 0.9)
+        @boite.put(@reprendre, (1200 *0.25), 675 * 0.65)
+        @boite.put(@progression, (1200 *0.25), 675 * 0.8)
         @boite.put(@quitter, (1200 *0.85) , 675 * 0.875)
 
         @win.add(@boite1)
