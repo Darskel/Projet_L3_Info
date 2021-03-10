@@ -26,24 +26,34 @@ class Ecran_jeu
         @layoutManager = Gtk::Box.new(:vertical, 5)
         espaceJeu = Gtk::Box.new(:horizontal, 5)
 
-        grille = Grille_jeu.new()
+        joues = Array.new()
+
+        grille = Grille_jeu.creer(joues)
         textfield1 = Gtk::Label.new("")
         textfield2 = Gtk::Label.new("")
         textfield1.set_size_request(350, 200) 
+        undo = Gtk::Button.new(:label => "Undo")
 
-        @quit = Gtk::Button.new(:label => "Quitter")
+        quit = Gtk::Button.new(:label => "Quitter")
         
 
-        @quit.signal_connect("clicked"){
+        quit.signal_connect("clicked"){
             vers_menu()
+        }
+        undo.signal_connect("clicked"){
+            if !joues.empty?
+                coup = joues.pop()
+                grille.revert(coup)
+            end
         }
 
         espaceJeu.add(textfield1)
         espaceJeu.add(grille.grille)
         espaceJeu.add(textfield2)
 
+        @layoutManager.add(undo)
         @layoutManager.add(espaceJeu)
-        @layoutManager.add(@quit)
+        @layoutManager.add(quit)
         @win.add(@layoutManager)
 
         @win.show_all
@@ -53,6 +63,6 @@ class Ecran_jeu
     # Permet de passer à l'écran du menu
     def vers_menu()
         @win.remove(@layoutManager)
-        @ecr  = Ecran_menu.creer(@win)
+        Ecran_menu.creer(@win)
     end
 end
