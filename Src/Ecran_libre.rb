@@ -24,9 +24,9 @@ class Ecran_libre
         @boite.add(Gtk::Image.new(:file => "../maquettes/menu-libre.png"))
         @container.add(@boite)
         
-        ajouteBouton(@boite, @retourMenu, 2, 60, 60, 20, 5, method(:vers_menu), @win, @container)
-        ajouteBouton(@boite, @nouvellePartie, 2, 60, 60, 100, 100, nil, nil, nil)
-
+        ajouteBouton(@boite, @retourMenu, 1, 60, 60, 20, 5, method(:vers_menu), @win, @container)
+        ajouteBouton(@boite, @nouvellePartie, 2, 520, 50, 450, 450, nil, nil, nil)
+        ajouteBouton(@boite, @reprendre, 2, 350, 50, 545, 545, nil, nil, nil)
 
         @win.add(@container)
 
