@@ -25,7 +25,7 @@ class Ecran_libre
         @container.add(@boite)
         
         ajouteBouton(@boite, @retourMenu, 2, 60, 60, 20, 5, method(:vers_menu), @win, @container)
-        #ajouteBouton(@boite, @retourMenu, 2, 60, 60, 20, 5, method(:vers_menu), @win, @container)
+        ajouteBouton(@boite, @nouvellePartie, 2, 60, 60, 100, 100, nil, nil, nil)
 
 
         @win.add(@container)

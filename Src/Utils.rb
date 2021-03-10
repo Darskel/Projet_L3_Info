@@ -53,9 +53,11 @@
     def ajouteBouton(boite, bouton, typeCss, w, h, x, y, callback, win, box)
         css = ajouteCss(typeCss)
         ajoutecssProvider(bouton, css, w, h)
-        
-        bouton.signal_connect("clicked"){
-            callback.call(win, box)
-        }
+
+        if (callback != nil) then
+            bouton.signal_connect("clicked"){
+                callback.call(win, box)
+            }
+        end
         boite.put(bouton, x, y)
     end
