@@ -3,6 +3,8 @@ require 'gtk3'
 Gtk.init
 
 load "Ecran_jeu.rb"
+load "EcranJouer.rb"
+load "Ecran_aventure.rb"
 load "Ecran_menu.rb"
 
 ##
