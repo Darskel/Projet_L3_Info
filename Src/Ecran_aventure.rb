@@ -70,7 +70,7 @@ class Ecran_aventure
 
         progressionImage.load(data: <<-CSS)
         button {
-            /* opacity: 0;*/
+            opacity: 0;
             border: unset;
         }
         CSS
@@ -79,7 +79,7 @@ class Ecran_aventure
 
         quitterImage.load(data: <<-CSS)
         button {
-            /* opacity: 0;*/
+            opacity: 0;
             border: unset;
         }
         CSS
@@ -106,10 +106,11 @@ class Ecran_aventure
 
         @progression.style_context.add_provider(progressionImage, Gtk::StyleProvider::PRIORITY_USER)  
         @progression.set_size_request(widthOptionsPrincipales, heightOptionsPrincipales) 
-        @progression.set_size_request(550, 80)
+        @progression.set_size_request(600, 80)
 
         @quitter.style_context.add_provider(quitterImage, Gtk::StyleProvider::PRIORITY_USER)  
         @quitter.set_size_request(width, height) 
+        @quitter.set_size_request(280, 60)
 
         ##
         #Ajout des boutons et box dans les containers
@@ -117,7 +118,7 @@ class Ecran_aventure
         @boite.put(@demarrer, (1200 *0.25), 675 * 0.5)
         @boite.put(@reprendre, (1200 *0.25), 675 * 0.65)
         @boite.put(@progression, (1200 *0.20), 675 * 0.8)
-        @boite.put(@quitter, (1200 *0.85) , 675 * 0.875)
+        @boite.put(@quitter, (1200 *0.75) , 675 * 0.885)
 
         @win.add(@boite1)
 
