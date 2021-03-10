@@ -32,15 +32,12 @@ class Boutton_grille
     # * +cssG+  css pour la couleur grey
     def change_couleur(cssW, cssB, cssG)
         if @couleur == "white"
-            @boutton.set_label(" ")
             @boutton.style_context.add_provider(cssB, Gtk::StyleProvider::PRIORITY_USER)
             @couleur = "black"
         elsif @couleur == "black"
-            @boutton.set_label("X")
             @boutton.style_context.add_provider(cssG, Gtk::StyleProvider::PRIORITY_USER)
             @couleur = "grey"
         else
-            @boutton.set_label(" ")
             @boutton.style_context.add_provider(cssW, Gtk::StyleProvider::PRIORITY_USER)
             @couleur = "white"
         end
