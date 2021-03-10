@@ -32,9 +32,11 @@ class Tuto
         @techniqueText = "Première règle : Aucune \n     case autour d'une \n       case 0 n'est valide "
         @labelTechnique = Gtk::Label.new(@techniqueText)
         @box.put(@labelTechnique,(1200 *0.16), 675 * 0.2)
+
+        joues = Array.new
         
         
-        @grilleTuto = Grille_jeu.new()
+        @grilleTuto = Grille_jeu.creer(joues)
         @box.put(@grilleTuto.grille, (1200 *0.31), 675 * 0.16)
 
         @window.add(@box2)
