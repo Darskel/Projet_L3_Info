@@ -9,27 +9,30 @@ class Css
         # Css pour le fond blanc et la couleur de police noir
         @cssW.load(data: <<-CSS)
         button {
-        background-image: image(white);
-        color : black;
-        border: 1px solid black;
+            background-image: image(white);
+            color : black;
+            border: 1px solid black;
+            border-radius: 0px;
         }
         CSS
 
         # Css pour le fond noir et la couleur de police blanc
         @cssB.load(data: <<-CSS)
         button {
-        background-image: image(black);
-        color : white;
-        border: solid black;
+            background-image: image(black);
+            color : white;
+            border: 1px solid white;
+            border-radius: 0px;
         }
         CSS
 
         # Css pour le fond gris et la couleur de police blanc
         @cssG.load(data: <<-CSS)
         button {
-        background-image: image(grey);
-        color : white;
-        border: solid;
+            background-image: image(grey);
+            color : white;
+            border: 1px solid white;
+            border-radius: 0px;
         }
         CSS
     end
