@@ -99,7 +99,7 @@ class Ecran_aventure
         ##
         # Ajout du CSS aux bouton et on leur donne leur taille
         @fleche.style_context.add_provider(flecheImage, Gtk::StyleProvider::PRIORITY_USER)
-        @fleche.set_size_request(200, 80)
+        @fleche.set_size_request(100, 80)
 
         @demarrer.style_context.add_provider(demarrerImage, Gtk::StyleProvider::PRIORITY_USER)
         @demarrer.set_size_request(widthOptionsPrincipales, heightOptionsPrincipales)
@@ -116,10 +116,10 @@ class Ecran_aventure
         ##
         #Ajout des boutons et box dans les containers
         @boite.put(@fleche, 20, 5)
-        @boite.put(@demarrer, (3300 *0.25), 675 * 0.8)
-        @boite.put(@reprendre, (3300 *0.25), 675 * 1)
-        @boite.put(@progression, (3300 *0.25), 675 * 1.2)
-        @boite.put(@quitter, (1800 *0.95) , 675 * 1.4)
+        @boite.put(@demarrer, (1200 *0.25), 675 * 0.5)
+        @boite.put(@reprendre, (1200 *0.25), 675 * 0.7)
+        @boite.put(@progression, (1200 *0.25), 675 * 0.9)
+        @boite.put(@quitter, (1200 *0.85) , 675 * 0.875)
 
         @win.add(@boite1)
 
