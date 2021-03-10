@@ -28,6 +28,11 @@ class Ecran_aventure
 
         ##
         # Ajout des signaux des boutons
+        @fleche.signal_connect("clicked"){
+            vers_menu()
+        }
+        ##
+        # Ajout des signaux des boutons
         @quitter.signal_connect("clicked"){
             @win.destroy
             Gtk.main_quit
@@ -124,6 +129,13 @@ class Ecran_aventure
 
         @win.show_all
         Gtk.main
+    end
+
+    ##
+    # Permet de changer la fenetre pour aller afficher l'écran de jeu
+    def vers_menu()
+        @win.remove(@boite1)
+        @ecr = Ecran_menu.creer(@win)
     end
 
 end
