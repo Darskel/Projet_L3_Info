@@ -17,6 +17,16 @@ class Ecran_aventure
         @boite = Gtk::Fixed.new()
         @boite1 = Gtk::Box.new(:vertical)
 
+        file = File.open("chapitres.txt")
+        file_data = file.readlines.map(&:chomp)
+        @nom_chapitre = file_data[0]
+        @description = file_data[1]
+
+        @labelChapitre = Gtk::Label.new(@nom_chapitre)
+        @labelDescription = Gtk::Label.new(@description)
+
+        file.close
+
         @fleche = Gtk::Button.new(:label => "")
         @demarrer = Gtk::Button.new(:label => "")
         @reprendre = Gtk::Button.new(:label => "")
@@ -87,6 +97,8 @@ class Ecran_aventure
         @boite.put(@reprendre, (widhtEcran *0.25), heightEcran * 0.65)
         @boite.put(@progression, (widhtEcran *0.20), heightEcran * 0.8)
         @boite.put(@quitter, (widhtEcran *0.75) , heightEcran * 0.885)
+        @boite.put(@labelChapitre, 600, 50)
+        @boite.put(@labelDescription, 30, 170)
 
         @win.add(@boite1)
 
