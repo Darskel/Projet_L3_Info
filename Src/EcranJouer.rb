@@ -1,6 +1,6 @@
 
 ##
-#
+# La classe qui gère l'affichage et l'interaction avec le menu qui permet de rejoindre l'aventure ou le mode libre
 ##
 # * +win+   La fenetre de l'application
 class EcranJouer
