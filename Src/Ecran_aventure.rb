@@ -44,51 +44,15 @@ class Ecran_aventure
 
         ##
         # Création des CSS pour les boutons 
-        flecheImage = Gtk::CssProvider.new
+        css = Gtk::CssProvider.new
 
-        flecheImage.load(data: <<-CSS)
+        css.load(data: <<-CSS)
         button {
             opacity: 0;
             border: unset;
         }
         CSS
         
-        demarrerImage = Gtk::CssProvider.new
-
-        demarrerImage.load(data: <<-CSS)
-        button {
-            opacity: 0;
-            border: unset;
-        }
-        CSS
-
-        reprendreImage = Gtk::CssProvider.new
-
-        reprendreImage.load(data: <<-CSS)
-        button {
-            opacity: 0;
-            border: unset;
-        }
-        CSS
-
-        progressionImage = Gtk::CssProvider.new
-
-        progressionImage.load(data: <<-CSS)
-        button {
-            opacity: 0;
-            border: unset;
-        }
-        CSS
-
-        quitterImage = Gtk::CssProvider.new
-
-        quitterImage.load(data: <<-CSS)
-        button {
-            opacity: 0;
-            border: unset;
-        }
-        CSS
-
         screen = @win.screen()
 
         widthOptionsPrincipales = 500
@@ -101,23 +65,19 @@ class Ecran_aventure
 
         ##
         # Ajout du CSS aux bouton et on leur donne leur taille
-        @fleche.style_context.add_provider(flecheImage, Gtk::StyleProvider::PRIORITY_USER)
+        @fleche.style_context.add_provider(css, Gtk::StyleProvider::PRIORITY_USER)
         @fleche.set_size_request(100, 80)
 
-        @demarrer.style_context.add_provider(demarrerImage, Gtk::StyleProvider::PRIORITY_USER)
-        @demarrer.set_size_request(widthOptionsPrincipales, heightOptionsPrincipales)
+        @demarrer.style_context.add_provider(css, Gtk::StyleProvider::PRIORITY_USER)
         @demarrer.set_size_request(500, 80)
 
-        @reprendre.style_context.add_provider(reprendreImage, Gtk::StyleProvider::PRIORITY_USER)  
-        @reprendre.set_size_request(widthOptionsPrincipales, heightOptionsPrincipales) 
+        @reprendre.style_context.add_provider(css, Gtk::StyleProvider::PRIORITY_USER)   
         @reprendre.set_size_request(500, 80)
 
-        @progression.style_context.add_provider(progressionImage, Gtk::StyleProvider::PRIORITY_USER)  
-        @progression.set_size_request(widthOptionsPrincipales, heightOptionsPrincipales) 
+        @progression.style_context.add_provider(css, Gtk::StyleProvider::PRIORITY_USER)  
         @progression.set_size_request(600, 80)
 
-        @quitter.style_context.add_provider(quitterImage, Gtk::StyleProvider::PRIORITY_USER)  
-        @quitter.set_size_request(width, height) 
+        @quitter.style_context.add_provider(css, Gtk::StyleProvider::PRIORITY_USER)  
         @quitter.set_size_request(280, 60)
 
         ##
