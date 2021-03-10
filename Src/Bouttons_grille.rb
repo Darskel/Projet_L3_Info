@@ -21,6 +21,7 @@ class Boutton_grille
         @couleur = "white"
         @boutton = Gtk::Button.new(:label => contenu)
         @boutton.style_context.add_provider(css, Gtk::StyleProvider::PRIORITY_USER)
+        @boutton.set_size_request(5, 5) 
     end
 
     ##

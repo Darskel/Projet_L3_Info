@@ -112,6 +112,15 @@ class Ecran_menu
 
         @win.add(@boite1)
 
+        #######################################################
+        aDelete = Gtk::Button.new(:label => "Jeu")
+        aDelete.signal_connect("clicked"){
+            @win.remove(@boite1)
+            Ecran_jeu.creer(@win)
+        }
+        @boite.put(aDelete, 0 , 0)
+        #######################################################
+
         @win.show_all
         Gtk.main
     end

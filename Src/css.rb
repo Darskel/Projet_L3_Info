@@ -11,6 +11,7 @@ class Css
         button {
         background-image: image(white);
         color : black;
+        border: 1px solid black;
         }
         CSS
 
@@ -19,6 +20,7 @@ class Css
         button {
         background-image: image(black);
         color : white;
+        border: solid black;
         }
         CSS
 
@@ -27,6 +29,7 @@ class Css
         button {
         background-image: image(grey);
         color : white;
+        border: solid;
         }
         CSS
     end

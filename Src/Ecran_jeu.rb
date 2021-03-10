@@ -16,20 +16,31 @@ class Ecran_jeu
 
     def initialize(win)
         @win = win
-        @boite = Gtk::Box.new(:vertical, 5)
+
+        @layoutManager = Gtk::Box.new(:vertical, 5)
+        @espaceJeu = Gtk::Box.new(:horizontal, 5)
 
         @grille = Grille_jeu.new()
+        @textfield1 = Gtk::Label.new("")
+        @textfield2 = Gtk::Label.new("")
+        @textfield1.set_size_request(350, 200) 
 
         @quit = Gtk::Button.new(:label => "Quitter")
-
-        @boite.add(@grille.grille)
-        @boite.add(@quit)
+        
 
         @quit.signal_connect("clicked"){
             vers_menu()
         }
 
-        @win.add(@boite)
+        @espaceJeu.add(@textfield1)
+        @espaceJeu.add(@grille.grille)
+        @espaceJeu.add(@textfield2)
+
+        #@espaceJeu.set_homogeneous true
+
+        @layoutManager.add(@espaceJeu)
+        @layoutManager.add(@quit)
+        @win.add(@layoutManager)
 
         @win.show_all
     end
@@ -37,7 +48,7 @@ class Ecran_jeu
     ##
     # Permet de passer à l'écran du menu
     def vers_menu()
-        @win.remove(@boite)
+        @win.remove(@layoutManager)
         @ecr  = Ecran_menu.creer(@win)
     end
 end

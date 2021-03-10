@@ -18,7 +18,6 @@ win.set_default_size(1200, 675)
 
 win.set_resizable(false)
 
-
 win.signal_connect('destroy'){
     Gtk.main_quit
 }

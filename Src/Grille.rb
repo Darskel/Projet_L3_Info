@@ -18,8 +18,8 @@ class Grille_jeu
 
         @css = Css.new()
 
-        @grille.set_row_homogeneous(true)
-        @grille.set_column_homogeneous(true)
+        #@grille.set_row_homogeneous(true)
+        #@grille.set_column_homogeneous(true)
 
         charger("grille1.txt")
     end
