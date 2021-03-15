@@ -25,7 +25,7 @@ class Boutton_grille
     private_class_method
 
     attr_reader :boutton
-    attr_writer :couleur
+    attr_accessor :couleur
 
     ##
     # Initialisation de l'instance

@@ -33,6 +33,7 @@ class Ecran_jeu
         textfield2 = Gtk::Label.new("")
         textfield1.set_size_request(350, 200) 
         undo = Gtk::Button.new(:label => "Undo")
+        check = Gtk::Button.new(:label => "Check")
 
         quit = Gtk::Button.new(:label => "Quitter")
         
@@ -46,12 +47,22 @@ class Ecran_jeu
                 grille.revert(coup)
             end
         }
+        check.signal_connect("clicked"){
+            fini = grille.check()
+
+            if(fini == true)
+                puts("GG")
+            else
+                puts("NOPE")
+            end
+        }
 
         espaceJeu.add(textfield1)
         espaceJeu.add(grille.grille)
         espaceJeu.add(textfield2)
 
         @layoutManager.add(undo)
+        @layoutManager.add(check)
         @layoutManager.add(espaceJeu)
         @layoutManager.add(quit)
         @win.add(@layoutManager)

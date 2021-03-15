@@ -68,4 +68,28 @@ class Grille_jeu
         @bouttons[coup.indiceI][coup.indiceJ].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
         return self
     end
+
+    ##
+    # Vérification de la grille demandée par l'utilisateur
+    def check()
+        file = File.open("grille1.txt")
+        file_data = file.readlines.map(&:chomp)
+            
+        ligne_solution = file_data[2]
+
+        file.close
+
+        succes = true
+
+        0.upto(@nbLignes-1) do |i|
+            0.upto(@nbColonnes-1) do |j|
+                if(@bouttons[i][j].couleur != "black" and ligne_solution[i * @nbLignes + j] == 1) 
+                    succes = false
+                elsif (@bouttons[i][j].couleur == "black" and ligne_solution[i * @nbLignes + j] != 1) 
+                    succes = false
+                end
+            end
+        end
+        return succes
+    end
 end

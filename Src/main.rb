@@ -15,8 +15,7 @@ load "Utils.rb"
 # Création de la fenetre
 win = Gtk::Window.new()
 win.set_title("FILL A PIX")
-#win.maximize
-#win.fullscreen
+
 win.set_default_size(1200, 675)
 
 win.set_resizable(false)
