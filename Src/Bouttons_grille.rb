@@ -65,13 +65,17 @@ class Boutton_grille
 
     ##
     # met a jour la couleur du bouton après un undo
-    def updateCouleur()
+    ##
+    # * +cssW+  css pour la couleur blanc
+    # * +cssB+  css pour la couleur noir
+    # * +cssG+  css pour la couleur grey
+    def updateCouleur(cssW, cssB, cssG)
         if @couleur == "white"
-            @boutton.style_context.add_provider(cssB, Gtk::StyleProvider::PRIORITY_USER)
-        elsif @couleur == "black"
-            @boutton.style_context.add_provider(cssG, Gtk::StyleProvider::PRIORITY_USER)
-        else
             @boutton.style_context.add_provider(cssW, Gtk::StyleProvider::PRIORITY_USER)
+        elsif @couleur == "black"
+            @boutton.style_context.add_provider(cssB, Gtk::StyleProvider::PRIORITY_USER)
+        else
+            @boutton.style_context.add_provider(cssG, Gtk::StyleProvider::PRIORITY_USER)
         end
         return self
     end

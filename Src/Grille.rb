@@ -21,7 +21,10 @@ class Grille_jeu
     # Création de la grille
     def initialize(joues)
         @grille = Gtk::Grid.new()
-        @bouttons = Array.new(25, Array.new)
+        @bouttons = Array.new(25)
+        0.upto(25) do |i|
+            @bouttons[i] = Array.new(25)
+        end
         @joues = joues
 
         @css = Css.new()
@@ -61,11 +64,8 @@ class Grille_jeu
     ##
     # * +coup+  le coup a restitué
     def revert(coup)
-        print(coup)
-        #sleep(100)
         @bouttons[coup.indiceI][coup.indiceJ].couleur= coup.couleur
-        @bouttons[coup.indiceI][coup.indiceJ].updateCouleur
-        ################# CRASH ICI
+        @bouttons[coup.indiceI][coup.indiceJ].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
         return self
     end
 end

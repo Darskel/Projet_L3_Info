@@ -18,6 +18,8 @@ class Tuto
         @boutonBack = Gtk::Button.new()
         @boutonOptions = Gtk::Button.new()
 
+        joues = Array.new #tableau des coups joués par l'utilisateur pour le undo
+
         #Ajout du fond 
         @box.add(Gtk::Image.new(:file => "../maquettes/TutorielV2.png"))
         @box2.add(@box)
@@ -33,7 +35,12 @@ class Tuto
         @labelTechnique = Gtk::Label.new(@techniqueText)
         @box.put(@labelTechnique,(1200 *0.16), 675 * 0.2)
 
-        joues = Array.new
+        @boutonBack.signal_connect("clicked"){ # signal pour le bouton undo
+            if !joues.empty?
+                coup = joues.pop()
+                @grilleTuto.revert(coup)
+            end
+        }
         
         
         @grilleTuto = Grille_jeu.creer(joues)
