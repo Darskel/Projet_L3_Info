@@ -23,6 +23,10 @@ win.set_resizable(false)
 
 win.signal_connect('destroy'){
     Gtk.main_quit
+    begin
+        exit!
+    rescue SystemExit
+    end
 }
 
 Ecran_menu.creer(win)
