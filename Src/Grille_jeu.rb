@@ -85,8 +85,9 @@ class Grille_jeu
         0.upto(@nbLignes-1) do |i|
             0.upto(@nbColonnes-1) do |j|
 
-                if((@bouttons[i][j].couleur == "white" || @bouttons[i][j].couleur == "grey") && (ligne_solution[i * @nbLignes + j].to_i == 1)) then
+                if@bouttons[i][j].couleur == "grey" && ligne_solution[i * @nbLignes + j].to_i == 1
                     succes = false
+                    @bouttons[i][j].mauvaiseReponse(@css.falseReponse)
                 end
                 if @bouttons[i][j].couleur == "black" && ligne_solution[i * @nbLignes + j].to_i == 0
                     succes = false
