@@ -86,7 +86,7 @@
         else
             css.load(data: <<-CSS)
             label {
-                font-size: 30px;
+                font-size: 25px;
                 font-family: sans-serif; 
             }
             CSS

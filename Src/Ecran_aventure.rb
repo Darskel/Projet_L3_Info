@@ -90,7 +90,7 @@ class Ecran_aventure
         boite.put(reprendre, (widhtEcran *0.25), heightEcran * 0.65)
         boite.put(progression, (widhtEcran *0.22), heightEcran * 0.8)
         boite.put(quitter, (widhtEcran *0.75) , heightEcran * 0.885)
-        boite.put(@labelChapitre, 600, 50)
+        boite.put(@labelChapitre, (widhtEcran *0.35), 50)
         boite.put(@labelDescription, 30, 170)
 
         @win.add(@layoutManager)
