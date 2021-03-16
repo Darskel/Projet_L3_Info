@@ -35,13 +35,11 @@ class Connexion
         valider.signal_connect("clicked"){
             if saisie.text.length == 0
                 if choixExistant.active != 0
-                    $userPath += choixExistant.active_text
+                    $userPath += choixExistant.active_text+"/"
                     vers_menu()
                 end
             else
-                File.open($userPath + "users.txt", "w")
-                File.write($userPath + "users.txt", saisie.text+"\n", mode: "a")
-                $userPath += saisie.text
+                newUser(saisie.text)
                 vers_menu()
             end
         }
@@ -99,5 +97,21 @@ class Connexion
 
         Ecran_menu.creer(@win)
         return self
+    end
+
+    ##
+    # Ajout d'un nouvel utilisateur
+    ##
+    # * +nom+   nom de l'utilisateur
+    def newUser(nom)
+        File.open($userPath + "users.txt", "w")
+        File.chmod(0777,$userPath + "users.txt")
+        File.write($userPath + "users.txt", nom+"\n", mode: "a")
+
+        $userPath += nom+"/"
+        Dir.mkdir($userPath)
+
+        File.open($userPath+"config.txt", "w")
+        File.write($userPath+"config.txt", "sound", mode: "a")
     end
 end
