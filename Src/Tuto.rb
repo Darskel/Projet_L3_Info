@@ -1,4 +1,4 @@
-load "Grille.rb"
+load "Grille_jeu.rb"
 load "Utils.rb"
 class Tuto
 
@@ -38,7 +38,7 @@ class Tuto
         @boutonBack.signal_connect("clicked"){ # signal pour le bouton undo
             if !joues.empty?
                 coup = joues.pop()
-                @grilleTuto.revert(coup)
+                @grilleTuto.undo(coup)
             end
         }
         

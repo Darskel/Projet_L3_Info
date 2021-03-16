@@ -1,4 +1,4 @@
-load "Grille.rb"
+load "Grille_jeu.rb"
 
 ##
 # Représentation d'un écran de jeu, une partie de fill a pix
@@ -44,7 +44,7 @@ class Ecran_jeu
         undo.signal_connect("clicked"){
             if !joues.empty?
                 coup = joues.pop()
-                grille.revert(coup)
+                grille.undo(coup)
             end
         }
         check.signal_connect("clicked"){

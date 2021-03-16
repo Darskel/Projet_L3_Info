@@ -64,7 +64,7 @@ class Grille_jeu
     # Remet la couleur du bouton après un undo
     ##
     # * +coup+  le coup a restitué
-    def revert(coup)
+    def undo(coup)
         @bouttons[coup.indiceI][coup.indiceJ].couleur= coup.couleur
         @bouttons[coup.indiceI][coup.indiceJ].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
         return self
