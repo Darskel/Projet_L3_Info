@@ -92,7 +92,6 @@ class Ecran_menu
         #######################################################
 
         @win.show_all
-        Gtk.main
     end
 
     ##
