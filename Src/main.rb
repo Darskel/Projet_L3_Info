@@ -4,6 +4,7 @@ Gtk.init
 
 load "Ecran_jeu.rb"
 load "EcranJouer.rb"
+load "EcranOptions.rb"
 load "Ecran_aventure.rb"
 load "Ecran_libre.rb"
 load "Ecran_menu.rb"

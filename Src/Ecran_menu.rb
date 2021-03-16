@@ -47,6 +47,9 @@ class Ecran_menu
         tuto.signal_connect("clicked"){
             vers_tuto()
         }
+        option.signal_connect("clicked"){
+            vers_options()
+        }
 
         ##
         # Création des CSS pour les boutons 
@@ -104,5 +107,10 @@ class Ecran_menu
     def vers_tuto()
         @win.remove(@layoutManager)
         Tuto.creer(@win)
+    end
+
+    def vers_options()
+        @win.remove(@layoutManager)
+        EcranOptions.creer(@win)
     end
 end
