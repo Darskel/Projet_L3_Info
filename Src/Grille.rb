@@ -83,10 +83,13 @@ class Grille_jeu
 
         0.upto(@nbLignes-1) do |i|
             0.upto(@nbColonnes-1) do |j|
-                if(@bouttons[i][j].couleur != "black" and ligne_solution[i * @nbLignes + j] == 1) 
-                    succes = false
-                elsif (@bouttons[i][j].couleur == "black" and ligne_solution[i * @nbLignes + j] != 1) 
-                    succes = false
+                if(@bouttons[i][j].couleur == "black")
+                    puts(i.to_s + " " + j.to_s + " couleur : " + @bouttons[i][j].couleur + " pour " + ligne_solution[i * @nbLignes + j].to_s)
+                    if(@bouttons[i][j].couleur != "black" && ligne_solution[i * @nbLignes + j] == 1) 
+                        succes = false
+                    elsif (@bouttons[i][j].couleur == "black"&& ligne_solution[i * @nbLignes + j] != 1) 
+                        succes = false
+                    end
                 end
             end
         end
