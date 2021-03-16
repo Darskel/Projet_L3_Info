@@ -15,7 +15,6 @@
         css = Gtk::CssProvider.new
 
         if etat == 1
-
             css.load(data: <<-CSS)
             button {
                 opacity: 0;
@@ -73,3 +72,30 @@
         end
         boite.put(bouton, x, y)
     end
+    
+    def ajouteTexte(etat)
+        css = Gtk::CssProvider.new
+
+        if etat == 1
+            css.load(data: <<-CSS)
+            label {
+                font-size: 50px;
+                font-family: sans-serif;
+            }
+            CSS
+        else
+            css.load(data: <<-CSS)
+            label {
+                font-size: 30px;
+                font-family: sans-serif; 
+            }
+            CSS
+        end
+        return css
+    end
+
+    def ajouteTexteProvider(texte, css, width, height)
+        texte.style_context.add_provider(css, Gtk::StyleProvider::PRIORITY_USER) 
+        texte.set_size_request(width, height)
+    end
+    
