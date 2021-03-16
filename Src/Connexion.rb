@@ -1,14 +1,24 @@
 ##
 # Ecran qui permet à l'utilisateur de se connecter à ses sauvegardes
-
+##
+# * +win+               La fenetre de l'application
+# * +layoutManager+     Le layout principal pour le placement dans la fenetre
 class Connexion
 
+    ##
+    # Constructeur
+    ##
+    # * +win+   Fenetre de l'application
     def Connexion.creer(win)
         new(win)
     end
 
     private_class_method :new
 
+    ##
+    # Création du contenu de l'écran de connexion
+    ##
+    # * +win+   La fenetre de l'application
     def initialize(win)
 
         @win = win
@@ -30,7 +40,7 @@ class Connexion
         choixExistant.append_text "Sélectionner votre session"
         choixExistant.active= 0
 
-        chargerExistants(choixExistant)##### CHARGER LES USERS EXISTANTS
+        chargerExistants(choixExistant)
 
         valider.signal_connect("clicked"){
             if saisie.text.length == 0
@@ -112,6 +122,7 @@ class Connexion
         Dir.mkdir($userPath)
 
         File.open($userPath+"config.txt", "w")
+        File.chmod(0777,$userPath + "config.txt")
         File.write($userPath+"config.txt", "sound", mode: "a")
     end
 end

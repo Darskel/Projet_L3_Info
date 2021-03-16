@@ -6,7 +6,10 @@
 # * +layoutManager+     Le layout principal pour le placement dans la fenetre
 class Ecran_menu
     
-
+    ##
+    # Constructeur
+    ##
+    # * +win+   Fenetre de l'application
     def Ecran_menu.creer(win)
         new(win)
     end

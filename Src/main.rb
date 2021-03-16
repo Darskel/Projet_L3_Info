@@ -20,6 +20,8 @@ win = Gtk::Window.new()
 
 win.set_resizable(false)
 
+win.set_window_position(Gtk::WindowPosition::CENTER_ALWAYS)
+
 win.signal_connect('destroy'){
     Gtk.main_quit
     begin
