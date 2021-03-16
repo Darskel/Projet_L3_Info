@@ -49,6 +49,19 @@
         bouton.set_size_request(width, height)
     end
 
+    ##
+    # Ajoute un bouton dans la boite en lui appliquant le css et le signal
+    ##
+    # * +boite+     La boite dans laquelle on range le bouton
+    # * +bouton+    Le bouton à ajouter/modifier
+    # * +typeCss+   Le css a appliquer sur le bouton
+    # * +w+         La largeur que l'on veut appliquer au bouton
+    # * +h+         La longueur que l'on veut appliquer au bouton
+    # * +x+         L'emplacement en largeur auquel on veut placer le bouton
+    # * +y+         L'emplacement en hauteur auquel on veut placer le bouton
+    # * +callback+  La méthode à appliquer lors du signal connect
+    # * +win+       La fenetre de l'application
+    # * +box+       le Layout Manager de l'écran
     def ajouteBouton(boite, bouton, typeCss, w, h, x, y, callback, win, box)
         css = ajouteCss(typeCss)
         ajoutecssProvider(bouton, css, w, h)
