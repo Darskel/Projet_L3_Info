@@ -69,6 +69,7 @@ class Boutton_grille
     # * +falseReponse+  le CSS a appliquer sur le bouton
     def mauvaiseReponse(falseReponse)
         @boutton.style_context.add_provider(falseReponse, Gtk::StyleProvider::PRIORITY_USER)
+        return self
     end
 
     ##

@@ -57,7 +57,7 @@ class Grille_jeu
                 @grille.attach(@bouttons[i][j].boutton, j, i, 1, 1)
             end
         end
-        
+        return self
     end
 
     ##
