@@ -17,6 +17,7 @@ class Css
             color : black;
             border: 1px solid black;
             border-radius: 0px;
+            box-shadow: 0 0 0 0px white inset;
         }
         CSS
 
@@ -27,6 +28,7 @@ class Css
             color : white;
             border: 1px solid white;
             border-radius: 0px;
+            box-shadow: 0 0 0 0px black inset;
         }
         CSS
 
@@ -37,6 +39,7 @@ class Css
             color : white;
             border: 1px solid white;
             border-radius: 0px;
+            box-shadow: 0 0 0 0px grey inset;
         }
         CSS
 
