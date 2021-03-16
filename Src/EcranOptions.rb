@@ -44,14 +44,6 @@ class EcranOptions
         quitter.signal_connect("clicked"){
             vers_menu()
         }
-
-        ##
-        # Création des CSS pour les boutons 
-        succesImage = ajouteCss(2)
-        classementImage = ajouteCss(2)
-        creditsImage = ajouteCss(2)
-        quitterImage = ajouteCss(1)
-
         widthOptionsPrincipales = 307
         heightOptionsPrincipales = 68
         width = 31
@@ -60,19 +52,11 @@ class EcranOptions
         widthEcran = 1200
         heightEcran = 675
 
-        ##
-        # Ajout du CSS aux bouton et on leur donne leur taille
-        ajoutecssProvider(succes, succesImage, 420, heightOptionsPrincipales)
-        ajoutecssProvider(classement, classementImage, 550, heightOptionsPrincipales)
-        ajoutecssProvider(credits, creditsImage, 430, heightOptionsPrincipales)
-        ajoutecssProvider(quitter, quitterImage, width, height)
-
-        ##
-        #Ajout des boutons et box dans les containers
-        boite.put(succes, (widthEcran *0.31), heightEcran * 0.56)
-        boite.put(classement, (widthEcran *0.27), heightEcran * 0.67)
-        boite.put(credits, (widthEcran *0.31), heightEcran * 0.79)
-        boite.put(quitter, (widthEcran *0.72), heightEcran * 0.24)
+        ajouteBouton(boite, succes, 2, 420, heightOptionsPrincipales, (widthEcran *0.31), heightEcran * 0.56, nil, @win, @layoutManager)
+        ajouteBouton(boite, classement, 2, 550, heightOptionsPrincipales, (widthEcran *0.27),  heightEcran * 0.67, nil, @win, @layoutManager)
+        ajouteBouton(boite, credits, 2, 430, heightOptionsPrincipales, (widthEcran *0.31), heightEcran * 0.79, nil, @win, @layoutManager)
+        ajouteBouton(boite, quitter, 1, width, height, (widthEcran *0.72), heightEcran * 0.24, nil, @win, @layoutManager)
+        
         boite.put(sons, (widthEcran *0.65), heightEcran * 0.50)
 
         @win.add(@layoutManager)
