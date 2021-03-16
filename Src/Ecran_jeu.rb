@@ -28,7 +28,7 @@ class Ecran_jeu
 
         joues = Array.new()
 
-        grille = Grille_jeu.creer(joues)
+        grille = Grille_jeu.creer(true, joues)
         textfield1 = Gtk::Label.new("")
         textfield2 = Gtk::Label.new("")
         textfield1.set_size_request(350, 200) 

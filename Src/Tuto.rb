@@ -43,7 +43,7 @@ class Tuto
         }
         
         
-        @grilleTuto = Grille_jeu.creer(joues)
+        @grilleTuto = Grille_jeu.creer(true, joues)
         @box.put(@grilleTuto.grille, (1200 *0.31), 675 * 0.16)
 
         @window.add(@box2)

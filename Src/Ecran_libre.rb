@@ -30,6 +30,29 @@ class Ecran_libre
 
         @win.add(@container)
 
+        @grille = Grille_jeu.creer(false, Array.new)
+        @boite.put(@grille.grille, (1200 *0.4), 675 * 0.12)
+
+        file = File.open("chapitres.txt")
+        lignes = file.readlines
+        nbLignes = lignes.size
+        file_data = lignes.map(&:chomp)
+
+        file.close
+
+        i_deb = 0
+        i_fin = 8
+
+        text = "Chapitre 1"
+        @boite.put(Gtk::Label.new(text), (1200 *0.16), 675 * 0.2)
+
+        i = i_deb
+        while (i <= i_fin)
+            puts(file_data[i])
+
+            i+=2
+        end
+
         @win.show_all
         Gtk.main
     end

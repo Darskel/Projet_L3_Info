@@ -12,15 +12,15 @@ class Grille_jeu
 
     attr_reader :grille
 
-    def Grille_jeu.creer(joues)
-        new(joues)
+    def Grille_jeu.creer(estJouable, joues)
+        new(estJouable, joues)
     end
 
     private_class_method :new
 
     ##
     # Création de la grille
-    def initialize(joues)
+    def initialize(estJouable, joues)
         @grille = Gtk::Grid.new()
         @bouttons = Array.new(25)
         0.upto(25) do |i|
@@ -31,6 +31,19 @@ class Grille_jeu
         @css = Css.new()
 
         charger("grille1.txt")
+
+        unless (estJouable)
+            rendreNonJouable()
+        end
+    end
+
+    def rendreNonJouable()
+        0.upto(@nbLignes-1) do |i|
+            0.upto(@nbColonnes-1) do |j|
+                #Rend le bouton non cliquable
+                @bouttons[i][j].boutton.sensitive = false
+            end
+        end
     end
 
     ##
