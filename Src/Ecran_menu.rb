@@ -100,6 +100,7 @@ class Ecran_menu
     def vers_jeu()
         @win.remove(@layoutManager)
         EcranJouer.creer(@win)
+        return self
     end
 
     ##
@@ -107,10 +108,12 @@ class Ecran_menu
     def vers_tuto()
         @win.remove(@layoutManager)
         Tuto.creer(@win)
+        return self
     end
 
     def vers_options()
         @win.remove(@layoutManager)
         EcranOptions.creer(@win)
+        return self
     end
 end

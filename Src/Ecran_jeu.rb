@@ -75,5 +75,6 @@ class Ecran_jeu
     def vers_menu()
         @win.remove(@layoutManager)
         Ecran_menu.creer(@win)
+        return self
     end
 end
