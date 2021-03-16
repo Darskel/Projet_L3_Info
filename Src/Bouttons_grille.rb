@@ -64,6 +64,14 @@ class Boutton_grille
     end
 
     ##
+    # Applique une bordure rouge sur le bouton pour symboliser une mauvaise réponse
+    ##
+    # * +falseReponse+  le CSS a appliquer sur le bouton
+    def mauvaiseReponse(falseReponse)
+        @boutton.style_context.add_provider(falseReponse, Gtk::StyleProvider::PRIORITY_USER)
+    end
+
+    ##
     # met a jour la couleur du bouton après un undo
     ##
     # * +cssW+  css pour la couleur blanc

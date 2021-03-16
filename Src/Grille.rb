@@ -7,6 +7,7 @@ load "Bouttons_grille.rb"
 # * +grille+    Une Gtk::Grid qui représente le plateau de jeu
 # * +bouttons+  Tableau de boutons dans la grille
 # * +css+       Les différents CSS utilisables
+# * +joues+     Tableau des coups joués par l'utilisateur, permettant l'utilisationd de la fonctionnalité undo
 class Grille_jeu
 
     attr_reader :grille
@@ -83,13 +84,13 @@ class Grille_jeu
 
         0.upto(@nbLignes-1) do |i|
             0.upto(@nbColonnes-1) do |j|
-                if(@bouttons[i][j].couleur == "black")
-                    puts(i.to_s + " " + j.to_s + " couleur : " + @bouttons[i][j].couleur + " pour " + ligne_solution[i * @nbLignes + j].to_s)
-                    if(@bouttons[i][j].couleur != "black" && ligne_solution[i * @nbLignes + j] == 1) 
-                        succes = false
-                    elsif (@bouttons[i][j].couleur == "black"&& ligne_solution[i * @nbLignes + j] != 1) 
-                        succes = false
-                    end
+
+                if((@bouttons[i][j].couleur == "white" || @bouttons[i][j].couleur == "grey") && (ligne_solution[i * @nbLignes + j].to_i == 1)) then
+                    succes = false
+                end
+                if @bouttons[i][j].couleur == "black" && ligne_solution[i * @nbLignes + j].to_i == 0
+                    succes = false
+                    @bouttons[i][j].mauvaiseReponse(@css.falseReponse)
                 end
             end
         end

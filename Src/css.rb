@@ -8,6 +8,7 @@ class Css
         @cssW = Gtk::CssProvider.new
         @cssB = Gtk::CssProvider.new
         @cssG = Gtk::CssProvider.new
+        @falseReponse = Gtk::CssProvider.new
 
         # Css pour le fond blanc et la couleur de police noir
         @cssW.load(data: <<-CSS)
@@ -38,7 +39,15 @@ class Css
             border-radius: 0px;
         }
         CSS
+
+        # Css pour le fond gris et la couleur de police blanc
+        @falseReponse.load(data: <<-CSS)
+        button {
+            border: 1px groove red;
+            box-shadow: 0 0 0 3px red inset;
+        }
+        CSS
     end
 
-    attr_reader :cssG, :cssB, :cssW
+    attr_reader :cssG, :cssB, :cssW, :falseReponse
 end
