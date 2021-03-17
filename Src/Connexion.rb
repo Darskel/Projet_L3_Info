@@ -114,15 +114,16 @@ class Connexion
     ##
     # * +nom+   nom de l'utilisateur
     def newUser(nom)
-        File.open($userPath + "users.txt", "w")
+        File.open($userPath + "users.txt", "a")
         File.chmod(0777,$userPath + "users.txt")
         File.write($userPath + "users.txt", nom+"\n", mode: "a")
 
         $userPath += nom+"/"
         Dir.mkdir($userPath)
 
+        ##Ajout des premiers fichiers nécessaires
         File.open($userPath+"config.txt", "w")
         File.chmod(0777,$userPath + "config.txt")
-        File.write($userPath+"config.txt", "sound", mode: "a")
+        File.write($userPath+"config.txt", "Sons : true")
     end
 end

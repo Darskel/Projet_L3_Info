@@ -44,6 +44,9 @@ class EcranOptions
         quitter.signal_connect("clicked"){
             vers_menu()
         }
+        sons.signal_connect("toggled"){
+            saveSons(sons)
+        }
         widthOptionsPrincipales = 307
         heightOptionsPrincipales = 68
         width = 31
@@ -70,5 +73,19 @@ class EcranOptions
         @win.remove(@layoutManager)
         Ecran_menu.creer(@win)
         return self
+    end
+
+
+    ##
+    # Sauvegarde la préférence du joueur dans son fichier de config
+    ##
+    # * +sons+ Le CheckButton qui permet de connaître la préférence du boutton
+    def saveSons(sons)
+        File.open($userPath+"config.txt", "w")
+        if(sons.active? == true)
+            File.write($userPath+"config.txt", "Sons : true")
+        else
+            File.write($userPath+"config.txt", "Sons : false")
+        end
     end
 end
