@@ -73,6 +73,9 @@
         boite.put(bouton, x, y)
     end
     
+
+    ########################
+    #########################
     def ajouteTexte(etat)
         css = Gtk::CssProvider.new
 
@@ -86,7 +89,7 @@
         else
             css.load(data: <<-CSS)
             label {
-                font-size: 30px;
+                font-size: 25px;
                 font-family: sans-serif; 
             }
             CSS
@@ -94,6 +97,8 @@
         return css
     end
 
+    #############################
+    ##########################
     def ajouteTexteProvider(texte, css, width, height)
         texte.style_context.add_provider(css, Gtk::StyleProvider::PRIORITY_USER) 
         texte.set_size_request(width, height)

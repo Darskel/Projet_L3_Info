@@ -1,20 +1,50 @@
-Chapitre 1 : Hawaï 
-Hawaï est un État des Etats-Unis. C’est un archipel constitué de 137 îles, il a la particularité d’être le seul Etat à ne pas se trouver sur le continent américain car Hawaï se situe en Océanie. L’archipel possède une variété de paysages impressionnants marqués par le volcanisme, un climat tropical humide et un patrimoine naturel endémique important, ce qui fait la joie des touristes et des scientifiques. 
+    Chapitre 1 : Hawaï 
+Hawaï est un État des Etats-Unis. C’est un archipel constitué de 137 îles, il a la particularité d’être
+le seul Etat à ne pas se trouver sur le continent américain car Hawaï se situe en Océanie. L’archipel 
+possède une variété de paysages impressionnants marqués par le volcanisme, un climat tropical humide 
+et un patrimoine naturel endémique important, ce qui fait la joie des touristes et des scientifiques. 
 Chapitre 2 : Polynésie Française
-La Polynésie française est une collectivité d’outre-mer. Elle est composée de cinq archipels regroupant 118 îles au total. La culture des peuples autochtones est encore aujourd’hui très présente, par exemple, on retrouve la danse, la peinture, la sculpture, les tatouages. La gastronomie polynésienne se base principalement sur les produits de la mer et les fruits exotiques.
+La Polynésie française est une collectivité d’outre-mer. Elle est composée de cinq archipels 
+regroupant 118 îles au total. La culture des peuples autochtones est encore aujourd’hui très 
+présente, par exemple, on retrouve la danse, la peinture, la sculpture, les tatouages. La gastronomie 
+polynésienne se base principalement sur les produits de la mer et les fruits exotiques.
 Chapitre 3 : Île de Pâques 
-L’île de Pâques se situe dans l’Océan Pacifique et appartient au Chili. Cette île est célèbre pour ses vestiges mégalithiques de la civilisation autochtone : le patrimoine archéologique comprend 1042 statues de basalte, appelées moaïs, de 4 mètres de hauteur en moyenne, et près de 300 terrasses empierrées supportant ces statues, appelées ahus. 
-Chapitre 4 : Santorin 
-Santorin est une île grecque de la mer Egée. Cette île constitue l’un des principaux lieux touristiques du pays. Notamment grâce à ses villages blancs à flanc de falaise où les maisons possèdent des toits à coupole bleues, mais également grâce à des panoramas sur les autres îles de l’archipel et des sites archéologiques comme ceux de la ville antique de Théra et d’Akrotiri. 
-Chapitre 5 : Mykonos 
-Mykonos est une île grecque de la mer Egée qui appartient à l’archipel des Cyclades. D’après la légende de la mythologie grecque, les titans vaincus par Hercule lors de la Guerre des Géants soient enterrés sous l’île de Mykonos. 
-Chapitre 6 : Corse 
-La Corse est une île française de la Mer Méditerranée. Elle la 4ème plus grande île de cette région. Les Corses parlent principalement le français mais également une langue propre à leur île, un mélange de bas latin et de toscan. On retrouve cette langue principalement dans les chants typiques de l’île. Elle possède des paysages magnifiques et variés allant de la plage de sable fin à la montagne. 
-Chapitre 7 : Maldives 
-La République des Maldives est un pays d’Asie du Sud constitué de 1199 îles situé au Sud-Ouest du continent indien. Ce pays est divisé en 26 atolls. Il est très touristique notamment grâce aux plages paradisiaques et aux lagons à l’eau turquoise. La religion d’Etat est l’Islam. Ce pays est grandement menacé par le réchauffement climatique car les îles sont menacées de disparition due à la montée des eaux, le point culminant de ce pays s’élevant à 2,3 mètres au-dessus du niveau de la mer.
-Chapitre 8 : Cuba 
-Cuba est un insulaire des Caraïbes, elle se situe au Sud de la Floride et à l’Est du Mexique. Elle fut une colonie espagnole jusqu’en 1898 puis un territoire des Etats-Unis jusqu’en 1902. Depuis la révolution cubaine de 1959, elle est définie comme une République socialiste. On y retrouve un climat tropical et une biodiversité importante due à la présence d’un grand nombre d’espèces endémiques.
-Chapitre 9 : Sumatra 
-Sumatra est une île volcanique de l’Ouest de l’Indonésie. Elle possède une variété d’espèces endémiques impressionnantes, elle est en grande partie recouverte par une forêt tropicale qui fait le bonheur de ces espèces. Le tourisme de Sumatra se base principalement sur le climat, la beauté des paysages volcaniques et la culture de ses habitants. 
+L’île de Pâques se situe dans l’Océan Pacifique et appartient au Chili. Cette île est célèbre pour ses 
+vestiges mégalithiques de la civilisation autochtone : le patrimoine archéologique comprend 1042 
+statues de basalte, appelées moaïs, de 4 mètres de hauteur en moyenne, et près de 300 terrasses 
+empierrées supportant ces statues, appelées ahus. 
+    Chapitre 4 : Santorin 
+Santorin est une île grecque de la mer Egée. Cette île constitue l’un des principaux lieux touristiques 
+du pays. Notamment grâce à ses villages blancs à flanc de falaise où les maisons possèdent des toits à 
+coupole bleues, mais également grâce à des panoramas sur les autres îles de l’archipel et des sites 
+archéologiques comme ceux de la ville antique de Théra et d’Akrotiri. 
+    Chapitre 5 : Mykonos 
+Mykonos est une île grecque de la mer Egée qui appartient à l’archipel des Cyclades. D’après la 
+légende de la mythologie grecque, les titans vaincus par Hercule lors de la Guerre des Géants soient 
+enterrés sous l’île de Mykonos. 
+
+    Chapitre 6 : Corse 
+La Corse est une île française de la Mer Méditerranée. Elle la 4ème plus grande île de cette région. 
+Les Corses parlent principalement le français mais également une langue propre à leur île, un mélange 
+de bas latin et de toscan. On retrouve cette langue principalement dans les chants typiques de l’île. 
+Elle possède des paysages magnifiques et variés allant de la plage de sable fin à la montagne. 
+    Chapitre 7 : Maldives 
+La République des Maldives est un pays d’Asie du Sud constitué de 1199 îles situé au Sud-Ouest du 
+continentindien. Ce pays est divisé en 26 atolls. Il est très touristique notamment grâce aux plages 
+paradisiaques et aux lagons à l’eau turquoise. Ce pays est grandement menacé par le réchauffement 
+climatique car les îles sont menacées de disparition due à la montée des eaux.
+    Chapitre 8 : Cuba 
+Cuba est un insulaire des Caraïbes, elle se situe au Sud de la Floride et à l’Est du Mexique. Elle fut 
+une colonie espagnole jusqu’en 1898 puis un territoire des Etats-Unis jusqu’en 1902. Depuis la 
+révolution cubaine de 1959, elle est définie comme une République socialiste. On y retrouve un climat 
+tropical et une biodiversité importante due à la présence d’un grand nombre d’espèces endémiques.
+    Chapitre 9 : Sumatra 
+Sumatra est une île volcanique de l’Ouest de l’Indonésie. Elle possède une variété d’espèces 
+endémiques impressionnantes, elle est en grande partie recouverte par une forêt tropicale qui fait le 
+bonheur de ces espèces. Le tourisme de Sumatra se base principalement sur le climat, la beauté des 
+paysages volcaniques et la culture de ses habitants. 
 Chapitre 10 : Les Galapagos 
-Les îles Galapagos sont un archipel et une province de l’Equateur situé dans l’océan Pacifique. Toutes les îles formant l’archipel sont volcaniques. On retrouve ici le parc national des Galapagos et la réserve marine des Galapagos qui constituent l’un des sites du patrimoine mondial de l’UNESCO. Ces îles sont notamment connues grâce aux tortues géantes terrestres, aux iguanes ou encore à certaines espèces d’oiseaux vivants sur ces îles. 
+Les îles Galapagos sont un archipel et une province de l’Equateur situé dans l’océan Pacifique. 
+Toutes les îles formant l’archipel sont volcaniques. On retrouve ici le parc national des Galapagos et 
+la réserve marine des Galapagos qui constituent l’un des sites du patrimoine mondial de l’UNESCO. 
+Ces îles sont notamment connues grâce aux tortues géantes terrestres, aux iguanes ou à ses oiseaux. 

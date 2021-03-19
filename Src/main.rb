@@ -10,16 +10,17 @@ load "Ecran_libre.rb"
 load "Ecran_menu.rb"
 load "Tuto.rb"
 load "Utils.rb"
+load "Connexion.rb"
 
+$userPath = "../Users/"
 
 ##
 # Création de la fenetre
 win = Gtk::Window.new()
-win.set_title("FILL A PIX")
-
-win.set_default_size(1200, 675)
 
 win.set_resizable(false)
+
+win.set_window_position(Gtk::WindowPosition::CENTER_ALWAYS)
 
 win.signal_connect('destroy'){
     Gtk.main_quit
@@ -28,5 +29,4 @@ win.signal_connect('destroy'){
     rescue SystemExit
     end
 }
-
-Ecran_menu.creer(win)
+Connexion.creer(win)

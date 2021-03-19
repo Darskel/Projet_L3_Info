@@ -52,7 +52,7 @@ class Grille_jeu
     end
 
     def save()
-        nomFic = @textBox.text + ".txt"
+        nomFic = "../Grilles/" + @textBox.text + ".txt"
         File.open(nomFic, "w")
 
         nbBoutons = @nbLignes * @nbColonnes
