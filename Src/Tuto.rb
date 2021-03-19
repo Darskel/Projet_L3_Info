@@ -16,12 +16,12 @@ class Tuto
         @suivant = Gtk::Button.new(:label => "Règle suivante")        
         @precedent = Gtk::Button.new(:label => "Règle précédente")
         @retourMenu = Gtk::Button.new()
-        @boutonBack = Gtk::Button.new()
+        @boutonUndo = Gtk::Button.new()
         @boutonOptions = Gtk::Button.new()
 
 
         #Css des boutons
-        cssCache = Gtk::CssProvider.new
+        @cssCache = Gtk::CssProvider.new
         cssVoir = Gtk::CssProvider.new
 
         cssVoir.load(data: <<-CSS)
@@ -30,7 +30,7 @@ class Tuto
         }
         CSS
 
-        cssCache.load(data: <<-CSS)
+        @cssCache.load(data: <<-CSS)
         button {
             opacity:0;
         }
@@ -48,7 +48,7 @@ class Tuto
 
         #Ajout des différents boutons, de leur css respectif ainsi que de leurs évents liés
         ajouteBouton(@box,@retourMenu,1,55,45,(1200 *0.015), 675 * 0.025,method(:vers_menu),@window,@box2)
-        ajouteBouton(@box,@boutonBack,1,60,60,(1200*0.89), 675*0.02,nil,@window,@box2)
+        ajouteBouton(@box,@boutonUndo,1,60,60,(1200*0.899), 675*0.02,nil,@window,@box2)
         ajouteBouton(@box,@boutonOptions,1,60,60,(1200*0.94), 675*0.02,nil,@window,@box2)
         ajoutecssProvider(@suivant,cssVoir,150,25)
         @box.put(@suivant,(1200 *0.84), 675 * 0.4)
@@ -62,7 +62,7 @@ class Tuto
         @box.put(@labelTechnique,(1200 *0.3), 675 * 0.84)
 
         #signal du bouton undo afin de retourner au coup précédemment joué
-        @boutonBack.signal_connect("clicked"){ # signal pour le bouton undo
+        @boutonUndo.signal_connect("clicked"){ # signal pour le bouton undo
             if !joues.empty?
                 coup = joues.pop()
                 @grilleTuto.undo(coup)
@@ -72,30 +72,34 @@ class Tuto
         #signal pour le bouton regle suivante permettant de passer à la règle suivante
         @suivant.signal_connect("clicked"){
             index = index+1
-
+            print(index)
+            print("\n")
             if index>1
+                @precedent.sensitive = true
                 @precedent.style_context.add_provider(cssVoir,Gtk::StyleProvider::PRIORITY_USER)
             end
 
             if index>=10
-                @suivant.style_context.add_provider(cssCache,Gtk::StyleProvider::PRIORITY_USER)
+                @suivant.style_context.add_provider(@cssCache,Gtk::StyleProvider::PRIORITY_USER)
+                @suivant.sensitive = false
             end
-
             changerTexteRegle(index)
         }
 
         #Signal pour le bouton regle precedente permettant de revenir à la règle précédente
         @precedent.signal_connect("clicked"){
             index = index-1
-
+            print(index)
+            print("\n")
             if index<2
-                @precedent.style_context.add_provider(cssCache,Gtk::StyleProvider::PRIORITY_USER)
+                @precedent.style_context.add_provider(@cssCache,Gtk::StyleProvider::PRIORITY_USER)
+                @precedent.sensitive = false
             end
 
-            if index<=10
+            if index<10
+                @suivant.sensitive = true
                 @suivant.style_context.add_provider(cssVoir,Gtk::StyleProvider::PRIORITY_USER)
             end
-
             changerTexteRegle(index)
         }
         
@@ -106,7 +110,18 @@ class Tuto
         @window.show_all
     end
 
+    #Fonction permettant de changer le texte présent dans le label de la bulle du capitaine en fonction du 
     def changerTexteRegle(index)
+        
+        cssAidePresentee = Gtk::CssProvider.new
+        cssAidePresentee.load(data: <<-CSS)
+        button {
+            opacity: 0.5;
+            border: 1px groove red;
+            box-shadow: 0 0 0 5px red inset;
+        }
+        CSS
+        
         case index
         when 1 
             @techniqueText = "Première règle : Aucune case autour \nd'une case 0 n'est valide."
@@ -124,19 +139,23 @@ class Tuto
             @techniqueText = "Cinquième règle : A partir des cases déjà \nremplies, de nouvelles possibilités s'offre à\nvous alors vérifiez la grille à nouveau !"
             @labelTechnique.set_text(@techniqueText)
         when 6 
-            @techniqueText = "Sixième règle :"
+            @boutonUndo.style_context.add_provider(@cssCache,Gtk::StyleProvider::PRIORITY_USER)
+            @techniqueText = "Passons maintenant aux aides que vous\npouvez utiliser !"
             @labelTechnique.set_text(@techniqueText)
+
         when 7 
-            @techniqueText = "Septième règle :"
+            @boutonUndo.style_context.add_provider(cssAidePresentee,Gtk::StyleProvider::PRIORITY_USER)
+            @techniqueText = "Première aide disponible : Ce bouton vous\npermet d'annuler le coup que vous venez de\nréaliser, vous revenez ainsi en arrière."
             @labelTechnique.set_text(@techniqueText)
         when 8
-            @techniqueText = "Huitième règle :"
+            @boutonUndo.style_context.add_provider(@cssCache,Gtk::StyleProvider::PRIORITY_USER)
+            @techniqueText = "Deuxième aide disponible : Ce bouton vous\npermet de vérifier si tous les coups que\nvous avez joué sont corrects ou non."
             @labelTechnique.set_text(@techniqueText)
         when 9
-            @techniqueText = "Neuvième règle :"
+            @techniqueText = "Troisième aide disponible : Ce bouton vous\npermet de remplir automatiquement les cases\n9,6,4 et 0"
             @labelTechnique.set_text(@techniqueText)
         when 10 
-            @techniqueText = "Dixième règle :"
+            @techniqueText = "Quatrième aide disponible : Ce bouton vous\npermet d'afficher votre curseur en\nsélectionnant un carré de 3 cases par 3"
             @labelTechnique.set_text(@techniqueText)
         end
     end
