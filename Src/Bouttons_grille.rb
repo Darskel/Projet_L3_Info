@@ -25,7 +25,7 @@ class Boutton_grille
     private_class_method
 
     attr_reader :boutton
-    attr_accessor :couleur
+    attr_accessor :couleur, :contenu
 
     ##
     # Initialisation de l'instance
@@ -36,6 +36,7 @@ class Boutton_grille
     # * +joues+     Tableau des coups joués
     # * +contenu+   Texte du bouton
     def initialize(contenu, css, joues, indiceI, indiceJ)
+        @contenu = contenu
         @couleur = "white"
         @boutton = Gtk::Button.new(:label => contenu)
         @boutton.style_context.add_provider(css, Gtk::StyleProvider::PRIORITY_USER)
