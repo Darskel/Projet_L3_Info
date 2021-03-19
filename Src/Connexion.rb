@@ -49,7 +49,11 @@ class Connexion
                     vers_menu()
                 end
             else
-                newUser(saisie.text)
+                if checkUser(saisie.text)
+                    newUser(saisie.text)
+                else
+                    $userPath += saisie.text+"/"
+                end
                 vers_menu()
             end
         }
@@ -107,6 +111,23 @@ class Connexion
 
         Ecran_menu.creer(@win)
         return self
+    end
+
+    ##
+    # Vérifie si l'utilisateur existe déjà. Retourne vrai si l'utilisateur n'existe pas encore
+    ##
+    # * +nom+   Saisie de l'utilisateur 
+    def checkUser(nom)
+
+        file = File.open($userPath + "users.txt")
+        file_data = file.readlines.map(&:chomp)
+
+        for elem in file_data do
+            if nom == elem
+                return false
+            end
+        end
+        return true
     end
 
     ##
