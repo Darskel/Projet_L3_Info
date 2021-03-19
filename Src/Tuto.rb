@@ -13,12 +13,28 @@ class Tuto
         @window = win
         @box = Gtk::Fixed.new()
         @box2 = Gtk::Box.new(:horizontal)
-        @suivant = Gtk::Button.new(:label => "Règle suivante")
+        @suivant = Gtk::Button.new(:label => "Règle suivante")        
         @precedent = Gtk::Button.new(:label => "Règle précédente")
         @retourMenu = Gtk::Button.new()
         @boutonBack = Gtk::Button.new()
         @boutonOptions = Gtk::Button.new()
 
+
+        #Css des boutons
+        cssCache = Gtk::CssProvider.new
+        cssVoir = Gtk::CssProvider.new
+
+        cssVoir.load(data: <<-CSS)
+        button {
+            opacity:1;
+        }
+        CSS
+
+        cssCache.load(data: <<-CSS)
+        button {
+            opacity:0;
+        }
+        CSS
 
          #Numero de la regle active
          index = 1;
@@ -34,35 +50,24 @@ class Tuto
         ajouteBouton(@box,@retourMenu,1,55,45,(1200 *0.015), 675 * 0.025,method(:vers_menu),@window,@box2)
         ajouteBouton(@box,@boutonBack,1,60,60,(1200*0.89), 675*0.02,nil,@window,@box2)
         ajouteBouton(@box,@boutonOptions,1,60,60,(1200*0.94), 675*0.02,nil,@window,@box2)
-        @box.put(@suivant,(1200 *0.85), 675 * 0.5)
-        ajouteBouton(@box,@precedent,1,35,25,(1200 *0.84),675 * 0.44,nil,@window,@box2)
-
+        ajoutecssProvider(@suivant,cssVoir,150,25)
+        @box.put(@suivant,(1200 *0.84), 675 * 0.4)
+        ajouteBouton(@box,@precedent,1,150,25,(1200 *0.84),675 * 0.34,nil,@window,@box2)
+        
         #Placement du texte dans la bulle du capitaine
-        @techniqueText = "Première règle : Aucune \n     case autour d'une \n       case 0 n'est valide "
+        techniqueTextCss = ajouteTexte(2)
+        @techniqueText = "Première règle : Aucune case autour \nd'une case 0 n'est valide."
         @labelTechnique = Gtk::Label.new(@techniqueText)
-        @box.put(@labelTechnique,(1200 *0.16), 675 * 0.2)
+        ajouteTexteProvider(@labelTechnique,techniqueTextCss,60,60)
+        @box.put(@labelTechnique,(1200 *0.3), 675 * 0.84)
 
+        #signal du bouton undo afin de retourner au coup précédemment joué
         @boutonBack.signal_connect("clicked"){ # signal pour le bouton undo
             if !joues.empty?
                 coup = joues.pop()
                 @grilleTuto.undo(coup)
             end
         }
-        
-        cssCache = Gtk::CssProvider.new
-        cssVoir = Gtk::CssProvider.new
-
-        cssVoir.load(data: <<-CSS)
-        button {
-            opacity:1;
-        }
-        CSS
-
-        cssCache.load(data: <<-CSS)
-        button {
-            opacity:0;
-        }
-        CSS
         
         #signal pour le bouton regle suivante permettant de passer à la règle suivante
         @suivant.signal_connect("clicked"){
@@ -104,19 +109,19 @@ class Tuto
     def changerTexteRegle(index)
         case index
         when 1 
-            @techniqueText = "Première règle : Toutes \n     les cases autour d'une \n       case 0 sont grises."
+            @techniqueText = "Première règle : Aucune case autour \nd'une case 0 n'est valide."
             @labelTechnique.set_text(@techniqueText)  
         when 2
-            @techniqueText = "Deuxième règle : Toutes \n     les cases autour d'une \n       case 9 sont noires."
+            @techniqueText = "Deuxième règle : Toutes les cases autour \nd'une case 9 sont noires."
             @labelTechnique.set_text(@techniqueText)
         when 3 
-            @techniqueText = "Troisième règle : Si \n     une case 6 se trouve \n     sur un bord de la grille \n alors toutes les cases \n autour sont noires."
+            @techniqueText = "Troisième règle : Si une case 6 se trouve \nsur un bord de la grille alors toutes les cases\nautour sont noires."
             @labelTechnique.set_text(@techniqueText)
         when 4 
-            @techniqueText = "Quatrième règle : Si \n     une case 4 se trouve \n    dans un coin de la grille \n alors toutes les cases  \n autour sont noires."
+            @techniqueText = "Quatrième règle : Si une case 4 se trouve \ndans un coin de la grille alors toutes les cases\nautour sont noires."
             @labelTechnique.set_text(@techniqueText)
         when 5 
-            @techniqueText = "Cinquième règle : A partir\n   des cases déjà remplies,\n de nouvelles possibilités \n s'offre à vous alors \nvérifiez la grille à \n       nouveau !"
+            @techniqueText = "Cinquième règle : A partir des cases déjà \nremplies, de nouvelles possibilités s'offre à\nvous alors vérifiez la grille à nouveau !"
             @labelTechnique.set_text(@techniqueText)
         when 6 
             @techniqueText = "Sixième règle :"
@@ -128,7 +133,7 @@ class Tuto
             @techniqueText = "Huitième règle :"
             @labelTechnique.set_text(@techniqueText)
         when 9
-            @techniqueText = "Neufième règle :"
+            @techniqueText = "Neuvième règle :"
             @labelTechnique.set_text(@techniqueText)
         when 10 
             @techniqueText = "Dixième règle :"
