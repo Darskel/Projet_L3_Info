@@ -30,7 +30,7 @@ class Grille_jeu
 
         @css = Css.new()
 
-        charger("oui.txt")
+        charger("grille1.txt")
         charger("../Grilles/tuto.txt")
 
         unless (estJouable)
@@ -87,11 +87,9 @@ class Grille_jeu
     ##
     # Vérification de la grille demandée par l'utilisateur
     def check()
-<<<<<<< HEAD
-        file = File.open("oui.txt")
-=======
+        file = File.open("grille1.txt")
+
         file = File.open("../Grilles/tuto.txt")
->>>>>>> b32bba289371973e6cdfeb8c74b40e7574cf2786
         file_data = file.readlines.map(&:chomp)
             
         ligne_solution = file_data[2]
