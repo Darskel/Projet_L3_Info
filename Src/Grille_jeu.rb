@@ -31,7 +31,7 @@ class Grille_jeu
         @css = Css.new()
 
         charger("../Grilles/grille1.txt")
-        charger("../Grilles/tuto.txt")
+        #charger("../Grilles/tuto.txt")
 
         unless (estJouable)
             rendreNonJouable()
@@ -89,7 +89,7 @@ class Grille_jeu
     def check()
         file = File.open("../Grilles/grille1.txt")
 
-        file = File.open("../Grilles/tuto.txt")
+        #file = File.open("../Grilles/tuto.txt")
         file_data = file.readlines.map(&:chomp)
             
         ligne_solution = file_data[2]
@@ -101,9 +101,12 @@ class Grille_jeu
         0.upto(@nbLignes-1) do |i|
             0.upto(@nbColonnes-1) do |j|
 
-                if@bouttons[i][j].couleur == "grey" && ligne_solution[i * @nbLignes + j].to_i == 1
+                if @bouttons[i][j].couleur == "grey" && ligne_solution[i * @nbLignes + j].to_i == 1
                     succes = false
                     @bouttons[i][j].mauvaiseReponse(@css.falseReponse)
+                elsif @bouttons[i][j].couleur == "white" && ligne_solution[i * @nbLignes + j].to_i == 1
+                    succes = false
+                    puts("here")
                 end
                 if @bouttons[i][j].couleur == "black" && ligne_solution[i * @nbLignes + j].to_i == 0
                     succes = false
