@@ -17,16 +17,6 @@ class Ecran_aventure
         boite = Gtk::Fixed.new()
         @layoutManager = Gtk::Box.new(:vertical)
 
-        file = File.open("chapitres.txt")
-        file_data = file.readlines.map(&:chomp)
-        nom_chapitre = file_data[0]
-        description = file_data[1]
-
-        @labelChapitre = Gtk::Label.new(nom_chapitre)
-        @labelDescription = Gtk::Label.new(description)
-
-        file.close
-
         fleche = Gtk::Button.new(:label => "")
         demarrer = Gtk::Button.new(:label => "")
         reprendre = Gtk::Button.new(:label => "")
@@ -60,8 +50,7 @@ class Ecran_aventure
         reprendreImage = ajouteCss(2)
         progressionImage = ajouteCss(2)
         quitterImage = ajouteCss(2)
-        descriptionTexte = ajouteTexte(2)
-        chapitreTexte = ajouteTexte(1)
+
         
 
         widthOptionsPrincipales = 500
@@ -72,6 +61,9 @@ class Ecran_aventure
         heightEcran = 675
         widhtEcran = 1200
 
+        chap = 45
+        affiche_chapitre(chap, boite)
+
         ##
         # Ajout du CSS aux bouton et on leur donne leur taille
 
@@ -80,8 +72,7 @@ class Ecran_aventure
         ajoutecssProvider(reprendre, reprendreImage, widthOptionsPrincipales, heightOptionsPrincipales)
         ajoutecssProvider(progression, progressionImage, widthOptionsPrincipales * 1.2, heightOptionsPrincipales)
         ajoutecssProvider(quitter, quitterImage, width, height)
-        ajouteTexteProvider(@labelChapitre, chapitreTexte, 10, 10)
-        ajouteTexteProvider(@labelDescription, descriptionTexte, 10, 10)
+ 
 
         ##
         #Ajout des boutons et box dans les containers
@@ -90,8 +81,7 @@ class Ecran_aventure
         boite.put(reprendre, (widhtEcran *0.25), heightEcran * 0.65)
         boite.put(progression, (widhtEcran *0.22), heightEcran * 0.8)
         boite.put(quitter, (widhtEcran *0.75) , heightEcran * 0.885)
-        boite.put(@labelChapitre, (widhtEcran *0.35), 50)
-        boite.put(@labelDescription, 30, 170)
+  
 
         @win.add(@layoutManager)
 
@@ -106,4 +96,28 @@ class Ecran_aventure
         @ecr = Ecran_menu.creer(@win)
     end
 
+    ##
+    # Permet d'afficher le titre et la description du chapitre où est rendu le joueur
+    def affiche_chapitre(chap, boite)
+        widhtEcran = 1200
+        chapitreTexte = ajouteTexte(1)
+        descriptionTexte = ajouteTexte(2)
+        file = File.open("chapitres.txt")
+        file_data = file.readlines.map(&:chomp)
+        nom_chapitre = file_data[chap]
+        @labelChapitre = Gtk::Label.new(nom_chapitre)
+        ajouteTexteProvider(@labelChapitre, chapitreTexte, 10, 10)
+        boite.put(@labelChapitre, (widhtEcran *0.25), 50)
+        placement = 170
+
+        for i in chap+1..chap+4
+            description = file_data[i]
+            @labelDescription = Gtk::Label.new(description)
+            ajouteTexteProvider(@labelDescription, descriptionTexte, 10, 10)
+            boite.put(@labelDescription, 30, placement)
+            placement += 30
+        end
+
+        file.close
+    end
 end
