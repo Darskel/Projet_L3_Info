@@ -116,4 +116,47 @@ class Grille_jeu
         end
         return succes
     end
+
+    def fillNine()
+        0.upto(@nbLignes-1) do |i|
+            0.upto(@nbColonnes-1) do |j|
+                if(@bouttons[i][j].contenu == '9')
+                    if(coordValide(i-1, j-1))
+                        @bouttons[i-1][j-1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                    end
+                    if(coordValide(i-1, j))
+                        @bouttons[i-1][j].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                    end
+                    if(coordValide(i-1, j+1))
+                        @bouttons[i-1][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                    end
+                    if(coordValide(i, j-1))
+                        @bouttons[i][j-1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                    end
+                    if(coordValide(i, j))
+                        @bouttons[i][j].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                    end
+                    if(coordValide(i, j+1))
+                        @bouttons[i][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                    end
+                    if(coordValide(i+1, j-1))
+                        @bouttons[i+1][j-1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                    end
+                    if(coordValide(i+1, j))
+                        @bouttons[i+1][j].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                    end
+                    if(coordValide(i+1, j+1))
+                        @bouttons[i+1][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                    end
+                end
+            end
+        end
+    end
+
+    def coordValide(i, j)
+        if(i>=0 && i<@nbLignes && j>=0 && j<@nbColonnes)
+            return true;
+        end
+    end
+
 end
