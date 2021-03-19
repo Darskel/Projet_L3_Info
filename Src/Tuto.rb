@@ -52,7 +52,7 @@ class Tuto
         ajouteBouton(@box,@boutonOptions,1,60,60,(1200*0.94), 675*0.02,nil,@window,@box2)
         ajoutecssProvider(@suivant,cssVoir,150,25)
         @box.put(@suivant,(1200 *0.84), 675 * 0.4)
-        ajouteBouton(@box,@precedent,1,150,25,(1200 *0.84),675 * 0.34,nil,@window,@box2)
+        ajouteBouton(@box,@precedent,1,150,25,(1200 *0.05),675 * 0.4,nil,@window,@box2)
         
         #Placement du texte dans la bulle du capitaine
         techniqueTextCss = ajouteTexte(2)
@@ -72,8 +72,6 @@ class Tuto
         #signal pour le bouton regle suivante permettant de passer à la règle suivante
         @suivant.signal_connect("clicked"){
             index = index+1
-            print(index)
-            print("\n")
             if index>1
                 @precedent.sensitive = true
                 @precedent.style_context.add_provider(cssVoir,Gtk::StyleProvider::PRIORITY_USER)
@@ -89,8 +87,6 @@ class Tuto
         #Signal pour le bouton regle precedente permettant de revenir à la règle précédente
         @precedent.signal_connect("clicked"){
             index = index-1
-            print(index)
-            print("\n")
             if index<2
                 @precedent.style_context.add_provider(@cssCache,Gtk::StyleProvider::PRIORITY_USER)
                 @precedent.sensitive = false
@@ -104,7 +100,7 @@ class Tuto
         }
         
         @grilleTuto = Grille_jeu.creer(true, joues)
-        @box.put(@grilleTuto.grille, (1200 *0.31), 675 * 0.16)
+        @box.put(@grilleTuto.grille, (1200 *0.28), 675 * 0.16)
 
         @window.add(@box2)
         @window.show_all
