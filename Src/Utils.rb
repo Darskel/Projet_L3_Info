@@ -74,8 +74,8 @@
     end
     
 
-    ########################
-    #########################
+    ##
+    # Crée le css pour les textes en fonctions de l'etat passé en parametre 
     def ajouteTexte(etat)
         css = Gtk::CssProvider.new
 
@@ -97,8 +97,8 @@
         return css
     end
 
-    #############################
-    ##########################
+    ##
+    # Applique le css au texte et lui applique la taille voulue
     def ajouteTexteProvider(texte, css, width, height)
         texte.style_context.add_provider(css, Gtk::StyleProvider::PRIORITY_USER) 
         texte.set_size_request(width, height)
