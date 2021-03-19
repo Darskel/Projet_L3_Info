@@ -28,13 +28,13 @@ class Connexion
         boite = Gtk::Fixed.new()
         @layoutManager = Gtk::Box.new(:vertical)
 
-        boite.add(Gtk::Image.new(:file => "../maquettes/texture_liege.jpg"))
+        boite.add(Gtk::Image.new(:file => "../maquettes/connexion.png"))
 
         @layoutManager.add(boite)
         @win.add(@layoutManager)
 
         saisie = Gtk::Entry.new()
-        valider = Gtk::Button.new(:label => "Valider")
+        valider = Gtk::Button.new(:label => " ")
         choixExistant = Gtk::ComboBoxText.new
 
         choixExistant.append_text "Sélectionner votre session"
@@ -60,23 +60,23 @@ class Connexion
         css = Gtk::CssProvider.new
         css.load(data: <<-CSS)
             button {
-                opacity: 0.5;
+                opacity: 0;
                 border: unset;
                 color: black;
             }
             button:hover {
-                opacity: 0.8;
+                opacity: 0.1;
                 border: 1px solid black;
             }
         CSS
 
 
-        ajoutecssProvider(valider, css, 120, 50)
+        ajoutecssProvider(valider, css, 60, 55)
 
         
-        boite.put(valider, (widthEcran *0.4), heightEcran * 0.55)
-        boite.put(choixExistant, (widthEcran *0.6), heightEcran * 0.4)
-        boite.put(saisie, (widthEcran *0.2), heightEcran * 0.4)
+        boite.put(valider, (widthEcran *0.88), heightEcran * 0.89)
+        boite.put(choixExistant, (widthEcran *0.45), heightEcran * 0.8)
+        boite.put(saisie, (widthEcran *0.47), heightEcran * 0.4)
 
 
         @win.show_all
