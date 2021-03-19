@@ -121,7 +121,7 @@ class Connexion
         $userPath += nom+"/"
         Dir.mkdir($userPath)
 
-        ##Ajout des premiers fichiers nécessaires
+        ##Ajout des premiers fichiers nécessaires pour un nouvel utilisateur
         File.open($userPath+"config.txt", "w")
         File.chmod(0777,$userPath + "config.txt")
         File.write($userPath+"config.txt", "Sons : true")
