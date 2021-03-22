@@ -48,7 +48,7 @@ class Tuto
 
         #Ajout des différents boutons, de leur css respectif ainsi que de leurs évents liés
         ajouteBouton(@box,@retourMenu,1,55,45,(1200 *0.015), 675 * 0.025,method(:vers_menu),@window,@box2)
-        ajouteBouton(@box,@boutonUndo,1,60,60,(1200*0.899), 675*0.02,nil,@window,@box2)
+        ajouteBouton(@box,@boutonUndo,1,60,60,(1200*0.899), 675*0.015,nil,@window,@box2)
         ajouteBouton(@box,@boutonOptions,1,60,60,(1200*0.94), 675*0.02,nil,@window,@box2)
         ajoutecssProvider(@suivant,cssVoir,150,25)
         @box.put(@suivant,(1200 *0.84), 675 * 0.4)
