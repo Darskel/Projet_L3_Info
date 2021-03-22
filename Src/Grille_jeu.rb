@@ -4,10 +4,11 @@ load "Bouttons_grille.rb"
 ##
 # Représentation d'une grille de jeu
 ##
-# * +grille+    Une Gtk::Grid qui représente le plateau de jeu
-# * +bouttons+  Tableau de boutons dans la grille
-# * +css+       Les différents CSS utilisables
-# * +joues+     Tableau des coups joués par l'utilisateur, permettant l'utilisationd de la fonctionnalité undo
+# * +grille+        Une Gtk::Grid qui représente le plateau de jeu
+# * +bouttons+      Tableau de boutons dans la grille
+# * +css+           Les différents CSS utilisables
+# * +joues+         Tableau des coups joués par l'utilisateur, permettant l'utilisationd de la fonctionnalité undo
+# * +nom_grille+    Le nom du fichier de la grille
 class Grille_jeu
 
     attr_reader :grille
@@ -38,8 +39,9 @@ class Grille_jeu
 
         @css = Css.new()
 
-        charger("../Grilles/grille1.txt")
-        #charger("../Grilles/tuto.txt")
+        @nom_grille = "../Grilles/grille1.txt"
+
+        charger(@nom_grille)
 
         unless (estJouable)
             rendreNonJouable()
@@ -61,8 +63,8 @@ class Grille_jeu
     # Charge la grille spécifiée en paramètre
     ##
     # * +nom_grille+    Le nom du fichier a charger
-    def charger(nom_grille)
-        file = File.open(nom_grille)
+    def charger()
+        file = File.open(@nom_grille)
         file_data = file.readlines.map(&:chomp)
         ligne_grille = file_data[1]
         ligne_solution = file_data[2]
@@ -97,9 +99,8 @@ class Grille_jeu
     ##
     # Vérification de la grille demandée par l'utilisateur
     def check()
-        file = File.open("../Grilles/grille1.txt")
+        file = File.open(@nom_grille)
 
-        #file = File.open("../Grilles/tuto.txt")
         file_data = file.readlines.map(&:chomp)
             
         ligne_solution = file_data[2]
