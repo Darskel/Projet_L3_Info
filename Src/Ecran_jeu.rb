@@ -59,7 +59,8 @@ class Ecran_jeu
         }
 
         aide.signal_connect("clicked"){
-            grille.fillNine()
+            grille.fillNine('9')
+            grille.fillNine('0')
         }
 
         espaceJeu.add(textfield1)

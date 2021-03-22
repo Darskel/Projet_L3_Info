@@ -61,7 +61,8 @@ class Ecran_libre
 
     def addChapitre(css, x, y)
         lblChapitre = Gtk::Label.new("")
-        ajouteTexteProvider(lblChapitre, css, 60, 60)
+        #ajouteTexteProvider(lblChapitre, css, 60, 60)
+        ajouteTexteProvider(lblChapitre, css)
         @boite.put(lblChapitre, x, y)
 
         return lblChapitre

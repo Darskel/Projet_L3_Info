@@ -72,7 +72,8 @@ class Tuto
 
         #signal qui remplit les cases faciles (9, 0)
         @boutonRemplissage.signal_connect("clicked"){
-            @grilleTuto.fillNine()
+            @grilleTuto.fillNine('9')
+            @grilleTuto.fillNine('0')
         }
 
         #signal du bouton undo afin de retourner au coup précédemment joué
