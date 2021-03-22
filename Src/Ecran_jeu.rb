@@ -1,5 +1,5 @@
 load "Grille_jeu.rb"
-
+load "chronometre.rb"
 ##
 # Représentation d'un écran de jeu, une partie de fill a pix
 ##
@@ -30,15 +30,16 @@ class Ecran_jeu
 
         grille = Grille_jeu.creer(true, joues)
         textfield1 = Gtk::Label.new("")
-        textfield2 = Gtk::Label.new("")
         textfield1.set_size_request(350, 200) 
         undo = Gtk::Button.new(:label => "Undo")
         check = Gtk::Button.new(:label => "Check")
         aide = Gtk::Button.new(:label => "Fill 9")
         quit = Gtk::Button.new(:label => "Quitter")
-        
+        temps = Gtk::Label.new("Temps : ")
+        chrono = Chronometre.creer(temps, 0, 0)
 
         quit.signal_connect("clicked"){
+            chrono.thr.kill
             vers_menu()
         }
         undo.signal_connect("clicked"){
@@ -63,7 +64,7 @@ class Ecran_jeu
 
         espaceJeu.add(textfield1)
         espaceJeu.add(grille.grille)
-        espaceJeu.add(textfield2)
+        espaceJeu.add(temps)
 
         @layoutManager.add(undo)
         @layoutManager.add(check)

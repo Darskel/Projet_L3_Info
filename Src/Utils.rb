@@ -80,6 +80,8 @@
 
     ##
     # Crée le css pour les textes en fonctions de l'etat passé en parametre 
+    ##
+    # * +etat+  le css demandé par l'user, 1 css pour les titres, 2 pour les descriptions texte
     def ajouteTexte(etat)
         css = Gtk::CssProvider.new
 
@@ -93,7 +95,7 @@
         elsif etat == 2
             css.load(data: <<-CSS)
             label {
-                font-size: 25px;
+                font-size: 22px;
                 font-family: sans-serif; 
             }
             CSS
@@ -110,8 +112,10 @@
 
     ##
     # Applique le css au texte et lui applique la taille voulue
-    def ajouteTexteProvider(texte, css, width, height)
+    ##
+    # * +texte+     Le texte auquel aplliquer le css
+    # * +css+       Le css a appliquer
+    def ajouteTexteProvider(texte, css)
         texte.style_context.add_provider(css, Gtk::StyleProvider::PRIORITY_USER) 
-        texte.set_size_request(width, height)
     end
     
