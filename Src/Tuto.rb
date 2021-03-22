@@ -17,7 +17,10 @@ class Tuto
         @precedent = Gtk::Button.new(:label => "Règle précédente")
         @retourMenu = Gtk::Button.new()
         @boutonUndo = Gtk::Button.new()
-        @boutonOptions = Gtk::Button.new()
+        @boutonRemplissage = Gtk::Button.new()
+        @boutonCheck = Gtk::Button.new()
+        @boutonCurseur = Gtk::Button.new()
+        @boutonCoupLogique = Gtk::Button.new();
 
 
         #Css des boutons
@@ -48,8 +51,11 @@ class Tuto
 
         #Ajout des différents boutons, de leur css respectif ainsi que de leurs évents liés
         ajouteBouton(@box,@retourMenu,1,55,45,(1200 *0.015), 675 * 0.025,method(:vers_menu),@window,@box2)
-        ajouteBouton(@box,@boutonUndo,1,60,60,(1200*0.899), 675*0.015,nil,@window,@box2)
-        ajouteBouton(@box,@boutonOptions,1,60,60,(1200*0.94), 675*0.02,nil,@window,@box2)
+        ajouteBouton(@box,@boutonCoupLogique,1,60,60,(1200*0.899), 675*0.015,nil,@window,@box2)
+        ajouteBouton(@box,@boutonCheck,1,60,60,(1200*0.855), 675*0.015,nil,@window,@box2)
+        ajouteBouton(@box,@boutonCurseur,1,60,60,(1200*0.812), 675*0.015,nil,@window,@box2)
+        ajouteBouton(@box,@boutonUndo,1,60,60,(1200*0.767), 675*0.015,nil,@window,@box2)
+        ajouteBouton(@box,@boutonRemplissage,1,60,60,(1200*0.942), 675*0.015,nil,@window,@box2)
         ajoutecssProvider(@suivant,cssVoir,150,25)
         @box.put(@suivant,(1200 *0.84), 675 * 0.4)
         ajouteBouton(@box,@precedent,1,150,25,(1200 *0.05),675 * 0.4,nil,@window,@box2)
@@ -77,7 +83,7 @@ class Tuto
                 @precedent.style_context.add_provider(cssVoir,Gtk::StyleProvider::PRIORITY_USER)
             end
 
-            if index>=10
+            if index>=11
                 @suivant.style_context.add_provider(@cssCache,Gtk::StyleProvider::PRIORITY_USER)
                 @suivant.sensitive = false
             end
@@ -92,7 +98,7 @@ class Tuto
                 @precedent.sensitive = false
             end
 
-            if index<10
+            if index<11
                 @suivant.sensitive = true
                 @suivant.style_context.add_provider(cssVoir,Gtk::StyleProvider::PRIORITY_USER)
             end
@@ -140,18 +146,32 @@ class Tuto
             @labelTechnique.set_text(@techniqueText)
 
         when 7 
+            @boutonCheck.style_context.add_provider(@cssCache,Gtk::StyleProvider::PRIORITY_USER)
             @boutonUndo.style_context.add_provider(cssAidePresentee,Gtk::StyleProvider::PRIORITY_USER)
             @techniqueText = "Première aide disponible : Ce bouton vous\npermet d'annuler le coup que vous venez de\nréaliser, vous revenez ainsi en arrière."
             @labelTechnique.set_text(@techniqueText)
         when 8
             @boutonUndo.style_context.add_provider(@cssCache,Gtk::StyleProvider::PRIORITY_USER)
+            @boutonCurseur.style_context.add_provider(@cssCache,Gtk::StyleProvider::PRIORITY_USER)
+            @boutonCheck.style_context.add_provider(cssAidePresentee,Gtk::StyleProvider::PRIORITY_USER)
             @techniqueText = "Deuxième aide disponible : Ce bouton vous\npermet de vérifier si tous les coups que\nvous avez joué sont corrects ou non."
             @labelTechnique.set_text(@techniqueText)
         when 9
-            @techniqueText = "Troisième aide disponible : Ce bouton vous\npermet de remplir automatiquement les cases\n9,6,4 et 0"
+            @boutonCheck.style_context.add_provider(@cssCache,Gtk::StyleProvider::PRIORITY_USER)
+            @boutonRemplissage.style_context.add_provider(@cssCache,Gtk::StyleProvider::PRIORITY_USER)
+            @boutonCurseur.style_context.add_provider(cssAidePresentee,Gtk::StyleProvider::PRIORITY_USER)
+            @techniqueText = "Troisième aide disponible : Ce bouton vous\npermet d'afficher votre curseur en\nsélectionnant un carré de 3 cases par 3."
             @labelTechnique.set_text(@techniqueText)
         when 10 
-            @techniqueText = "Quatrième aide disponible : Ce bouton vous\npermet d'afficher votre curseur en\nsélectionnant un carré de 3 cases par 3"
+            @boutonCurseur.style_context.add_provider(@cssCache,Gtk::StyleProvider::PRIORITY_USER)
+            @boutonCoupLogique.style_context.add_provider(@cssCache,Gtk::StyleProvider::PRIORITY_USER)
+            @boutonRemplissage.style_context.add_provider(cssAidePresentee,Gtk::StyleProvider::PRIORITY_USER)
+            @techniqueText = "Quatrième aide disponible : En cliquant ici\nvous pouvez remplir automatiquement les\ncases 9,6,4 et 0 via la case à cocher."
+            @labelTechnique.set_text(@techniqueText)
+        when 11
+            @boutonRemplissage.style_context.add_provider(@cssCache,Gtk::StyleProvider::PRIORITY_USER)
+            @boutonCoupLogique.style_context.add_provider(cssAidePresentee,Gtk::StyleProvider::PRIORITY_USER)
+            @techniqueText = "Cinquième aide disponible : Ce bouton vous\npermet d'afficher le prochain coup logique\nà faire lorsque vous êtes bloqués."
             @labelTechnique.set_text(@techniqueText)
         end
     end
