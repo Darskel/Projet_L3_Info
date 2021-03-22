@@ -77,7 +77,7 @@ class Tuto
                 @precedent.style_context.add_provider(cssVoir,Gtk::StyleProvider::PRIORITY_USER)
             end
 
-            if index>=11
+            if index>=10
                 @suivant.style_context.add_provider(@cssCache,Gtk::StyleProvider::PRIORITY_USER)
                 @suivant.sensitive = false
             end
@@ -92,7 +92,7 @@ class Tuto
                 @precedent.sensitive = false
             end
 
-            if index<11
+            if index<10
                 @suivant.sensitive = true
                 @suivant.style_context.add_provider(cssVoir,Gtk::StyleProvider::PRIORITY_USER)
             end
@@ -148,13 +148,10 @@ class Tuto
             @techniqueText = "Deuxième aide disponible : Ce bouton vous\npermet de vérifier si tous les coups que\nvous avez joué sont corrects ou non."
             @labelTechnique.set_text(@techniqueText)
         when 9
-            @techniqueText = "Troisième aide disponible : Ce bouton vous\npermet de remplir automatiquement les cases\n9,6,4 et 0."
+            @techniqueText = "Troisième aide disponible : Ce bouton vous\npermet de remplir automatiquement les cases\n9,6,4 et 0"
             @labelTechnique.set_text(@techniqueText)
         when 10 
-            @techniqueText = "Quatrième aide disponible : Ce bouton vous\npermet d'afficher votre curseur en\nsélectionnant un carré de 3 cases par 3."
-            @labelTechnique.set_text(@techniqueText)
-        when 11
-            @techniqueText = "Cinquième aide disponible : Ce bouton vous\npermet de prédir le prochain coup que vous pouvez jouer si vous êtes bloqué."
+            @techniqueText = "Quatrième aide disponible : Ce bouton vous\npermet d'afficher votre curseur en\nsélectionnant un carré de 3 cases par 3"
             @labelTechnique.set_text(@techniqueText)
         end
     end
