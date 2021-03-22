@@ -12,6 +12,11 @@ class Grille_jeu
 
     attr_reader :grille
 
+    ##
+    # Constructeur de la classe
+    ##
+    # * +estJouable+    Boolean qui permet de rendre les boutons de la grille clickaque ou non
+    # * +joues+         Tableau contenant les coups joues par l'utilisateur
     def Grille_jeu.creer(estJouable, joues)
         new(estJouable, joues)
     end
@@ -20,6 +25,9 @@ class Grille_jeu
 
     ##
     # Création de la grille
+    ##
+    # * +estJouable+    Boolean qui permet de rendre les boutons de la grille clickaque ou non
+    # * +joues+         Tableau contenant les coups joues par l'utilisateur
     def initialize(estJouable, joues)
         @grille = Gtk::Grid.new()
         @bouttons = Array.new(25)
@@ -38,6 +46,8 @@ class Grille_jeu
         end
     end
 
+    ##
+    # Rend tous les boutons de la grille non clickable
     def rendreNonJouable()
         0.upto(@nbLignes-1) do |i|
             0.upto(@nbColonnes-1) do |j|
