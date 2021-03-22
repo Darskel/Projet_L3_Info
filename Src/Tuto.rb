@@ -64,7 +64,8 @@ class Tuto
         techniqueTextCss = ajouteTexte(2)
         @techniqueText = "Première règle : Aucune case autour \nd'une case 0 n'est valide."
         @labelTechnique = Gtk::Label.new(@techniqueText)
-        ajouteTexteProvider(@labelTechnique,techniqueTextCss,60,60)
+        #ajouteTexteProvider(@labelTechnique,techniqueTextCss,60,60)
+        ajouteTexteProvider(@labelTechnique,techniqueTextCss)
         @box.put(@labelTechnique,(1200 *0.3), 675 * 0.84)
 
         @grilleTuto = Grille_jeu.creer(true, joues)

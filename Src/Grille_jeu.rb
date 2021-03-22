@@ -41,7 +41,7 @@ class Grille_jeu
 
         @nom_grille = "../Grilles/grille1.txt"
 
-        charger(@nom_grille)
+        charger()
 
         unless (estJouable)
             rendreNonJouable()
