@@ -67,7 +67,11 @@
 
         if (callback != nil) then
             bouton.signal_connect("clicked"){
-                callback.call(win, box)
+                if (win && box)
+                    callback.call(win, box)
+                else
+                    callback.call()
+                end
             }
         end
         boite.put(bouton, x, y)
@@ -86,10 +90,17 @@
                 font-family: sans-serif;
             }
             CSS
-        else
+        elsif etat == 2
             css.load(data: <<-CSS)
             label {
                 font-size: 25px;
+                font-family: sans-serif; 
+            }
+            CSS
+        elsif etat == 3
+            css.load(data: <<-CSS)
+            label {
+                font-size: 38px;
                 font-family: sans-serif; 
             }
             CSS
