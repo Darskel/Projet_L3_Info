@@ -98,6 +98,9 @@ class Ecran_aventure
 
     ##
     # Permet d'afficher le titre et la description du chapitre où est rendu le joueur
+    ##
+    # +chap+    Le numéro du chapitre à afficher
+    # +boite+   La boite où placer les informations du chapitre
     def affiche_chapitre(chap, boite)
         widhtEcran = 1200
         chapitreTexte = ajouteTexte(1)
@@ -106,14 +109,14 @@ class Ecran_aventure
         file_data = file.readlines.map(&:chomp)
         nom_chapitre = file_data[chap]
         @labelChapitre = Gtk::Label.new(nom_chapitre)
-        ajouteTexteProvider(@labelChapitre, chapitreTexte, 10, 10)
+        ajouteTexteProvider(@labelChapitre, chapitreTexte)
         boite.put(@labelChapitre, (widhtEcran *0.25), 50)
         placement = 170
 
         for i in chap+1..chap+4
             description = file_data[i]
             @labelDescription = Gtk::Label.new(description)
-            ajouteTexteProvider(@labelDescription, descriptionTexte, 10, 10)
+            ajouteTexteProvider(@labelDescription, descriptionTexte)
             boite.put(@labelDescription, 30, placement)
             placement += 30
         end
