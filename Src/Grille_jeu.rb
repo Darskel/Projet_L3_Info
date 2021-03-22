@@ -106,7 +106,6 @@ class Grille_jeu
                     @bouttons[i][j].mauvaiseReponse(@css.falseReponse)
                 elsif @bouttons[i][j].couleur == "white" && ligne_solution[i * @nbLignes + j].to_i == 1
                     succes = false
-                    puts("here")
                 end
                 if @bouttons[i][j].couleur == "black" && ligne_solution[i * @nbLignes + j].to_i == 0
                     succes = false

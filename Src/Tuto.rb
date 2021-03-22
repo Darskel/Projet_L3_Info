@@ -67,11 +67,29 @@ class Tuto
         ajouteTexteProvider(@labelTechnique,techniqueTextCss,60,60)
         @box.put(@labelTechnique,(1200 *0.3), 675 * 0.84)
 
+        @grilleTuto = Grille_jeu.creer(true, joues)
+
+        #signal qui remplit les cases faciles (9, 0)
+        @boutonRemplissage.signal_connect("clicked"){
+            @grilleTuto.fillNine()
+        }
+
         #signal du bouton undo afin de retourner au coup précédemment joué
         @boutonUndo.signal_connect("clicked"){ # signal pour le bouton undo
             if !joues.empty?
                 coup = joues.pop()
                 @grilleTuto.undo(coup)
+            end
+        }
+
+        #signal qui vérifie la grille
+        @boutonCheck.signal_connect("clicked"){
+            fini = @grilleTuto.check()
+
+            if(fini == true)
+                puts("GG")
+            else
+                puts("NOPE")
             end
         }
         
@@ -105,7 +123,6 @@ class Tuto
             changerTexteRegle(index)
         }
         
-        @grilleTuto = Grille_jeu.creer(true, joues)
         @box.put(@grilleTuto.grille, (1200 *0.28), 675 * 0.16)
 
         @window.add(@box2)
