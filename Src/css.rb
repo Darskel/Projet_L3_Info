@@ -54,6 +54,7 @@ class Css
         }
         CSS
 
+        #Css pour ajouter une bordure rouge sur une case blanche, symbole que l'aide Redsquare est activé
         @cssWRedBorder.load(data: <<-CSS)
         button {
             background-image: image(white);
@@ -64,6 +65,7 @@ class Css
         }
         CSS
 
+        #Css pour ajouter une bordure rouge sur une case noire, symbole que l'aide Redsquare est activé
         @cssBRedBorder.load(data: <<-CSS)
         button {
             background-image: image(black);
@@ -73,7 +75,7 @@ class Css
             box-shadow: 0 0 0 1px red inset;
         }
         CSS
-
+        #Css pour ajouter une bordure rouge sur une case grise, symbole que l'aide Redsquare est activé
         @cssGRedBorder.load(data: <<-CSS)
         button {
             background-image: image(grey);

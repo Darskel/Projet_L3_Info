@@ -218,6 +218,9 @@ class Grille_jeu
         end
     end
 
+    ##
+    #   Méthode qui change la valeur du boolean @redSquare 
+    ##
     def activeRedSquare()
         if(@redSquare == false)
             @redSquare = true
@@ -226,6 +229,10 @@ class Grille_jeu
         end
     end
 
+    ##
+    #   Méthode qui ajoute un css avec bordure rouge au bouton en paramètre selon sa couleur de base
+    #   Cette méthode est appelée lorsque l'utilisateur a activé l'aide RedSquare et que sa souris survole un boutton
+    ##
     def putRedSquare(boutton)
         if(boutton.couleur=="white")
             boutton.boutton.style_context.add_provider(@css.cssWRedBorder, Gtk::StyleProvider::PRIORITY_USER)
@@ -236,6 +243,11 @@ class Grille_jeu
         end
     end
 
+    ##
+    #   Méthode qui enlève un css avec bordure rouge au bouton en paramètre selon sa couleur de base
+    #   Cette méthode est appelée lorsque l'utilisateur a activé l'aide RedSquare
+    #   et que sa souris quitte un boutton
+    ##
     def removeRedSquare(boutton)
         if(boutton.couleur=="white")
             boutton.boutton.style_context.add_provider(@css.cssW, Gtk::StyleProvider::PRIORITY_USER)
@@ -246,7 +258,11 @@ class Grille_jeu
         end
     end
 
-
+    ##
+    #   Méthode qui appelle la méthode putRedSquare sur les 6 boutons valides 
+    #   entourant le bouton sur lequelle la souris de l'utilisateur se trouve
+    #   
+    ##
     def enterButton(i, j)
         if(@redSquare)
             if(coordValide(i-1, j-1))
@@ -279,6 +295,13 @@ class Grille_jeu
         end
     end
 
+    ##
+    #   Méthode qui appelle la méthode removeRedSquare sur les 6 boutons valides 
+    #   entourant le bouton sur lequelle la souris de l'utilisateur se trouvait
+    #   (méthode appelée lorsque l'utilisateur quitte un bouton avec sa souris
+    #   et que l'aide RedSquare est activée)
+    #   
+    ##
     def leaveButton(i, j)
         if(@redSquare)
             if(coordValide(i-1, j-1))

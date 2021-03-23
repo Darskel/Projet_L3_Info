@@ -93,7 +93,7 @@ class Boutton_grille
 
     
     ##
-    # Créer le signal pour les interactions du bouton
+    # Créer les signaux pour les interactions du bouton
     ##
     # * +cssW+  css pour la couleur blanc
     # * +cssB+  css pour la couleur noir
