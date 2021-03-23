@@ -12,6 +12,7 @@ load "Tuto.rb"
 load "Utils.rb"
 load "Connexion.rb"
 load "chronometre.rb"
+load "Classement.rb"
 
 $userPath = "../Users/"
 
