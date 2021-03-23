@@ -1,6 +1,14 @@
+##
+# Représentation d'un écran de jeu, une partie de fill a pix
+##
+# * +win+               La fenêtre graphique du programme
+# * +layoutManager+     Le layout principal pour le placement dans la fenetre
 class Ecran_libre
     
-
+    ##
+    # Constructeur de la classe
+    ##
+    # * +win+   La fenetre de l'application
     def Ecran_libre.creer(win)
         new(win)
     end
@@ -8,7 +16,7 @@ class Ecran_libre
     private_class_method :new
 
     ##
-    #
+    # Construction de l'instance
     ##
     # * +win+   La fenetre de l'application
     def initialize(win)
@@ -59,6 +67,12 @@ class Ecran_libre
         return self
     end
 
+    ##
+    # Ajoute un chapitre dans la boite
+    ##
+    # * +css+   Le css a appliquer
+    # * +x+     Postion en abscisse
+    # * +y+     Postion en ordonnée
     def addChapitre(css, x, y)
         lblChapitre = Gtk::Label.new("")
         ajouteTexteProvider(lblChapitre, css)
@@ -67,6 +81,8 @@ class Ecran_libre
         return lblChapitre
     end
 
+    ##
+    # Permet de changer les chapitres à l'appuie sur la flèche
     def actualiserChapitres()
         @lblChapitre1.label = nextChapitre()
         @lblChapitre2.label = nextChapitre()
@@ -77,6 +93,8 @@ class Ecran_libre
         return self
     end
 
+    ##
+    # Charge le texte d'un chapitre dans le label
     def nextChapitre()
         until (@file_data[@i_chap].gsub("    ", "").start_with?("Chapitre"))
             @i_chap += 1
