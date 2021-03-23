@@ -74,10 +74,8 @@ class Connexion
             }
         CSS
 
-
         ajoutecssProvider(valider, css, 60, 55)
 
-        
         boite.put(valider, (widthEcran *0.88), heightEcran * 0.89)
         boite.put(choixExistant, (widthEcran *0.45), heightEcran * 0.8)
         boite.put(saisie, (widthEcran *0.47), heightEcran * 0.4)

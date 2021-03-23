@@ -1,5 +1,5 @@
 load "Grille_jeu.rb"
-load "chronometre.rb"
+
 ##
 # Représentation d'un écran de jeu, une partie de fill a pix
 ##

@@ -1,8 +1,11 @@
     ##
     # Permet de passer à l'écran du menu
+    ##
+    # * +window+      Fenetre graphique de l'application
+    # * +boite+       Layout manager principal de l'écran en cours
     def vers_menu(window,boite)
         window.remove(boite)
-        @ecr  = Ecran_menu.creer(window)
+        Ecran_menu.creer(window)
     end
 
 

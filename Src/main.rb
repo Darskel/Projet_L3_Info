@@ -11,6 +11,7 @@ load "Ecran_menu.rb"
 load "Tuto.rb"
 load "Utils.rb"
 load "Connexion.rb"
+load "chronometre.rb"
 
 $userPath = "../Users/"
 
