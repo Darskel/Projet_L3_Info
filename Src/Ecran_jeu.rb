@@ -28,7 +28,7 @@ class Ecran_jeu
 
         joues = Array.new()
 
-        grille = Grille_jeu.creer(true, joues)
+        grille = Grille_jeu.creer(true, joues, "../Grilles/tuto.txt")
         textfield1 = Gtk::Label.new("")
         textfield1.set_size_request(350, 200) 
         undo = Gtk::Button.new(:label => "Undo")

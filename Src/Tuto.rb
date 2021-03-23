@@ -68,7 +68,7 @@ class Tuto
         ajouteTexteProvider(@labelTechnique,techniqueTextCss)
         @box.put(@labelTechnique,(1200 *0.3), 675 * 0.84)
 
-        @grilleTuto = Grille_jeu.creer(true, joues)
+        @grilleTuto = Grille_jeu.creer(true, joues, "../Grilles/tuto.txt")
 
         #signal qui remplit les cases faciles (9, 0)
         @boutonRemplissage.signal_connect("clicked"){
