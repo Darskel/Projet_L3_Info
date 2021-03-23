@@ -84,6 +84,11 @@ class Tuto
 
         @grilleTuto = Grille_jeu.creer(true, joues, "../Grilles/tuto.txt")
 
+        #signal pour activer le rectangle rouge autour du curseur
+        @boutonCurseur.signal_connect("clicked"){
+            @grilleTuto.activeRedSquare()
+        }
+
         #signal qui remplit les cases faciles (9, 0)
         @boutonRemplissage.signal_connect("clicked"){
             @grilleTuto.fillNine('9')

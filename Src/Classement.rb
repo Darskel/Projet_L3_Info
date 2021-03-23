@@ -1,8 +1,22 @@
+##
+# Classe qui permet d'accèder au menu principal
+##
+# * +win+               La fenetre de l'application
+# * +boiteInterieure+     Le layout principal pour le placement dans la fenetre
 class Classement
+
+    ##
+    # Constructeur
+    ##
+    # * +win+   Fenetre de l'application
     def Classement.creer(win)
         new(win)
     end
 
+    ##
+    # Création du contenu de l'écran du menu principal
+    ##
+    # * +win+   La fenetre de l'application
     def initialize(win)
         #Création de l'interface
 
