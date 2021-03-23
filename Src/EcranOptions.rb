@@ -50,6 +50,10 @@ class EcranOptions
         classement.signal_connect("clicked"){
             vers_classement()
         }
+        credits.signal_connect("clicked"){
+            vers_credit()
+        }
+        
         widthOptionsPrincipales = 307
         heightOptionsPrincipales = 68
         width = 31
@@ -83,6 +87,14 @@ class EcranOptions
     def vers_classement()
         @win.remove(@layoutManager)
         Classement.creer(@win)
+        return self
+    end
+
+    ##
+    # Permet de changer la fenetre pour afficher les crédits
+    def vers_credit()
+        @win.remove(@layoutManager)
+        Credit.creer(@win)
         return self
     end
 

@@ -60,7 +60,7 @@ class Css
             color : black;
             border: 1px solid red;
             border-radius: 0px;
-            box-shadow: 0 0 0 0px white inset;
+            box-shadow: 0 0 0 1px red inset;
         }
         CSS
 
@@ -70,7 +70,7 @@ class Css
             color : white;
             border: 1px solid red;
             border-radius: 0px;
-            box-shadow: 0 0 0 0px black inset;
+            box-shadow: 0 0 0 1px red inset;
         }
         CSS
 
@@ -80,7 +80,7 @@ class Css
             color : white;
             border: 1px solid red;
             border-radius: 0px;
-            box-shadow: 0 0 0 0px grey inset;
+            box-shadow: 0 0 0 1px red inset;
         }
         CSS
 
