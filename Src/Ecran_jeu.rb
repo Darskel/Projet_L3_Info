@@ -60,6 +60,8 @@ class Ecran_jeu
 
         aide.signal_connect("clicked"){
             grille.fillNine('9')
+            grille.fillNine('4')
+            grille.fillNine('6')
             grille.fillNine('0')
         }
 

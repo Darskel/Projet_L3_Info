@@ -73,6 +73,8 @@ class Tuto
         #signal qui remplit les cases faciles (9, 0)
         @boutonRemplissage.signal_connect("clicked"){
             @grilleTuto.fillNine('9')
+            @grilleTuto.fillNine('4')
+            @grilleTuto.fillNine('6')
             @grilleTuto.fillNine('0')
         }
 

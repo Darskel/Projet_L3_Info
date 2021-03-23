@@ -135,53 +135,73 @@ class Grille_jeu
             couleur = "grey"
         end
 
+        possible = true
+
         0.upto(@nbLignes-1) do |i|
             0.upto(@nbColonnes-1) do |j|
                 if(@bouttons[i][j].contenu == nombre)
-                    if(coordValide(i-1, j-1))
-                        #@bouttons[i-1][j-1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
-                        @bouttons[i-1][j-1].couleur= couleur
-                        @bouttons[i-1][j-1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                    if(nombre == '4')
+                        if((i-1 == -1 && j-1 == -1) || (i-1 == -1 && j+1 == @nbColonnes) || (i+1 == @nbLignes && j-1 == -1) || (i+1 == @nbLignes && j+1 == @nbColonnes))
+                            possible = true
+                        else
+                            possible = false
+                        end
                     end
-                    if(coordValide(i-1, j))
-                        #@bouttons[i-1][j].change_couleur(@css.cssW, @css.cssB, @css.cssG)
-                        @bouttons[i-1][j].couleur= couleur
-                        @bouttons[i-1][j].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+
+                    if(nombre == '6')
+                        if(i-1 == -1 || i+1 == @nbLignes || j-1 == -1 || j+1 == @nbColonnes)
+                            possible = true
+                        else
+                            possible = false
+                        end
                     end
-                    if(coordValide(i-1, j+1))
-                        #@bouttons[i-1][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
-                        @bouttons[i-1][j+1].couleur= couleur
-                        @bouttons[i-1][j+1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
-                    end
-                    if(coordValide(i, j-1))
-                        #@bouttons[i][j-1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
-                        @bouttons[i][j-1].couleur= couleur
-                        @bouttons[i][j-1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
-                    end
-                    if(coordValide(i, j))
-                        #@bouttons[i][j].change_couleur(@css.cssW, @css.cssB, @css.cssG)
-                        @bouttons[i][j].couleur= couleur
-                        @bouttons[i][j].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
-                    end
-                    if(coordValide(i, j+1))
-                        #@bouttons[i][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
-                        @bouttons[i][j+1].couleur= couleur
-                        @bouttons[i][j+1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
-                    end
-                    if(coordValide(i+1, j-1))
-                        #@bouttons[i+1][j-1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
-                        @bouttons[i+1][j-1].couleur= couleur
-                        @bouttons[i+1][j-1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
-                    end
-                    if(coordValide(i+1, j))
-                        #@bouttons[i+1][j].change_couleur(@css.cssW, @css.cssB, @css.cssG)
-                        @bouttons[i+1][j].couleur= couleur
-                        @bouttons[i+1][j].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
-                    end
-                    if(coordValide(i+1, j+1))
-                        #@bouttons[i+1][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
-                        @bouttons[i+1][j+1].couleur= couleur
-                        @bouttons[i+1][j+1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+
+                    if(possible == true)
+                        if(coordValide(i-1, j-1))
+                            #@bouttons[i-1][j-1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                            @bouttons[i-1][j-1].couleur= couleur
+                            @bouttons[i-1][j-1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                        end
+                        if(coordValide(i-1, j))
+                            #@bouttons[i-1][j].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                            @bouttons[i-1][j].couleur= couleur
+                            @bouttons[i-1][j].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                        end
+                        if(coordValide(i-1, j+1))
+                            #@bouttons[i-1][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                            @bouttons[i-1][j+1].couleur= couleur
+                            @bouttons[i-1][j+1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                        end
+                        if(coordValide(i, j-1))
+                            #@bouttons[i][j-1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                            @bouttons[i][j-1].couleur= couleur
+                            @bouttons[i][j-1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                        end
+                        if(coordValide(i, j))
+                            #@bouttons[i][j].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                            @bouttons[i][j].couleur= couleur
+                            @bouttons[i][j].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                        end
+                        if(coordValide(i, j+1))
+                            #@bouttons[i][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                            @bouttons[i][j+1].couleur= couleur
+                            @bouttons[i][j+1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                        end
+                        if(coordValide(i+1, j-1))
+                            #@bouttons[i+1][j-1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                            @bouttons[i+1][j-1].couleur= couleur
+                            @bouttons[i+1][j-1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                        end
+                        if(coordValide(i+1, j))
+                            #@bouttons[i+1][j].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                            @bouttons[i+1][j].couleur= couleur
+                            @bouttons[i+1][j].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                        end
+                        if(coordValide(i+1, j+1))
+                            #@bouttons[i+1][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                            @bouttons[i+1][j+1].couleur= couleur
+                            @bouttons[i+1][j+1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                        end
                     end
                 end
             end
