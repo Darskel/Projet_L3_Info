@@ -1,13 +1,27 @@
 load "Grille_jeu.rb"
 load "Utils.rb"
+
+##
+# Classe qui permet d'accèder au menu principal
+##
+# * +win+               La fenetre de l'application
+# * +layoutManager+     Le layout principal pour le placement dans la fenetre
 class Tuto
 
     private_class_method :new
 
+    ##
+    # Constructeur
+    ##
+    # * +win+       Fenetre graphique de l'application
     def Tuto.creer(win)
         new(win)
     end
 
+    ##
+    # Construction de l'instance
+    ##
+    # * +win+       Fenetre graphique de l'application
     def initialize(win)
         #Création de l'interface 
         @window = win
@@ -133,7 +147,10 @@ class Tuto
         @window.show_all
     end
 
-    #Fonction permettant de changer le texte présent dans le label de la bulle du capitaine en fonction du 
+    ##
+    # Fonction permettant de changer le texte présent dans le label de la bulle du capitaine en fonction du 
+    ##
+    # * +index+     Numéro de la règle
     def changerTexteRegle(index)
         
         cssAidePresentee = Gtk::CssProvider.new

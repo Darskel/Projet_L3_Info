@@ -113,6 +113,8 @@ class Ecran_menu
         return self
     end
 
+    ##
+    # Demande l'affichage de l'écran des options
     def vers_options()
         @win.remove(@layoutManager)
         EcranOptions.creer(@win)
