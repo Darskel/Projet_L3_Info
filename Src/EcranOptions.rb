@@ -47,6 +47,9 @@ class EcranOptions
         sons.signal_connect("toggled"){
             saveSons(sons)
         }
+        classement.signal_connect("clicked"){
+            vers_classement()
+        }
         widthOptionsPrincipales = 307
         heightOptionsPrincipales = 68
         width = 31
@@ -75,6 +78,13 @@ class EcranOptions
         return self
     end
 
+    ##
+    # Permet de changer la fenetre pour aller afficher le classement
+    def vers_classement()
+        @win.remove(@layoutManager)
+        Classement.creer(@win)
+        return self
+    end
 
     ##
     # Sauvegarde la préférence du joueur dans son fichier de config
