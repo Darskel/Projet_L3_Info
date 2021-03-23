@@ -1,6 +1,14 @@
+##
+# Ecran qui permet à l'utilisateur de lancer une partie dans le menu aventure
+##
+# * +win+               La fenetre de l'application
+# * +layoutManager+     Le layout principal pour le placement dans la fenetre
 class Ecran_aventure
     
-
+    ##
+    # Constructeur
+    ##
+    # * +win La fenetre de l'application+
     def Ecran_aventure.creer(win)
         new(win)
     end
@@ -8,7 +16,7 @@ class Ecran_aventure
     private_class_method :new
 
     ##
-    #
+    # Construction de l'instance
     ##
     # * +win+   La fenetre de l'application
     def initialize(win)

@@ -46,7 +46,7 @@ class Css
         }
         CSS
 
-        # Css pour le fond gris et la couleur de police blanc
+        # Css pour ajouter une bordure rouge, symbole d'une case fausse
         @falseReponse.load(data: <<-CSS)
         button {
             border: 1px groove red;

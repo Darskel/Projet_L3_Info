@@ -18,8 +18,8 @@ class Grille_jeu
     ##
     # * +estJouable+    Boolean qui permet de rendre les boutons de la grille clickaque ou non
     # * +joues+         Tableau contenant les coups joues par l'utilisateur
-    def Grille_jeu.creer(estJouable, joues)
-        new(estJouable, joues)
+    def Grille_jeu.creer(estJouable, joues, nomGrille)
+        new(estJouable, joues, nomGrille)
     end
 
     private_class_method :new
@@ -29,7 +29,8 @@ class Grille_jeu
     ##
     # * +estJouable+    Boolean qui permet de rendre les boutons de la grille clickaque ou non
     # * +joues+         Tableau contenant les coups joues par l'utilisateur
-    def initialize(estJouable, joues)
+    # * +nomGrille+     Le nom du fichier de la grille
+    def initialize(estJouable, joues, nomGrille)
         @grille = Gtk::Grid.new()
         @bouttons = Array.new(25)
         0.upto(25) do |i|
@@ -39,7 +40,8 @@ class Grille_jeu
 
         @css = Css.new()
 
-        @nom_grille = "../Grilles/grille1.txt"
+        #@nom_grille = "../Grilles/grille1.txt"
+        @nom_grille = nomGrille
 
         @redSquare = false
 

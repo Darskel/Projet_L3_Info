@@ -1,13 +1,27 @@
 load "Grille_jeu.rb"
 load "Utils.rb"
+
+##
+# Classe qui permet d'accèder au menu principal
+##
+# * +win+               La fenetre de l'application
+# * +layoutManager+     Le layout principal pour le placement dans la fenetre
 class Tuto
 
     private_class_method :new
 
+    ##
+    # Constructeur
+    ##
+    # * +win+       Fenetre graphique de l'application
     def Tuto.creer(win)
         new(win)
     end
 
+    ##
+    # Construction de l'instance
+    ##
+    # * +win+       Fenetre graphique de l'application
     def initialize(win)
         #Création de l'interface 
         @window = win
@@ -46,7 +60,7 @@ class Tuto
         joues = Array.new #tableau des coups joués par l'utilisateur pour le undo
 
         #Ajout du fond 
-        @box.add(Gtk::Image.new(:file => "../maquettes/TutorielV2.png"))
+        @box.add(Gtk::Image.new(:file => "../maquettes/Tutoriel.png"))
         @box2.add(@box)
 
         #Ajout des différents boutons, de leur css respectif ainsi que de leurs évents liés
@@ -68,7 +82,7 @@ class Tuto
         ajouteTexteProvider(@labelTechnique,techniqueTextCss)
         @box.put(@labelTechnique,(1200 *0.3), 675 * 0.84)
 
-        @grilleTuto = Grille_jeu.creer(true, joues)
+        @grilleTuto = Grille_jeu.creer(true, joues, "../Grilles/tuto.txt")
 
         #signal qui remplit les cases faciles (9, 0)
         @boutonRemplissage.signal_connect("clicked"){
@@ -133,7 +147,10 @@ class Tuto
         @window.show_all
     end
 
-    #Fonction permettant de changer le texte présent dans le label de la bulle du capitaine en fonction du 
+    ##
+    # Fonction permettant de changer le texte présent dans le label de la bulle du capitaine en fonction du 
+    ##
+    # * +index+     Numéro de la règle
     def changerTexteRegle(index)
         
         cssAidePresentee = Gtk::CssProvider.new

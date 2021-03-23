@@ -1,8 +1,11 @@
     ##
     # Permet de passer à l'écran du menu
+    ##
+    # * +window+      Fenetre graphique de l'application
+    # * +boite+       Layout manager principal de l'écran en cours
     def vers_menu(window,boite)
         window.remove(boite)
-        @ecr  = Ecran_menu.creer(window)
+        Ecran_menu.creer(window)
     end
 
 
@@ -103,7 +106,8 @@
             css.load(data: <<-CSS)
             label {
                 font-size: 38px;
-                font-family: sans-serif; 
+                font-family: sans-serif;
+                text-shadow: 1px 0 0 black, 0 1px 0 black, -1px 0 0 black, 0 -1px 0 black;
             }
             CSS
         end
