@@ -103,7 +103,8 @@
             css.load(data: <<-CSS)
             label {
                 font-size: 38px;
-                font-family: sans-serif; 
+                font-family: sans-serif;
+                text-shadow: 1px 0 0 black, 0 1px 0 black, -1px 0 0 black, 0 -1px 0 black;
             }
             CSS
         end

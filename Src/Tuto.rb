@@ -46,7 +46,7 @@ class Tuto
         joues = Array.new #tableau des coups joués par l'utilisateur pour le undo
 
         #Ajout du fond 
-        @box.add(Gtk::Image.new(:file => "../maquettes/TutorielV2.png"))
+        @box.add(Gtk::Image.new(:file => "../maquettes/Tutoriel.png"))
         @box2.add(@box)
 
         #Ajout des différents boutons, de leur css respectif ainsi que de leurs évents liés
