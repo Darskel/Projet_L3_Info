@@ -41,6 +41,8 @@ class Grille_jeu
 
         @nom_grille = "../Grilles/grille1.txt"
 
+        @redSquare = false
+
         charger()
 
         unless (estJouable)
@@ -76,7 +78,7 @@ class Grille_jeu
         0.upto(@nbLignes-1) do |i|
             0.upto(@nbColonnes-1) do |j|
                 # création des boutons, connection des signaux et placement sur la grille
-                @bouttons[i][j] = Boutton_grille.creer(ligne_grille[i_bouton], @css.cssW, @joues, i, j)
+                @bouttons[i][j] = Boutton_grille.creer(ligne_grille[i_bouton], @css.cssW, @joues, i, j, self)
                 i_bouton += 1
                 @bouttons[i][j].signal(@css.cssW, @css.cssB, @css.cssG)
 
@@ -213,5 +215,99 @@ class Grille_jeu
             return true;
         end
     end
+
+    def activeRedSquare()
+        if(@redSquare == false)
+            @redSquare = true
+        else
+            @redSquare = false
+        end
+    end
+
+    def putRedSquare(boutton)
+        if(boutton.couleur=="white")
+            boutton.boutton.style_context.add_provider(@css.cssWRedBorder, Gtk::StyleProvider::PRIORITY_USER)
+        elsif(boutton.couleur=="black")
+            boutton.boutton.style_context.add_provider(@css.cssBRedBorder, Gtk::StyleProvider::PRIORITY_USER)
+        else    
+            boutton.boutton.style_context.add_provider(@css.cssGRedBorder, Gtk::StyleProvider::PRIORITY_USER)
+        end
+    end
+
+    def removeRedSquare(boutton)
+        if(boutton.couleur=="white")
+            boutton.boutton.style_context.add_provider(@css.cssW, Gtk::StyleProvider::PRIORITY_USER)
+        elsif(boutton.couleur=="black")
+            boutton.boutton.style_context.add_provider(@css.cssB, Gtk::StyleProvider::PRIORITY_USER)
+        else
+            boutton.boutton.style_context.add_provider(@css.cssG, Gtk::StyleProvider::PRIORITY_USER)
+        end
+    end
+
+
+    def enterButton(i, j)
+        if(@redSquare)
+            if(coordValide(i-1, j-1))
+                putRedSquare(@bouttons[i-1][j-1])
+            end
+            if(coordValide(i-1, j))
+                putRedSquare(@bouttons[i-1][j])
+            end
+            if(coordValide(i-1, j+1))
+                putRedSquare(@bouttons[i-1][j+1])
+            end
+            if(coordValide(i, j-1))
+                putRedSquare(@bouttons[i][j-1])
+            end
+            if(coordValide(i, j))
+                putRedSquare(@bouttons[i][j])
+            end
+            if(coordValide(i, j+1))
+                putRedSquare(@bouttons[i][j+1])
+            end
+            if(coordValide(i+1, j-1))
+                putRedSquare(@bouttons[i+1][j-1])
+            end
+            if(coordValide(i+1, j))
+                putRedSquare(@bouttons[i+1][j])
+            end
+            if(coordValide(i+1, j+1))
+                putRedSquare(@bouttons[i+1][j+1])
+            end
+        end
+    end
+
+    def leaveButton(i, j)
+        if(@redSquare)
+            if(coordValide(i-1, j-1))
+                removeRedSquare(@bouttons[i-1][j-1])
+            end
+            if(coordValide(i-1, j))
+                removeRedSquare(@bouttons[i-1][j])
+            end
+            if(coordValide(i-1, j+1))
+                removeRedSquare(@bouttons[i-1][j+1])
+            end
+            if(coordValide(i, j-1))
+                removeRedSquare(@bouttons[i][j-1])
+            end
+            if(coordValide(i, j))
+                removeRedSquare(@bouttons[i][j])
+            end
+            if(coordValide(i, j+1))
+                removeRedSquare(@bouttons[i][j+1])
+            end
+            if(coordValide(i+1, j-1))
+                removeRedSquare(@bouttons[i+1][j-1])
+            end
+            if(coordValide(i+1, j))
+                removeRedSquare(@bouttons[i+1][j])
+            end
+            if(coordValide(i+1, j+1))
+                removeRedSquare(@bouttons[i+1][j+1])
+            end
+        end
+    end
+
 
 end

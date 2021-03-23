@@ -32,6 +32,7 @@ class Ecran_jeu
         textfield1 = Gtk::Label.new("")
         textfield1.set_size_request(350, 200) 
         undo = Gtk::Button.new(:label => "Undo")
+        redSquare = Gtk::Button.new(:label => "redSquare")
         check = Gtk::Button.new(:label => "Check")
         aide = Gtk::Button.new(:label => "Fill 9")
         quit = Gtk::Button.new(:label => "Quitter")
@@ -65,6 +66,10 @@ class Ecran_jeu
             grille.fillNine('0')
         }
 
+        redSquare.signal_connect("clicked"){
+            grille.activeRedSquare()
+        }
+
         espaceJeu.add(textfield1)
         espaceJeu.add(grille.grille)
         espaceJeu.add(temps)
@@ -72,8 +77,10 @@ class Ecran_jeu
         @layoutManager.add(undo)
         @layoutManager.add(check)
         @layoutManager.add(aide)
+        @layoutManager.add(redSquare)
         @layoutManager.add(espaceJeu)
         @layoutManager.add(quit)
+        
         @win.add(@layoutManager)
 
         @win.show_all
