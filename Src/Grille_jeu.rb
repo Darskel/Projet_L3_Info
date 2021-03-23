@@ -127,6 +127,10 @@ class Grille_jeu
         return succes
     end
 
+    ##
+    # Rempli l'espace autour d'un nombre de cases noires ou grises selon le paramètre
+    ##
+    # * +nombre+    Le nombre que l'on souhaite voir être entouré de cases noires ou grises
     def fillNine(nombre)
 
         if(nombre != '0')
@@ -158,47 +162,38 @@ class Grille_jeu
 
                     if(possible == true)
                         if(coordValide(i-1, j-1))
-                            #@bouttons[i-1][j-1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
                             @bouttons[i-1][j-1].couleur= couleur
                             @bouttons[i-1][j-1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
                         end
                         if(coordValide(i-1, j))
-                            #@bouttons[i-1][j].change_couleur(@css.cssW, @css.cssB, @css.cssG)
                             @bouttons[i-1][j].couleur= couleur
                             @bouttons[i-1][j].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
                         end
                         if(coordValide(i-1, j+1))
-                            #@bouttons[i-1][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
                             @bouttons[i-1][j+1].couleur= couleur
                             @bouttons[i-1][j+1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
                         end
                         if(coordValide(i, j-1))
-                            #@bouttons[i][j-1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
                             @bouttons[i][j-1].couleur= couleur
                             @bouttons[i][j-1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
                         end
                         if(coordValide(i, j))
-                            #@bouttons[i][j].change_couleur(@css.cssW, @css.cssB, @css.cssG)
                             @bouttons[i][j].couleur= couleur
                             @bouttons[i][j].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
                         end
                         if(coordValide(i, j+1))
-                            #@bouttons[i][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
                             @bouttons[i][j+1].couleur= couleur
                             @bouttons[i][j+1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
                         end
                         if(coordValide(i+1, j-1))
-                            #@bouttons[i+1][j-1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
                             @bouttons[i+1][j-1].couleur= couleur
                             @bouttons[i+1][j-1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
                         end
                         if(coordValide(i+1, j))
-                            #@bouttons[i+1][j].change_couleur(@css.cssW, @css.cssB, @css.cssG)
                             @bouttons[i+1][j].couleur= couleur
                             @bouttons[i+1][j].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
                         end
                         if(coordValide(i+1, j+1))
-                            #@bouttons[i+1][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
                             @bouttons[i+1][j+1].couleur= couleur
                             @bouttons[i+1][j+1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
                         end
@@ -208,6 +203,11 @@ class Grille_jeu
         end
     end
 
+    ##
+    # Retourne vrai si les coordonnées passées en paramètre sont valides (ne sortent pas du tableau)
+    ##
+    # * +i+ Coordonnée en abscisse
+    # * +j+ Coordonnée en ordonnée
     def coordValide(i, j)
         if(i>=0 && i<@nbLignes && j>=0 && j<@nbColonnes)
             return true;
