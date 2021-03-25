@@ -32,15 +32,6 @@ class Historique
         return @historiqueActions[@position+1]
     end
 
-    def redo
-
-        if (@position == @historiqueActions.size()-1)
-            raise RedoHistoriqueError, "Redo Impossible !"
-        end
-
-        @position += 1
-        return @historiqueActions[@position]
-    end
 
     def getAction()
 
@@ -56,34 +47,6 @@ class Historique
 
         @position = pos
         return self
-    end
-
-    def reset( ha)
-
-        #@historiqueActions = ha
-        #@position = pos
-
-        savePos = ha.getPos()
-        @historiqueActions = Array.new()
-        @position = -1
-
-        begin
-            while ( true ) do
-                ha.undo()
-            end
-        rescue EmptyHistoriqueError => e
-            # on boucle jusqu'a ce que l'historique soit vide, l'erreur est normale
-        end
-
-        begin
-            while ( true ) do
-                self.ajouterAction( ha.redo());
-            end
-        rescue RedoHistoriqueError => e
-            # on boucle jusqu'a ce que l'historique ait été parcouru en entier, l'erreur est normale
-        end
-
-        self.setPos( savePos)
     end
 
     def to_s
