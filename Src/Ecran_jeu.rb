@@ -88,32 +88,6 @@ class Ecran_jeu
                 end
             end
         }
-<<<<<<< Updated upstream
-
-        aide.signal_connect("clicked"){
-            grille.fillNine('9')
-            grille.fillNine('4')
-            grille.fillNine('6')
-            grille.fillNine('0')
-        }
-
-        redSquare.signal_connect("clicked"){
-            grille.activeRedSquare()
-        }
-
-        espaceJeu.add(textfield1)
-        espaceJeu.add(grille.grille)
-        espaceJeu.add(temps)
-
-        @layoutManager.add(undo)
-        @layoutManager.add(check)
-        @layoutManager.add(aide)
-        @layoutManager.add(procCoupLog)
-        @layoutManager.add(redSquare)
-        @layoutManager.add(espaceJeu)
-        @layoutManager.add(quit)
-=======
->>>>>>> Stashed changes
         
         @box.put(@grille.grille, (1200 *0.28), 675 * 0.16)
 
