@@ -6,14 +6,15 @@ load "Utils.rb"
 ##
 # * +win+               La fenetre de l'application
 # * +layoutManager+     Le layout principal pour le placement dans la fenetre
-class Ecran_jeu
+class Chapitre2
+
     private_class_method :new
 
     ##
     # Constructeur
     ##
     # * +win+       Fenetre graphique de l'application
-    def Ecran_jeu.creer(win)
+    def Chapitre2.creer(win)
         new(win)
     end
 
@@ -32,7 +33,7 @@ class Ecran_jeu
         @boutonCheck = Gtk::Button.new()
         @boutonCurseur = Gtk::Button.new()
         @boutonCoupLogique = Gtk::Button.new();
-        temps = Gtk::Label.new("")
+        temps = Gtk::Label.new("Temps : ")
         chrono = Chronometre.creer(temps, 0, 0)
 
         joues = Array.new #tableau des coups joués par l'utilisateur pour le undo
@@ -41,27 +42,6 @@ class Ecran_jeu
         @box.add(Gtk::Image.new(:file => "../maquettes/Jeu.png"))
         @box2.add(@box)
 
-<<<<<<< Updated upstream
-        grille = Grille_jeu.creer(true, joues, "../Grilles/tuto.txt")
-        textfield1 = Gtk::Label.new("")
-        textfield1.set_size_request(350, 200) 
-        undo = Gtk::Button.new(:label => "Undo")
-        redSquare = Gtk::Button.new(:label => "redSquare")
-        procCoupLog = Gtk::Button.new(:label =>"Prochain coup logique")
-        check = Gtk::Button.new(:label => "Check")
-        aide = Gtk::Button.new(:label => "Fill 9")
-        quit = Gtk::Button.new(:label => "Quitter")
-        temps = Gtk::Label.new("Temps : ")
-        chrono = Chronometre.creer(temps, 0, 0)
-
-        procCoupLog.signal_connect("clicked"){
-            chrono.augmenteTemps(60)
-        }
-
-        quit.signal_connect("clicked"){
-            chrono.thr.kill
-            vers_menu()
-=======
         #Ajout des différents boutons, de leur css respectif ainsi que de leurs évents liés
         ajouteBouton(@box,@retourMenu,1,55,45,(1200 *0.015), 675 * 0.025,method(:vers_menu),@window,@box2)
         ajouteBouton(@box,@boutonCoupLogique,1,60,60,(1200*0.899), 675*0.015,nil,@window,@box2)
@@ -70,15 +50,12 @@ class Ecran_jeu
         ajouteBouton(@box,@boutonUndo,1,60,60,(1200*0.767), 675*0.015,nil,@window,@box2)
         ajouteBouton(@box,@boutonRemplissage,1,60,60,(1200*0.942), 675*0.015,nil,@window,@box2)
         @box.put(temps,450,630)
-
         
-        @grille = Grille_jeu.creer(true, joues, "../Grilles/tuto.txt")
+        @grille = Grille_jeu.creer(true, joues, "../Grilles/grille_tortue.txt")
 
-        
         #signal pour activer le rectangle rouge autour du curseur
         @boutonCurseur.signal_connect("clicked"){
             @grille.activeRedSquare()
->>>>>>> Stashed changes
         }
 
         #signal qui remplit les cases faciles (9, 0, 4, 6)
@@ -101,41 +78,12 @@ class Ecran_jeu
         @boutonCheck.signal_connect("clicked"){
             fini = @grille.check()
 
-            if(fini[0] == true)
+            if(fini == true)
                 puts("GG")
             else
                 puts("NOPE")
-                if(fini[1] == true)
-                    chrono.augmenteTemps(30)
-                end
             end
         }
-<<<<<<< Updated upstream
-
-        aide.signal_connect("clicked"){
-            grille.fillNine('9')
-            grille.fillNine('4')
-            grille.fillNine('6')
-            grille.fillNine('0')
-        }
-
-        redSquare.signal_connect("clicked"){
-            grille.activeRedSquare()
-        }
-
-        espaceJeu.add(textfield1)
-        espaceJeu.add(grille.grille)
-        espaceJeu.add(temps)
-
-        @layoutManager.add(undo)
-        @layoutManager.add(check)
-        @layoutManager.add(aide)
-        @layoutManager.add(procCoupLog)
-        @layoutManager.add(redSquare)
-        @layoutManager.add(espaceJeu)
-        @layoutManager.add(quit)
-=======
->>>>>>> Stashed changes
         
         @box.put(@grille.grille, (1200 *0.28), 675 * 0.16)
 

@@ -27,7 +27,12 @@ class Chronometre
     # * +prevMin+   Les minutes déjà passées dans le jeu
     # * +prevSec+   Les secondes déjà passées dans le jeu
     def initialize(label, prevMin, prevSec)
+<<<<<<< Updated upstream
 
+=======
+        depart = Time.now
+        
+>>>>>>> Stashed changes
         @minutes = prevMin
         @secondes = prevSec
 
@@ -42,6 +47,10 @@ class Chronometre
                 else
                     @secondes += 1
                 end
+<<<<<<< Updated upstream
+=======
+                label.text = @minutes.to_s + " : "+@secondes.to_s
+>>>>>>> Stashed changes
                 sleep(1)
                 label.text = "Temps : "+@minutes.to_s + ":"+@secondes.to_s
             end
