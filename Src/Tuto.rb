@@ -53,8 +53,8 @@ class Tuto
         }
         CSS
 
-         #Numero de la regle active
-         index = 1;
+        #Numero de la regle active
+        index = 1;
 
 
         joues = Array.new #tableau des coups joués par l'utilisateur pour le undo
