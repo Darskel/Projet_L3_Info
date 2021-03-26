@@ -11,7 +11,7 @@ load "Bouttons_grille.rb"
 # * +nomGrille+    Le nom du fichier de la grille
 class Grille_jeu
 
-    attr_reader :grille
+    attr_reader :grille, :nbLignes
 
     ##
     # Constructeur de la classe
@@ -93,11 +93,19 @@ class Grille_jeu
         @nbColonnes = file_data[0].split(' ')[1].to_i
         file.close
 
+        if @nbLignes == 20
+            csss = @css.cssWWide
+        elsif @nbLignes == 15
+            csss = @css.cssWMed
+        else 
+            csss = @css.cssW
+        end
+
         i_bouton = 0
         0.upto(@nbLignes-1) do |i|
             0.upto(@nbColonnes-1) do |j|
                 # création des boutons, connection des signaux et placement sur la grille
-                @bouttons[i][j] = Boutton_grille.creer(ligne_grille[i_bouton], @css.cssW, @joues, i, j, self)
+                @bouttons[i][j] = Boutton_grille.creer(ligne_grille[i_bouton], csss, @joues, i, j, self)
                 i_bouton += 1
                 @bouttons[i][j].signal(@css.cssW, @css.cssB, @css.cssG)
 
