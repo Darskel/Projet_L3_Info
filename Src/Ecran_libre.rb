@@ -40,7 +40,7 @@ class Ecran_libre
 
         @win.add(@container)
 
-        @grille = Grille_jeu.creer(false, Array.new, "../Grilles/grille1.txt")
+        @grille = Grille_jeu.creer(false, Array.new, "../Grilles/grille_chapitre3.txt")
         @boite.put(@grille.grille, (1200 *0.4), 675 * 0.12)
 
         file = File.open("chapitres.txt")
