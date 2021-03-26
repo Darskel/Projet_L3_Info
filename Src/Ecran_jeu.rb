@@ -33,11 +33,16 @@ class Ecran_jeu
         textfield1.set_size_request(350, 200) 
         undo = Gtk::Button.new(:label => "Undo")
         redSquare = Gtk::Button.new(:label => "redSquare")
+        procCoupLog = Gtk::Button.new(:label =>"Prochain coup logique")
         check = Gtk::Button.new(:label => "Check")
         aide = Gtk::Button.new(:label => "Fill 9")
         quit = Gtk::Button.new(:label => "Quitter")
         temps = Gtk::Label.new("Temps : ")
         chrono = Chronometre.creer(temps, 0, 0)
+
+        procCoupLog.signal_connect("clicked"){
+            chrono.augmenteTemps(60)
+        }
 
         quit.signal_connect("clicked"){
             chrono.thr.kill
@@ -80,6 +85,7 @@ class Ecran_jeu
         @layoutManager.add(undo)
         @layoutManager.add(check)
         @layoutManager.add(aide)
+        @layoutManager.add(procCoupLog)
         @layoutManager.add(redSquare)
         @layoutManager.add(espaceJeu)
         @layoutManager.add(quit)
