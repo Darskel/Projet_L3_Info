@@ -41,27 +41,6 @@ class Ecran_jeu
         @box.add(Gtk::Image.new(:file => "../maquettes/Jeu.png"))
         @box2.add(@box)
 
-<<<<<<< Updated upstream
-        grille = Grille_jeu.creer(true, joues, "../Grilles/tuto.txt")
-        textfield1 = Gtk::Label.new("")
-        textfield1.set_size_request(350, 200) 
-        undo = Gtk::Button.new(:label => "Undo")
-        redSquare = Gtk::Button.new(:label => "redSquare")
-        procCoupLog = Gtk::Button.new(:label =>"Prochain coup logique")
-        check = Gtk::Button.new(:label => "Check")
-        aide = Gtk::Button.new(:label => "Fill 9")
-        quit = Gtk::Button.new(:label => "Quitter")
-        temps = Gtk::Label.new("Temps : ")
-        chrono = Chronometre.creer(temps, 0, 0)
-
-        procCoupLog.signal_connect("clicked"){
-            chrono.augmenteTemps(60)
-        }
-
-        quit.signal_connect("clicked"){
-            chrono.thr.kill
-            vers_menu()
-=======
         #Ajout des différents boutons, de leur css respectif ainsi que de leurs évents liés
         ajouteBouton(@box,@retourMenu,1,55,45,(1200 *0.015), 675 * 0.025,method(:vers_menu),@window,@box2)
         ajouteBouton(@box,@boutonCoupLogique,1,60,60,(1200*0.899), 675*0.015,nil,@window,@box2)
@@ -78,7 +57,6 @@ class Ecran_jeu
         #signal pour activer le rectangle rouge autour du curseur
         @boutonCurseur.signal_connect("clicked"){
             @grille.activeRedSquare()
->>>>>>> Stashed changes
         }
 
         #signal qui remplit les cases faciles (9, 0, 4, 6)
