@@ -6,7 +6,7 @@ load "Utils.rb"
 ##
 # * +win+               La fenetre de l'application
 # * +layoutManager+     Le layout principal pour le placement dans la fenetre
-class Chapitre9
+class Grille_chapitre
 
     private_class_method :new
 
@@ -14,7 +14,7 @@ class Chapitre9
     # Constructeur
     ##
     # * +win+       Fenetre graphique de l'application
-    def Chapitre9.creer(win)
+    def Grille_chapitre.creer(win)
         new(win)
     end
 
@@ -51,7 +51,7 @@ class Chapitre9
         ajouteBouton(@box,@boutonRemplissage,1,60,60,(1200*0.942), 675*0.015,nil,@window,@box2)
         @box.put(temps,450,630)
         
-        @grille = Grille_jeu.creer(true, joues, "../Grilles/grille_ours.txt")
+        @grille = Grille_jeu.creer(true, joues, "../Grilles/grille_femme.txt")
 
         #signal pour activer le rectangle rouge autour du curseur
         @boutonCurseur.signal_connect("clicked"){
