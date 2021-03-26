@@ -52,10 +52,13 @@ class Ecran_jeu
         check.signal_connect("clicked"){
             fini = grille.check()
 
-            if(fini == true)
+            if(fini[0] == true)
                 puts("GG")
             else
                 puts("NOPE")
+                if(fini[1] == true)
+                    chrono.augmenteTemps(30)
+                end
             end
         }
 

@@ -101,7 +101,9 @@ class Grille_jeu
     end
 
     ##
-    # Vérification de la grille demandée par l'utilisateur
+    # Vérification de la grille demandée par l'utilisateur, retourne un tableau contenant 
+    # en case 0 : false si la grille contient des erreurs/n'est pas terminée
+    # en case 1 : vrai si l'utilisateur a fait une ou plusieurs erreur
     def check()
         file = File.open(@nom_grille)
 
@@ -111,7 +113,10 @@ class Grille_jeu
 
         file.close
 
+        tab = Array.new(2)
+
         succes = true
+        mauvRep = false
 
         0.upto(@nbLignes-1) do |i|
             0.upto(@nbColonnes-1) do |j|
@@ -119,16 +124,20 @@ class Grille_jeu
                 if @bouttons[i][j].couleur == "grey" && ligne_solution[i * @nbLignes + j].to_i == 1
                     succes = false
                     @bouttons[i][j].mauvaiseReponse(@css.falseReponse)
+                    mauvRep = true
                 elsif @bouttons[i][j].couleur == "white" && ligne_solution[i * @nbLignes + j].to_i == 1
                     succes = false
                 end
                 if @bouttons[i][j].couleur == "black" && ligne_solution[i * @nbLignes + j].to_i == 0
                     succes = false
                     @bouttons[i][j].mauvaiseReponse(@css.falseReponse)
+                    mauvRep = true
                 end
             end
         end
-        return succes
+        tab[0] = succes
+        tab[1] = mauvRep
+        return tab
     end
 
     ##

@@ -109,8 +109,9 @@ class Tuto
         @boutonCheck.signal_connect("clicked"){
             fini = @grilleTuto.check()
 
-            if(fini == true)
-                puts("GG")
+            if(fini[0] == true)
+                text = "Félicitations ! \nVous avez terminé la grille du tutoriel\n"
+                @labelTechnique.set_text(text)
             else
                 puts("NOPE")
             end
