@@ -40,7 +40,6 @@ class Grille_jeu
 
         @css = Css.new()
 
-        #@nom_grille = "../Grilles/grille1.txt"
         @nom_grille = nomGrille
 
         @redSquare = false
