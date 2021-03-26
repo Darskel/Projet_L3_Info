@@ -28,19 +28,45 @@ class Ecran_libre
         @retourMenu = Gtk::Button.new(:label => "")
         @nouvellePartie = Gtk::Button.new(:label => "")
         @reprendre = Gtk::Button.new(:label => "")
-        @defilerChapitres = Gtk::Button.new(:label => "X")
+        defilerChapitres = Gtk::Button.new(:label => "")
+
+        btnChapitre = [
+            Gtk::Button.new(),
+            Gtk::Button.new(),
+            Gtk::Button.new(),
+            Gtk::Button.new(),
+            Gtk::Button.new()
+        ]
+
+        lblChapitre = [
+            Gtk::Label.new(""),
+            Gtk::Label.new(""),
+            Gtk::Label.new(""),
+            Gtk::Label.new(""),
+            Gtk::Label.new("")
+        ]
 
         @boite.add(Gtk::Image.new(:file => "../maquettes/menu-libre.png"))
         @container.add(@boite)
         
-        ajouteBouton(@boite, @retourMenu, 2, 60, 60, 20, 5, method(:vers_menu), @win, @container)
         ajouteBouton(@boite, @nouvellePartie, 2, 520, 50, 450, 450, nil, nil, nil)
         ajouteBouton(@boite, @reprendre, 2, 350, 50, 545, 545, nil, nil, nil)
-        ajouteBouton(@boite, @defilerChapitres, 2, 45, 45, 230, 620, method(:actualiserChapitres), nil, nil)
+
+        cssChapitre = ajouteTexte(3)
+
+        addChapitre(btnChapitre[0], lblChapitre[0], 13, 20, cssChapitre)
+        addChapitre(btnChapitre[1], lblChapitre[1], 13, 155, cssChapitre)
+        addChapitre(btnChapitre[2], lblChapitre[2], 13, 285, cssChapitre)
+        addChapitre(btnChapitre[3], lblChapitre[3], 13, 420, cssChapitre)
+        addChapitre(btnChapitre[4], lblChapitre[4], 13, 550, cssChapitre)
+
+        ajouteBouton(@boite, defilerChapitres, 2, 45, 45, 230, 620, method(:actualiserChapitres), lblChapitre, nil)
+        ajouteBouton(@boite, @retourMenu, 2, 60, 60, 20, 5, method(:vers_menu), @win, @container)
+
 
         @win.add(@container)
 
-        @grille = Grille_jeu.creer(false, Array.new, "../Grilles/grille1.txt")
+        @grille = Grille_jeu.creer(true, Array.new, "../Grilles/grille_canard.txt")
         @boite.put(@grille.grille, (1200 *0.4), 675 * 0.12)
 
         file = File.open("chapitres.txt")
@@ -50,16 +76,8 @@ class Ecran_libre
 
         file.close
 
-        #Ajout selection chapitres
-        cssChapitre = ajouteTexte(3)
-        @lblChapitre1 = addChapitre(cssChapitre, 20, 20)
-        @lblChapitre2 = addChapitre(cssChapitre, 20, 160)
-        @lblChapitre3 = addChapitre(cssChapitre, 20, 290)
-        @lblChapitre4 = addChapitre(cssChapitre, 20, 420)
-        @lblChapitre5 = addChapitre(cssChapitre, 20, 550)
-
         @i_chap = 0
-        actualiserChapitres()
+        actualiserChapitres(lblChapitre)
 
         @win.show_all
         Gtk.main
@@ -70,26 +88,30 @@ class Ecran_libre
     ##
     # Ajoute un chapitre dans la boite
     ##
-    # * +css+   Le css a appliquer
-    # * +x+     Postion en abscisse
-    # * +y+     Postion en ordonnée
-    def addChapitre(css, x, y)
-        lblChapitre = Gtk::Label.new("")
-        ajouteTexteProvider(lblChapitre, css)
-        @boite.put(lblChapitre, x, y)
+    # * +bouton+ Le bouton contenant le label
+    # * +label+  Le label à styliser
+    # * +css+    Le css a appliquer
+    # * +x+      Position en abscisse
+    # * +y+      Postion en ordonnée
+    def addChapitre(bouton, label, x, y, css) 
+        ajouteBouton(@boite, bouton, 3, 260, 115, x, y, method(:eventChangerChapitre), nil, nil)
+        
+        ajouteTexteProvider(label, css)
+        bouton.add(label)
+    end
 
-        return lblChapitre
+    ##
+    # Change la grille en fonction du chapitre sélectionné
+    ##
+    def eventChangerChapitre()
+        @grille.recharger("../Grilles/grille_chat.txt")
     end
 
     ##
     # Permet de changer les chapitres à l'appuie sur la flèche
-    def actualiserChapitres()
-        @lblChapitre1.label = nextChapitre()
-        @lblChapitre2.label = nextChapitre()
-        @lblChapitre3.label = nextChapitre()
-        @lblChapitre4.label = nextChapitre()
-        @lblChapitre5.label = nextChapitre()
-        
+    def actualiserChapitres(lblChapitre)
+        lblChapitre.each {|lbl| lbl.label = nextChapitre() }
+           
         return self
     end
 
