@@ -38,9 +38,16 @@ class Classement
         @boutonFlechePrecedent = Gtk::Button.new()  
         @boutonMenu = Gtk::Button.new()
 
+        fileUsers = File.open("../Users/users.txt","r") 
+        file_data = fileUsers.readlines.map(&:chomp)
+
+        for elem in file_data do
+            puts(elem.to_s())
+        end
+
         classementChap1 = ["Arthur","Yannis","Aurélien","Guillaume","David"]
-        userTime1 = ["1 min 05 secondes","2 min 30 secondes","2 min 35 secondes","2 min 45 secondes","3 min00 secondes"]
-        classementChap2 = ["Tom","Arthur","Alexis"]
+        userTime1 = ["1 min 05 secondes","2 min 30 secondes","2 min 35 secondes","2 min 45 secondes","3 min 00 secondes"]
+        classementChap2 = ["David","Arthur","Alexis"]
         classementChap3 = ["Alexis","Arthur","Tom"]
 
         @box.add(Gtk::Image.new(:file => "../maquettes/classement.png"))
