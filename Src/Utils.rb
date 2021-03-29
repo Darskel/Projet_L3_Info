@@ -24,7 +24,7 @@
                 border: unset;
             }
             CSS
-        else
+        elsif etat == 2
             css.load(data: <<-CSS)
             button {
                 opacity: 0;
@@ -32,6 +32,18 @@
             }
             button:hover {
                 opacity: 0.1;
+                border: 1px solid black;
+            }
+            CSS
+        elsif etat == 3
+            css.load(data: <<-CSS)
+            button {
+                opacity: 1;
+                background: rgba(117, 190, 218, 0.0); 
+                border: unset;
+            }
+            button:hover {
+                opacity: 0.8;
                 border: 1px solid black;
             }
             CSS
@@ -72,6 +84,8 @@
             bouton.signal_connect("clicked"){
                 if (win && box)
                     callback.call(win, box)
+                elsif (win)
+                    callback.call(win)
                 else
                     callback.call()
                 end
@@ -93,6 +107,7 @@
             label {
                 font-size: 50px;
                 font-family: sans-serif;
+                text-shadow: 1px 0 0 black, 0 1px 0 black, -1px 0 0 black, 0 -1px 0 black;
             }
             CSS
         elsif etat == 2

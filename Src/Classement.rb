@@ -15,30 +15,91 @@ class Classement
         @titreChapitre = Gtk::Label.new()
         @titreChapitre.set_text("Chapitre "+indexChapitre.to_s()+" : Hawaï")
         @boxClassement = Gtk::Box.new(:horizontal)
-        @texteClassement = Gtk::Label.new()
+        
+        texte1er = Gtk::Label.new()
+        texte2e = Gtk::Label.new()
+        texte3e = Gtk::Label.new()
+        texte4e = Gtk::Label.new()
+        texte5e = Gtk::Label.new()
+        
+        place1 = Gtk::Label.new()
+        place2 = Gtk::Label.new()
+        place3 = Gtk::Label.new()
+        place4 = Gtk::Label.new()
+        place5 = Gtk::Label.new()
+        
+        temps1er = Gtk::Label.new()
+        temps2e = Gtk::Label.new()
+        temps3e = Gtk::Label.new()
+        temps4e = Gtk::Label.new()
+        temps5e = Gtk::Label.new()
+        
         @boutonFlecheSuivant = Gtk::Button.new()
         @boutonFlechePrecedent = Gtk::Button.new()  
         @boutonMenu = Gtk::Button.new()
 
-        classementChap1 = ["Arthur","Tom","Alexis"]
-        classementChap2 = ["Tom","Arthur","Alexis"]
+        fileUsers = File.open("../Users/users.txt","r") 
+        file_data = fileUsers.readlines.map(&:chomp)
+
+        for elem in file_data do
+            puts(elem.to_s())
+        end
+
+        classementChap1 = ["Arthur","Yannis","Aurélien","Guillaume","David"]
+        userTime1 = ["1 min 05 secondes","2 min 30 secondes","2 min 35 secondes","2 min 45 secondes","3 min 00 secondes"]
+        classementChap2 = ["David","Arthur","Alexis"]
         classementChap3 = ["Alexis","Arthur","Tom"]
 
         @box.add(Gtk::Image.new(:file => "../maquettes/classement.png"))
 
         cssChapitre = ajouteTexte(3)
-        cssTexteClassement = ajouteTexte(2)
+        cssTexteClassement = ajouteTexte(3)
         ajouteTexteProvider(@titreChapitre,cssChapitre)
-        ajouteTexteProvider(@texteClassement,cssTexteClassement)
+        
         
         ajouteBouton(@box,@boutonMenu,1,55,45,(1200 *0.015),675 * 0.025,nil,@window,@boiteInterieure)
         ajouteBouton(@box,@boutonFlechePrecedent,1,55,45,(1200 *0.015),675 * 0.24,nil,@window,@boiteInterieure)
         ajouteBouton(@box,@boutonFlecheSuivant,1,55,45,(1200 *0.935),675 * 0.24,nil,@window,@boiteInterieure)
 
         for i in 0..classementChap1.length()-1
-            @texteClassement.set_text("1 = "+classementChap1[i].to_s()+"\n")
-            puts(classementChap1.to_s())
-        end 
+            case i
+            when 0
+                ajouteTexteProvider(place1,cssTexteClassement)
+                ajouteTexteProvider(texte1er,cssTexteClassement)
+                ajouteTexteProvider(temps1er,cssTexteClassement)
+                place1.set_text((i+1).to_s())
+                texte1er.set_text(classementChap1[i].to_s())
+                temps1er.set_text(userTime1[i].to_s())
+            when 1 
+                ajouteTexteProvider(place2,cssTexteClassement)
+                ajouteTexteProvider(texte2e,cssTexteClassement)
+                ajouteTexteProvider(temps2e,cssTexteClassement)
+                place2.set_text((i+1).to_s())
+                texte2e.set_text(classementChap1[i].to_s())
+                temps2e.set_text(userTime1[i].to_s())
+            when 2
+                ajouteTexteProvider(place3,cssTexteClassement)
+                ajouteTexteProvider(texte3e,cssTexteClassement)
+                ajouteTexteProvider(temps3e,cssTexteClassement)
+                place3.set_text((i+1).to_s())
+                texte3e.set_text(classementChap1[i].to_s())
+                temps3e.set_text(userTime1[i].to_s())
+            when 3
+                ajouteTexteProvider(place4,cssTexteClassement)
+                ajouteTexteProvider(texte4e,cssTexteClassement)
+                ajouteTexteProvider(temps4e,cssTexteClassement)
+                place4.set_text((i+1).to_s())
+                texte4e.set_text(classementChap1[i].to_s())
+                temps4e.set_text(userTime1[i].to_s())
+            when 4
+                ajouteTexteProvider(place5,cssTexteClassement)
+                ajouteTexteProvider(texte5e,cssTexteClassement)
+                ajouteTexteProvider(temps5e,cssTexteClassement)
+                place5.set_text((i+1).to_s())
+                texte5e.set_text(classementChap1[i].to_s())
+                temps5e.set_text(userTime1[i].to_s())
+            end
+        end
 
         @boutonMenu.signal_connect("clicked"){
             vers_menu(@window,@box)
@@ -67,7 +128,25 @@ class Classement
         }
 
         @box.put(@titreChapitre,(1200 *0.3), 675 * 0.24)
-        @box.put(@texteClassement,(1200 *0.1), 675 * 0.5)
+        
+        @box.put(place1,(1200 *0.05), 675 * 0.5)
+        @box.put(place2,(1200 *0.05), 675 * 0.6)
+        @box.put(place3,(1200 *0.05), 675 * 0.7)
+        @box.put(place4,(1200 *0.05), 675 * 0.8)
+        @box.put(place5,(1200 *0.05), 675 * 0.9)
+
+        @box.put(texte1er,(1200 *0.12), 675 * 0.5)
+        @box.put(texte2e,(1200 *0.12), 675 * 0.6)
+        @box.put(texte3e,(1200 *0.12), 675 * 0.7)
+        @box.put(texte4e,(1200 *0.12), 675 * 0.8)
+        @box.put(texte5e,(1200 *0.12), 675 * 0.9)
+
+        @box.put(temps1er,(1200 *0.6), 675 * 0.5)
+        @box.put(temps2e,(1200 *0.6), 675 * 0.6)
+        @box.put(temps3e,(1200 *0.6), 675 * 0.7)
+        @box.put(temps4e,(1200 *0.6), 675 * 0.8)
+        @box.put(temps5e,(1200 *0.6), 675 * 0.9)
+
         @box.add(@boiteInterieure)
 
         @window.add(@box)

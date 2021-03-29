@@ -6,14 +6,15 @@ load "Utils.rb"
 ##
 # * +win+               La fenetre de l'application
 # * +layoutManager+     Le layout principal pour le placement dans la fenetre
-class Ecran_jeu
+class Grille_chapitre
+
     private_class_method :new
 
     ##
     # Constructeur
     ##
     # * +win+       Fenetre graphique de l'application
-    def Ecran_jeu.creer(win)
+    def Grille_chapitre.creer(win)
         new(win)
     end
 
@@ -32,7 +33,7 @@ class Ecran_jeu
         @boutonCheck = Gtk::Button.new()
         @boutonCurseur = Gtk::Button.new()
         @boutonCoupLogique = Gtk::Button.new();
-        temps = Gtk::Label.new("")
+        temps = Gtk::Label.new("Temps : ")
         chrono = Chronometre.creer(temps, 0, 0)
 
         joues = Array.new #tableau des coups joués par l'utilisateur pour le undo
@@ -49,11 +50,9 @@ class Ecran_jeu
         ajouteBouton(@box,@boutonUndo,1,60,60,(1200*0.767), 675*0.015,nil,@window,@box2)
         ajouteBouton(@box,@boutonRemplissage,1,60,60,(1200*0.942), 675*0.015,nil,@window,@box2)
         @box.put(temps,450,630)
-
         
-        @grille = Grille_jeu.creer(true, joues, "../Grilles/grille_chapitre3.txt")
+        @grille = Grille_jeu.creer(true, joues, "../Grilles/grille_femme.txt")
 
-        
         #signal pour activer le rectangle rouge autour du curseur
         @boutonCurseur.signal_connect("clicked"){
             @grille.activeRedSquare()
@@ -79,23 +78,14 @@ class Ecran_jeu
         @boutonCheck.signal_connect("clicked"){
             fini = @grille.check()
 
-            if(fini[0] == true)
+            if(fini == true)
                 puts("GG")
             else
                 puts("NOPE")
-                if(fini[1] == true)
-                    chrono.augmenteTemps(30)
-                end
             end
         }
         
-        if(@grille.nbLignes == 10)
-            @box.put(@grille.grille, (1200 *0.28), 675 * 0.16)
-        elsif(@grille.nbLignes == 15)
-            @box.put(@grille.grille, (1200 *0.225), 675 * 0.16)
-        else
-            @box.put(@grille.grille, (1200 *0.17), 675 * 0.11)
-        end
+        @box.put(@grille.grille, (1200 *0.28), 675 * 0.16)
 
         @window.add(@box2)
         @window.show_all

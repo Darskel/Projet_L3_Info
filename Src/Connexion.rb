@@ -144,5 +144,13 @@ class Connexion
         File.open($userPath+"config.txt", "w")
         File.chmod(0777,$userPath + "config.txt")
         File.write($userPath+"config.txt", "Sons : true")
+
+        File.open($userPath+"succes.txt", "w")
+        File.chmod(0777,$userPath + "succes.txt")
+        i = 0
+        while i <= 11 do
+            File.write($userPath+"succes.txt", "false 0 0\n", mode: "a")
+            i+=1
+        end
     end
 end

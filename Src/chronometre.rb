@@ -27,8 +27,7 @@ class Chronometre
     # * +prevMin+   Les minutes déjà passées dans le jeu
     # * +prevSec+   Les secondes déjà passées dans le jeu
     def initialize(label, prevMin, prevSec)
-        depart = Time.now
-
+       
         @minutes = prevMin
         @secondes = prevSec
 
@@ -36,18 +35,29 @@ class Chronometre
 
         @thr = Thread.new{
             while(true)
-                courant = Time.now - depart
 
-                if courant >= 60
-                    @minutes = courant.to_i / 60
-                    @secondes = courant.to_i % 60
+                if @secondes >= 59
+                    @minutes += 1
+                    @secondes = 0
                 else
-                    @minutes = 0
-                    @secondes = courant.to_i
+                    @secondes += 1
                 end
-                label.text = "Temps : "+@minutes.to_s + ":"+@secondes.to_s
+                label.text = @minutes.to_s + " : "+@secondes.to_s
                 sleep(1)
+                label.text = "Temps : "+@minutes.to_s + ":"+@secondes.to_s
             end
         }
+    end
+
+    ##
+    # Incrémente les secondes du temps donné
+    ##
+    # * +temps+     le temps en secondes à ajouter au chrono
+    def augmenteTemps(temps)
+        @secondes += temps
+        if(@secondes >= 59)
+            @minutes += @secondes / 60
+            @secondes = @secondes %60
+        end
     end
 end

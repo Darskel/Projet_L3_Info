@@ -59,8 +59,6 @@ class Ecran_aventure
         progressionImage = ajouteCss(2)
         quitterImage = ajouteCss(2)
 
-        
-
         widthOptionsPrincipales = 500
         heightOptionsPrincipales = 80
         width = 280
