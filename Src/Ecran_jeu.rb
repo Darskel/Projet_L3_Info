@@ -53,7 +53,7 @@ class Ecran_jeu
         @box.put(temps,450,630)
 
         
-        @grille = Grille_jeu.creer(true, joues, "../Grilles/grille_chapitre10.txt")
+        @grille = Grille_jeu.creer(true, joues, "../Grilles/tuto.txt")
 
         
 
@@ -86,9 +86,9 @@ class Ecran_jeu
             fini = @grille.check()
 
             if(fini[0] == true)
-                puts("GG")
+                chrono.kill
+                ecran_victoire(chrono)
             else
-                puts("NOPE")
                 if(fini[1] == true)
                     chrono.augmenteTemps(30)
                 end
@@ -104,6 +104,36 @@ class Ecran_jeu
         end
 
         @window.add(@box2)
+        @window.show_all
+    end
+
+    ##
+    # Déclenche l'écran de victoire quand le joueur gagne
+    ##
+    # * +chrono+        Le temps de la partie
+    def ecran_victoire(chrono)
+        @box2.remove(@box)
+
+        box = Gtk::Fixed.new()
+
+        duree = "Partie finie en " + chrono.minutes.to_s + ":" + chrono.secondes.to_s
+
+        @box2.add(box)
+
+        box.add(Gtk::Image.new(:file => "../maquettes/Jeu.png"))
+
+        messageVictoire = Gtk::Label.new("Félicitations vous avez terminé le niveau !")
+        buttonMenu = Gtk::Button.new(:label => "Retour au menu")
+        temps = Gtk::Label.new(duree)
+
+        box.put(messageVictoire, (1200 *0.28), 675 * 0.16)
+        box.put(buttonMenu, (1200 *0.28), 675 * 0.9)
+        box.put(temps, (1200 *0.28), 675 * 0.5)
+
+        buttonMenu.signal_connect("clicked"){
+            vers_menu(@window, @box2)
+        }
+
         @window.show_all
     end
 end

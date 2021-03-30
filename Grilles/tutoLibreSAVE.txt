@@ -1,4 +1,2 @@
-0 2
-1 6 white
-1 7 white
-1 8 white
+1 53
+2 1 white
