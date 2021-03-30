@@ -8,10 +8,10 @@ load "Bouttons_grille.rb"
 # * +bouttons+      Tableau de boutons dans la grille
 # * +css+           Les différents CSS utilisables
 # * +joues+         Tableau des coups joués par l'utilisateur, permettant l'utilisationd de la fonctionnalité undo
-# * +nom_grille+    Le nom du fichier de la grille
+# * +nomGrille+    Le nom du fichier de la grille
 class Grille_jeu
 
-    attr_reader :grille
+    attr_reader :grille, :nbLignes
 
     ##
     # Constructeur de la classe
@@ -39,13 +39,9 @@ class Grille_jeu
         @joues = joues
 
         @css = Css.new()
-
-        #@nom_grille = "../Grilles/grille1.txt"
-        @nom_grille = nomGrille
-
         @redSquare = false
 
-        charger()
+        charger(nomGrille)
 
         unless (estJouable)
             rendreNonJouable()
@@ -63,12 +59,9 @@ class Grille_jeu
         end
     end
 
-    ##
-    # Charge la grille spécifiée en paramètre
-    ##
-    # * +nom_grille+    Le nom du fichier a charger
-    def charger()
-        file = File.open(@nom_grille)
+    def recharger(nomGrille)
+        @nomGrille = nomGrille
+        file = File.open(nomGrille)
         file_data = file.readlines.map(&:chomp)
         ligne_grille = file_data[1]
         ligne_solution = file_data[2]
@@ -79,8 +72,40 @@ class Grille_jeu
         i_bouton = 0
         0.upto(@nbLignes-1) do |i|
             0.upto(@nbColonnes-1) do |j|
+                @bouttons[i][j].contenu = ligne_grille[i_bouton].to_s
+                @bouttons[i][j].boutton.label = ligne_grille[i_bouton].to_s
+                i_bouton += 1
+            end
+        end
+    end
+
+    ##
+    # Charge la grille spécifiée en paramètre
+    ##
+    # * +nomGrille+    Le nom du fichier a charger
+    def charger(nomGrille)
+        @nomGrille = nomGrille
+        file = File.open(nomGrille)
+        file_data = file.readlines.map(&:chomp)
+        ligne_grille = file_data[1]
+        ligne_solution = file_data[2]
+        @nbLignes = file_data[0].split(' ')[0].to_i
+        @nbColonnes = file_data[0].split(' ')[1].to_i
+        file.close
+
+        if @nbLignes == 20
+            csss = @css.cssWWide
+        elsif @nbLignes == 15
+            csss = @css.cssWMed
+        else 
+            csss = @css.cssW
+        end
+
+        i_bouton = 0
+        0.upto(@nbLignes-1) do |i|
+            0.upto(@nbColonnes-1) do |j|
                 # création des boutons, connection des signaux et placement sur la grille
-                @bouttons[i][j] = Boutton_grille.creer(ligne_grille[i_bouton], @css.cssW, @joues, i, j, self)
+                @bouttons[i][j] = Boutton_grille.creer(ligne_grille[i_bouton], csss, @joues, i, j, self)
                 i_bouton += 1
                 @bouttons[i][j].signal(@css.cssW, @css.cssB, @css.cssG)
 
@@ -101,9 +126,11 @@ class Grille_jeu
     end
 
     ##
-    # Vérification de la grille demandée par l'utilisateur
+    # Vérification de la grille demandée par l'utilisateur, retourne un tableau contenant 
+    # en case 0 : false si la grille contient des erreurs/n'est pas terminée
+    # en case 1 : vrai si l'utilisateur a fait une ou plusieurs erreur
     def check()
-        file = File.open(@nom_grille)
+        file = File.open(@nomGrille)
 
         file_data = file.readlines.map(&:chomp)
             
@@ -111,7 +138,10 @@ class Grille_jeu
 
         file.close
 
+        tab = Array.new(2)
+
         succes = true
+        mauvRep = false
 
         0.upto(@nbLignes-1) do |i|
             0.upto(@nbColonnes-1) do |j|
@@ -119,16 +149,20 @@ class Grille_jeu
                 if @bouttons[i][j].couleur == "grey" && ligne_solution[i * @nbLignes + j].to_i == 1
                     succes = false
                     @bouttons[i][j].mauvaiseReponse(@css.falseReponse)
+                    mauvRep = true
                 elsif @bouttons[i][j].couleur == "white" && ligne_solution[i * @nbLignes + j].to_i == 1
                     succes = false
                 end
                 if @bouttons[i][j].couleur == "black" && ligne_solution[i * @nbLignes + j].to_i == 0
                     succes = false
                     @bouttons[i][j].mauvaiseReponse(@css.falseReponse)
+                    mauvRep = true
                 end
             end
         end
-        return succes
+        tab[0] = succes
+        tab[1] = mauvRep
+        return tab
     end
 
     ##

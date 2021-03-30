@@ -23,8 +23,6 @@ class Boutton_grille
     end
 
     private_class_method
-
-    attr_reader :boutton
     attr_accessor :couleur, :contenu, :boutton
 
     ##
@@ -40,7 +38,8 @@ class Boutton_grille
         @couleur = "white"
         @boutton = Gtk::Button.new(:label => contenu)
         @boutton.style_context.add_provider(css, Gtk::StyleProvider::PRIORITY_USER)
-        @boutton.set_size_request(15, 5) 
+        @boutton.set_width_request(15)
+        @boutton.set_height_request(15)
         @joues, @indiceI, @indiceJ = joues, indiceI, indiceJ
         @grille = grille
     end

@@ -109,8 +109,13 @@ class Tuto
         @boutonCheck.signal_connect("clicked"){
             fini = @grilleTuto.check()
 
-            if(fini == true)
-                puts("GG")
+            if(fini[0] == true)
+                text = "Félicitations ! \nVous avez terminé la grille du tutoriel\n"
+                @labelTechnique.set_text(text)
+
+                lines = File.readlines($userPath+"succes.txt")
+                lines[10] = "true 0 0\n"
+                File.open($userPath+"succes.txt", 'w') { |f| f.write(lines.join) }
             else
                 puts("NOPE")
             end
