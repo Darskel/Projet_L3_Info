@@ -1,7 +1,2 @@
 Arhur
 Tom
-<<<<<<< Updated upstream
-=======
-Arthur
-Hugo
->>>>>>> Stashed changes

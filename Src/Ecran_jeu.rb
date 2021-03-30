@@ -41,7 +41,6 @@ class Ecran_jeu
         @box.add(Gtk::Image.new(:file => "../maquettes/Jeu.png"))
         @box2.add(@box)
 
-<<<<<<< Updated upstream
         #Ajout des différents boutons, de leur css respectif ainsi que de leurs évents liés
         ajouteBouton(@box,@retourMenu,1,55,45,(1200 *0.015), 675 * 0.025,method(:vers_menu),@window,@box2)
         ajouteBouton(@box,@boutonCoupLogique,1,60,60,(1200*0.899), 675*0.015,nil,@window,@box2)
@@ -53,20 +52,6 @@ class Ecran_jeu
 
         
         @grille = Grille_jeu.creer(true, joues, "../Grilles/grille_chapitre10.txt")
-=======
-        grille = Grille_jeu.creer(true, joues, "../Grilles/tuto.txt")
-        textfield1 = Gtk::Label.new("")
-        textfield1.set_size_request(350, 200) 
-        undo = Gtk::Button.new(:label => "Undo")
-        redSquare = Gtk::Button.new(:label => "redSquare")
-        check = Gtk::Button.new(:label => "Check")
-        aide = Gtk::Button.new(:label => "Fill 9")
-        quit = Gtk::Button.new(:label => "Quitter")
-        temps = Gtk::Label.new("Temps : ")
-        chrono = Chronometre.creer(temps, 0, 0)
-        saveProgression = Gtk::Button.new(:label => "Save Progression")
-        loadProgression = Gtk::Button.new(:label => "Load Progression")
->>>>>>> Stashed changes
 
         
         #signal pour activer le rectangle rouge autour du curseur
@@ -103,41 +88,6 @@ class Ecran_jeu
                 end
             end
         }
-<<<<<<< Updated upstream
-=======
-
-        aide.signal_connect("clicked"){
-            grille.fillNine('9')
-            grille.fillNine('4')
-            grille.fillNine('6')
-            grille.fillNine('0')
-        }
-
-        redSquare.signal_connect("clicked"){
-            grille.activeRedSquare()
-        }
-
-        saveProgression.signal_connect("clicked"){
-            grille.saveProgression(chrono.minutes, chrono.secondes, "Libre")
-        }
-
-        loadProgression.signal_connect("clicked"){
-            grille.loadProgression("Libre")
-        }
-
-        espaceJeu.add(textfield1)
-        espaceJeu.add(grille.grille)
-        espaceJeu.add(temps)
-
-        @layoutManager.add(undo)
-        @layoutManager.add(check)
-        @layoutManager.add(aide)
-        @layoutManager.add(redSquare)
-        @layoutManager.add(saveProgression)
-        @layoutManager.add(loadProgression)
-        @layoutManager.add(espaceJeu)
-        @layoutManager.add(quit)
->>>>>>> Stashed changes
         
         if(@grille.nbLignes == 10)
             @box.put(@grille.grille, (1200 *0.28), 675 * 0.16)
