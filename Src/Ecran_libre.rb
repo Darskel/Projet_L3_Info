@@ -104,7 +104,7 @@ class Ecran_libre
     # Change la grille en fonction du chapitre sélectionné
     ##
     def eventChangerChapitre()
-        @grille.recharger("../Grilles/grille_chat.txt")
+        @grille.recharger("../Grilles/grille_chapitre4.txt")
     end
 
     ##
