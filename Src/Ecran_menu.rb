@@ -89,7 +89,8 @@ class Ecran_menu
         aDelete = Gtk::Button.new(:label => "Jeu")
         aDelete.signal_connect("clicked"){
             @win.remove(@layoutManager)
-            Ecran_jeu.creer(@win)
+            ecr = Ecran_jeu.creer(@win)
+            ecr.grille.loadProgression("Libre", ecr.chrono)
         }
         boite.put(aDelete, 0 , 0)
         #######################################################

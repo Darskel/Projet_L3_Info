@@ -18,7 +18,8 @@ class Chronometre
 
     private_class_method :new
 
-    attr_reader :thr, :minutes, :secondes
+    attr_reader :thr
+    attr_accessor :minutes, :secondes 
 
     ##
     # Création de l'objet
