@@ -52,6 +52,12 @@ class Chronometre
     end
 
     ##
+    # Termine le Thread qui gère le chronomètre pour stopper l'avancer du temps
+    def kill()
+        Thread.kill(@thr)
+    end
+
+    ##
     # Incrémente les secondes du temps donné
     ##
     # * +temps+     le temps en secondes à ajouter au chrono
