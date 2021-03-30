@@ -20,6 +20,8 @@ class Chronometre
 
     attr_reader :thr, :minutes, :secondes
 
+    attr_accessor :minutes, :secondes
+
     ##
     # Création de l'objet
     ##

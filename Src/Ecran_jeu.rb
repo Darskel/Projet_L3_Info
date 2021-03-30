@@ -9,6 +9,8 @@ load "Utils.rb"
 class Ecran_jeu
     private_class_method :new
 
+    attr_reader :chrono, :grille
+
     ##
     # Constructeur
     ##
@@ -33,7 +35,7 @@ class Ecran_jeu
         @boutonCurseur = Gtk::Button.new()
         @boutonCoupLogique = Gtk::Button.new();
         temps = Gtk::Label.new("")
-        chrono = Chronometre.creer(temps, 0, 0)
+        @chrono = Chronometre.creer(temps, 0, 0)
 
         joues = Array.new #tableau des coups joués par l'utilisateur pour le undo
 
@@ -54,6 +56,10 @@ class Ecran_jeu
         @grille = Grille_jeu.creer(true, joues, "../Grilles/grille_chapitre10.txt")
 
         
+
+        @retourMenu.signal_connect("clicked"){
+            @grille.saveProgression(@chrono, "Libre")
+        }
         #signal pour activer le rectangle rouge autour du curseur
         @boutonCurseur.signal_connect("clicked"){
             @grille.activeRedSquare()

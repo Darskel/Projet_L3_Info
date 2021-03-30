@@ -1,0 +1,15 @@
+0 48
+2 5 white
+2 6 white
+2 7 white
+2 8 white
+2 9 white
+3 9 white
+3 8 white
+3 7 white
+3 6 white
+3 5 white
+2 3 white
+2 4 white
+3 4 white
+3 3 white

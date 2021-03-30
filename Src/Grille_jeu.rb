@@ -42,6 +42,7 @@ class Grille_jeu
         @redSquare = false
 
         charger(nomGrille)
+        @nomGrille = nomGrille
 
         unless (estJouable)
             rendreNonJouable()
@@ -368,27 +369,21 @@ class Grille_jeu
         end
     end
 
-    def saveProgression(minutes, secondes, typeGame)
-        saveName = @nom_grille.delete_suffix(".txt") << "#{typeGame}SAVE.txt"
+    def saveProgression(chrono, typeGame)
+        saveName = @nomGrille.delete_suffix(".txt") << "#{typeGame}SAVE.txt"
         save = File.new(saveName, "w")
-        File.write(saveName, "#{minutes} #{secondes}\n")
+        File.write(saveName, "#{chrono.minutes} #{chrono.secondes}\n")
         @joues.each{|coup| File.write(saveName, "#{coup.indiceI} #{coup.indiceJ} #{coup.couleur}\n", mode: "a")}
         save.close
     end
 
-    def loadProgression(typeGame)
-        @joues.clear
-        0.upto(@nbLignes-1) do |i|
-            0.upto(@nbColonnes-1) do |j|
-                @bouttons[i][j].boutton.style_context.add_provider(@css.cssW, Gtk::StyleProvider::PRIORITY_USER)
-                @bouttons[i][j].couleur = "white"
-            end
-        end
-        save = File.open(@nom_grille.delete_suffix(".txt") << "#{typeGame}SAVE.txt", "r")
+    def loadProgression(typeGame, chronometre)
+        save = File.open(@nomGrille.delete_suffix(".txt") << "#{typeGame}SAVE.txt", "r")
         
-        chrono = save.readline.split(" ")
-        minutes = chrono[0]
-        secondes = chrono[1]
+        tmp = save.readline.split(" ")
+        chronometre.minutes = tmp[0].to_i
+        chronometre.secondes = tmp[1].to_i
+
 
         coups_joues = save.readlines.map(&:chomp)
 
