@@ -51,7 +51,7 @@ class Ecran_jeu
         @box.put(temps,450,630)
 
         
-        @grille = Grille_jeu.creer(true, joues, "../Grilles/grille_chapitre3.txt")
+        @grille = Grille_jeu.creer(true, joues, "../Grilles/grille_chapitre10.txt")
 
         
         #signal pour activer le rectangle rouge autour du curseur
