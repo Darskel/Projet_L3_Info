@@ -368,5 +368,39 @@ class Grille_jeu
         end
     end
 
+    def saveProgression(minutes, secondes, typeGame)
+        saveName = @nom_grille.delete_suffix(".txt") << "#{typeGame}SAVE.txt"
+        save = File.new(saveName, "w")
+        File.write(saveName, "#{minutes} #{secondes}\n")
+        @joues.each{|coup| File.write(saveName, "#{coup.indiceI} #{coup.indiceJ} #{coup.couleur}\n", mode: "a")}
+        save.close
+    end
 
+    def loadProgression(typeGame)
+        @joues.clear
+        0.upto(@nbLignes-1) do |i|
+            0.upto(@nbColonnes-1) do |j|
+                @bouttons[i][j].boutton.style_context.add_provider(@css.cssW, Gtk::StyleProvider::PRIORITY_USER)
+                @bouttons[i][j].couleur = "white"
+            end
+        end
+        save = File.open(@nom_grille.delete_suffix(".txt") << "#{typeGame}SAVE.txt", "r")
+        
+        chrono = save.readline.split(" ")
+        minutes = chrono[0]
+        secondes = chrono[1]
+
+        coups_joues = save.readlines.map(&:chomp)
+
+        coups_joues.each{|coup|
+            indiceI = coup.split(' ')[0].to_i
+            indiceJ = coup.split(' ')[1].to_i
+            couleur = coup.split(' ')[2].to_s
+            
+            @joues.push(Coup_joue.creer(indiceI, indiceJ, couleur))
+            @bouttons[indiceI][indiceJ].change_couleur(@css.cssW, @css.cssB, @css.cssG)           
+        }
+        save.close 
+
+    end
 end
