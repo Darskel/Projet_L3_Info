@@ -23,7 +23,8 @@ class Boutton_grille
     end
 
     private_class_method
-    attr_accessor :couleur, :contenu, :boutton
+    attr_reader :boutton
+    attr_accessor :couleur, :contenu, :boutton, :joues
 
     ##
     # Initialisation de l'instance
@@ -92,7 +93,7 @@ class Boutton_grille
 
     
     ##
-    # Créer le signal pour les interactions du bouton
+    # Créer les signaux pour les interactions du bouton
     ##
     # * +cssW+  css pour la couleur blanc
     # * +cssB+  css pour la couleur noir
