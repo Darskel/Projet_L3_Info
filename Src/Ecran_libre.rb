@@ -20,8 +20,11 @@ class Ecran_libre
     ##
     # * +win+   La fenetre de l'application
     def initialize(win)
-        @win = win
 
+        # init des composants
+
+        @win = win
+        @map = "../Grilles/grille_chapitre1.txt"
         @boite = Gtk::Fixed.new()
         @container = Gtk::Box.new(:vertical)
 
@@ -29,6 +32,8 @@ class Ecran_libre
         @nouvellePartie = Gtk::Button.new(:label => "")
         @reprendre = Gtk::Button.new(:label => "")
         defilerChapitres = Gtk::Button.new(:label => "")
+
+        # Création tableau de boutons
 
         btnChapitre = [
             Gtk::Button.new(),
@@ -38,6 +43,8 @@ class Ecran_libre
             Gtk::Button.new()
         ]
 
+        # Création tableau de labels
+
         lblChapitre = [
             Gtk::Label.new(""),
             Gtk::Label.new(""),
@@ -46,13 +53,20 @@ class Ecran_libre
             Gtk::Label.new("")
         ]
 
+        # Chargement background
+
         @boite.add(Gtk::Image.new(:file => "../maquettes/menu-libre.png"))
         @container.add(@boite)
         
-        ajouteBouton(@boite, @nouvellePartie, 2, 520, 50, 450, 450, nil, nil, nil)
-        ajouteBouton(@boite, @reprendre, 2, 350, 50, 545, 545, nil, nil, nil)
+        # Ajout des composants du menu
 
+        ajouteBouton(@boite, @nouvellePartie, 2, 420, 40, 310, 620, method(:vers_jeu), nil, nil)
+        ajouteBouton(@boite, @reprendre, 2, 265, 40, 790, 620, method(:vers_jeu), nil, nil)
+
+        # Création css texte labels
         cssChapitre = ajouteTexte(3)
+
+        # Ajout des boutons dans la sidebar
 
         addChapitre(btnChapitre[0], lblChapitre[0], 13, 20, cssChapitre)
         addChapitre(btnChapitre[1], lblChapitre[1], 13, 155, cssChapitre)
@@ -60,14 +74,18 @@ class Ecran_libre
         addChapitre(btnChapitre[3], lblChapitre[3], 13, 420, cssChapitre)
         addChapitre(btnChapitre[4], lblChapitre[4], 13, 550, cssChapitre)
 
+        # Ajout boutons retour vers menu et défiler chapitres
+
         ajouteBouton(@boite, defilerChapitres, 2, 45, 45, 230, 620, method(:actualiserChapitres), lblChapitre, nil)
         ajouteBouton(@boite, @retourMenu, 2, 60, 60, 20, 5, method(:vers_menu), @win, @container)
 
 
         @win.add(@container)
 
-        @grille = Grille_jeu.creer(false, Array.new, "../Grilles/grille_chapitre3.txt")
-        @boite.put(@grille.grille, (1200 *0.4), 675 * 0.12)
+        # Chargement de la grille 1
+
+        @grille = Grille_jeu.creer(false, nil, @map)
+        @boite.put(@grille.grille, (1200 *0.35), 675 * 0.11)
 
         file = File.open("chapitres.txt")
         lignes = file.readlines
@@ -77,6 +95,8 @@ class Ecran_libre
         file.close
 
         @i_chap = 0
+
+        # Placement des bons labels de chapitres
         actualiserChapitres(lblChapitre)
 
         @win.show_all
@@ -94,7 +114,7 @@ class Ecran_libre
     # * +x+      Position en abscisse
     # * +y+      Postion en ordonnée
     def addChapitre(bouton, label, x, y, css) 
-        ajouteBouton(@boite, bouton, 3, 260, 115, x, y, method(:eventChangerChapitre), nil, nil)
+        ajouteBouton(@boite, bouton, 3, 260, 115, x, y, method(:eventChangerChapitre), label, nil)
         
         ajouteTexteProvider(label, css)
         bouton.add(label)
@@ -102,13 +122,27 @@ class Ecran_libre
 
     ##
     # Change la grille en fonction du chapitre sélectionné
-    ##
-    def eventChangerChapitre()
-        @grille.recharger("../Grilles/grille_chat.txt")
+    # * +label+ label du chapitre cliqué
+    def eventChangerChapitre(label)
+        #Cherche le numéro du chapitre sélectionné dans le label
+        @boite.remove(@grille.grille)
+        @map = "../Grilles/grille_chapitre" + label.label.gsub(/[^0-9]/, '') + ".txt"
+        @grille = Grille_jeu.creer(false, nil, @map)
+
+        if (@grille.nbLignes == 10)
+            @boite.put(@grille.grille, (1200 *0.37), 675 * 0.16)
+        elsif (@grille.nbLignes == 15)
+            @boite.put(@grille.grille, (1200 *0.36), 675 * 0.16)
+        else
+            @boite.put(@grille.grille, (1200 *0.35), 675 * 0.11)
+        end
+
+        @win.show_all
     end
 
     ##
     # Permet de changer les chapitres à l'appuie sur la flèche
+    # * +lblChapitre+ Liste des labels à actualiser
     def actualiserChapitres(lblChapitre)
         lblChapitre.each {|lbl| lbl.label = nextChapitre() }
            
@@ -135,6 +169,14 @@ class Ecran_libre
 
         @i_chap += 1
         return "   " + str
+    end
+
+    ##
+    # Permet de changer la fenetre pour aller afficher l'écran de jeu
+    def vers_jeu()
+        @win.remove(@container)
+        Ecran_jeu.creer(@win, @map)
+        return self
     end
 
 end

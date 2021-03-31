@@ -74,18 +74,18 @@
     # * +x+         L'emplacement en largeur auquel on veut placer le bouton
     # * +y+         L'emplacement en hauteur auquel on veut placer le bouton
     # * +callback+  La méthode à appliquer lors du signal connect
-    # * +win+       La fenetre de l'application
-    # * +box+       le Layout Manager de l'écran
-    def ajouteBouton(boite, bouton, typeCss, w, h, x, y, callback, win, box)
+    # * +p1+        Paramètre de l'event
+    # * +p2+        Paramètre de l'event
+    def ajouteBouton(boite, bouton, typeCss, w, h, x, y, callback, p1, p2)
         css = ajouteCss(typeCss)
         ajoutecssProvider(bouton, css, w, h)
 
         if (callback != nil) then
             bouton.signal_connect("clicked"){
-                if (win && box)
-                    callback.call(win, box)
-                elsif (win)
-                    callback.call(win)
+                if (p1 && p2)
+                    callback.call(p1, p2)
+                elsif (p1)
+                    callback.call(p1)
                 else
                     callback.call()
                 end

@@ -55,26 +55,14 @@ class Grille_jeu
             0.upto(@nbColonnes-1) do |j|
                 #Rend le bouton non cliquable
                 @bouttons[i][j].boutton.sensitive = false
-            end
-        end
-    end
-
-    def recharger(nomGrille)
-        @nomGrille = nomGrille
-        file = File.open(nomGrille)
-        file_data = file.readlines.map(&:chomp)
-        ligne_grille = file_data[1]
-        ligne_solution = file_data[2]
-        @nbLignes = file_data[0].split(' ')[0].to_i
-        @nbColonnes = file_data[0].split(' ')[1].to_i
-        file.close
-
-        i_bouton = 0
-        0.upto(@nbLignes-1) do |i|
-            0.upto(@nbColonnes-1) do |j|
-                @bouttons[i][j].contenu = ligne_grille[i_bouton].to_s
-                @bouttons[i][j].boutton.label = ligne_grille[i_bouton].to_s
-                i_bouton += 1
+                if @nbLignes == 20
+                    csss = @css.cssWWidemenu
+                elsif @nbLignes == 15
+                    csss = @css.cssWMedmenu
+                else 
+                    csss = @css.cssW
+                end
+                @bouttons[i][j].boutton.style_context.add_provider(csss, Gtk::StyleProvider::PRIORITY_USER)
             end
         end
     end
@@ -344,6 +332,4 @@ class Grille_jeu
             end
         end
     end
-
-
 end

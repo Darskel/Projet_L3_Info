@@ -14,6 +14,9 @@ class Css
         @falseReponse = Gtk::CssProvider.new
         @cssWWide = Gtk::CssProvider.new
         @cssWMed = Gtk::CssProvider.new
+        @cssWWidemenu = Gtk::CssProvider.new
+        @cssWMedmenu = Gtk::CssProvider.new
+
 
         # Css pour le fond blanc et la couleur de police noir
         @cssW.load(data: <<-CSS)
@@ -114,8 +117,34 @@ class Css
         }
         CSS
 
+        @cssWMedmenu.load(data: <<-CSS)
+        button{
+            background-image: image(white);
+            color : black;
+            border: 1px solid black;
+            border-radius: 0px;
+            box-shadow: 0 0 0 0px white inset;
+            padding-top: 0px; 
+            padding-bottom: 0px;
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+        CSS
 
+        @cssWWidemenu.load(data: <<-CSS)
+        button{
+            background-image: image(white);
+            color : black;
+            border: 1px solid black;
+            border-radius: 0px;
+            box-shadow: 0 0 0 0px white inset;
+            padding-top: 0px; 
+            padding-bottom: 0px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        CSS
     end
 
-    attr_reader :cssG, :cssB, :cssW, :cssBRedBorder, :cssWRedBorder, :cssGRedBorder, :falseReponse, :cssWMed, :cssWWide
+    attr_reader :cssG, :cssB, :cssW, :cssBRedBorder, :cssWRedBorder, :cssGRedBorder, :falseReponse, :cssWMed, :cssWWide, :cssWMedmenu, :cssWWidemenu
 end

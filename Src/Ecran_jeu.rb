@@ -13,15 +13,15 @@ class Ecran_jeu
     # Constructeur
     ##
     # * +win+       Fenetre graphique de l'application
-    def Ecran_jeu.creer(win)
-        new(win)
+    def Ecran_jeu.creer(win, map)
+        new(win, map)
     end
 
     ##
     # Construction de l'instance
     ##
     # * +win+       Fenetre graphique de l'application
-    def initialize(win)
+    def initialize(win, map)
         #Création de l'interface 
         @window = win
         @box = Gtk::Fixed.new()
@@ -51,7 +51,7 @@ class Ecran_jeu
         @box.put(temps,450,630)
 
         
-        @grille = Grille_jeu.creer(true, joues, "../Grilles/grille_chapitre10.txt")
+        @grille = Grille_jeu.creer(true, joues, map)
 
         
         #signal pour activer le rectangle rouge autour du curseur
