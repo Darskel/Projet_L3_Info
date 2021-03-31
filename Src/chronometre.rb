@@ -20,6 +20,8 @@ class Chronometre
 
     attr_reader :thr, :minutes, :secondes
 
+    attr_accessor :minutes, :secondes
+
     ##
     # Création de l'objet
     ##
@@ -47,6 +49,12 @@ class Chronometre
                 label.text = "Temps : "+@minutes.to_s + ":"+@secondes.to_s
             end
         }
+    end
+
+    ##
+    # Termine le Thread qui gère le chronomètre pour stopper l'avancer du temps
+    def kill()
+        Thread.kill(@thr)
     end
 
     ##

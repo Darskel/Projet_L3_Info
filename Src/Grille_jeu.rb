@@ -42,6 +42,7 @@ class Grille_jeu
         @redSquare = false
 
         charger(nomGrille)
+        @nomGrille = nomGrille
 
         unless (estJouable)
             rendreNonJouable()
@@ -240,6 +241,9 @@ class Grille_jeu
         end
     end
 
+    ##
+    #   Méthode qui change la valeur du boolean @redSquare 
+    ##
     def activeRedSquare()
         if(@redSquare == false)
             @redSquare = true
@@ -248,6 +252,10 @@ class Grille_jeu
         end
     end
 
+    ##
+    #   Méthode qui ajoute un css avec bordure rouge au bouton en paramètre selon sa couleur de base
+    #   Cette méthode est appelée lorsque l'utilisateur a activé l'aide RedSquare et que sa souris survole un boutton
+    ##
     def putRedSquare(boutton)
         if(boutton.couleur=="white")
             boutton.boutton.style_context.add_provider(@css.cssWRedBorder, Gtk::StyleProvider::PRIORITY_USER)
@@ -258,6 +266,11 @@ class Grille_jeu
         end
     end
 
+    ##
+    #   Méthode qui enlève un css avec bordure rouge au bouton en paramètre selon sa couleur de base
+    #   Cette méthode est appelée lorsque l'utilisateur a activé l'aide RedSquare
+    #   et que sa souris quitte un boutton
+    ##
     def removeRedSquare(boutton)
         if(boutton.couleur=="white")
             boutton.boutton.style_context.add_provider(@css.cssW, Gtk::StyleProvider::PRIORITY_USER)
@@ -268,7 +281,11 @@ class Grille_jeu
         end
     end
 
-
+    ##
+    #   Méthode qui appelle la méthode putRedSquare sur les 6 boutons valides 
+    #   entourant le bouton sur lequelle la souris de l'utilisateur se trouve
+    #   
+    ##
     def enterButton(i, j)
         if(@redSquare)
             if(coordValide(i-1, j-1))
@@ -301,6 +318,13 @@ class Grille_jeu
         end
     end
 
+    ##
+    #   Méthode qui appelle la méthode removeRedSquare sur les 6 boutons valides 
+    #   entourant le bouton sur lequelle la souris de l'utilisateur se trouvait
+    #   (méthode appelée lorsque l'utilisateur quitte un bouton avec sa souris
+    #   et que l'aide RedSquare est activée)
+    #   
+    ##
     def leaveButton(i, j)
         if(@redSquare)
             if(coordValide(i-1, j-1))
@@ -331,5 +355,35 @@ class Grille_jeu
                 removeRedSquare(@bouttons[i+1][j+1])
             end
         end
+    end
+
+    def saveProgression(chrono, typeGame)
+        saveName = @nomGrille.delete_suffix(".txt") << "#{typeGame}SAVE.txt"
+        save = File.new(saveName, "w")
+        File.write(saveName, "#{chrono.minutes} #{chrono.secondes}\n")
+        @joues.each{|coup| File.write(saveName, "#{coup.indiceI} #{coup.indiceJ} #{coup.couleur}\n", mode: "a")}
+        save.close
+    end
+
+    def loadProgression(typeGame, chronometre)
+        save = File.open(@nomGrille.delete_suffix(".txt") << "#{typeGame}SAVE.txt", "r")
+        
+        tmp = save.readline.split(" ")
+        chronometre.minutes = tmp[0].to_i
+        chronometre.secondes = tmp[1].to_i
+
+
+        coups_joues = save.readlines.map(&:chomp)
+
+        coups_joues.each{|coup|
+            indiceI = coup.split(' ')[0].to_i
+            indiceJ = coup.split(' ')[1].to_i
+            couleur = coup.split(' ')[2].to_s
+            
+            @joues.push(Coup_joue.creer(indiceI, indiceJ, couleur))
+            @bouttons[indiceI][indiceJ].change_couleur(@css.cssW, @css.cssB, @css.cssG)           
+        }
+        save.close 
+
     end
 end

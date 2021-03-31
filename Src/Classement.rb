@@ -38,11 +38,27 @@ class Classement
         @boutonFlechePrecedent = Gtk::Button.new()  
         @boutonMenu = Gtk::Button.new()
 
+        
         fileUsers = File.open("../Users/users.txt","r") 
         file_data = fileUsers.readlines.map(&:chomp)
-
+        i = 1
+        
+        #Parcours du fichier contenant tous les utilisateurs
         for elem in file_data do
-            puts(elem.to_s())
+            fileUtilisateur = File.open("../Users/"+elem.to_s()+"/succes.txt")
+            lignesFichierUtilisateur = fileUtilisateur.readlines.map(&:chomp)
+            #puts("Fichier de "+elem.to_s()+" : \n")
+            
+            #Parcours du fichier succes de l'utilisateur elem 
+            for chapitre in lignesFichierUtilisateur do
+                #puts("Chapitre n°"+i.to_s()+" : ")
+                #if(i==12)
+                #    i=0
+                #end
+                #i = i+1    
+                tabLigne = chapitre.split(" ")
+                tabLigne.each{|x| print x,"\n"}
+            end
         end
 
         classementChap1 = ["Arthur","Yannis","Aurélien","Guillaume","David"]
@@ -175,6 +191,12 @@ class Classement
             @titreChapitre.set_text("Chapitre "+indexChapitre.to_s()+" : Sumatra")
         when 10
             @titreChapitre.set_text("Chapitre "+indexChapitre.to_s()+" : Les Galapagos")
+        end
+    end
+
+    def comparerTemps(minute, seconde)
+        if(this.minute < minute)
+        
         end
     end
 end
