@@ -90,7 +90,6 @@ class Boutton_grille
         end
         return self
     end
-
     
     ##
     # Créer les signaux pour les interactions du bouton
