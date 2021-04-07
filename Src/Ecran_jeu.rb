@@ -123,19 +123,29 @@ class Ecran_jeu
 
         box = Gtk::Fixed.new()
 
-        duree = "Partie finie en " + chrono.minutes.to_s + ":" + chrono.secondes.to_s
+        duree = chrono.minutes.to_s + ":" + chrono.secondes.to_s
 
         @box2.add(box)
 
-        box.add(Gtk::Image.new(:file => "../maquettes/Jeu.png"))
+        box.add(Gtk::Image.new(:file => "../maquettes/niveauFini.png"))
 
-        messageVictoire = Gtk::Label.new("Félicitations vous avez terminé le niveau !")
-        buttonMenu = Gtk::Button.new(:label => "Retour au menu")
+        css = ajouteCss(2)
+        cssTemps = Gtk::CssProvider.new
+
+        cssTemps.load(data: <<-CSS)
+            label {
+                font-size : 50px;
+            }
+            CSS
+
+        buttonMenu = Gtk::Button.new(:label => "")
         temps = Gtk::Label.new(duree)
 
-        box.put(messageVictoire, (1200 *0.28), 675 * 0.16)
-        box.put(buttonMenu, (1200 *0.28), 675 * 0.9)
-        box.put(temps, (1200 *0.28), 675 * 0.5)
+        ajoutecssProvider(buttonMenu, css, 290,72)
+        ajoutecssProvider(temps, cssTemps, 200,200)
+
+        box.put(buttonMenu, (1200 *0.74), 675 * 0.87)
+        box.put(temps, (1200 *0.6), 675 * 0.45)
 
         buttonMenu.signal_connect("clicked"){
             vers_menu(@window, @box2)

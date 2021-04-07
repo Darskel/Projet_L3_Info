@@ -44,7 +44,7 @@
             }
             button:hover {
                 opacity: 0.8;
-                border: 1px solid black;
+                border: unset;
             }
             CSS
         end
@@ -120,7 +120,7 @@
         elsif etat == 3
             css.load(data: <<-CSS)
             label {
-                font-size: 38px;
+                font-size: 34px;
                 font-family: sans-serif;
                 text-shadow: 1px 0 0 black, 0 1px 0 black, -1px 0 0 black, 0 -1px 0 black;
             }

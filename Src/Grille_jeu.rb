@@ -376,4 +376,5 @@ class Grille_jeu
         
         File.open(nomSauvegarde, 'w') { |f| f.write(Marshal.dump(data)) }
     end
+
 end

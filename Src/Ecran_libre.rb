@@ -161,14 +161,17 @@ class Ecran_libre
         end
         str = @file_data[@i_chap].gsub("    ", "").gsub(": ", "\n")
         if (str.size > 27)
-            str = str[0...-6] + "..."
+            str = str[0...-9] + "..."
         elsif (str.size < 23)
+            spaces = "";
+            0.upto((14 - (str.size - 10)) / 2 ) { spaces += " " }
+              
             str.insert(12, '♦')
-            str = str.gsub("♦", "     ")
+            str = str.gsub("♦", spaces)
         end
 
         @i_chap += 1
-        return "   " + str
+        return "  " + str
     end
 
     ##
