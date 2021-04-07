@@ -11,7 +11,7 @@ load "Bouttons_grille.rb"
 # * +nomGrille+    Le nom du fichier de la grille
 class Grille_jeu
 
-    attr_reader :grille, :nbLignes
+    attr_reader :grille, :nbLignes, :boolFillNine
 
     ##
     # Constructeur de la classe
@@ -41,6 +41,7 @@ class Grille_jeu
         @css = Css.new()
         @redSquare = false
 
+        @boolFillNine = false
         charger(nomGrille)
         @nomGrille = nomGrille
 
@@ -160,6 +161,8 @@ class Grille_jeu
     # * +nombre+    Le nombre que l'on souhaite voir être entouré de cases noires ou grises
     def fillNine(nombre)
 
+        @boolFillNine = true
+        
         if(nombre != '0')
             couleur = "black"
         else
@@ -370,9 +373,11 @@ class Grille_jeu
         #Ecriture d'un tableau sérializé dans un fichier
         #L'indice 0 contient de tableau @joues (le tableau des coups joués)
         #L'indice 1 et 2 contiennent respectivement les minutes et les secondes du chrono (temps passé sur la grille)
+        #L'indice 3 est le boolean qui indique si l'utilisateur a demandé l'aide du remplissage auto
         data[0] = @joues
         data[1] = chrono.minutes
         data[2] = chrono.secondes
+        data[3] = @boolFillNine
         
         File.open(nomSauvegarde, 'w')
         File.chmod(0777, nomSauvegarde)

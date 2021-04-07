@@ -29,9 +29,11 @@ class Grille_jeu_charger < Grille_jeu
         data = Array.new
 
         #On charge les données sauvegardées dans un tableau
-        # - Le premier indice du tableau contient le tableau de coups joués lors de la sauvegarde
-        # - Le deuxième et troisième indice contiennent respectivement
+        # - L'indice 0 du tableau contient le tableau de coups joués lors de la sauvegarde
+        # - L'indice 1 et 2 contiennent respectivement
         #les minutes et secondes du chronomètre au moment de la sauvegarde
+        # - L'indice 3 est le boolean qui indique si l'utilisateur avait 
+        #demandé l'aide du remplissage auto
 
         File.open(@nomSauvegarde, "r") {|f| data = Marshal::load(f)}
 
@@ -39,6 +41,17 @@ class Grille_jeu_charger < Grille_jeu
         @joues.each{|coup|
             @bouttons[coup.indiceI][coup.indiceJ].change_couleur(@css.cssW, @css.cssB, @css.cssG)
         }
+
+        @boolFillNine = data[3]
+
+        #Si l'utilisateur avait utilisé l'aide remplissage, on la réactive
+        if(@boolFillNine)
+            fillNine('0')
+            fillNine('4')
+            fillNine('6')
+            fillNine('9')
+        end
+            
         
         #On demande au chrono de se relancer avec le temps chargé
         chrono.lancer(data[1], data[2])

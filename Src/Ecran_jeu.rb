@@ -74,10 +74,12 @@ class Ecran_jeu
 
         #signal qui remplit les cases faciles (9, 0, 4, 6)
         @boutonRemplissage.signal_connect("clicked"){
-            @grille.fillNine('9')
-            @grille.fillNine('4')
-            @grille.fillNine('6')
-            @grille.fillNine('0')
+            if(!@grille.boolFillNine)
+                @grille.fillNine('9')
+                @grille.fillNine('4')
+                @grille.fillNine('6')
+                @grille.fillNine('0')
+            end
         }
 
         #signal du bouton undo afin de retourner au coup précédemment joué
