@@ -84,6 +84,14 @@ class Grille_chapitre
                 puts("NOPE")
             end
         }
+
+        @boutonCoupLogique.signal_connect("clicked"){
+            verif = @grille.check()
+            if(verif[0] == false && verif[1] == false)
+                @grille.nextMove()
+                chrono.augmenteTemps(30)
+            end
+        }
         
         @box.put(@grille.grille, (1200 *0.28), 675 * 0.16)
 

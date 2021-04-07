@@ -106,8 +106,11 @@ class Ecran_jeu
 
         #Signal du prochain coup logique
         @boutonCoupLogique.signal_connect("clicked"){
-            @grille.nextMove()
-            chrono.augmenteTemps(30)
+            verif = @grille.check()
+            if(verif[0] == false && verif[1] == false)
+                @grille.nextMove()
+                chrono.augmenteTemps(30)
+            end
         }
         
         if(@grille.nbLignes == 10)
