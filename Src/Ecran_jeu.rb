@@ -121,7 +121,7 @@ class Ecran_jeu
 
         box = Gtk::Fixed.new()
 
-        duree = "Partie finie en " + chrono.minutes.to_s + ":" + chrono.secondes.to_s
+        duree = chrono.minutes.to_s + ":" + chrono.secondes.to_s
 
         @box2.add(box)
 
@@ -132,7 +132,7 @@ class Ecran_jeu
 
         cssTemps.load(data: <<-CSS)
             label {
-                font-size : 20px;
+                font-size : 50px;
             }
             CSS
 
@@ -143,7 +143,7 @@ class Ecran_jeu
         ajoutecssProvider(temps, cssTemps, 200,200)
 
         box.put(buttonMenu, (1200 *0.74), 675 * 0.87)
-        box.put(temps, (1200 *0.4), 675 * 0.5)
+        box.put(temps, (1200 *0.6), 675 * 0.45)
 
         buttonMenu.signal_connect("clicked"){
             vers_menu(@window, @box2)
