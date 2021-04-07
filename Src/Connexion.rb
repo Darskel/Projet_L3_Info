@@ -137,6 +137,8 @@ class Connexion
         File.chmod(0777,$userPath + "users.txt")
         File.write($userPath + "users.txt", nom+"\n", mode: "a")
 
+        ##Ajout des dossiers 'Libre' et 'Aventure' 
+        ##qui contiendront les sauvegardes de ces modes respectifs 
         $userPath += nom+"/"
         Dir.mkdir($userPath)
         Dir.mkdir($userPath+"Libre/")

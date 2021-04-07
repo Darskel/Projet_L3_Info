@@ -357,10 +357,19 @@ class Grille_jeu
         end
     end
 
-    def sauveProgression(chrono, typeJeu)
-        nomSauvegarde = ($userPath+typeJeu+'/'+@nomGrille.split("/")[2]).delete_suffix(".txt")
+    ##
+    #   Déclaration de la méthode sauveProgression 
+    # Deux paramètres :
+    # * +chrono+ le temps passé sur la grille
+    # * +modeJeu+ le mode de jeu sur lequel se trouve l'utilisateur
+    # Cette méthode sauvegarde la progression de l'utilisateur sur cette grille
+    def sauveProgression(chrono, modeJeu)
+        nomSauvegarde = ($userPath+modeJeu+'/'+@nomGrille.split("/")[2]).delete_suffix(".txt")
         data = Array.new
 
+        #Ecriture d'un tableau sérializé dans un fichier
+        #L'indice 0 contient de tableau @joues (le tableau des coups joués)
+        #L'indice 1 et 2 contiennent respectivement les minutes et les secondes du chrono (temps passé sur la grille)
         data[0] = @joues
         data[1] = chrono.minutes
         data[2] = chrono.secondes

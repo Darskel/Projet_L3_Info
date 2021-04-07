@@ -52,6 +52,8 @@ class Ecran_jeu
         ajouteBouton(@box,@boutonRemplissage,1,60,60,(1200*0.942), 675*0.015,nil,@window,@box2)
         @box.put(temps,450,630)
 
+        #lance une grille vierge de coups si aucune sauvegarde existe 
+        #concernant la map et le mode voulu
         if(Grille_jeu_charger.exist?(map, "Libre"))
             @grille = Grille_jeu_charger.creer(true, joues, map, chrono, "Libre")
         else
@@ -60,7 +62,7 @@ class Ecran_jeu
         end
 
         
-
+        #Sauvegarde la grille quand on la quitte et arrête le chrono
         @retourMenu.signal_connect("clicked"){
             @grille.sauveProgression(chrono, "Libre")
             chrono.kill
