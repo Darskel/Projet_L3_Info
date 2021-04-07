@@ -16,23 +16,23 @@ class Classement
         @titreChapitre.set_text("Chapitre "+@indexChapitre.to_s()+" : Hawaï")
         @boxClassement = Gtk::Box.new(:horizontal)
         
-        texte1er = Gtk::Label.new()
-        texte2e = Gtk::Label.new()
-        texte3e = Gtk::Label.new()
-        texte4e = Gtk::Label.new()
-        texte5e = Gtk::Label.new()
+        @texte1er = Gtk::Label.new()
+        @texte2e = Gtk::Label.new()
+        @texte3e = Gtk::Label.new()
+        @texte4e = Gtk::Label.new()
+        @texte5e = Gtk::Label.new()
         
-        place1 = Gtk::Label.new()
-        place2 = Gtk::Label.new()
-        place3 = Gtk::Label.new()
-        place4 = Gtk::Label.new()
-        place5 = Gtk::Label.new()
+        @place1 = Gtk::Label.new()
+        @place2 = Gtk::Label.new()
+        @place3 = Gtk::Label.new()
+        @place4 = Gtk::Label.new()
+        @place5 = Gtk::Label.new()
         
-        temps1er = Gtk::Label.new()
-        temps2e = Gtk::Label.new()
-        temps3e = Gtk::Label.new()
-        temps4e = Gtk::Label.new()
-        temps5e = Gtk::Label.new()
+        @temps1er = Gtk::Label.new()
+        @temps2e = Gtk::Label.new()
+        @temps3e = Gtk::Label.new()
+        @temps4e = Gtk::Label.new()
+        @temps5e = Gtk::Label.new()
         
         @boutonFlecheSuivant = Gtk::Button.new()
         @boutonFlechePrecedent = Gtk::Button.new()  
@@ -43,6 +43,7 @@ class Classement
         @userSecondes = []
 
         affichageClassement()
+        placementClassement()
 
         classementChap2 = ["David","Arthur","Alexis"]
         classementChap3 = ["Alexis","Arthur","Tom"]
@@ -50,7 +51,6 @@ class Classement
         @box.add(Gtk::Image.new(:file => "../maquettes/classement.png"))
 
         cssChapitre = ajouteTexte(3)
-        cssTexteClassement = ajouteTexte(3)
         ajouteTexteProvider(@titreChapitre,cssChapitre)
         
         
@@ -58,46 +58,7 @@ class Classement
         ajouteBouton(@box,@boutonFlechePrecedent,1,55,45,(1200 *0.015),675 * 0.24,nil,@window,@boiteInterieure)
         ajouteBouton(@box,@boutonFlecheSuivant,1,55,45,(1200 *0.935),675 * 0.24,nil,@window,@boiteInterieure)
 
-        #Affichage du classement
-        for i in 0..@classementChapActuel.length()-1
-            case i
-            when 0
-                ajouteTexteProvider(place1,cssTexteClassement)
-                ajouteTexteProvider(texte1er,cssTexteClassement)
-                ajouteTexteProvider(temps1er,cssTexteClassement)
-                place1.set_text((i+1).to_s())
-                texte1er.set_text(@classementChapActuel[i].to_s())
-                temps1er.set_text(@userMinutes[i].to_s() + " minutes "+@userSecondes[i].to_s()+ " secondes ")
-            when 1 
-                ajouteTexteProvider(place2,cssTexteClassement)
-                ajouteTexteProvider(texte2e,cssTexteClassement)
-                ajouteTexteProvider(temps2e,cssTexteClassement)
-                place2.set_text((i+1).to_s())
-                texte2e.set_text(classementChapActuel[i].to_s())
-                temps2e.set_text(@userMinutes[i].to_s() + " minutes "+@userSecondes[i].to_s()+ " secondes ")
-            when 2
-                ajouteTexteProvider(place3,cssTexteClassement)
-                ajouteTexteProvider(texte3e,cssTexteClassement)
-                ajouteTexteProvider(temps3e,cssTexteClassement)
-                place3.set_text((i+1).to_s())
-                texte3e.set_text(@classementChapActuel[i].to_s())
-                temps3e.set_text(@userMinutes[i].to_s() + " minutes "+@userSecondes[i].to_s()+ " secondes ")
-            when 3
-                ajouteTexteProvider(place4,cssTexteClassement)
-                ajouteTexteProvider(texte4e,cssTexteClassement)
-                ajouteTexteProvider(temps4e,cssTexteClassement)
-                place4.set_text((i+1).to_s())
-                texte4e.set_text(@classementChapActuel[i].to_s())
-                temps4e.set_text(@userMinutes[i].to_s() + " minutes "+@userSecondes[i].to_s()+ " secondes ")
-            when 4
-                ajouteTexteProvider(place5,cssTexteClassement)
-                ajouteTexteProvider(texte5e,cssTexteClassement)
-                ajouteTexteProvider(temps5e,cssTexteClassement)
-                place5.set_text((i+1).to_s())
-                texte5e.set_text(@classementChapActuel[i].to_s())
-                temps5e.set_text(@userMinutes[i].to_s() + " minutes "+@userSecondes[i].to_s()+ " secondes ")
-            end
-        end
+    
 
         @boutonMenu.signal_connect("clicked"){
             vers_menu(@window,@box)
@@ -105,7 +66,11 @@ class Classement
 
         @boutonFlechePrecedent.signal_connect("clicked"){
             @indexChapitre = @indexChapitre-1
+            @classementChapActuel = []
+            @userMinutes = []
+            @userSecondes = []
             affichageClassement()
+            placementClassement()
             if @indexChapitre==1
                 @boutonFlechePrecedent.sensitive = false
             end
@@ -117,7 +82,11 @@ class Classement
 
         @boutonFlecheSuivant.signal_connect("clicked"){
             @indexChapitre = @indexChapitre+1
+            @classementChapActuel = []
+            @userMinutes = []
+            @userSecondes = []
             affichageClassement()
+            placementClassement()
             if @indexChapitre<10
                 @boutonFlechePrecedent.sensitive = true
             end
@@ -129,23 +98,23 @@ class Classement
 
         @box.put(@titreChapitre,(1200 *0.3), 675 * 0.24)
         
-        @box.put(place1,(1200 *0.05), 675 * 0.5)
-        @box.put(place2,(1200 *0.05), 675 * 0.6)
-        @box.put(place3,(1200 *0.05), 675 * 0.7)
-        @box.put(place4,(1200 *0.05), 675 * 0.8)
-        @box.put(place5,(1200 *0.05), 675 * 0.9)
+        @box.put(@place1,(1200 *0.05), 675 * 0.5)
+        @box.put(@place2,(1200 *0.05), 675 * 0.6)
+        @box.put(@place3,(1200 *0.05), 675 * 0.7)
+        @box.put(@place4,(1200 *0.05), 675 * 0.8)
+        @box.put(@place5,(1200 *0.05), 675 * 0.9)
 
-        @box.put(texte1er,(1200 *0.12), 675 * 0.5)
-        @box.put(texte2e,(1200 *0.12), 675 * 0.6)
-        @box.put(texte3e,(1200 *0.12), 675 * 0.7)
-        @box.put(texte4e,(1200 *0.12), 675 * 0.8)
-        @box.put(texte5e,(1200 *0.12), 675 * 0.9)
+        @box.put(@texte1er,(1200 *0.12), 675 * 0.5)
+        @box.put(@texte2e,(1200 *0.12), 675 * 0.6)
+        @box.put(@texte3e,(1200 *0.12), 675 * 0.7)
+        @box.put(@texte4e,(1200 *0.12), 675 * 0.8)
+        @box.put(@texte5e,(1200 *0.12), 675 * 0.9)
 
-        @box.put(temps1er,(1200 *0.6), 675 * 0.5)
-        @box.put(temps2e,(1200 *0.6), 675 * 0.6)
-        @box.put(temps3e,(1200 *0.6), 675 * 0.7)
-        @box.put(temps4e,(1200 *0.6), 675 * 0.8)
-        @box.put(temps5e,(1200 *0.6), 675 * 0.9)
+        @box.put(@temps1er,(1200 *0.6), 675 * 0.5)
+        @box.put(@temps2e,(1200 *0.6), 675 * 0.6)
+        @box.put(@temps3e,(1200 *0.6), 675 * 0.7)
+        @box.put(@temps4e,(1200 *0.6), 675 * 0.8)
+        @box.put(@temps5e,(1200 *0.6), 675 * 0.9)
 
         @box.add(@boiteInterieure)
 
@@ -181,7 +150,6 @@ class Classement
     def affichageClassement()
         fileUsers = File.open("../Users/users.txt","r") 
         file_data = fileUsers.readlines.map(&:chomp)
-        i = 1
         classementTmp = []
         minutesTmp = []
         secondesTmp = []
@@ -190,24 +158,67 @@ class Classement
             fileUtilisateur = File.open("../Users/"+elem.to_s()+"/succes.txt")
             lignesFichierUtilisateur = fileUtilisateur.readlines.map(&:chomp)
             tabLigne = lignesFichierUtilisateur[@indexChapitre-1].split(" ")
-            #if(tabLigne[0] == true)
-                if(i == 1)
-                    puts(elem.to_s + " est rentré dans le classement \n")
-                    @classementChapActuel<<elem.to_s
-                    @userMinutes<<tabLigne[1]
-                    @userSecondes<<tabLigne[2]
-                    puts(@classementChapActuel)
-                else 
-                    # puts(elem.to_s + "est rentré dans le classement \n")
-                    # classementChapActuel<<elem.to_s
-                    # puts(classementChapActuel)
-                end
-            #end
-            i = i+1
+            if(tabLigne[0] == "true")
+                puts(elem.to_s + " est rentré dans le classement \n")
+                @classementChapActuel<<elem.to_s
+                @userMinutes<<tabLigne[1]
+                @userSecondes<<tabLigne[2]
+                puts(@classementChapActuel)
+            end
+            puts("Chapitre n°"+@indexChapitre.to_s())
+            puts(elem.to_s()+"\n")
             puts("Terminé : "+tabLigne[0])
             puts("Minutes : "+tabLigne[1])
             puts("Secondes : "+tabLigne[2])
-            
+            puts(@userMinutes)
+            puts(@userSecondes)
         end
+    end
+
+    def placementClassement()
+        cssTexteClassement = ajouteTexte(3)
+        
+        #Affichage du classement
+        for i in 0..@classementChapActuel.length()-1
+            case i
+            when 0
+                ajouteTexteProvider(@place1,cssTexteClassement)
+                ajouteTexteProvider(@texte1er,cssTexteClassement)
+                ajouteTexteProvider(@temps1er,cssTexteClassement)
+                @place1.set_text((i+1).to_s())
+                @texte1er.set_text(@classementChapActuel[i].to_s())
+                @temps1er.set_text(@userMinutes[i].to_s() + " minutes "+@userSecondes[i].to_s()+ " secondes ")
+            when 1 
+                ajouteTexteProvider(@place2,cssTexteClassement)
+                ajouteTexteProvider(@texte2e,cssTexteClassement)
+                ajouteTexteProvider(@temps2e,cssTexteClassement)
+                @place2.set_text((i+1).to_s())
+                @texte2e.set_text(@classementChapActuel[i].to_s())
+                @temps2e.set_text(@userMinutes[i].to_s() + " minutes "+@userSecondes[i].to_s()+ " secondes ")
+            when 2
+                ajouteTexteProvider(@place3,cssTexteClassement)
+                ajouteTexteProvider(@texte3e,cssTexteClassement)
+                ajouteTexteProvider(@temps3e,cssTexteClassement)
+                @place3.set_text((i+1).to_s())
+                @texte3e.set_text(@classementChapActuel[i].to_s())
+                @temps3e.set_text(@userMinutes[i].to_s() + " minutes "+@userSecondes[i].to_s()+ " secondes ")
+            when 3
+                ajouteTexteProvider(@place4,cssTexteClassement)
+                ajouteTexteProvider(@texte4e,cssTexteClassement)
+                ajouteTexteProvider(@temps4e,cssTexteClassement)
+                @place4.set_text((i+1).to_s())
+                @texte4e.set_text(@classementChapActuel[i].to_s())
+                @temps4e.set_text(@userMinutes[i].to_s() + " minutes "+@userSecondes[i].to_s()+ " secondes ")
+            when 4
+                ajouteTexteProvider(@place5,cssTexteClassement)
+                ajouteTexteProvider(@texte5e,cssTexteClassement)
+                ajouteTexteProvider(@temps5e,cssTexteClassement)
+                @place5.set_text((i+1).to_s())
+                @texte5e.set_text(@classementChapActuel[i].to_s())
+                @temps5e.set_text(@userMinutes[i].to_s() + " minutes "+@userSecondes[i].to_s()+ " secondes ")
+            end
+        end
+        @window.show_all()
+    
     end
 end
