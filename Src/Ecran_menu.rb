@@ -86,12 +86,12 @@ class Ecran_menu
         @win.add(@layoutManager)
 
         #######################################################
-        aDelete = Gtk::Button.new(:label => "Jeu")
-        aDelete.signal_connect("clicked"){
-            @win.remove(@layoutManager)
-            Ecran_jeu.creer(@win, "../Grilles/grille_chapitre1.txt")
-        }
-        boite.put(aDelete, 0 , 0)
+        #aDelete = Gtk::Button.new(:label => "Jeu")
+        #aDelete.signal_connect("clicked"){
+        #    @win.remove(@layoutManager)
+        #    Ecran_jeu.creer(@win, "../Grilles/grille_chapitre1.txt")
+        #}
+        #boite.put(aDelete, 0 , 0)
         #######################################################
 
         @win.show_all

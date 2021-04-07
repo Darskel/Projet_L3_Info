@@ -60,7 +60,7 @@ class Ecran_libre
         
         # Ajout des composants du menu
 
-        ajouteBouton(@boite, @nouvellePartie, 2, 420, 40, 310, 620, method(:vers_jeu), nil, nil)
+        ajouteBouton(@boite, @nouvellePartie, 2, 420, 40, 310, 620, method(:nouvellePartie_VersJeu), nil, nil)
         ajouteBouton(@boite, @reprendre, 2, 265, 40, 790, 620, method(:vers_jeu), nil, nil)
 
         # Création css texte labels
@@ -177,6 +177,15 @@ class Ecran_libre
     ##
     # Permet de changer la fenetre pour aller afficher l'écran de jeu
     def vers_jeu()
+        @win.remove(@container)
+        Ecran_jeu.creer(@win, @map)
+        return self
+    end
+
+    ##
+    # Lance une nouvelle partie en supprimant la sauvegarde existante
+    def nouvellePartie_VersJeu()
+        File.delete(($userPath+"Libre"+'/'+@map.split("/")[2]).delete_suffix(".txt"))
         @win.remove(@container)
         Ecran_jeu.creer(@win, @map)
         return self

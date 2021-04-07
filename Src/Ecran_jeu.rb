@@ -129,6 +129,11 @@ class Ecran_jeu
 
         ligne = map[map.length - 5].to_i
         res =  lectureSucces(ligne - 1,chrono)
+        
+        begin
+            File.delete(@grille.nomSauvegarde)
+        rescue Errno::ENOENT
+        end
 
         box = Gtk::Fixed.new()
 
@@ -184,6 +189,8 @@ class Ecran_jeu
         if ligneFich[1].to_i >= chrono.minutes
             if ligneFich[2].to_i > chrono.secondes && ligneFich[1].to_i == chrono.minutes
                 ligneFich[2] = chrono.secondes.to_s
+            elsif ligneFich[2].to_i < chrono.secondes && ligneFich[1].to_i == chrono.minutes
+                i = 0
             else
                 ligneFich[2] = chrono.secondes.to_s
                 ligneFich[1] = chrono.minutes.to_s

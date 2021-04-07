@@ -10,6 +10,8 @@ class Grille_jeu_charger < Grille_jeu
         new(estJouable, joues, map, chrono, modeJeu)
     end
 
+    attr_reader :nomSauvegarde
+
     ##
     #   Constructeur de Grille_jeu_charger
     #Constructeur sensiblement identique au constructeur de Grille_jeu
@@ -23,7 +25,7 @@ class Grille_jeu_charger < Grille_jeu
         super(estJouable, joues, map)
 
         #Recherche du nom du fichier à charger
-        nomSauvegarde = ($userPath+modeJeu+'/'+map.split("/")[2]).delete_suffix(".txt")
+        @nomSauvegarde = ($userPath+modeJeu+'/'+map.split("/")[2]).delete_suffix(".txt")
         data = Array.new
 
         #On charge les données sauvegardées dans un tableau
@@ -31,7 +33,7 @@ class Grille_jeu_charger < Grille_jeu
         # - Le deuxième et troisième indice contiennent respectivement
         #les minutes et secondes du chronomètre au moment de la sauvegarde
 
-        File.open(nomSauvegarde, "r") {|f| data = Marshal::load(f)}
+        File.open(@nomSauvegarde, "r") {|f| data = Marshal::load(f)}
 
         @joues.concat(data[0])
         @joues.each{|coup|
