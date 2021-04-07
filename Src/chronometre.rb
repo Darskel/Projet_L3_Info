@@ -28,8 +28,8 @@ class Chronometre
     # * +secondes+   Les secondes du chronomètre
     def initialize(label)
         @label = label
-        @minutes = Integer.new
-        @secondes = Integer.new        
+        @minutes
+        @secondes     
     end
 
     ##
