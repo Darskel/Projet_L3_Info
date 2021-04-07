@@ -1,5 +1,0 @@
-0 7
-13 8 white
-9 11 white
-9 11 black
-7 13 white

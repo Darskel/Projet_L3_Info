@@ -139,6 +139,8 @@ class Connexion
 
         $userPath += nom+"/"
         Dir.mkdir($userPath)
+        Dir.mkdir($userPath+"Libre/")
+        Dir.mkdir($userPath+"Aventure/")
 
         ##Ajout des premiers fichiers nécessaires pour un nouvel utilisateur
         File.open($userPath+"config.txt", "w")

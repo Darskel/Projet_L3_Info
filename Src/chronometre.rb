@@ -12,8 +12,8 @@ class Chronometre
     # * +label+     Le Gtk::Label qui accueil le temps
     # * +prevMin+   Les minutes déjà passées dans le jeu
     # * +prevSec+   Les secondes déjà passées dans le jeu
-    def Chronometre.creer(label, prevMin, prevSec)
-        new(label, prevMin, prevSec)
+    def Chronometre.creer(label)
+        new(label)
     end
 
     private_class_method :new
@@ -28,25 +28,27 @@ class Chronometre
     # * +label+     Le Gtk::Label qui accueil le temps
     # * +prevMin+   Les minutes déjà passées dans le jeu
     # * +prevSec+   Les secondes déjà passées dans le jeu
-    def initialize(label, prevMin, prevSec)
-       
-        @minutes = prevMin
-        @secondes = prevSec
+    def initialize(label)
+        @label = label        
+    end
 
-        label.text = "Temps : 0:00"
-
+    def lancer(minutes, secondes)
+        @minutes = minutes
+        @secondes = secondes
+        
         @thr = Thread.new{
             while(true)
-
+                minutesAffiche = (@minutes < 10) ? "0#{@minutes}" : "#{@minutes}"
+                secondesAffiche = (@secondes < 10) ? "0#{@secondes}" : "#{@secondes}"
                 if @secondes >= 59
                     @minutes += 1
                     @secondes = 0
                 else
                     @secondes += 1
                 end
-                label.text = @minutes.to_s + " : "+@secondes.to_s
+                
+                @label.text = minutesAffiche + " : "+secondesAffiche
                 sleep(1)
-                label.text = "Temps : "+@minutes.to_s + ":"+@secondes.to_s
             end
         }
     end
@@ -68,4 +70,6 @@ class Chronometre
             @secondes = @secondes %60
         end
     end
+
+    
 end

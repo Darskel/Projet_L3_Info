@@ -89,7 +89,7 @@ class Grille_jeu
         else 
             csss = @css.cssW
         end
-
+        
         i_bouton = 0
         0.upto(@nbLignes-1) do |i|
             0.upto(@nbColonnes-1) do |j|
@@ -357,33 +357,14 @@ class Grille_jeu
         end
     end
 
-    def saveProgression(chrono, typeGame)
-        saveName = @nomGrille.delete_suffix(".txt") << "#{typeGame}SAVE.txt"
-        save = File.new(saveName, "w")
-        File.write(saveName, "#{chrono.minutes} #{chrono.secondes}\n")
-        @joues.each{|coup| File.write(saveName, "#{coup.indiceI} #{coup.indiceJ} #{coup.couleur}\n", mode: "a")}
-        save.close
-    end
+    def sauveProgression(chrono, typeJeu)
+        nomSauvegarde = ($userPath+typeJeu+'/'+@nomGrille.split("/")[2]).delete_suffix(".txt")
+        data = Array.new
 
-    def loadProgression(typeGame, chronometre)
-        save = File.open(@nomGrille.delete_suffix(".txt") << "#{typeGame}SAVE.txt", "r")
+        data[0] = @joues
+        data[1] = chrono.minutes
+        data[2] = chrono.secondes
         
-        tmp = save.readline.split(" ")
-        chronometre.minutes = tmp[0].to_i
-        chronometre.secondes = tmp[1].to_i
-
-
-        coups_joues = save.readlines.map(&:chomp)
-
-        coups_joues.each{|coup|
-            indiceI = coup.split(' ')[0].to_i
-            indiceJ = coup.split(' ')[1].to_i
-            couleur = coup.split(' ')[2].to_s
-            
-            @joues.push(Coup_joue.creer(indiceI, indiceJ, couleur))
-            @bouttons[indiceI][indiceJ].change_couleur(@css.cssW, @css.cssB, @css.cssG)           
-        }
-        save.close 
-
+        File.open(nomSauvegarde, 'w') { |f| f.write(Marshal.dump(data)) }
     end
 end

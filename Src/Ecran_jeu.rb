@@ -1,6 +1,6 @@
 load "Grille_jeu.rb"
 load "Utils.rb"
-
+load "Grille_jeu_charger.rb"
 ##
 # Classe qui permet d'accèder au menu principal
 ##
@@ -35,7 +35,7 @@ class Ecran_jeu
         @boutonCurseur = Gtk::Button.new()
         @boutonCoupLogique = Gtk::Button.new();
         temps = Gtk::Label.new("")
-        @chrono = Chronometre.creer(temps, 0, 0)
+        chrono = Chronometre.creer(temps)
 
         joues = Array.new #tableau des coups joués par l'utilisateur pour le undo
 
@@ -52,13 +52,18 @@ class Ecran_jeu
         ajouteBouton(@box,@boutonRemplissage,1,60,60,(1200*0.942), 675*0.015,nil,@window,@box2)
         @box.put(temps,450,630)
 
-        
-        @grille = Grille_jeu.creer(true, joues, map)
+        if(Grille_jeu_charger.exist?(map, "Libre"))
+            @grille = Grille_jeu_charger.creer(true, joues, map, chrono, "Libre")
+        else
+            @grille = Grille_jeu.creer(true, joues, map)
+            chrono.lancer(0,0)
+        end
 
         
 
         @retourMenu.signal_connect("clicked"){
-            @grille.saveProgression(@chrono, "Libre")
+            @grille.sauveProgression(chrono, "Libre")
+            chrono.kill
         }
         #signal pour activer le rectangle rouge autour du curseur
         @boutonCurseur.signal_connect("clicked"){
