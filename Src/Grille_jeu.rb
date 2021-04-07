@@ -374,7 +374,10 @@ class Grille_jeu
         data[1] = chrono.minutes
         data[2] = chrono.secondes
         
-        File.open(nomSauvegarde, 'w') { |f| f.write(Marshal.dump(data)) }
+        File.open(nomSauvegarde, 'w')
+        File.chmod(0777, nomSauvegarde)
+        File.write(nomSauvegarde, Marshal.dump(data))
+        
     end
 
     ##
