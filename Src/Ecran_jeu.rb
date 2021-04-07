@@ -94,7 +94,7 @@ class Ecran_jeu
 
             if(fini[0] == true)
                 chrono.kill
-                ecran_victoire(chrono)
+                ecran_victoire(chrono,map)
             else
                 if(fini[1] == true)
                     chrono.augmenteTemps(30)
@@ -124,12 +124,15 @@ class Ecran_jeu
     # Déclenche l'écran de victoire quand le joueur gagne
     ##
     # * +chrono+        Le temps de la partie
-    def ecran_victoire(chrono)
+    def ecran_victoire(chrono, map)
         @box2.remove(@box)
+
+        ligne = map[map.length - 5].to_i
+        res =  lectureSucces(ligne - 1,chrono)
 
         box = Gtk::Fixed.new()
 
-        duree = chrono.minutes.to_s + ":" + chrono.secondes.to_s
+        duree = "Votre temps : " + chrono.minutes.to_s + ":" + chrono.secondes.to_s
 
         @box2.add(box)
 
@@ -140,23 +143,78 @@ class Ecran_jeu
 
         cssTemps.load(data: <<-CSS)
             label {
-                font-size : 50px;
+                font-size : 40px;
             }
             CSS
 
         buttonMenu = Gtk::Button.new(:label => "")
         temps = Gtk::Label.new(duree)
 
+        if res == "false"
+            succes = Gtk::Label.new("Vous avez remporté un succès !")
+            ajoutecssProvider(succes, cssTemps, 200,200)   
+            box.put(succes, (1200 *0.45), 675 * 0.60) 
+        end
+
         ajoutecssProvider(buttonMenu, css, 290,72)
         ajoutecssProvider(temps, cssTemps, 200,200)
 
         box.put(buttonMenu, (1200 *0.74), 675 * 0.87)
-        box.put(temps, (1200 *0.6), 675 * 0.45)
+        box.put(temps, (1200 *0.52), 675 * 0.45)
 
         buttonMenu.signal_connect("clicked"){
             vers_menu(@window, @box2)
         }
 
         @window.show_all
+        return self
+    end
+
+
+    ##
+    # On regarde si le joueur à déjà le succès, si non on lui ajoute
+    ##
+    # * +ligne+     La ligne a regardé dans le fichier
+    def lectureSucces(ligne, chrono)
+        file = File.open($userPath + "succes.txt")
+        file_data = file.readlines.map(&:chomp)
+
+        ligneFich = file_data[ligne].split(" ")
+
+        if ligneFich[1].to_i >= chrono.minutes
+            if ligneFich[2].to_i > chrono.secondes && ligneFich[1].to_i == chrono.minutes
+                ligneFich[2] = chrono.secondes.to_s
+            else
+                ligneFich[2] = chrono.secondes.to_s
+                ligneFich[1] = chrono.minutes.to_s
+            end
+            enregirstreScore(file_data, ligne,ligneFich)
+        end
+
+        res = ligneFich[0]
+
+        if res == "false"
+            ligneFich[0] = "true"
+            enregirstreScore(file_data, ligne,ligneFich)
+        end
+        return res
+    end
+
+    ##
+    # Enregistre les informations de la parties dans le fichier succes du joueur
+    ##
+    # * +file_data+     Toutes les données du fichier
+    # * +ligne+         numéro de la ligne a modifier
+    # * +ligneFich+     la ligne modifiée
+    def enregirstreScore(file_data, ligne, ligneFich)
+        file_data[ligne] = ligneFich.join(" ")
+        i = 0
+        while i <  file_data.length
+            file_data[i] = file_data[i] + "\n"
+            i += 1
+        end
+        File.open($userPath + "succes.txt", "w"){ |f|
+            f.write(file_data.join())
+        }
     end
 end
