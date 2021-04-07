@@ -101,6 +101,12 @@ class Ecran_jeu
                 end
             end
         }
+
+        #Signal du prochain coup logique
+        @boutonCoupLogique.signal_connect("clicked"){
+            @grille.nextMove()
+            chrono.augmenteTemps(30)
+        }
         
         if(@grille.nbLignes == 10)
             @box.put(@grille.grille, (1200 *0.28), 675 * 0.16)

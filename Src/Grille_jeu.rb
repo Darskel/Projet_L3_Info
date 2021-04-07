@@ -377,4 +377,80 @@ class Grille_jeu
         File.open(nomSauvegarde, 'w') { |f| f.write(Marshal.dump(data)) }
     end
 
+    ##
+    # Méthode qui va jouer le prochain coup logique du joueur
+    ##
+    def nextMove()
+        bon = check()
+
+        if(bon[0] == true)
+            0.upto(@nbLignes-1) do |i|
+                0.upto(@nbColonnes-1) do |j|
+                    nbNoir = 0
+                    nombre = @bouttons[i][j].contenu
+                    if(nombre != " ")
+                        if(coordValide(i-1, j-1) && @bouttons[i-1][j-1].couleur == "black")
+                            nbNoir += 1
+                        end
+                        if(coordValide(i-1, j) && @bouttons[i-1][j].couleur == "black")
+                            nbNoir += 1
+                        end
+                        if(coordValide(i-1, j+1) && @bouttons[i-1][j+1].couleur == "black")
+                            nbNoir += 1
+                        end
+                        if(coordValide(i, j-1) && @bouttons[i][j-1].couleur == "black")
+                            nbNoir += 1
+                        end
+                        if(coordValide(i, j) && @bouttons[i][j].couleur == "black")
+                            nbNoir += 1
+                        end
+                        if(coordValide(i, j+1) && @bouttons[i][j+1].couleur == "black")
+                            nbNoir += 1
+                        end
+                        if(coordValide(i+1, j-1) && @bouttons[i+1][j-1].couleur == "black")
+                            nbNoir += 1
+                        end
+                        if(coordValide(i+1, j) && @bouttons[i+1][j].couleur == "black")
+                            nbNoir += 1
+                        end
+                        if(coordValide(i+1, j+1) && @bouttons[i+1][j+1].couleur == "black")
+                            nbNoir += 1
+                        end
+                    
+                        if(nbNoir < nombre)
+                            if(coordValide(i-1, j-1) && @bouttons[i-1][j-1].couleur == "white" && ligne_solution[(i-1) * @nbLignes + (j-1)].to_i == 1)
+                                @bouttons[i-1][j-1].couleur = "black"
+                                @bouttons[i-1][j-1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)  
+                            elsif(coordValide(i-1, j) && @bouttons[i-1][j].couleur == "white" && ligne_solution[(i-1) * @nbLignes + j].to_i == 1)
+                                @bouttons[i-1][j].couleur = "black"
+                                @bouttons[i-1][j].updateCouleur(@css.cssW, @css.cssB, @css.cssG) 
+                            elsif(coordValide(i-1, j+1) && @bouttons[i-1][j+1].couleur == "white" && ligne_solution[(i-1) * @nbLignes + (j+1)].to_i == 1)
+                                @bouttons[i-1][j+1].couleur = "black"
+                                @bouttons[i-1][j+1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                            elsif(coordValide(i, j-1) && @bouttons[i][j-1].couleur == "white" && ligne_solution[i * @nbLignes + (j-1)].to_i == 1) 
+                                @bouttons[i][j-1].couleur = "black"
+                                @bouttons[i][j-1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                            elsif(coordValide(i, j) && @bouttons[i][j].couleur == "white" && ligne_solution[i * @nbLignes + j].to_i == 1)
+                                @bouttons[i][j].couleur = "black"
+                                @bouttons[i][j].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                            elsif(coordValide(i, j+1) && @bouttons[i][j+1].couleur == "white" && ligne_solution[i * @nbLignes + (j+1)].to_i == 1)
+                                @bouttons[i][j+1].couleur = "black"
+                                @bouttons[i][j+1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                            elsif(coordValide(i+1, j-1) && @bouttons[i+1][j-1].couleur == "white" && ligne_solution[(i+1) * @nbLignes + (j-1)].to_i == 1)
+                                @bouttons[i+1][j-1].couleur = "black"
+                                @bouttons[i+1][j-1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                            elsif(coordValide(i+1, j) && @bouttons[i+1][j].couleur == "white" && ligne_solution[(i+1) * @nbLignes + j].to_i == 1)
+                                @bouttons[i+1][j].couleur = "black"
+                                @bouttons[i+1][j].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                            elsif(coordValide(i+1, j+1) && @bouttons[i+1][j+1].couleur == "white" && ligne_solution[(i+1) * @nbLignes + (j+1)].to_i == 1)
+                                @bouttons[i+1][j+1].couleur = "black"
+                                @bouttons[i+1][j+1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                            end
+                            return true 
+                        end
+                    end
+                end
+            end
+        end
+    end
 end
