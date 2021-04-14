@@ -185,7 +185,9 @@ class Ecran_libre
     ##
     # Lance une nouvelle partie en supprimant la sauvegarde existante
     def nouvellePartie_VersJeu()
-        File.delete(($userPath+"Libre"+'/'+@map.split("/")[2]).delete_suffix(".txt"))
+        if(Grille_jeu_charger.exist?(@map, "Libre"))
+            File.delete(($userPath+"Libre"+'/'+@map.split("/")[2]).delete_suffix(".txt"))
+        end
         @win.remove(@container)
         Ecran_jeu.creer(@win, @map)
         return self
