@@ -178,7 +178,7 @@ class Ecran_libre
     # Permet de changer la fenetre pour aller afficher l'écran de jeu
     def vers_jeu()
         @win.remove(@container)
-        Ecran_jeu.creer(@win, @map)
+        Ecran_jeu.creer(@win, @map, "Libre")
         return self
     end
 
