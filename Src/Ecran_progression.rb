@@ -29,8 +29,6 @@ class Ecran_progression
         @container = Gtk::Box.new(:vertical)
 
         @retourMenu = Gtk::Button.new(:label => "")
-        @nouvellePartie = Gtk::Button.new(:label => "")
-        @reprendre = Gtk::Button.new(:label => "")
         defilerChapitres = Gtk::Button.new(:label => "")
 
         # Création tableau de boutons
@@ -57,11 +55,6 @@ class Ecran_progression
 
         @boite.add(Gtk::Image.new(:file => "../maquettes/menu-progression.png"))
         @container.add(@boite)
-        
-        # Ajout des composants du menu
-
-        ajouteBouton(@boite, @nouvellePartie, 2, 420, 40, 310, 620, nil, nil, nil)
-        ajouteBouton(@boite, @reprendre, 2, 265, 40, 790, 620, nil, nil, nil)
 
         # Création css texte labels
         cssChapitre = ajouteTexte(3)
@@ -85,7 +78,7 @@ class Ecran_progression
         # Chargement de la grille 1
 
         @grille = Grille_jeu.creer(false, nil, @map)
-        @boite.put(@grille.grille, (1200 *0.35), 675 * 0.11)
+        @boite.put(@grille.grille, (1200 *0.37), 675 * 0.16)
 
         file = File.open("chapitres.txt")
         lignes = file.readlines

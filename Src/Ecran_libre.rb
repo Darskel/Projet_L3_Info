@@ -85,7 +85,7 @@ class Ecran_libre
         # Chargement de la grille 1
 
         @grille = Grille_jeu.creer(false, nil, @map)
-        @boite.put(@grille.grille, (1200 *0.35), 675 * 0.11)
+        @boite.put(@grille.grille, (1200 *0.37), 675 * 0.16)
 
         file = File.open("chapitres.txt")
         lignes = file.readlines
