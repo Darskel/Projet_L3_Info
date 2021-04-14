@@ -88,7 +88,6 @@ class Classement
             @indexChapitre = @indexChapitre+1
             clearClassement()
             affichageClassement()
-            puts(@classementChapActuel.to_s)
             placementClassement()
             if @indexChapitre<10
                 @boutonFlechePrecedent.sensitive = true
@@ -162,7 +161,6 @@ class Classement
             lignesFichierUtilisateur = fileUtilisateur.readlines.map(&:chomp)
             tabLigne = lignesFichierUtilisateur[@indexChapitre-1].split(" ")
             if(tabLigne[0] == "true")
-                puts(elem.to_s + " est rentré dans le classement \n")
                 @classementChapActuel<<elem.to_s
                 @userMinutes<<tabLigne[1]
                 @userSecondes<<tabLigne[2]
@@ -234,13 +232,9 @@ class Classement
         @window.show_all()
     end
 
-    # def comparerTemps(user1,user2)
-    #     if(@userMinutes[user1] > @userMinutes[user2])
+    # def comparerTemps()
+    #     for i in 1..@classementChapActuel.length()-1
             
-    #     elsif(@userMinutes[user1] < @userMinutes[user2])
-    #         @classementTmp<<
-    #     elsif(@userMinutes[user1] ==  @userMinutes[user2])
-
-    #     end
+    #     end   
     # end 
 end

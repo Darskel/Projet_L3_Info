@@ -123,11 +123,9 @@ class Tuto
 
         #Signal du prochain coup logique
         @boutonCoupLogique.signal_connect("clicked"){
-            verif = @grille.check()
+            verif = @grilleTuto.check()
             if(verif[0] == false && verif[1] == false)
-                if(@grille.nextMove())
-                    chrono.augmenteTemps(30)
-                end
+                @grilleTuto.nextMove()
             end
         }
         
@@ -168,7 +166,7 @@ class Tuto
     end
 
     ##
-    # Fonction permettant de changer le texte présent dans le label de la bulle du capitaine en fonction du 
+    # Fonction permettant de changer le texte présent dans le label de la bulle du capitaine en fonction du numéro de la règle
     ##
     # * +index+     Numéro de la règle
     def changerTexteRegle(index)
@@ -229,7 +227,7 @@ class Tuto
         when 11
             @boutonRemplissage.style_context.add_provider(@cssCache,Gtk::StyleProvider::PRIORITY_USER)
             @boutonCoupLogique.style_context.add_provider(cssAidePresentee,Gtk::StyleProvider::PRIORITY_USER)
-            @techniqueText = "Cinquième aide disponible : Ce bouton vous\npermet d'afficher le prochain coup logique\nà faire lorsque vous êtes bloqués."
+            @techniqueText = "Cinquième aide disponible : Ce bouton vous\npermet d'afficher le prochain coup logique\nà faire lorsque vous êtes bloqués.Pensez d'abord\nà vérifier que toute votre grille est bonne !"
             @labelTechnique.set_text(@techniqueText)
         end
     end
