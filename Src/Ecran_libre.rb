@@ -189,7 +189,7 @@ class Ecran_libre
             File.delete(($userPath+"Libre"+'/'+@map.split("/")[2]).delete_suffix(".txt"))
         end
         @win.remove(@container)
-        Ecran_jeu.creer(@win, @map)
+        Ecran_jeu.creer(@win, @map, "Libre")
         return self
     end
 
