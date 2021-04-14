@@ -65,10 +65,11 @@ class Classement
         }
 
         @boutonFlechePrecedent.signal_connect("clicked"){
-            @indexChapitre = @indexChapitre-1
             @classementChapActuel = []
             @userMinutes = []
             @userSecondes = []
+            @indexChapitre = @indexChapitre-1
+            clearClassement()
             affichageClassement()
             placementClassement()
             if @indexChapitre==1
@@ -81,11 +82,13 @@ class Classement
         }
 
         @boutonFlecheSuivant.signal_connect("clicked"){
-            @indexChapitre = @indexChapitre+1
             @classementChapActuel = []
             @userMinutes = []
             @userSecondes = []
+            @indexChapitre = @indexChapitre+1
+            clearClassement()
             affichageClassement()
+            puts(@classementChapActuel.to_s)
             placementClassement()
             if @indexChapitre<10
                 @boutonFlechePrecedent.sensitive = true
@@ -163,21 +166,12 @@ class Classement
                 @classementChapActuel<<elem.to_s
                 @userMinutes<<tabLigne[1]
                 @userSecondes<<tabLigne[2]
-                puts(@classementChapActuel)
             end
-            puts("Chapitre n°"+@indexChapitre.to_s())
-            puts(elem.to_s()+"\n")
-            puts("Terminé : "+tabLigne[0])
-            puts("Minutes : "+tabLigne[1])
-            puts("Secondes : "+tabLigne[2])
-            puts(@userMinutes)
-            puts(@userSecondes)
         end
     end
 
     def placementClassement()
         cssTexteClassement = ajouteTexte(3)
-        
         #Affichage du classement
         for i in 0..@classementChapActuel.length()-1
             case i
@@ -219,6 +213,34 @@ class Classement
             end
         end
         @window.show_all()
-    
     end
+
+    def clearClassement()
+        @place1.set_text("")
+        @texte1er.set_text("")
+        @temps1er.set_text("")
+        @place2.set_text("")
+        @texte2e.set_text("")
+        @temps2e.set_text("")
+        @place3.set_text("")
+        @texte3e.set_text("")
+        @temps3e.set_text("")
+        @place4.set_text("")
+        @texte4e.set_text("")
+        @temps4e.set_text("")
+        @place5.set_text("")
+        @texte5e.set_text("")
+        @temps5e.set_text("")
+        @window.show_all()
+    end
+
+    # def comparerTemps(user1,user2)
+    #     if(@userMinutes[user1] > @userMinutes[user2])
+            
+    #     elsif(@userMinutes[user1] < @userMinutes[user2])
+    #         @classementTmp<<
+    #     elsif(@userMinutes[user1] ==  @userMinutes[user2])
+
+    #     end
+    # end 
 end

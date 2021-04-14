@@ -123,9 +123,11 @@ class Tuto
 
         #Signal du prochain coup logique
         @boutonCoupLogique.signal_connect("clicked"){
-            verif = @grilleTuto.check()
+            verif = @grille.check()
             if(verif[0] == false && verif[1] == false)
-                @grilleTuto.nextMove()
+                if(@grille.nextMove())
+                    chrono.augmenteTemps(30)
+                end
             end
         }
         

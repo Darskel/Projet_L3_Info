@@ -1,6 +1,7 @@
 load "Grille_jeu.rb"
 load "Utils.rb"
 load "Grille_jeu_charger.rb"
+
 ##
 # Classe qui permet d'accèder au menu principal
 ##
@@ -113,8 +114,9 @@ class Ecran_jeu
         @boutonCoupLogique.signal_connect("clicked"){
             verif = @grille.check()
             if(verif[0] == false && verif[1] == false)
-                @grille.nextMove()
-                chrono.augmenteTemps(30)
+                if(@grille.nextMove())
+                    chrono.augmenteTemps(30)
+                end
             end
         }
         
@@ -142,7 +144,9 @@ class Ecran_jeu
         res =  lectureSucces(ligne - 1,chrono)
         
         begin
-            File.delete(@grille.nomSauvegarde)
+            if(@grille.class.name.split("::").last == "Grille_jeu_charger")
+                File.delete(@grille.nomSauvegarde)
+            end
         rescue Errno::ENOENT
         end
 
@@ -166,7 +170,7 @@ class Ecran_jeu
         buttonMenu = Gtk::Button.new(:label => "")
         temps = Gtk::Label.new(duree)
 
-        if res == "false" && @mode == "Libre"
+        if res == "false" && @mode == "Aventure"
             succes = Gtk::Label.new("Vous avez remporté un succès !")
             ajoutecssProvider(succes, cssTemps, 200,200)   
             box.put(succes, (1200 *0.45), 675 * 0.60) 
@@ -197,7 +201,11 @@ class Ecran_jeu
 
         ligneFich = file_data[ligne].split(" ")
 
-        if ligneFich[1].to_i >= chrono.minutes && @mode == "Libre"
+        if ligneFich[1].to_i == 0 && ligneFich[2].to_i == 0 && @mode == "Libre"
+            ligneFich[2] = chrono.secondes.to_s
+            ligneFich[1] = chrono.minutes.to_s
+            enregirstreScore(file_data, ligne,ligneFich)
+        elsif ligneFich[1].to_i >= chrono.minutes && @mode == "Libre"
             if ligneFich[2].to_i > chrono.secondes && ligneFich[1].to_i == chrono.minutes
                 ligneFich[2] = chrono.secondes.to_s
             elsif ligneFich[2].to_i < chrono.secondes && ligneFich[1].to_i == chrono.minutes
@@ -211,7 +219,7 @@ class Ecran_jeu
 
         res = ligneFich[0]
 
-        if res == "false" && @mode == "Aventure"
+        if res == "false" #&& @mode == "Aventure"
             ligneFich[0] = "true"
             enregirstreScore(file_data, ligne,ligneFich)
         end
@@ -228,6 +236,7 @@ class Ecran_jeu
         file_data[ligne] = ligneFich.join(" ")
         i = 0
         while i <  file_data.length
+            file_data[i].delete!("\n")
             file_data[i] = file_data[i] + "\n"
             i += 1
         end

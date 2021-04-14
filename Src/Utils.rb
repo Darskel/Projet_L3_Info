@@ -8,7 +8,6 @@
         Ecran_menu.creer(window)
     end
 
-
     ##
     # Crée et retourne le css correspondant à l'état passé
     ##
