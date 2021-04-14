@@ -18,6 +18,7 @@ class Grille_jeu
     ##
     # * +estJouable+    Boolean qui permet de rendre les boutons de la grille clickaque ou non
     # * +joues+         Tableau contenant les coups joues par l'utilisateur
+    # * +nomGrille+     Le nom du fichier de la grille
     def Grille_jeu.creer(estJouable, joues, nomGrille)
         new(estJouable, joues, nomGrille)
     end
@@ -397,12 +398,14 @@ class Grille_jeu
                             if(coordValide(i+x, j+y) && @bouttons[i+x][j+y].couleur == "white" && @ligne_solution[(i+x) * @nbLignes + (j+y)].to_i == 1)
                                 @joues.push(Coup_joue.creer(i+x, j+y, "white"))
                                 @bouttons[i+x][j+y].change_couleur(@css.cssW, @css.cssB, @css.cssG)
-                                return self
+                                return true
                             end
                         end
                     end
                 end
             end
         end
+        return false
     end
+
 end

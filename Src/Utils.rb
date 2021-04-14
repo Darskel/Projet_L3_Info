@@ -9,16 +9,6 @@
     end
 
     ##
-    # Permet de passer à l'écran libre
-    ##
-    # * +window+      Fenetre graphique de l'application
-    # * +boite+       Layout manager principal de l'écran en cours
-    def vers_libre(window,boite)
-        window.remove(boite)
-        Ecran_libre.creer(window)
-    end
-
-    ##
     # Crée et retourne le css correspondant à l'état passé
     ##
     # * +etat+  le css demandé par l'user, 1 css sans hover, 2 avec hover

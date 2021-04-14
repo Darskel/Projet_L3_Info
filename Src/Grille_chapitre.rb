@@ -89,8 +89,9 @@ class Grille_chapitre
         @boutonCoupLogique.signal_connect("clicked"){
             verif = @grille.check()
             if(verif[0] == false && verif[1] == false)
-                @grille.nextMove()
-                chrono.augmenteTemps(30)
+                if(@grille.nextMove())
+                    chrono.augmenteTemps(30)
+                end
             end
         }
         

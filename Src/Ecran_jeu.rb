@@ -1,6 +1,7 @@
 load "Grille_jeu.rb"
 load "Utils.rb"
 load "Grille_jeu_charger.rb"
+
 ##
 # Classe qui permet d'accèder au menu principal
 ##
@@ -33,7 +34,7 @@ class Ecran_jeu
         @mode = mode
         @box = Gtk::Fixed.new()
         @box2 = Gtk::Box.new(:horizontal)
-        @retourLibre = Gtk::Button.new()
+        @retourMenu = Gtk::Button.new()
         @boutonUndo = Gtk::Button.new()
         @boutonRemplissage = Gtk::Button.new()
         @boutonCheck = Gtk::Button.new()
@@ -49,7 +50,7 @@ class Ecran_jeu
         @box2.add(@box)
 
         #Ajout des différents boutons, de leur css respectif ainsi que de leurs évents liés
-        ajouteBouton(@box,@retourLibre,1,55,45,(1200 *0.015), 675 * 0.025,method(:vers_libre),@window,@box2)
+        ajouteBouton(@box,@retourMenu,1,55,45,(1200 *0.015), 675 * 0.025,method(:vers_menu),@window,@box2)
         ajouteBouton(@box,@boutonCoupLogique,1,60,60,(1200*0.899), 675*0.015,nil,@window,@box2)
         ajouteBouton(@box,@boutonCheck,1,60,60,(1200*0.855), 675*0.015,nil,@window,@box2)
         ajouteBouton(@box,@boutonCurseur,1,60,60,(1200*0.812), 675*0.015,nil,@window,@box2)
@@ -68,7 +69,7 @@ class Ecran_jeu
 
         
         #Sauvegarde la grille quand on la quitte et arrête le chrono
-        @retourLibre.signal_connect("clicked"){
+        @retourMenu.signal_connect("clicked"){
             @grille.sauveProgression(chrono, @mode)
             chrono.kill
         }
@@ -113,8 +114,9 @@ class Ecran_jeu
         @boutonCoupLogique.signal_connect("clicked"){
             verif = @grille.check()
             if(verif[0] == false && verif[1] == false)
-                @grille.nextMove()
-                chrono.augmenteTemps(30)
+                if(@grille.nextMove())
+                    chrono.augmenteTemps(30)
+                end
             end
         }
         
