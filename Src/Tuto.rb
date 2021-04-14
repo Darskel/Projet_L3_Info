@@ -120,6 +120,14 @@ class Tuto
                 puts("NOPE")
             end
         }
+
+        #Signal du prochain coup logique
+        @boutonCoupLogique.signal_connect("clicked"){
+            verif = @grilleTuto.check()
+            if(verif[0] == false && verif[1] == false)
+                @grilleTuto.nextMove()
+            end
+        }
         
         #signal pour le bouton regle suivante permettant de passer à la règle suivante
         @suivant.signal_connect("clicked"){

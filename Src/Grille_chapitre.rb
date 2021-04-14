@@ -85,6 +85,7 @@ class Grille_chapitre
             end
         }
 
+        #Signal du prochain coup logique
         @boutonCoupLogique.signal_connect("clicked"){
             verif = @grille.check()
             if(verif[0] == false && verif[1] == false)

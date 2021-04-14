@@ -394,6 +394,7 @@ class Grille_jeu
                 nbNoir = 0
                 nombre = @bouttons[i][j].contenu
                 if(nombre != " ")
+                    puts("bonjour")
                     if(coordValide(i-1, j-1) && @bouttons[i-1][j-1].couleur == "black")
                         nbNoir += 1
                     end
@@ -422,7 +423,7 @@ class Grille_jeu
                         nbNoir += 1
                     end
                     
-                    if(nbNoir < nombre)
+                    if(nbNoir < nombre.to_i)
                         if(coordValide(i-1, j-1) && @bouttons[i-1][j-1].couleur == "white" && ligne_solution[(i-1) * @nbLignes + (j-1)].to_i == 1)
                             @bouttons[i-1][j-1].couleur = "black"
                             @bouttons[i-1][j-1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)  
@@ -451,8 +452,12 @@ class Grille_jeu
                             @bouttons[i+1][j+1].couleur = "black"
                             @bouttons[i+1][j+1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
                         end
+                        puts("Remplissage case")
                         return true 
                     end
+                else
+                    puts("Pas de remplissage")
+                    return false
                 end
             end
         end
