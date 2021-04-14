@@ -68,13 +68,8 @@ class Ecran_jeu
 
         
         #Sauvegarde la grille quand on la quitte et arrête le chrono
-<<<<<<< Updated upstream
-        @retourMenu.signal_connect("clicked"){
-            @grille.sauveProgression(chrono, @mode)
-=======
         @retourLibre.signal_connect("clicked"){
-            @grille.sauveProgression(chrono, "Libre")
->>>>>>> Stashed changes
+            @grille.sauveProgression(chrono, @mode)
             chrono.kill
         }
         #signal pour activer le rectangle rouge autour du curseur
