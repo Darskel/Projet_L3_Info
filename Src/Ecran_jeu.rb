@@ -33,7 +33,7 @@ class Ecran_jeu
         @mode = mode
         @box = Gtk::Fixed.new()
         @box2 = Gtk::Box.new(:horizontal)
-        @retourMenu = Gtk::Button.new()
+        @retourLibre = Gtk::Button.new()
         @boutonUndo = Gtk::Button.new()
         @boutonRemplissage = Gtk::Button.new()
         @boutonCheck = Gtk::Button.new()
@@ -49,7 +49,7 @@ class Ecran_jeu
         @box2.add(@box)
 
         #Ajout des différents boutons, de leur css respectif ainsi que de leurs évents liés
-        ajouteBouton(@box,@retourMenu,1,55,45,(1200 *0.015), 675 * 0.025,method(:vers_menu),@window,@box2)
+        ajouteBouton(@box,@retourLibre,1,55,45,(1200 *0.015), 675 * 0.025,method(:vers_libre),@window,@box2)
         ajouteBouton(@box,@boutonCoupLogique,1,60,60,(1200*0.899), 675*0.015,nil,@window,@box2)
         ajouteBouton(@box,@boutonCheck,1,60,60,(1200*0.855), 675*0.015,nil,@window,@box2)
         ajouteBouton(@box,@boutonCurseur,1,60,60,(1200*0.812), 675*0.015,nil,@window,@box2)
@@ -68,8 +68,13 @@ class Ecran_jeu
 
         
         #Sauvegarde la grille quand on la quitte et arrête le chrono
+<<<<<<< Updated upstream
         @retourMenu.signal_connect("clicked"){
             @grille.sauveProgression(chrono, @mode)
+=======
+        @retourLibre.signal_connect("clicked"){
+            @grille.sauveProgression(chrono, "Libre")
+>>>>>>> Stashed changes
             chrono.kill
         }
         #signal pour activer le rectangle rouge autour du curseur
