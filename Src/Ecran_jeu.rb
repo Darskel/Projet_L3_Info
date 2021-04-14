@@ -199,7 +199,11 @@ class Ecran_jeu
 
         ligneFich = file_data[ligne].split(" ")
 
-        if ligneFich[1].to_i >= chrono.minutes && @mode == "Libre"
+        if ligneFich[1].to_i == 0 && ligneFich[2].to_i == 0 && @mode == "Libre"
+            ligneFich[2] = chrono.secondes.to_s
+            ligneFich[1] = chrono.minutes.to_s
+            enregirstreScore(file_data, ligne,ligneFich)
+        elsif ligneFich[1].to_i >= chrono.minutes && @mode == "Libre"
             if ligneFich[2].to_i > chrono.secondes && ligneFich[1].to_i == chrono.minutes
                 ligneFich[2] = chrono.secondes.to_s
             elsif ligneFich[2].to_i < chrono.secondes && ligneFich[1].to_i == chrono.minutes
@@ -230,6 +234,7 @@ class Ecran_jeu
         file_data[ligne] = ligneFich.join(" ")
         i = 0
         while i <  file_data.length
+            file_data[i].delete!("\n")
             file_data[i] = file_data[i] + "\n"
             i += 1
         end
