@@ -36,11 +36,6 @@ class Ecran_aventure
 
         ##
         # Ajout des signaux des boutons
-        fleche.signal_connect("clicked"){
-            vers_menu()
-        }
-        ##
-        # Ajout des signaux des boutons
         quitter.signal_connect("clicked"){
             @win.destroy
             Gtk.main_quit
@@ -49,15 +44,6 @@ class Ecran_aventure
             rescue SystemExit
             end
         }
-
-        ##
-        # Création des CSS pour les boutons 
-        
-        flecheImage = ajouteCss(2)
-        demarrerImage = ajouteCss(2)
-        reprendreImage = ajouteCss(2)
-        progressionImage = ajouteCss(2)
-        quitterImage = ajouteCss(2)
 
         widthOptionsPrincipales = 500
         heightOptionsPrincipales = 80
@@ -70,24 +56,12 @@ class Ecran_aventure
         chap = 45
         affiche_chapitre(chap, boite)
 
-        ##
-        # Ajout du CSS aux bouton et on leur donne leur taille
+        ajouteBouton(boite, fleche, 2, 65, 60, 20, 10, method(:vers_menu), nil, nil)
+        ajouteBouton(boite, demarrer, 2, widthOptionsPrincipales, heightOptionsPrincipales, widhtEcran * 0.25, heightEcran * 0.5, nil, nil, nil)
+        ajouteBouton(boite, reprendre, 2, widthOptionsPrincipales, heightOptionsPrincipales, widhtEcran * 0.25, heightEcran * 0.65, nil, nil, nil)
+        ajouteBouton(boite, progression, 2, widthOptionsPrincipales * 1.2, heightOptionsPrincipales, widhtEcran * 0.22, heightEcran * 0.8, method(:vers_progression), nil, nil)
+        ajouteBouton(boite, quitter, 2, width, height, widhtEcran * 0.75, heightEcran * 0.885, nil, nil, nil)
 
-        ajoutecssProvider(fleche, flecheImage, 65, 60)
-        ajoutecssProvider(demarrer, demarrerImage, widthOptionsPrincipales, heightOptionsPrincipales)
-        ajoutecssProvider(reprendre, reprendreImage, widthOptionsPrincipales, heightOptionsPrincipales)
-        ajoutecssProvider(progression, progressionImage, widthOptionsPrincipales * 1.2, heightOptionsPrincipales)
-        ajoutecssProvider(quitter, quitterImage, width, height)
- 
-
-        ##
-        #Ajout des boutons et box dans les containers
-        boite.put(fleche, 20, 10)
-        boite.put(demarrer, (widhtEcran *0.25), heightEcran * 0.5)
-        boite.put(reprendre, (widhtEcran *0.25), heightEcran * 0.65)
-        boite.put(progression, (widhtEcran *0.22), heightEcran * 0.8)
-        boite.put(quitter, (widhtEcran *0.75) , heightEcran * 0.885)
-  
 
         @win.add(@layoutManager)
 
@@ -100,6 +74,11 @@ class Ecran_aventure
     def vers_menu()
         @win.remove(@layoutManager)
         @ecr = Ecran_menu.creer(@win)
+    end
+
+    def vers_progression()
+        @win.remove(@layoutManager)
+        @ecr = Ecran_progression.creer(@win)
     end
 
     ##
