@@ -457,7 +457,6 @@ class Grille_jeu
                     end
                 else
                     puts("Pas de remplissage")
-                    return false
                 end
             end
         end
