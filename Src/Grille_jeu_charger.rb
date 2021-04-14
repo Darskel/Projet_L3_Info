@@ -42,7 +42,7 @@ class Grille_jeu_charger < Grille_jeu
             @bouttons[coup.indiceI][coup.indiceJ].change_couleur(@css.cssW, @css.cssB, @css.cssG)
         }
 
-        @boolFillNine = data[3]
+        @boolFillNine = data[5]
 
         #Si l'utilisateur avait utilisé l'aide remplissage, on la réactive
         if(@boolFillNine)
@@ -54,7 +54,7 @@ class Grille_jeu_charger < Grille_jeu
             
         
         #On demande au chrono de se relancer avec le temps chargé
-        chrono.lancer(data[1], data[2])
+        chrono.lancer(data[1], data[2], data[3] , data[4])
     end
 
     ##

@@ -41,7 +41,8 @@ class Ecran_jeu
         @boutonCurseur = Gtk::Button.new()
         @boutonCoupLogique = Gtk::Button.new();
         temps = Gtk::Label.new("")
-        chrono = Chronometre.creer(temps)
+        penalite = Gtk::Label.new("")
+        chrono = Chronometre.creer(temps, penalite)
 
         joues = Array.new #tableau des coups joués par l'utilisateur pour le undo
 
@@ -56,15 +57,16 @@ class Ecran_jeu
         ajouteBouton(@box,@boutonCurseur,1,60,60,(1200*0.812), 675*0.015,nil,@window,@box2)
         ajouteBouton(@box,@boutonUndo,1,60,60,(1200*0.767), 675*0.015,nil,@window,@box2)
         ajouteBouton(@box,@boutonRemplissage,1,60,60,(1200*0.942), 675*0.015,nil,@window,@box2)
-        @box.put(temps,450,630)
+        @box.put(temps,450,620)
+        @box.put(penalite,925,620)
 
         #lance une grille vierge de coups si aucune sauvegarde existe 
         #concernant la map et le mode voulu
-        if(Grille_jeu_charger.exist?(map, "Libre"))
+        if(Grille_jeu_charger.exist?(map, @mode))
             @grille = Grille_jeu_charger.creer(true, joues, map, chrono, @mode)
         else
             @grille = Grille_jeu.creer(true, joues, map)
-            chrono.lancer(0,0)
+            chrono.lancer(0,0,0,0)
         end
 
         
@@ -219,7 +221,7 @@ class Ecran_jeu
 
         res = ligneFich[0]
 
-        if res == "false" #&& @mode == "Aventure"
+        if res == "false" && @mode == "Aventure"
             ligneFich[0] = "true"
             enregirstreScore(file_data, ligne,ligneFich)
         end

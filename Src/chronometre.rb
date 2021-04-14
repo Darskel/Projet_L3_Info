@@ -4,32 +4,49 @@
 # * +thr+       Le thread utilisé
 # * +minutes+   Les minutes écoulées depuis le début du niveau
 # * +secondes+  Les secondes écoulées depuis le début du niveau
+# * +labelPenalite+     Le Gtk::Label qui accueil les pénalité
+# * +penaliteMin+  somme des pénalités en minutes reçue par le joueur
+# * +penaliteSec+  somme des pénalités en secondes reçue par le joueur
 class Chronometre
 
     ##
     # Constructeur
     ##
-    # * +label+     Le Gtk::Label qui accueil le temps
-    def Chronometre.creer(label)
-        new(label)
+    # * +label+             Le Gtk::Label qui accueil le temps
+    # * +labelPenalite+     Le Gtk::Label qui accueil les pénalité
+    def Chronometre.creer(label, labelPenalite)
+        new(label, labelPenalite)
     end
 
     private_class_method :new
 
-    attr_reader :thr, :minutes, :secondes
+    attr_reader :thr, :minutes, :secondes, :penaliteMin, :penaliteSec
 
     attr_accessor :minutes, :secondes
 
     ##
     # Création de l'objet
     ##
-    # * +label+     Le Gtk::Label qui accueil le temps
-    # * +minutes+   Les minutes du chronomètre
-    # * +secondes+   Les secondes du chronomètre
-    def initialize(label)
+    # * +label+             Le Gtk::Label qui accueil le temps
+    # * +labelPenalite+     Le Gtk::Label qui accueil les pénalité
+    def initialize(label, labelPenalite)
         @label = label
         @minutes
-        @secondes     
+        @secondes
+        @penaliteMin
+        @penaliteSec
+        @labelPenalite = labelPenalite
+        
+        css = Gtk::CssProvider.new
+
+        css.load(data: <<-CSS)
+        label {
+            font-size : 25px;
+        }
+        CSS
+
+        @label.style_context.add_provider(css, Gtk::StyleProvider::PRIORITY_USER)
+        @labelPenalite.style_context.add_provider(css, Gtk::StyleProvider::PRIORITY_USER)
     end
 
     ##
@@ -37,8 +54,12 @@ class Chronometre
     # Prends en paramètres deux entiers, 
     # * +minutes+
     # * +secondes+
+    # * +penaliteMin+  somme des pénalités en minutes reçue par le joueur
+    # * +penaliteSec+  somme des pénalités en secondes reçue par le joueur
     # représentants respectivement les minutes et secondes au départ du chronomètre
-    def lancer(minutes, secondes)
+    def lancer(minutes, secondes, penaliteMin, penaliteSec)
+        @penaliteMin = penaliteMin
+        @penaliteSec = penaliteSec
         @minutes = minutes
         @secondes = secondes
         # La méthode lance un thread qui incrémente 
@@ -59,6 +80,7 @@ class Chronometre
                 end
                 
                 @label.text = minutesAffiche + " : "+secondesAffiche
+                @labelPenalite.text = @penaliteMin.to_s + " : "+@penaliteSec.to_s
                 sleep(1)
             end
         }
@@ -76,9 +98,15 @@ class Chronometre
     # * +temps+     le temps en secondes à ajouter au chrono
     def augmenteTemps(temps)
         @secondes += temps
+        @penaliteSec += temps
         if(@secondes >= 59)
             @minutes += @secondes / 60
             @secondes = @secondes %60
+        end
+
+        if @penaliteSec >= 59
+            @penaliteMin += @penaliteSec / 60
+            @penaliteSec = @penaliteSec % 60
         end
     end
 

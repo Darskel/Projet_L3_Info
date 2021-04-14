@@ -378,7 +378,9 @@ class Grille_jeu
         data[0] = @joues
         data[1] = chrono.minutes
         data[2] = chrono.secondes
-        data[3] = @boolFillNine
+        data[3] = chrono.penaliteMin
+        data[4] = chrono.penaliteSec
+        data[5] = @boolFillNine
         
         File.open(nomSauvegarde, 'w')
         File.chmod(0777, nomSauvegarde)
