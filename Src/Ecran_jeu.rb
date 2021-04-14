@@ -142,7 +142,9 @@ class Ecran_jeu
         res =  lectureSucces(ligne - 1,chrono)
         
         begin
-            File.delete(@grille.nomSauvegarde)
+            if(@grille.class.name.split("::").last == "Grille_jeu_charger")
+                File.delete(@grille.nomSauvegarde)
+            end
         rescue Errno::ENOENT
         end
 
@@ -166,7 +168,7 @@ class Ecran_jeu
         buttonMenu = Gtk::Button.new(:label => "")
         temps = Gtk::Label.new(duree)
 
-        if res == "false" && @mode == "Libre"
+        if res == "false" && @mode == "Aventure"
             succes = Gtk::Label.new("Vous avez remporté un succès !")
             ajoutecssProvider(succes, cssTemps, 200,200)   
             box.put(succes, (1200 *0.45), 675 * 0.60) 
@@ -211,7 +213,7 @@ class Ecran_jeu
 
         res = ligneFich[0]
 
-        if res == "false" && @mode == "Aventure"
+        if res == "false" #&& @mode == "Aventure"
             ligneFich[0] = "true"
             enregirstreScore(file_data, ligne,ligneFich)
         end

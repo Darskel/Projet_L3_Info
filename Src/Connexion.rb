@@ -149,10 +149,6 @@ class Connexion
         File.open($userPath+"Libre/config.txt", "w")
         File.open($userPath+"Aventure/config.txt", "w")
         File.open($userPath+"Tuto/config.txt", "w")
-        
-        File.open($userPath+"config.txt", "w")
-        File.chmod(0777,$userPath + "config.txt")
-        File.write($userPath+"config.txt", "Sons : true")
 
         File.open($userPath+"succes.txt", "w")
         File.chmod(0777,$userPath + "succes.txt")
