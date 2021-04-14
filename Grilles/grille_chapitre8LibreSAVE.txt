@@ -1,4 +1,0 @@
-0 3
-11 8 white
-11 6 white
-8 6 white
