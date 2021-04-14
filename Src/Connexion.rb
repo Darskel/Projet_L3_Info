@@ -143,8 +143,13 @@ class Connexion
         Dir.mkdir($userPath)
         Dir.mkdir($userPath+"Libre/")
         Dir.mkdir($userPath+"Aventure/")
+        Dir.mkdir($userPath+"Tuto/")
 
         ##Ajout des premiers fichiers nécessaires pour un nouvel utilisateur
+        File.open($userPath+"Libre/config.txt", "w")
+        File.open($userPath+"Aventure/config.txt", "w")
+        File.open($userPath+"Tuto/config.txt", "w")
+        
         File.open($userPath+"config.txt", "w")
         File.chmod(0777,$userPath + "config.txt")
         File.write($userPath+"config.txt", "Sons : true")

@@ -15,17 +15,22 @@ class Ecran_jeu
     # Constructeur
     ##
     # * +win+       Fenetre graphique de l'application
-    def Ecran_jeu.creer(win, map)
-        new(win, map)
+    # * +map+       le nom de la map utilisée
+    # * +mode+      Le mode de jeu en cours
+    def Ecran_jeu.creer(win, map, mode)
+        new(win, map, mode)
     end
 
     ##
     # Construction de l'instance
     ##
     # * +win+       Fenetre graphique de l'application
-    def initialize(win, map)
+    # * +map+       le nom de la map utilisée
+    # * +mode+      Le mode de jeu en cours
+    def initialize(win, map, mode)
         #Création de l'interface 
         @window = win
+        @mode = mode
         @box = Gtk::Fixed.new()
         @box2 = Gtk::Box.new(:horizontal)
         @retourMenu = Gtk::Button.new()
@@ -55,7 +60,7 @@ class Ecran_jeu
         #lance une grille vierge de coups si aucune sauvegarde existe 
         #concernant la map et le mode voulu
         if(Grille_jeu_charger.exist?(map, "Libre"))
-            @grille = Grille_jeu_charger.creer(true, joues, map, chrono, "Libre")
+            @grille = Grille_jeu_charger.creer(true, joues, map, chrono, @mode)
         else
             @grille = Grille_jeu.creer(true, joues, map)
             chrono.lancer(0,0)
@@ -64,7 +69,7 @@ class Ecran_jeu
         
         #Sauvegarde la grille quand on la quitte et arrête le chrono
         @retourMenu.signal_connect("clicked"){
-            @grille.sauveProgression(chrono, "Libre")
+            @grille.sauveProgression(chrono, @mode)
             chrono.kill
         }
         #signal pour activer le rectangle rouge autour du curseur
@@ -133,6 +138,7 @@ class Ecran_jeu
         @box2.remove(@box)
 
         ligne = map[map.length - 5].to_i
+
         res =  lectureSucces(ligne - 1,chrono)
         
         begin
@@ -160,7 +166,7 @@ class Ecran_jeu
         buttonMenu = Gtk::Button.new(:label => "")
         temps = Gtk::Label.new(duree)
 
-        if res == "false"
+        if res == "false" && @mode == "Libre"
             succes = Gtk::Label.new("Vous avez remporté un succès !")
             ajoutecssProvider(succes, cssTemps, 200,200)   
             box.put(succes, (1200 *0.45), 675 * 0.60) 
@@ -191,7 +197,7 @@ class Ecran_jeu
 
         ligneFich = file_data[ligne].split(" ")
 
-        if ligneFich[1].to_i >= chrono.minutes
+        if ligneFich[1].to_i >= chrono.minutes && @mode == "Libre"
             if ligneFich[2].to_i > chrono.secondes && ligneFich[1].to_i == chrono.minutes
                 ligneFich[2] = chrono.secondes.to_s
             elsif ligneFich[2].to_i < chrono.secondes && ligneFich[1].to_i == chrono.minutes
@@ -205,7 +211,7 @@ class Ecran_jeu
 
         res = ligneFich[0]
 
-        if res == "false"
+        if res == "false" && @mode == "Aventure"
             ligneFich[0] = "true"
             enregirstreScore(file_data, ligne,ligneFich)
         end

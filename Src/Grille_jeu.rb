@@ -11,7 +11,7 @@ load "Bouttons_grille.rb"
 # * +nomGrille+    Le nom du fichier de la grille
 class Grille_jeu
 
-    attr_reader :grille, :nbLignes, :boolFillNine
+    attr_reader :grille, :nbLignes, :boolFillNine, :nomSauvegarde
 
     ##
     # Constructeur de la classe
@@ -43,7 +43,7 @@ class Grille_jeu
 
         @boolFillNine = false
         charger(nomGrille)
-        @nomGrille = nomGrille
+        @nomSauvegarde = nomGrille
 
         unless (estJouable)
             rendreNonJouable()
@@ -74,7 +74,7 @@ class Grille_jeu
     ##
     # * +nomGrille+    Le nom du fichier a charger
     def charger(nomGrille)
-        @nomGrille = nomGrille
+        @nomSauvegarde = nomGrille
         file = File.open(nomGrille)
         file_data = file.readlines.map(&:chomp)
         ligne_grille = file_data[1]
@@ -120,7 +120,7 @@ class Grille_jeu
     # en case 0 : false si la grille contient des erreurs/n'est pas terminée
     # en case 1 : vrai si l'utilisateur a fait une ou plusieurs erreur
     def check()
-        file = File.open(@nomGrille)
+        file = File.open(@nomSauvegarde)
 
         file_data = file.readlines.map(&:chomp)
             
@@ -367,7 +367,7 @@ class Grille_jeu
     # * +modeJeu+ le mode de jeu sur lequel se trouve l'utilisateur
     # Cette méthode sauvegarde la progression de l'utilisateur sur cette grille
     def sauveProgression(chrono, modeJeu)
-        nomSauvegarde = ($userPath+modeJeu+'/'+@nomGrille.split("/")[2]).delete_suffix(".txt")
+        nomSauvegarde = ($userPath+modeJeu+'/'+@nomSauvegarde.split("/")[2]).delete_suffix(".txt")
         data = Array.new
 
         #Ecriture d'un tableau sérializé dans un fichier
