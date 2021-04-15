@@ -125,6 +125,14 @@
                 text-shadow: 1px 0 0 black, 0 1px 0 black, -1px 0 0 black, 0 -1px 0 black;
             }
             CSS
+        elsif etat == 4
+            css.load(data: <<-CSS)
+            label {
+                font-size: 34px;
+                font-family: sans-serif; 
+                color: grey;
+            }
+            CSS
         end
         return css
     end

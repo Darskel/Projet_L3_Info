@@ -48,6 +48,9 @@ class EcranOptions
         credits.signal_connect("clicked"){
             vers_credit()
         }
+        succes.signal_connect("clicked"){
+            vers_succes()
+        }
         
         widthOptionsPrincipales = 307
         heightOptionsPrincipales = 68
@@ -88,6 +91,14 @@ class EcranOptions
     def vers_credit()
         @win.remove(@layoutManager)
         Credit.creer(@win)
+        return self
+    end
+
+    ##
+    # Permet de changer la fenetre pour afficher les succes
+    def vers_succes()
+        @win.remove(@layoutManager)
+        Succes.creer(@win)
         return self
     end
 end
