@@ -384,7 +384,7 @@ class Grille_jeu
         
         File.open(nomSauvegarde, 'w')
         File.chmod(0777, nomSauvegarde)
-        File.write(nomSauvegarde, Marshal.dump(data))
+        File.binwrite(nomSauvegarde, Marshal.dump(data))
         
     end
 
