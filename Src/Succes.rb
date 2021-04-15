@@ -38,7 +38,7 @@ class Succes
         ##
         # Ajout du sigal du bouton retour
         flecheRetour.signal_connect("clicked"){
-            vers_menu()
+            vers_menuSucces()
         }
         
         width = 31
@@ -47,7 +47,7 @@ class Succes
         @widthEcran = 1200
         @heightEcran = 675
 
-        ajouteBouton(boite, flecheRetour, 2, 65, 60, 20, 10, method(:vers_menu), nil, nil)
+        ajouteBouton(boite, flecheRetour, 2, 65, 60, 20, 10, nil, nil, nil)
 
         @win.add(@layoutManager)
 
@@ -57,7 +57,7 @@ class Succes
 
     ##
     # Permet de changer la fenetre pour aller afficher le menu principalm
-    def vers_menu()
+    def vers_menuSucces()
         @win.remove(@layoutManager)
         Ecran_menu.creer(@win)
         return self
@@ -82,7 +82,7 @@ class Succes
         succes7 = Gtk::Label.new("Niveau 7 terminé ! Quel parcours incroyable !")
         succes8 = Gtk::Label.new("Niveau 8 terminé ! Promotion : capitaine")
         succes9 = Gtk::Label.new("Niveau 9 terminé ! Juste trop fort !")
-        succes10 = Gtk::Label.new("Niveeau 10 terminé ! Vous êtes désormais vice-amiral !")
+        succes10 = Gtk::Label.new("Niveau 10 terminé ! Vous êtes désormais vice-amiral !")
         succesAll = Gtk::Label.new("Vous avez terminé tous les succès et êtes au plus haut rang possible dans la marine!!!")
 
         cssNoir = ajouteTexte(3)

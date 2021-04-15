@@ -135,18 +135,19 @@ class Ecran_aventure
     # Retourne le numéro de ligne du chapitre
     ##
     def derniereMap()
-        i_chap = 1
-        while (Grille_jeu_charger.exist?("../Grilles/grille_chapitre" + i_chap.to_s + ".txt", 'Aventure'))
+        file = File.open($userPath+"/succes.txt")
+        file_data = file.readlines.map(&:chomp)
+        file.close
+
+        i_chap = 0
+        while (file_data[i_chap].split.first == "true" && i_chap < 10)
             # Incrémente le numéro de chapitre
             i_chap+=1
         end
-        i_chap-=1
-
-        if (i_chap == 0)
-            i_chap+=1
-        end
+        i_chap+=1
 
         @map = "../Grilles/grille_chapitre" + i_chap.to_s + ".txt"
+
 
         return ((i_chap-1) * 5)
     end
