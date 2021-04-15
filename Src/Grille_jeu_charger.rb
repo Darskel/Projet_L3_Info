@@ -35,7 +35,7 @@ class Grille_jeu_charger < Grille_jeu
         # - L'indice 3 est le boolean qui indique si l'utilisateur avait 
         #demandé l'aide du remplissage auto
 
-        File.open(nomSauvegarde, "r") {|f| data = Marshal::load(f)}
+        data = Marshal.load(File.binread(nomSauvegarde))
 
         @joues.concat(data[0])
         @joues.each{|coup|
