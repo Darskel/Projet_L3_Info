@@ -86,7 +86,7 @@ class Ecran_libre
         # Regarde si une sauvegarde existe, si oui, la charge, sinon, nouvelle partie
 
         if (Grille_jeu_charger.exist?(@map, 'Libre'))
-            @grille = Grille_jeu_charger.creer(false, nil, @map, nil, 'Libre')
+            @grille = Grille_jeu_charger.creer(false, Array.new, @map, nil, 'Libre')
         else
             @grille = Grille_jeu.creer(false, nil, @map)
         end
@@ -136,7 +136,7 @@ class Ecran_libre
         @map = "../Grilles/grille_chapitre" + label.label.gsub(/[^0-9]/, '') + ".txt"
         
         if (Grille_jeu_charger.exist?(@map, 'Libre'))
-            @grille = Grille_jeu_charger.creer(false, nil, @map, nil, 'Libre')
+            @grille = Grille_jeu_charger.creer(false, Array.new, @map, nil, 'Libre')
         else
             @grille = Grille_jeu.creer(false, nil, @map)
         end
