@@ -74,11 +74,11 @@ class Connexion
             }
         CSS
 
-        ajoutecssProvider(valider, css, 60, 55)
+        ajoutecssProvider(valider, css, 270, 70)
 
-        boite.put(valider, (widthEcran *0.88), heightEcran * 0.89)
-        boite.put(choixExistant, (widthEcran *0.45), heightEcran * 0.8)
-        boite.put(saisie, (widthEcran *0.47), heightEcran * 0.4)
+        boite.put(valider, (widthEcran *0.51), heightEcran * 0.86)
+        boite.put(choixExistant, (widthEcran *0.47), heightEcran * 0.715)
+        boite.put(saisie, (widthEcran *0.47), heightEcran * 0.36)
 
 
         @win.show_all
