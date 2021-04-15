@@ -25,7 +25,7 @@ class Grille_jeu_charger < Grille_jeu
         super(estJouable, joues, map)
 
         #Recherche du nom du fichier à charger
-        @nomSauvegarde = ($userPath+modeJeu+'/'+map.split("/")[2]).delete_suffix(".txt")
+        nomSauvegarde = ($userPath+modeJeu+'/'+map.split("/")[2]).delete_suffix(".txt")
         data = Array.new
 
         #On charge les données sauvegardées dans un tableau
@@ -35,7 +35,7 @@ class Grille_jeu_charger < Grille_jeu
         # - L'indice 3 est le boolean qui indique si l'utilisateur avait 
         #demandé l'aide du remplissage auto
 
-        File.open(@nomSauvegarde, "r") {|f| data = Marshal::load(f)}
+        File.open(nomSauvegarde, "r") {|f| data = Marshal::load(f)}
 
         if (@joues != nil)
             @joues.concat(data[0])
