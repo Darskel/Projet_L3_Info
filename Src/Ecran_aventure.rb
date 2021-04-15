@@ -24,6 +24,7 @@ class Ecran_aventure
 
         boite = Gtk::Fixed.new()
         @layoutManager = Gtk::Box.new(:vertical)
+        @map = "../Grilles/grille_chapitre1.txt"
 
         fleche = Gtk::Button.new(:label => "")
         demarrer = Gtk::Button.new(:label => "")
@@ -53,12 +54,14 @@ class Ecran_aventure
         heightEcran = 675
         widhtEcran = 1200
 
-        chap = 45
+        chap = 0
         affiche_chapitre(chap, boite)
 
+        # Ajoute les boutons du menu
+
         ajouteBouton(boite, fleche, 2, 65, 60, 20, 10, method(:vers_menu), nil, nil)
-        ajouteBouton(boite, demarrer, 2, widthOptionsPrincipales, heightOptionsPrincipales, widhtEcran * 0.25, heightEcran * 0.5, nil, nil, nil)
-        ajouteBouton(boite, reprendre, 2, widthOptionsPrincipales, heightOptionsPrincipales, widhtEcran * 0.25, heightEcran * 0.65, nil, nil, nil)
+        ajouteBouton(boite, demarrer, 2, widthOptionsPrincipales, heightOptionsPrincipales, widhtEcran * 0.25, heightEcran * 0.5, method(:nouvellePartie_VersJeu), nil, nil)
+        ajouteBouton(boite, reprendre, 2, widthOptionsPrincipales, heightOptionsPrincipales, widhtEcran * 0.25, heightEcran * 0.65, method(:vers_jeu), nil, nil)
         ajouteBouton(boite, progression, 2, widthOptionsPrincipales * 1.2, heightOptionsPrincipales, widhtEcran * 0.22, heightEcran * 0.8, method(:vers_progression), nil, nil)
         ajouteBouton(boite, quitter, 2, width, height, widhtEcran * 0.75, heightEcran * 0.885, nil, nil, nil)
 
@@ -107,5 +110,24 @@ class Ecran_aventure
         end
 
         file.close
+    end
+
+    ##
+    # Permet de changer la fenetre pour aller afficher l'écran de jeu
+    def vers_jeu()
+        @win.remove(@layoutManager)
+        Ecran_jeu.creer(@win, @map, "Aventure")
+        return self
+    end
+
+    ##
+    # Lance une nouvelle partie en supprimant la sauvegarde existante
+    def nouvellePartie_VersJeu()
+        if(Grille_jeu_charger.exist?(@map, "Aventure"))
+            File.delete(($userPath+"Aventure"+'/'+@map.split("/")[2]).delete_suffix(".txt"))
+        end
+        @win.remove(@layoutManager)
+        Ecran_jeu.creer(@win, @map, "Aventure")
+        return self
     end
 end

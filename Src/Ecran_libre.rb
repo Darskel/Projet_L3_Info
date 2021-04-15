@@ -79,6 +79,14 @@ class Ecran_libre
         ajouteBouton(@boite, defilerChapitres, 2, 45, 45, 230, 620, method(:actualiserChapitres), lblChapitre, nil)
         ajouteBouton(@boite, @retourMenu, 2, 60, 60, 20, 5, method(:vers_menu), @win, @container)
 
+        # Ajoute label pour chrono des grilles sauvegardées
+
+        @chronoLabel = Gtk::Label.new("")
+        ajouteTexteProvider(@chronoLabel, cssChapitre)
+        @boite.put(@chronoLabel, 1050, 70)
+
+
+
 
         @win.add(@container)
 
@@ -87,8 +95,10 @@ class Ecran_libre
 
         if (Grille_jeu_charger.exist?(@map, 'Libre'))
             @grille = Grille_jeu_charger.creer(false, Array.new, @map, nil, 'Libre')
+            @chronoLabel.label = @grille.getChrono()
         else
             @grille = Grille_jeu.creer(false, nil, @map)
+            @chronoLabel.label = "0' 0''"
         end
         @boite.put(@grille.grille, (1200 *0.37), 675 * 0.16)
 
@@ -137,8 +147,10 @@ class Ecran_libre
         
         if (Grille_jeu_charger.exist?(@map, 'Libre'))
             @grille = Grille_jeu_charger.creer(false, Array.new, @map, nil, 'Libre')
+            @chronoLabel.label = @grille.getChrono()
         else
             @grille = Grille_jeu.creer(false, nil, @map)
+            @chronoLabel.label = "0' 0''"
         end
 
         if (@grille.nbLignes == 10)

@@ -32,7 +32,7 @@ class Grille_jeu_charger < Grille_jeu
 
         #Recherche du nom du fichier à charger
         nomSauvegarde = ($userPath+modeJeu+'/'+map.split("/")[2]).delete_suffix(".txt")
-        data = Array.new
+        @data = Array.new
 
         #On charge les données sauvegardées dans un tableau
         # - L'indice 0 du tableau contient le tableau de coups joués lors de la sauvegarde
@@ -41,16 +41,16 @@ class Grille_jeu_charger < Grille_jeu
         # - L'indice 3 est le boolean qui indique si l'utilisateur avait 
         #demandé l'aide du remplissage auto
 
-        data = Marshal.load(File.binread(nomSauvegarde))
+        @data = Marshal.load(File.binread(nomSauvegarde))
 
         if (@joues != nil)
-            @joues.concat(data[0])
+            @joues.concat(@data[0])
             @joues.each{|coup|
                 @bouttons[coup.indiceI][coup.indiceJ].change_couleur(@css.cssW, @css.cssB, @css.cssG)
             }
         end
 
-        @boolFillNine = data[5]
+        @boolFillNine = @data[5]
 
         #Si l'utilisateur avait utilisé l'aide remplissage, on la réactive
         if(@boolFillNine)
@@ -63,7 +63,7 @@ class Grille_jeu_charger < Grille_jeu
         
         #On demande au chrono de se relancer avec le temps chargé
         if (chrono != nil)
-            chrono.lancer(data[1], data[2], data[3] , data[4])
+            chrono.lancer(@data[1], @data[2], @data[3] , @data[4])
         end
     end
 
@@ -78,6 +78,26 @@ class Grille_jeu_charger < Grille_jeu
         nomSauvegarde = ($userPath+modeJeu+'/'+map.split("/")[2]).delete_suffix(".txt")
 
         return File.exist?(nomSauvegarde)
+    end
+
+    ##
+    # Permet d'obtenir le temps de la Grille sur la sauvegarde du joueur
+    #
+    ##
+    # * return String du temps (m + s)
+    #
+    def getChrono()
+        return @data[1].to_s + "' " + @data[2].to_s + "''"
+    end
+
+    ##
+    # Permet d'obtenir le temps des pénalités de la Grille sur la sauvegarde du joueur
+    #
+    ##
+    # * return String du temps (m + s)
+    #
+    def getPenalites()
+        return @data[3].to_s + "' " + @data[4].to_s + "''"
     end
 end
 

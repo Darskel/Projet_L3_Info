@@ -145,4 +145,3 @@
     def ajouteTexteProvider(texte, css)
         texte.style_context.add_provider(css, Gtk::StyleProvider::PRIORITY_USER) 
     end
-    

@@ -72,12 +72,30 @@ class Ecran_progression
         ajouteBouton(@boite, defilerChapitres, 2, 45, 45, 230, 620, method(:actualiserChapitres), lblChapitre, nil)
         ajouteBouton(@boite, @retourMenu, 2, 60, 60, 20, 5, method(:vers_menu), @win, @container)
 
+        # Ajoute label pour chrono des grilles sauvegardées
+
+        @chronoLabel = Gtk::Label.new("")
+        ajouteTexteProvider(@chronoLabel, cssChapitre)
+        @boite.put(@chronoLabel, 500, 615)
+
+        @penalitesLabel = Gtk::Label.new("")
+        ajouteTexteProvider(@penalitesLabel, cssChapitre)
+        @boite.put(@penalitesLabel, 960, 615)
+
 
         @win.add(@container)
 
         # Chargement de la grille 1
 
-        @grille = Grille_jeu.creer(false, nil, @map)
+        if (Grille_jeu_charger.exist?(@map, 'Aventure'))
+            @grille = Grille_jeu_charger.creer(false, Array.new, @map, nil, 'Aventure')
+            @chronoLabel.label = @grille.getChrono()
+            @penalitesLabel.label = @grille.getPenalites()
+        else
+            @grille = Grille_jeu.creer(false, nil, @map)
+            @chronoLabel.label = "0' 0''"
+            @penalitesLabel.label = "0' 0''"
+        end
         @boite.put(@grille.grille, (1200 *0.37), 675 * 0.16)
 
         file = File.open("chapitres.txt")
@@ -120,7 +138,15 @@ class Ecran_progression
         #Cherche le numéro du chapitre sélectionné dans le label
         @boite.remove(@grille.grille)
         @map = "../Grilles/grille_chapitre" + label.label.gsub(/[^0-9]/, '') + ".txt"
-        @grille = Grille_jeu.creer(false, nil, @map)
+        if (Grille_jeu_charger.exist?(@map, 'Aventure'))
+            @grille = Grille_jeu_charger.creer(false, Array.new, @map, nil, 'Aventure')
+            @chronoLabel.label = @grille.getChrono()
+            @penalitesLabel.label = @grille.getPenalites()
+        else
+            @grille = Grille_jeu.creer(false, nil, @map)
+            @chronoLabel.label = "0' 0''"
+            @penalitesLabel.label = "0' 0''"
+        end
 
         if (@grille.nbLignes == 10)
             @boite.put(@grille.grille, (1200 *0.37), 675 * 0.16)
