@@ -38,7 +38,7 @@ class Succes
         ##
         # Ajout du sigal du bouton retour
         flecheRetour.signal_connect("clicked"){
-            vers_menu()
+            vers_menuSucces()
         }
         
         width = 31
@@ -47,7 +47,7 @@ class Succes
         @widthEcran = 1200
         @heightEcran = 675
 
-        ajouteBouton(boite, flecheRetour, 2, 65, 60, 20, 10, method(:vers_menu), nil, nil)
+        ajouteBouton(boite, flecheRetour, 2, 65, 60, 20, 10, nil, nil, nil)
 
         @win.add(@layoutManager)
 
@@ -57,7 +57,7 @@ class Succes
 
     ##
     # Permet de changer la fenetre pour aller afficher le menu principalm
-    def vers_menu()
+    def vers_menuSucces()
         @win.remove(@layoutManager)
         Ecran_menu.creer(@win)
         return self
