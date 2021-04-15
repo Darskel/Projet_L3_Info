@@ -82,7 +82,7 @@ class Succes
         succes7 = Gtk::Label.new("Niveau 7 terminé ! Quel parcours incroyable !")
         succes8 = Gtk::Label.new("Niveau 8 terminé ! Promotion : capitaine")
         succes9 = Gtk::Label.new("Niveau 9 terminé ! Juste trop fort !")
-        succes10 = Gtk::Label.new("Niveeau 10 terminé ! Vous êtes désormais vice-amiral !")
+        succes10 = Gtk::Label.new("Niveau 10 terminé ! Vous êtes désormais vice-amiral !")
         succesAll = Gtk::Label.new("Vous avez terminé tous les succès et êtes au plus haut rang possible dans la marine!!!")
 
         cssNoir = ajouteTexte(3)
