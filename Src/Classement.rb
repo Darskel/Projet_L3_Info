@@ -1,12 +1,22 @@
 load "Utils.rb"
 
+##
+#   Déclaration de la classe Classement
+#
 class Classement
+
+    ##
+    #  Déclaration de la fonction Classement.creer qui renvoie la méthode new
+    #
     def Classement.creer(win)
         new(win)
     end
 
+    ##
+    #  Constructeur de Classement
+    # * +win+ Fenêtre dans laquelle on créer le classement
+    #
     def initialize(win)
-
         #Création de l'interface
         @window = win
         @box = Gtk::Fixed.new()
@@ -72,16 +82,20 @@ class Classement
             @userMinutes = []
             @userSecondes = []
             @indexChapitre = @indexChapitre-1
+            
             clearClassement()
             affichageClassement()
             comparerTemps()
             placementClassement()
+            
+            #Modification de l'attribut sensitive des boutons en fonction de l'indiceChapitre
             if @indexChapitre==1
                 @boutonFlechePrecedent.sensitive = false
             end
             if @indexChapitre>1
                 @boutonFlecheSuivant.sensitive = true
             end
+
             changerTitreChapitre(@indexChapitre)
         }
 
@@ -91,16 +105,20 @@ class Classement
             @userMinutes = []
             @userSecondes = []
             @indexChapitre = @indexChapitre+1
+            
             clearClassement()
             affichageClassement()
             comparerTemps()
             placementClassement()
+
+            #Modification de l'attribut sensitive des boutons en fonction de l'indiceChapitre
             if @indexChapitre<10
                 @boutonFlechePrecedent.sensitive = true
             end
             if @indexChapitre==10
                 @boutonFlecheSuivant.sensitive = false
             end
+
             changerTitreChapitre(@indexChapitre)
         }
 
@@ -131,8 +149,10 @@ class Classement
         @window.show_all
     end
 
-    #Fonction permettant de changer le nom du chapitre afficher dans le label @titreChapitre en fonction du numéro de chapitre
+    ##
+    #   Fonction permettant de changer le nom du chapitre afficher dans le label @titreChapitre en fonction du numéro de chapitre
     # * +indexChapitre+ numéro du chapitre
+    #
     def changerTitreChapitre(indexChapitre)
         case indexChapitre
         when 1 
@@ -158,7 +178,9 @@ class Classement
         end
     end
 
-    #Fonction permettant la récupération des données pour réaliser le classement
+    ##
+    #   Fonction permettant la récupération des données pour réaliser le classement
+    #
     def affichageClassement()
         fileUsers = File.open("../Users/users.txt","r") 
         file_data = fileUsers.readlines.map(&:chomp)
@@ -175,7 +197,9 @@ class Classement
         end
     end
 
-    #Fonction permettant le placement des données dans les différents labels
+    ##
+    #   Fonction permettant le placement des données dans les différents labels
+    #
     def placementClassement()
         cssTexteClassement = ajouteTexte(3)
         #Affichage du classement
@@ -221,7 +245,9 @@ class Classement
         @window.show_all()
     end
 
-    #Fonction permettant de vider les labels du classement
+    ## 
+    #   Fonction permettant de vider les labels du classement
+    #
     def clearClassement()
         @place1.set_text("")
         @texte1er.set_text("")
@@ -241,7 +267,9 @@ class Classement
         @window.show_all()
     end
 
-    #Fonction permettant de comparer le temps des utilisateurs afin de réaliser un classement dynamique
+    ##
+    #   Fonction permettant de comparer le temps des utilisateurs afin de réaliser un classement dynamique
+    #
     def comparerTemps()
         changementEffectue = true
         while(changementEffectue == true)
