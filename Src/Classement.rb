@@ -43,10 +43,8 @@ class Classement
         @userSecondes = []
 
         affichageClassement()
+        comparerTemps()
         placementClassement()
-
-        classementChap2 = ["David","Arthur","Alexis"]
-        classementChap3 = ["Alexis","Arthur","Tom"]
 
         @box.add(Gtk::Image.new(:file => "../maquettes/classement.png"))
 
@@ -57,8 +55,6 @@ class Classement
         ajouteBouton(@box,@boutonMenu,1,55,45,(1200 *0.015),675 * 0.025,nil,@window,@boiteInterieure)
         ajouteBouton(@box,@boutonFlechePrecedent,1,55,45,(1200 *0.015),675 * 0.24,nil,@window,@boiteInterieure)
         ajouteBouton(@box,@boutonFlecheSuivant,1,55,45,(1200 *0.935),675 * 0.24,nil,@window,@boiteInterieure)
-
-    
 
         @boutonMenu.signal_connect("clicked"){
             vers_menu(@window,@box)
@@ -71,6 +67,7 @@ class Classement
             @indexChapitre = @indexChapitre-1
             clearClassement()
             affichageClassement()
+            comparerTemps()
             placementClassement()
             if @indexChapitre==1
                 @boutonFlechePrecedent.sensitive = false
@@ -88,6 +85,7 @@ class Classement
             @indexChapitre = @indexChapitre+1
             clearClassement()
             affichageClassement()
+            comparerTemps()
             placementClassement()
             if @indexChapitre<10
                 @boutonFlechePrecedent.sensitive = true
@@ -152,15 +150,12 @@ class Classement
     def affichageClassement()
         fileUsers = File.open("../Users/users.txt","r") 
         file_data = fileUsers.readlines.map(&:chomp)
-        classementTmp = []
-        minutesTmp = []
-        secondesTmp = []
         #Parcours du fichier contenant tous les utilisateurs
         for elem in file_data do
             fileUtilisateur = File.open("../Users/"+elem.to_s()+"/succes.txt")
             lignesFichierUtilisateur = fileUtilisateur.readlines.map(&:chomp)
             tabLigne = lignesFichierUtilisateur[@indexChapitre-1].split(" ")
-            if(tabLigne[0] == "true")
+            if( (tabLigne[1] == "0"  && tabLigne[2] != "0") || (  tabLigne[1] != "0" && tabLigne[2] == "0") || (  tabLigne[1] != "0" && tabLigne[2] != "0"))
                 @classementChapActuel<<elem.to_s
                 @userMinutes<<tabLigne[1]
                 @userSecondes<<tabLigne[2]
@@ -232,9 +227,40 @@ class Classement
         @window.show_all()
     end
 
-    # def comparerTemps()
-    #     for i in 1..@classementChapActuel.length()-1
-            
-    #     end   
-    # end 
+    def comparerTemps()
+        changementEffectue = true
+        while(changementEffectue == true)
+            changementEffectue = false
+            for i in 0..@classementChapActuel.length()-2
+                if(@userMinutes[i] > @userMinutes[i+1])
+                    changementEffectue = true
+
+                    userMinTmp = @userMinutes[i]
+                    @userMinutes[i] = @userMinutes[i+1]
+                    @userMinutes[i+1] = userMinTmp
+
+                    userSecTmp = @userSecondes[i]
+                    @userSecondes[i] = @userSecondes[i+1]
+                    @userSecondes[i+1] = userSecTmp
+
+                    classementChapTmp = @classementChapActuel[i]
+                    @classementChapActuel[i] = @classementChapActuel[i+1]
+                    @classementChapActuel[i+1] = classementChapTmp
+                    
+                elsif(@userMinutes[i] == @userMinutes[i+1])
+                    if(@userSecondes[i] > @userSecondes[i+1])
+                        changementEffectue = true
+
+                        userSecTmp = @userSecondes[i]
+                        @userSecondes[i] = @userSecondes[i+1]
+                        @userSecondes[i+1] = userSecTmp
+
+                        classementChapTmp = @classementChapActuel[i]
+                        @classementChapActuel[i] = @classementChapActuel[i+1]
+                        @classementChapActuel[i+1] = classementChapTmp
+                    end
+                end
+            end   
+        end
+    end 
 end
