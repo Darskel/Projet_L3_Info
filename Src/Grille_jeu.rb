@@ -247,7 +247,6 @@ class Grille_jeu
 
     ##
     #   Méthode qui change la valeur du boolean @redSquare 
-    ##
     def activeRedSquare()
         if(@redSquare == false)
             @redSquare = true
@@ -260,6 +259,7 @@ class Grille_jeu
     #   Méthode qui ajoute un css avec bordure rouge au bouton en paramètre selon sa couleur de base
     #   Cette méthode est appelée lorsque l'utilisateur a activé l'aide RedSquare et que sa souris survole un boutton
     ##
+    # * +boutton+   Le bouton du carré
     def putRedSquare(boutton)
         if(boutton.couleur=="white")
             boutton.boutton.style_context.add_provider(@css.cssWRedBorder, Gtk::StyleProvider::PRIORITY_USER)
@@ -275,6 +275,7 @@ class Grille_jeu
     #   Cette méthode est appelée lorsque l'utilisateur a activé l'aide RedSquare
     #   et que sa souris quitte un boutton
     ##
+    # * +boutton+   Le bouton du carré
     def removeRedSquare(boutton)
         if(boutton.couleur=="white")
             boutton.boutton.style_context.add_provider(@css.cssW, Gtk::StyleProvider::PRIORITY_USER)
@@ -290,6 +291,8 @@ class Grille_jeu
     #   entourant le bouton sur lequelle la souris de l'utilisateur se trouve
     #   
     ##
+    # * +i+     coordonnées abscisse
+    # * +j+     coordonnées ordonnée
     def enterButton(i, j)
         if(@redSquare)
             if(coordValide(i-1, j-1))
@@ -329,6 +332,8 @@ class Grille_jeu
     #   et que l'aide RedSquare est activée)
     #   
     ##
+    # * +i+     coordonnées abscisse
+    # * +j+     coordonnées ordonnée
     def leaveButton(i, j)
         if(@redSquare)
             if(coordValide(i-1, j-1))
@@ -362,11 +367,10 @@ class Grille_jeu
     end
 
     ##
-    #   Déclaration de la méthode sauveProgression 
-    # Deux paramètres :
+    # Cette méthode sauvegarde la progression de l'utilisateur sur cette grille
+    ##
     # * +chrono+ le temps passé sur la grille
     # * +modeJeu+ le mode de jeu sur lequel se trouve l'utilisateur
-    # Cette méthode sauvegarde la progression de l'utilisateur sur cette grille
     def sauveProgression(chrono, modeJeu)
         nomSauvegarde = ($userPath+modeJeu+'/'+@nomGrille.split("/")[2]).delete_suffix(".txt")
         data = Array.new
@@ -390,7 +394,6 @@ class Grille_jeu
 
     ##
     # Méthode qui va jouer le prochain coup logique du joueur
-    ##
     def nextMove()
         0.upto(@nbLignes-1) do |i|
             0.upto(@nbColonnes-1) do |j|

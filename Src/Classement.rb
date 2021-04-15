@@ -132,7 +132,7 @@ class Classement
     end
 
     #Fonction permettant de changer le nom du chapitre afficher dans le label @titreChapitre en fonction du numéro de chapitre
-    # +indexChapitre+ numéro du chapitre
+    # * +indexChapitre+ numéro du chapitre
     def changerTitreChapitre(indexChapitre)
         case indexChapitre
         when 1 

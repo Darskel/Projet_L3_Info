@@ -51,7 +51,8 @@
     end
 
 
-    ## Applique le css au bouton et lui applique la taille voulue
+    ## 
+    # Applique le css au bouton et lui applique la taille voulue
     ##
     # * +bouton+    Le bouton auquel appliqué les modifications
     # * +css+       Le css a appliquer

@@ -1,11 +1,16 @@
 ##
 #   Déclaration de la classe Grille_jeu_charger qui est une sous classe de Grille_jeu
-#
 class Grille_jeu_charger < Grille_jeu
     
     private_class_method :new
     ##
     #   Déclaration de la méthode creer qui renvoie vers la méthode new
+    ##
+    # * +estJouable+    boolean pour savoir si la grille doit être cliquable
+    # * +joues+         tableau des coups joués
+    # * +map+           nom de la grille à charger
+    # * +chron+         instance du chronomètre
+    # * +modeJeu+       nom du mode de jeu
     def Grille_jeu_charger.creer(estJouable, joues, map, chrono, modeJeu)
         new(estJouable, joues, map, chrono, modeJeu)
     end
@@ -15,11 +20,12 @@ class Grille_jeu_charger < Grille_jeu
     ##
     #   Constructeur de Grille_jeu_charger
     #Constructeur sensiblement identique au constructeur de Grille_jeu
-    #Deux variables en plus : 
-    # * +chrono+    le chrono qui sera lancé avec le temps précédemment sauvegardé
-    #               selon la grille et le type de jeu
-    # * +modeJeu+   Le mode de jeu que l'on veut charger pour la grille donnée
-    #               (soit 'Libre' ou 'Aventure')
+    ##
+    # * +estJouable+    boolean pour savoir si la grille doit être cliquable
+    # * +joues+         tableau des coups joués
+    # * +map+           nom de la grille à charger
+    # * +chron+         instance du chronomètre
+    # * +modeJeu+       nom du mode de jeu
     def initialize(estJouable, joues, map, chrono, modeJeu)
         #Appel du constructeur de la classe mère
         super(estJouable, joues, map)
@@ -63,11 +69,11 @@ class Grille_jeu_charger < Grille_jeu
 
     ##
     # Déclaration de la méthode statique exist?
-    # deux paramètres : 
-    # * +map+ le nom de la grille
-    # * +modeJeu+ le mode de jeu ('Libre'/'Aventure')
     # cette méthode return true si une sauvegarde existe 
     # pour un mode de jeu et une grille donnée
+    ##
+    # * +map+ le nom de la grille
+    # * +modeJeu+ le mode de jeu ('Libre'/'Aventure')
     def Grille_jeu_charger.exist?(map, modeJeu)
         nomSauvegarde = ($userPath+modeJeu+'/'+map.split("/")[2]).delete_suffix(".txt")
 
