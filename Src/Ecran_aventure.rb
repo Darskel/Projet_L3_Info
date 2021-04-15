@@ -24,7 +24,6 @@ class Ecran_aventure
 
         boite = Gtk::Fixed.new()
         @layoutManager = Gtk::Box.new(:vertical)
-        @map = "../Grilles/grille_chapitre1.txt"
 
         fleche = Gtk::Button.new(:label => "")
         demarrer = Gtk::Button.new(:label => "")
@@ -54,8 +53,7 @@ class Ecran_aventure
         heightEcran = 675
         widhtEcran = 1200
 
-        chap = 0
-        affiche_chapitre(chap, boite)
+        affiche_chapitre(derniereMap(), boite)
 
         # Ajoute les boutons du menu
 
@@ -129,5 +127,27 @@ class Ecran_aventure
         @win.remove(@layoutManager)
         Ecran_jeu.creer(@win, @map, "Aventure")
         return self
+    end
+
+    ##
+    # Permet d'obtenir la map courante du joueur
+    # Actualise la map
+    # Retourne le numéro de ligne du chapitre
+    ##
+    def derniereMap()
+        i_chap = 1
+        while (Grille_jeu_charger.exist?("../Grilles/grille_chapitre" + i_chap.to_s + ".txt", 'Aventure'))
+            # Incrémente le numéro de chapitre
+            i_chap+=1
+        end
+        i_chap-=1
+
+        if (i_chap == 0)
+            i_chap+=1
+        end
+
+        @map = "../Grilles/grille_chapitre" + i_chap.to_s + ".txt"
+
+        return ((i_chap-1) * 5)
     end
 end
