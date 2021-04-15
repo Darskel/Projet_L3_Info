@@ -116,8 +116,6 @@ class Tuto
                 lines = File.readlines($userPath+"succes.txt")
                 lines[10] = "true 0 0\n"
                 File.open($userPath+"succes.txt", 'w') { |f| f.write(lines.join) }
-            else
-                puts("NOPE")
             end
         }
 
