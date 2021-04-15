@@ -83,9 +83,16 @@ class Ecran_libre
         @win.add(@container)
 
         # Chargement de la grille 1
+        # Regarde si une sauvegarde existe, si oui, la charge, sinon, nouvelle partie
 
-        @grille = Grille_jeu.creer(false, nil, @map)
+        if (Grille_jeu_charger.exist?(@map, 'Libre'))
+            @grille = Grille_jeu_charger.creer(false, nil, @map, nil, 'Libre')
+        else
+            @grille = Grille_jeu.creer(false, nil, @map)
+        end
         @boite.put(@grille.grille, (1200 *0.37), 675 * 0.16)
+
+        # Charge les chapitres
 
         file = File.open("chapitres.txt")
         lignes = file.readlines
@@ -127,7 +134,12 @@ class Ecran_libre
         #Cherche le numéro du chapitre sélectionné dans le label
         @boite.remove(@grille.grille)
         @map = "../Grilles/grille_chapitre" + label.label.gsub(/[^0-9]/, '') + ".txt"
-        @grille = Grille_jeu.creer(false, nil, @map)
+        
+        if (Grille_jeu_charger.exist?(@map, 'Libre'))
+            @grille = Grille_jeu_charger.creer(false, nil, @map, nil, 'Libre')
+        else
+            @grille = Grille_jeu.creer(false, nil, @map)
+        end
 
         if (@grille.nbLignes == 10)
             @boite.put(@grille.grille, (1200 *0.37), 675 * 0.16)
