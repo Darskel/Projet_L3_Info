@@ -72,15 +72,18 @@ class Chronometre
                 minutesAffiche = (@minutes < 10) ? "0#{@minutes}" : "#{@minutes}"
                 secondesAffiche = (@secondes < 10) ? "0#{@secondes}" : "#{@secondes}"
 
+                penaliteMinutesAffiche = (@penaliteMin < 10) ? "0#{@penaliteMin}" : "#{@penaliteMin}"
+                penaliteSecondesAffiche = (@penaliteSec < 10) ? "0#{@penaliteSec}" : "#{@penaliteSec}"
+
                 if @secondes >= 59
                     @minutes += 1
                     @secondes = 0
                 else
                     @secondes += 1
                 end
-                
+
                 @label.text = minutesAffiche + " : "+secondesAffiche
-                @labelPenalite.text = @penaliteMin.to_s + " : "+@penaliteSec.to_s
+                @labelPenalite.text = penaliteMinutesAffiche + " : "+penaliteSecondesAffiche
                 sleep(1)
             end
         }
