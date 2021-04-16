@@ -397,7 +397,7 @@ class Grille_jeu
     def nextMove()
         0.upto(@nbLignes-1) do |i|
             0.upto(@nbColonnes-1) do |j|
-                if(@bouttons[i][j].couleur == "black")
+                if(@bouttons[i][j].couleur == "black" && @bouttons[i][j].contenu != ' ')
                     for x in -1..1
                         for y in -1..1
                             if(coordValide(i+x, j+y) && @bouttons[i+x][j+y].couleur == "white" && @ligne_solution[(i+x) * @nbLignes + (j+y)].to_i == 1)
