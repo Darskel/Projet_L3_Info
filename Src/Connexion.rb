@@ -104,7 +104,7 @@ class Connexion
     # Redirige vers le menu principal
     def vers_menu
         @win.set_title("FILL A PIX")
-        @win.set_default_size(1200, 675)
+        @win.set_default_size($widthEcran, $heightEcran)
         
         @win.remove(@layoutManager)
 

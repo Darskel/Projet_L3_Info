@@ -53,12 +53,12 @@ class Ecran_jeu
         @layoutManager.add(box)
 
         #Ajout des différents boutons, de leur css respectif ainsi que de leurs évents liés
-        ajouteBouton(box,retourMenu,1,55,45,(1200 *0.015), 675 * 0.025,method(:vers_menu),@win,@layoutManager)
-        ajouteBouton(box,boutonCoupLogique,1,60,60,(1200*0.899), 675*0.015,nil,nil,nil)
-        ajouteBouton(box,boutonCheck,1,60,60,(1200*0.855), 675*0.015,nil,nil,nil)
-        ajouteBouton(box,boutonCurseur,1,60,60,(1200*0.812), 675*0.015,nil,nil,nil)
-        ajouteBouton(box,boutonUndo,1,60,60,(1200*0.767), 675*0.015,nil,nil,nil)
-        ajouteBouton(box,boutonRemplissage,1,60,60,(1200*0.942), 675*0.015,nil,nil,nil)
+        ajouteBouton(box,retourMenu,1,55,45,($widthEcran *0.015), $heightEcran * 0.025,method(:vers_menu),@win,@layoutManager)
+        ajouteBouton(box,boutonCoupLogique,1,60,60,($widthEcran*0.899), $heightEcran*0.015,nil,nil,nil)
+        ajouteBouton(box,boutonCheck,1,60,60,($widthEcran*0.855), $heightEcran*0.015,nil,nil,nil)
+        ajouteBouton(box,boutonCurseur,1,60,60,($widthEcran*0.812), $heightEcran*0.015,nil,nil,nil)
+        ajouteBouton(box,boutonUndo,1,60,60,($widthEcran*0.767), $heightEcran*0.015,nil,nil,nil)
+        ajouteBouton(box,boutonRemplissage,1,60,60,($widthEcran*0.942), $heightEcran*0.015,nil,nil,nil)
         box.put(temps,450,620)
         box.put(penalite,925,620)
 
@@ -126,11 +126,11 @@ class Ecran_jeu
         }
         
         if(@grille.nbLignes == 10)
-            box.put(@grille.grille, (1200 *0.28), 675 * 0.16)
+            box.put(@grille.grille, ($widthEcran *0.28), $heightEcran * 0.16)
         elsif(@grille.nbLignes == 15)
-            box.put(@grille.grille, (1200 *0.225), 675 * 0.16)
+            box.put(@grille.grille, ($widthEcran *0.225), $heightEcran * 0.16)
         else
-            box.put(@grille.grille, (1200 *0.17), 675 * 0.11)
+            box.put(@grille.grille, ($widthEcran *0.17), $heightEcran * 0.11)
         end
 
         @win.add(@layoutManager)
@@ -178,14 +178,14 @@ class Ecran_jeu
         if res == "false" && @mode == "Aventure"
             succes = Gtk::Label.new("Vous avez remporté un succès !")
             ajoutecssProvider(succes, cssTemps, 200,200)   
-            box.put(succes, (1200 *0.45), 675 * 0.60) 
+            box.put(succes, ($widthEcran *0.45), $heightEcran * 0.60) 
         end
 
         ajoutecssProvider(buttonMenu, css, 290,72)
         ajoutecssProvider(temps, cssTemps, 200,200)
 
-        box.put(buttonMenu, (1200 *0.74), 675 * 0.87)
-        box.put(temps, (1200 *0.52), 675 * 0.45)
+        box.put(buttonMenu, ($widthEcran *0.74), $heightEcran * 0.87)
+        box.put(temps, ($widthEcran *0.52), $heightEcran * 0.45)
 
         buttonMenu.signal_connect("clicked"){
             vers_menu(@win, @layoutManager)

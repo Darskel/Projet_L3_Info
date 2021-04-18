@@ -96,9 +96,9 @@ class Classement
         ajouteTexteProvider(@titreChapitre,cssChapitre)
         
         
-        ajouteBouton(@box,boutonMenu,1,55,45,(1200 *0.015),675 * 0.025,nil,@window,boiteInterieure)
-        ajouteBouton(@box,boutonFlechePrecedent,1,55,45,(1200 *0.015),675 * 0.24,nil,@window,boiteInterieure)
-        ajouteBouton(@box,boutonFlecheSuivant,1,55,45,(1200 *0.935),675 * 0.24,nil,@window,boiteInterieure)
+        ajouteBouton(@box,boutonMenu,1,55,45,($widthEcran *0.015),$heightEcran * 0.025,nil,@window,boiteInterieure)
+        ajouteBouton(@box,boutonFlechePrecedent,1,55,45,($widthEcran *0.015),$heightEcran * 0.24,nil,@window,boiteInterieure)
+        ajouteBouton(@box,boutonFlecheSuivant,1,55,45,($widthEcran *0.935),$heightEcran * 0.24,nil,@window,boiteInterieure)
 
         #Signal du bouton menu pour retourner vers le menu
         boutonMenu.signal_connect("clicked"){
@@ -152,25 +152,25 @@ class Classement
         }
 
         #Placement de tous les éléments sur la fenêtre
-        @box.put(@titreChapitre,(1200 *0.3), 675 * 0.24)
+        @box.put(@titreChapitre,($widthEcran *0.3), $heightEcran * 0.24)
         
-        @box.put(@place1,(1200 *0.05), 675 * 0.5)
-        @box.put(@place2,(1200 *0.05), 675 * 0.6)
-        @box.put(@place3,(1200 *0.05), 675 * 0.7)
-        @box.put(@place4,(1200 *0.05), 675 * 0.8)
-        @box.put(@place5,(1200 *0.05), 675 * 0.9)
+        @box.put(@place1,($widthEcran *0.05), $heightEcran * 0.5)
+        @box.put(@place2,($widthEcran *0.05), $heightEcran * 0.6)
+        @box.put(@place3,($widthEcran *0.05), $heightEcran * 0.7)
+        @box.put(@place4,($widthEcran *0.05), $heightEcran * 0.8)
+        @box.put(@place5,($widthEcran *0.05), $heightEcran * 0.9)
 
-        @box.put(@texte1er,(1200 *0.12), 675 * 0.5)
-        @box.put(@texte2e,(1200 *0.12), 675 * 0.6)
-        @box.put(@texte3e,(1200 *0.12), 675 * 0.7)
-        @box.put(@texte4e,(1200 *0.12), 675 * 0.8)
-        @box.put(@texte5e,(1200 *0.12), 675 * 0.9)
+        @box.put(@texte1er,($widthEcran *0.12), $heightEcran * 0.5)
+        @box.put(@texte2e,($widthEcran *0.12), $heightEcran * 0.6)
+        @box.put(@texte3e,($widthEcran *0.12), $heightEcran * 0.7)
+        @box.put(@texte4e,($widthEcran *0.12), $heightEcran * 0.8)
+        @box.put(@texte5e,($widthEcran *0.12), $heightEcran * 0.9)
 
-        @box.put(@temps1er,(1200 *0.6), 675 * 0.5)
-        @box.put(@temps2e,(1200 *0.6), 675 * 0.6)
-        @box.put(@temps3e,(1200 *0.6), 675 * 0.7)
-        @box.put(@temps4e,(1200 *0.6), 675 * 0.8)
-        @box.put(@temps5e,(1200 *0.6), 675 * 0.9)
+        @box.put(@temps1er,($widthEcran *0.6), $heightEcran * 0.5)
+        @box.put(@temps2e,($widthEcran *0.6), $heightEcran * 0.6)
+        @box.put(@temps3e,($widthEcran *0.6), $heightEcran * 0.7)
+        @box.put(@temps4e,($widthEcran *0.6), $heightEcran * 0.8)
+        @box.put(@temps5e,($widthEcran *0.6), $heightEcran * 0.9)
 
         @box.add(boiteInterieure)
 

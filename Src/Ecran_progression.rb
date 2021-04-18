@@ -96,7 +96,7 @@ class Ecran_progression
             @chronoLabel.label = "0' 0''"
             @penalitesLabel.label = "0' 0''"
         end
-        @boite.put(@grille.grille, (1200 *0.37), 675 * 0.16)
+        @boite.put(@grille.grille, ($widthEcran *0.37), $heightEcran * 0.16)
 
         file = File.open("chapitres.txt")
         lignes = file.readlines
@@ -150,11 +150,11 @@ class Ecran_progression
         end
 
         if (@grille.nbLignes == 10)
-            @boite.put(@grille.grille, (1200 *0.37), 675 * 0.16)
+            @boite.put(@grille.grille, ($widthEcran *0.37), $heightEcran * 0.16)
         elsif (@grille.nbLignes == 15)
-            @boite.put(@grille.grille, (1200 *0.36), 675 * 0.16)
+            @boite.put(@grille.grille, ($widthEcran *0.36), $heightEcran * 0.16)
         else
-            @boite.put(@grille.grille, (1200 *0.35), 675 * 0.11)
+            @boite.put(@grille.grille, ($widthEcran *0.35), $heightEcran * 0.11)
         end
 
         @win.show_all

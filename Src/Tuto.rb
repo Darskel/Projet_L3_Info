@@ -64,15 +64,15 @@ class Tuto
         @box2.add(box)
 
         #Ajout des différents boutons, de leur css respectif ainsi que de leurs évents liés
-        ajouteBouton(box,retourMenu,1,55,45,(1200 *0.015), 675 * 0.025,method(:vers_menu),@window,@box2)
-        ajouteBouton(box,@boutonCoupLogique,1,60,60,(1200*0.899), 675*0.015,nil,@window,@box2)
-        ajouteBouton(box,@boutonCheck,1,60,60,(1200*0.855), 675*0.015,nil,@window,@box2)
-        ajouteBouton(box,@boutonCurseur,1,60,60,(1200*0.812), 675*0.015,nil,@window,@box2)
-        ajouteBouton(box,@boutonUndo,1,60,60,(1200*0.767), 675*0.015,nil,@window,@box2)
-        ajouteBouton(box,@boutonRemplissage,1,60,60,(1200*0.942), 675*0.015,nil,@window,@box2)
+        ajouteBouton(box,retourMenu,1,55,45,($widthEcran *0.015), $heightEcran * 0.025,method(:vers_menu),@window,@box2)
+        ajouteBouton(box,@boutonCoupLogique,1,60,60,($widthEcran*0.899), $heightEcran*0.015,nil,@window,@box2)
+        ajouteBouton(box,@boutonCheck,1,60,60,($widthEcran*0.855), $heightEcran*0.015,nil,@window,@box2)
+        ajouteBouton(box,@boutonCurseur,1,60,60,($widthEcran*0.812), $heightEcran*0.015,nil,@window,@box2)
+        ajouteBouton(box,@boutonUndo,1,60,60,($widthEcran*0.767), $heightEcran*0.015,nil,@window,@box2)
+        ajouteBouton(box,@boutonRemplissage,1,60,60,($widthEcran*0.942), $heightEcran*0.015,nil,@window,@box2)
         ajoutecssProvider(suivant,cssVoir,150,25)
-        box.put(suivant,(1200 *0.84), 675 * 0.4)
-        ajouteBouton(box,precedent,1,150,25,(1200 *0.05),675 * 0.4,nil,@window,@box2)
+        box.put(suivant,($widthEcran *0.84), $heightEcran * 0.4)
+        ajouteBouton(box,precedent,1,150,25,($widthEcran *0.05),$heightEcran * 0.4,nil,@window,@box2)
         
         #Placement du texte dans la bulle du capitaine
         techniqueTextCss = ajouteTexte(2)
@@ -80,7 +80,7 @@ class Tuto
         @labelTechnique = Gtk::Label.new(@techniqueText)
         #ajouteTexteProvider(@labelTechnique,techniqueTextCss,60,60)
         ajouteTexteProvider(@labelTechnique,techniqueTextCss)
-        box.put(@labelTechnique,(1200 *0.3), 675 * 0.84)
+        box.put(@labelTechnique,($widthEcran *0.3), $heightEcran * 0.84)
 
         @grilleTuto = Grille_jeu.creer(true, joues, "../Grilles/tuto.txt")
 
@@ -157,7 +157,7 @@ class Tuto
             changerTexteRegle(index)
         }
         
-        box.put(@grilleTuto.grille, (1200 *0.28), 675 * 0.16)
+        box.put(@grilleTuto.grille, ($widthEcran *0.28), $heightEcran * 0.16)
 
         @window.add(@box2)
         @window.show_all

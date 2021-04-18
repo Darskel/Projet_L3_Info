@@ -43,8 +43,8 @@ class Credit
         width = 31
         height = 19
 
-        widthEcran = 1200
-        heightEcran = 675
+        widthEcran = $widthEcran
+        heightEcran = $heightEcran
 
         ajouteBouton(boite, quitter, 1, width, height, (widthEcran *0.72), heightEcran * 0.24, nil, @win, @layoutManager)
 

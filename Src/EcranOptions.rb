@@ -56,8 +56,8 @@ class EcranOptions
         width = 31
         height = 19
 
-        widthEcran = 1200
-        heightEcran = 675
+        widthEcran = $widthEcran
+        heightEcran = $heightEcran
 
         ajouteBouton(boite, succes, 2, 420, heightOptionsPrincipales, (widthEcran *0.31), heightEcran * 0.56, nil, @win, @layoutManager)
         ajouteBouton(boite, classement, 2, 550, heightOptionsPrincipales, (widthEcran *0.27),  heightEcran * 0.67, nil, @win, @layoutManager)

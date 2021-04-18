@@ -18,6 +18,8 @@ load "Classement.rb"
 load "Succes.rb"
 
 $userPath = "../Users/"
+$widthEcran = 1200
+$heightEcran = 675
 
 ##
 # Création de la fenetre

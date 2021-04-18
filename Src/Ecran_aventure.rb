@@ -51,8 +51,8 @@ class Ecran_aventure
         width = 280
         height = 57
 
-        heightEcran = 675
-        widhtEcran = 1200
+        heightEcran = $heightEcran
+        widhtEcran = $widthEcran
 
         affiche_chapitre(derniereMap(), boite)
 
@@ -91,7 +91,7 @@ class Ecran_aventure
     # +chap+    Le numéro du chapitre à afficher
     # +boite+   La boite où placer les informations du chapitre
     def affiche_chapitre(chap, boite)
-        widhtEcran = 1200
+        widhtEcran = $widthEcran
         chapitreTexte = ajouteTexte(1)
         descriptionTexte = ajouteTexte(2)
         file = File.open("chapitres.txt")

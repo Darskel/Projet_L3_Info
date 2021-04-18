@@ -43,10 +43,10 @@ class Grille_jeu_charger < Grille_jeu
 
         @data = Marshal.load(File.binread(nomSauvegarde))
 
-        if (joues != nil)
-            joues.concat(@data[0])
-            joues.each{|coup|
-                joues[coup.indiceI][coup.indiceJ].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+        if (@joues != nil)
+            @joues.concat(@data[0])
+            @joues.each{|coup|
+                @bouttons[coup.indiceI][coup.indiceJ].change_couleur(@css.cssW, @css.cssB, @css.cssG)
             }
         end
 

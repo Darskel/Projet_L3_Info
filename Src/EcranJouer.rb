@@ -57,8 +57,8 @@ class EcranJouer
         width = 31
         height = 19
 
-        widthEcran = 1200
-        heightEcran = 675
+        widthEcran = $widthEcran
+        heightEcran = $heightEcran
 
         ##
         # Ajout du CSS aux bouton et on leur donne leur taille

@@ -1,10 +1,8 @@
 ##
 # La classe qui gère l'affichage des succès du joueur ou ceux qu'il n'a pas encore validés
-
 ##
 # * +win+               La fenetre de l'application
 # * +layoutManager+     Le layout principal pour le placement dans la fenetre
-
 load "Utils.rb"
 
 class Succes
@@ -44,8 +42,8 @@ class Succes
         width = 31
         height = 19
 
-        @widthEcran = 1200
-        @heightEcran = 675
+        @widthEcran = $widthEcran
+        @heightEcran = $heightEcran
 
         ajouteBouton(boite, flecheRetour, 2, 65, 60, 20, 10, nil, nil, nil)
 
