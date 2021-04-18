@@ -5,7 +5,7 @@ load "Utils.rb"
 # Classe qui permet d'accèder au menu principal
 ##
 # * +win+               La fenetre de l'application
-# * +layoutManager+     Le layout principal pour le placement dans la fenetre
+# * +box2+     Le layout principal pour le placement dans la fenetre
 class Tuto
 
     private_class_method :new
@@ -25,11 +25,11 @@ class Tuto
     def initialize(win)
         #Création de l'interface 
         @window = win
-        @box = Gtk::Fixed.new()
+        box = Gtk::Fixed.new()
         @box2 = Gtk::Box.new(:horizontal)
-        @suivant = Gtk::Button.new(:label => "Règle suivante")        
-        @precedent = Gtk::Button.new(:label => "Règle précédente")
-        @retourMenu = Gtk::Button.new()
+        suivant = Gtk::Button.new(:label => "Règle suivante")        
+        precedent = Gtk::Button.new(:label => "Règle précédente")
+        retourMenu = Gtk::Button.new()
         @boutonUndo = Gtk::Button.new()
         @boutonRemplissage = Gtk::Button.new()
         @boutonCheck = Gtk::Button.new()
@@ -60,19 +60,19 @@ class Tuto
         joues = Array.new #tableau des coups joués par l'utilisateur pour le undo
 
         #Ajout du fond 
-        @box.add(Gtk::Image.new(:file => "../maquettes/Tutoriel.png"))
-        @box2.add(@box)
+        box.add(Gtk::Image.new(:file => "../maquettes/Tutoriel.png"))
+        @box2.add(box)
 
         #Ajout des différents boutons, de leur css respectif ainsi que de leurs évents liés
-        ajouteBouton(@box,@retourMenu,1,55,45,(1200 *0.015), 675 * 0.025,method(:vers_menu),@window,@box2)
-        ajouteBouton(@box,@boutonCoupLogique,1,60,60,(1200*0.899), 675*0.015,nil,@window,@box2)
-        ajouteBouton(@box,@boutonCheck,1,60,60,(1200*0.855), 675*0.015,nil,@window,@box2)
-        ajouteBouton(@box,@boutonCurseur,1,60,60,(1200*0.812), 675*0.015,nil,@window,@box2)
-        ajouteBouton(@box,@boutonUndo,1,60,60,(1200*0.767), 675*0.015,nil,@window,@box2)
-        ajouteBouton(@box,@boutonRemplissage,1,60,60,(1200*0.942), 675*0.015,nil,@window,@box2)
-        ajoutecssProvider(@suivant,cssVoir,150,25)
-        @box.put(@suivant,(1200 *0.84), 675 * 0.4)
-        ajouteBouton(@box,@precedent,1,150,25,(1200 *0.05),675 * 0.4,nil,@window,@box2)
+        ajouteBouton(box,retourMenu,1,55,45,(1200 *0.015), 675 * 0.025,method(:vers_menu),@window,@box2)
+        ajouteBouton(box,@boutonCoupLogique,1,60,60,(1200*0.899), 675*0.015,nil,@window,@box2)
+        ajouteBouton(box,@boutonCheck,1,60,60,(1200*0.855), 675*0.015,nil,@window,@box2)
+        ajouteBouton(box,@boutonCurseur,1,60,60,(1200*0.812), 675*0.015,nil,@window,@box2)
+        ajouteBouton(box,@boutonUndo,1,60,60,(1200*0.767), 675*0.015,nil,@window,@box2)
+        ajouteBouton(box,@boutonRemplissage,1,60,60,(1200*0.942), 675*0.015,nil,@window,@box2)
+        ajoutecssProvider(suivant,cssVoir,150,25)
+        box.put(suivant,(1200 *0.84), 675 * 0.4)
+        ajouteBouton(box,precedent,1,150,25,(1200 *0.05),675 * 0.4,nil,@window,@box2)
         
         #Placement du texte dans la bulle du capitaine
         techniqueTextCss = ajouteTexte(2)
@@ -80,7 +80,7 @@ class Tuto
         @labelTechnique = Gtk::Label.new(@techniqueText)
         #ajouteTexteProvider(@labelTechnique,techniqueTextCss,60,60)
         ajouteTexteProvider(@labelTechnique,techniqueTextCss)
-        @box.put(@labelTechnique,(1200 *0.3), 675 * 0.84)
+        box.put(@labelTechnique,(1200 *0.3), 675 * 0.84)
 
         @grilleTuto = Grille_jeu.creer(true, joues, "../Grilles/tuto.txt")
 
@@ -128,36 +128,36 @@ class Tuto
         }
         
         #signal pour le bouton regle suivante permettant de passer à la règle suivante
-        @suivant.signal_connect("clicked"){
+        suivant.signal_connect("clicked"){
             index = index+1
             if index>1
-                @precedent.sensitive = true
-                @precedent.style_context.add_provider(cssVoir,Gtk::StyleProvider::PRIORITY_USER)
+                precedent.sensitive = true
+                precedent.style_context.add_provider(cssVoir,Gtk::StyleProvider::PRIORITY_USER)
             end
 
             if index>=11
-                @suivant.style_context.add_provider(@cssCache,Gtk::StyleProvider::PRIORITY_USER)
-                @suivant.sensitive = false
+                suivant.style_context.add_provider(@cssCache,Gtk::StyleProvider::PRIORITY_USER)
+                suivant.sensitive = false
             end
             changerTexteRegle(index)
         }
 
         #Signal pour le bouton regle precedente permettant de revenir à la règle précédente
-        @precedent.signal_connect("clicked"){
+        precedent.signal_connect("clicked"){
             index = index-1
             if index<2
-                @precedent.style_context.add_provider(@cssCache,Gtk::StyleProvider::PRIORITY_USER)
-                @precedent.sensitive = false
+                precedent.style_context.add_provider(@cssCache,Gtk::StyleProvider::PRIORITY_USER)
+                precedent.sensitive = false
             end
 
             if index<11
-                @suivant.sensitive = true
-                @suivant.style_context.add_provider(cssVoir,Gtk::StyleProvider::PRIORITY_USER)
+                suivant.sensitive = true
+                suivant.style_context.add_provider(cssVoir,Gtk::StyleProvider::PRIORITY_USER)
             end
             changerTexteRegle(index)
         }
         
-        @box.put(@grilleTuto.grille, (1200 *0.28), 675 * 0.16)
+        box.put(@grilleTuto.grille, (1200 *0.28), 675 * 0.16)
 
         @window.add(@box2)
         @window.show_all
@@ -229,5 +229,5 @@ class Tuto
             @labelTechnique.set_text(@techniqueText)
         end
     end
-    
+    return self
 end

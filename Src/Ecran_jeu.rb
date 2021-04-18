@@ -7,6 +7,8 @@ load "Grille_jeu_charger.rb"
 ##
 # * +win+               La fenetre de l'application
 # * +layoutManager+     Le layout principal pour le placement dans la fenetre
+# * +mode+              Le mode de jeu dans lequel se situe le joueur
+# * +grille+            La grille contenant les boutons du jeu
 class Ecran_jeu
     private_class_method :new
 
@@ -30,16 +32,16 @@ class Ecran_jeu
     # * +mode+      Le mode de jeu en cours
     def initialize(win, map, mode)
         #Création de l'interface 
-        @window = win
+        @win = win
         @mode = mode
-        @box = Gtk::Fixed.new()
-        @box2 = Gtk::Box.new(:horizontal)
-        @retourMenu = Gtk::Button.new()
-        @boutonUndo = Gtk::Button.new()
-        @boutonRemplissage = Gtk::Button.new()
-        @boutonCheck = Gtk::Button.new()
-        @boutonCurseur = Gtk::Button.new()
-        @boutonCoupLogique = Gtk::Button.new();
+        box = Gtk::Fixed.new()
+        @layoutManager = Gtk::Box.new(:horizontal)
+        retourMenu = Gtk::Button.new()
+        boutonUndo = Gtk::Button.new()
+        boutonRemplissage = Gtk::Button.new()
+        boutonCheck = Gtk::Button.new()
+        boutonCurseur = Gtk::Button.new()
+        boutonCoupLogique = Gtk::Button.new();
         temps = Gtk::Label.new("")
         penalite = Gtk::Label.new("")
         chrono = Chronometre.creer(temps, penalite)
@@ -47,18 +49,18 @@ class Ecran_jeu
         joues = Array.new #tableau des coups joués par l'utilisateur pour le undo
 
         #Ajout du fond 
-        @box.add(Gtk::Image.new(:file => "../maquettes/Jeu.png"))
-        @box2.add(@box)
+        box.add(Gtk::Image.new(:file => "../maquettes/Jeu.png"))
+        @layoutManager.add(box)
 
         #Ajout des différents boutons, de leur css respectif ainsi que de leurs évents liés
-        ajouteBouton(@box,@retourMenu,1,55,45,(1200 *0.015), 675 * 0.025,method(:vers_menu),@window,@box2)
-        ajouteBouton(@box,@boutonCoupLogique,1,60,60,(1200*0.899), 675*0.015,nil,nil,nil)
-        ajouteBouton(@box,@boutonCheck,1,60,60,(1200*0.855), 675*0.015,nil,nil,nil)
-        ajouteBouton(@box,@boutonCurseur,1,60,60,(1200*0.812), 675*0.015,nil,nil,nil)
-        ajouteBouton(@box,@boutonUndo,1,60,60,(1200*0.767), 675*0.015,nil,nil,nil)
-        ajouteBouton(@box,@boutonRemplissage,1,60,60,(1200*0.942), 675*0.015,nil,nil,nil)
-        @box.put(temps,450,620)
-        @box.put(penalite,925,620)
+        ajouteBouton(box,retourMenu,1,55,45,(1200 *0.015), 675 * 0.025,method(:vers_menu),@win,@layoutManager)
+        ajouteBouton(box,boutonCoupLogique,1,60,60,(1200*0.899), 675*0.015,nil,nil,nil)
+        ajouteBouton(box,boutonCheck,1,60,60,(1200*0.855), 675*0.015,nil,nil,nil)
+        ajouteBouton(box,boutonCurseur,1,60,60,(1200*0.812), 675*0.015,nil,nil,nil)
+        ajouteBouton(box,boutonUndo,1,60,60,(1200*0.767), 675*0.015,nil,nil,nil)
+        ajouteBouton(box,boutonRemplissage,1,60,60,(1200*0.942), 675*0.015,nil,nil,nil)
+        box.put(temps,450,620)
+        box.put(penalite,925,620)
 
         #lance une grille vierge de coups si aucune sauvegarde existe 
         #concernant la map et le mode voulu
@@ -71,17 +73,17 @@ class Ecran_jeu
 
         
         #Sauvegarde la grille quand on la quitte et arrête le chrono
-        @retourMenu.signal_connect("clicked"){
+        retourMenu.signal_connect("clicked"){
             @grille.sauveProgression(chrono, @mode)
             chrono.kill
         }
         #signal pour activer le rectangle rouge autour du curseur
-        @boutonCurseur.signal_connect("clicked"){
+        boutonCurseur.signal_connect("clicked"){
             @grille.activeRedSquare()
         }
 
         #signal qui remplit les cases faciles (9, 0, 4, 6)
-        @boutonRemplissage.signal_connect("clicked"){
+        boutonRemplissage.signal_connect("clicked"){
             if(!@grille.boolFillNine)
                 @grille.fillNine('9')
                 @grille.fillNine('4')
@@ -91,7 +93,7 @@ class Ecran_jeu
         }
 
         #signal du bouton undo afin de retourner au coup précédemment joué
-        @boutonUndo.signal_connect("clicked"){ # signal pour le bouton undo
+        boutonUndo.signal_connect("clicked"){ # signal pour le bouton undo
             if !joues.empty?
                 coup = joues.pop()
                 @grille.undo(coup)
@@ -99,11 +101,12 @@ class Ecran_jeu
         }
 
         #signal qui vérifie la grille
-        @boutonCheck.signal_connect("clicked"){
+        boutonCheck.signal_connect("clicked"){
             fini = @grille.check()
 
             if(fini[0] == true)
                 chrono.kill
+                @layoutManager.remove(box)
                 ecran_victoire(chrono,map)
             else
                 if(fini[1] == true)
@@ -113,7 +116,7 @@ class Ecran_jeu
         }
 
         #Signal du prochain coup logique
-        @boutonCoupLogique.signal_connect("clicked"){
+        boutonCoupLogique.signal_connect("clicked"){
             verif = @grille.check()
             if(verif[0] == false && verif[1] == false)
                 if(@grille.nextMove())
@@ -123,23 +126,23 @@ class Ecran_jeu
         }
         
         if(@grille.nbLignes == 10)
-            @box.put(@grille.grille, (1200 *0.28), 675 * 0.16)
+            box.put(@grille.grille, (1200 *0.28), 675 * 0.16)
         elsif(@grille.nbLignes == 15)
-            @box.put(@grille.grille, (1200 *0.225), 675 * 0.16)
+            box.put(@grille.grille, (1200 *0.225), 675 * 0.16)
         else
-            @box.put(@grille.grille, (1200 *0.17), 675 * 0.11)
+            box.put(@grille.grille, (1200 *0.17), 675 * 0.11)
         end
 
-        @window.add(@box2)
-        @window.show_all
+        @win.add(@layoutManager)
+        @win.show_all
     end
 
     ##
     # Déclenche l'écran de victoire quand le joueur gagne
     ##
     # * +chrono+        Le temps de la partie
+    # * +map+           Le nom de la grille en cours
     def ecran_victoire(chrono, map)
-        @box2.remove(@box)
 
         ligne = map[map.length - 5].to_i
 
@@ -156,7 +159,7 @@ class Ecran_jeu
 
         duree = "Votre temps : " + chrono.minutes.to_s + ":" + chrono.secondes.to_s
 
-        @box2.add(box)
+        @layoutManager.add(box)
 
         box.add(Gtk::Image.new(:file => "../maquettes/niveauFini.png"))
 
@@ -185,10 +188,10 @@ class Ecran_jeu
         box.put(temps, (1200 *0.52), 675 * 0.45)
 
         buttonMenu.signal_connect("clicked"){
-            vers_menu(@window, @box2)
+            vers_menu(@win, @layoutManager)
         }
 
-        @window.show_all
+        @win.show_all
         return self
     end
 
@@ -197,6 +200,7 @@ class Ecran_jeu
     # On regarde si le joueur à déjà le succès, si non on lui ajoute
     ##
     # * +ligne+     La ligne a regardé dans le fichier
+    # * +chrono+    Le chronometre qui permet de sauvegarder le temps du joueur
     def lectureSucces(ligne, chrono)
         file = File.open($userPath + "succes.txt")
         file_data = file.readlines.map(&:chomp)
@@ -245,5 +249,6 @@ class Ecran_jeu
         File.open($userPath + "succes.txt", "w"){ |f|
             f.write(file_data.join())
         }
+        return self
     end
 end

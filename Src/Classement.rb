@@ -2,29 +2,31 @@ load "Utils.rb"
 
 ##
 #   Déclaration de la classe Classement
-#
+##
+# * +window+        la fenêtre de l'application
+# * +box+           le layout manager pour placer les éléments à l'écran
 class Classement
 
     ##
     #  Déclaration de la fonction Classement.creer qui renvoie la méthode new
-    #
+    ##
+    # * +win+   la fenêtre de l'application
     def Classement.creer(win)
         new(win)
     end
 
     ##
     #  Constructeur de Classement
+    ##
     # * +win+ Fenêtre dans laquelle on créer le classement
-    #
     def initialize(win)
         #Création de l'interface
         @window = win
         @box = Gtk::Fixed.new()
-        @boiteInterieure = Gtk::Box.new(:horizontal)
+        boiteInterieure = Gtk::Box.new(:horizontal)
         @indexChapitre = 1
         @titreChapitre = Gtk::Label.new()
         @titreChapitre.set_text("Chapitre "+@indexChapitre.to_s()+" : Hawaï")
-        @boxClassement = Gtk::Box.new(:horizontal)
         
         #Création des labels pour le nom de joueurs dans le classement
         @texte1er = Gtk::Label.new()
@@ -48,9 +50,9 @@ class Classement
         @temps5e = Gtk::Label.new()
 
         #Création des boutons permettant de retourner au menu et de changer les chapitres        
-        @boutonFlecheSuivant = Gtk::Button.new()
-        @boutonFlechePrecedent = Gtk::Button.new()  
-        @boutonMenu = Gtk::Button.new()
+        boutonFlecheSuivant = Gtk::Button.new()
+        boutonFlechePrecedent = Gtk::Button.new()  
+        boutonMenu = Gtk::Button.new()
 
         #Création des différents tableaux pour le stockage du classement 
         @classementChapActuel = []
@@ -67,17 +69,17 @@ class Classement
         ajouteTexteProvider(@titreChapitre,cssChapitre)
         
         
-        ajouteBouton(@box,@boutonMenu,1,55,45,(1200 *0.015),675 * 0.025,nil,@window,@boiteInterieure)
-        ajouteBouton(@box,@boutonFlechePrecedent,1,55,45,(1200 *0.015),675 * 0.24,nil,@window,@boiteInterieure)
-        ajouteBouton(@box,@boutonFlecheSuivant,1,55,45,(1200 *0.935),675 * 0.24,nil,@window,@boiteInterieure)
+        ajouteBouton(@box,boutonMenu,1,55,45,(1200 *0.015),675 * 0.025,nil,@window,boiteInterieure)
+        ajouteBouton(@box,boutonFlechePrecedent,1,55,45,(1200 *0.015),675 * 0.24,nil,@window,boiteInterieure)
+        ajouteBouton(@box,boutonFlecheSuivant,1,55,45,(1200 *0.935),675 * 0.24,nil,@window,boiteInterieure)
 
         #Signal du bouton menu pour retourner vers le menu
-        @boutonMenu.signal_connect("clicked"){
+        boutonMenu.signal_connect("clicked"){
             vers_menu(@window,@box)
         }
 
         #Signal du bouton flèche précédent pour changer le numéro du chapitre
-        @boutonFlechePrecedent.signal_connect("clicked"){
+        boutonFlechePrecedent.signal_connect("clicked"){
             @classementChapActuel = []
             @userMinutes = []
             @userSecondes = []
@@ -90,17 +92,17 @@ class Classement
             
             #Modification de l'attribut sensitive des boutons en fonction de l'indiceChapitre
             if @indexChapitre==1
-                @boutonFlechePrecedent.sensitive = false
+                boutonFlechePrecedent.sensitive = false
             end
             if @indexChapitre>1
-                @boutonFlecheSuivant.sensitive = true
+                boutonFlecheSuivant.sensitive = true
             end
 
             changerTitreChapitre(@indexChapitre)
         }
 
         #Signal du bouton flèche suivant pour changer le numéro du chapitre
-        @boutonFlecheSuivant.signal_connect("clicked"){
+        boutonFlecheSuivant.signal_connect("clicked"){
             @classementChapActuel = []
             @userMinutes = []
             @userSecondes = []
@@ -113,10 +115,10 @@ class Classement
 
             #Modification de l'attribut sensitive des boutons en fonction de l'indiceChapitre
             if @indexChapitre<10
-                @boutonFlechePrecedent.sensitive = true
+                boutonFlechePrecedent.sensitive = true
             end
             if @indexChapitre==10
-                @boutonFlecheSuivant.sensitive = false
+                boutonFlecheSuivant.sensitive = false
             end
 
             changerTitreChapitre(@indexChapitre)
@@ -143,7 +145,7 @@ class Classement
         @box.put(@temps4e,(1200 *0.6), 675 * 0.8)
         @box.put(@temps5e,(1200 *0.6), 675 * 0.9)
 
-        @box.add(@boiteInterieure)
+        @box.add(boiteInterieure)
 
         @window.add(@box)
         @window.show_all
@@ -151,8 +153,8 @@ class Classement
 
     ##
     #   Fonction permettant de changer le nom du chapitre afficher dans le label @titreChapitre en fonction du numéro de chapitre
+    ## 
     # * +indexChapitre+ numéro du chapitre
-    #
     def changerTitreChapitre(indexChapitre)
         case indexChapitre
         when 1 
@@ -176,11 +178,11 @@ class Classement
         when 10
             @titreChapitre.set_text("Chapitre "+indexChapitre.to_s()+" : Les Galapagos")
         end
+        return self
     end
 
     ##
     #   Fonction permettant la récupération des données pour réaliser le classement
-    #
     def affichageClassement()
         fileUsers = File.open("../Users/users.txt","r") 
         file_data = fileUsers.readlines.map(&:chomp)
@@ -195,11 +197,11 @@ class Classement
                 @userSecondes<<tabLigne[2]
             end
         end
+        return self
     end
 
     ##
     #   Fonction permettant le placement des données dans les différents labels
-    #
     def placementClassement()
         cssTexteClassement = ajouteTexte(3)
         #Affichage du classement
@@ -243,11 +245,11 @@ class Classement
             end
         end
         @window.show_all()
+        return self
     end
 
     ## 
     #   Fonction permettant de vider les labels du classement
-    #
     def clearClassement()
         @place1.set_text("")
         @texte1er.set_text("")
@@ -265,11 +267,11 @@ class Classement
         @texte5e.set_text("")
         @temps5e.set_text("")
         @window.show_all()
+        return self
     end
 
     ##
     #   Fonction permettant de comparer le temps des utilisateurs afin de réaliser un classement dynamique
-    #
     def comparerTemps()
         changementEffectue = true
         while(changementEffectue == true)
@@ -305,5 +307,6 @@ class Classement
                 end
             end   
         end
+        return self
     end 
 end

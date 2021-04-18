@@ -68,6 +68,7 @@ class Grille_jeu
                 @bouttons[i][j].boutton.style_context.add_provider(csss, Gtk::StyleProvider::PRIORITY_USER)
             end
         end
+        return self
     end
 
     ##
@@ -232,6 +233,7 @@ class Grille_jeu
                 end
             end
         end
+        return self
     end
 
     ##
@@ -243,6 +245,7 @@ class Grille_jeu
         if(i>=0 && i<@nbLignes && j>=0 && j<@nbColonnes)
             return true;
         end
+        return false
     end
 
     ##
@@ -268,6 +271,7 @@ class Grille_jeu
         else    
             boutton.boutton.style_context.add_provider(@css.cssGRedBorder, Gtk::StyleProvider::PRIORITY_USER)
         end
+        return self
     end
 
     ##
@@ -284,6 +288,7 @@ class Grille_jeu
         else
             boutton.boutton.style_context.add_provider(@css.cssG, Gtk::StyleProvider::PRIORITY_USER)
         end
+        return self
     end
 
     ##
@@ -323,6 +328,7 @@ class Grille_jeu
                 putRedSquare(@bouttons[i+1][j+1])
             end
         end
+        return self
     end
 
     ##
@@ -364,6 +370,7 @@ class Grille_jeu
                 removeRedSquare(@bouttons[i+1][j+1])
             end
         end
+        return self
     end
 
     ##
@@ -390,6 +397,7 @@ class Grille_jeu
         File.chmod(0777, nomSauvegarde)
         File.binwrite(nomSauvegarde, Marshal.dump(data))
         
+        return self
     end
 
     ##

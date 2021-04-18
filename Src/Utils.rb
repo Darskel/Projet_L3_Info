@@ -6,6 +6,7 @@
     def vers_menu(window,boite)
         window.remove(boite)
         Ecran_menu.creer(window)
+        return self
     end
 
     ##
@@ -61,6 +62,7 @@
     def ajoutecssProvider(bouton, css, width, height)
         bouton.style_context.add_provider(css, Gtk::StyleProvider::PRIORITY_USER)
         bouton.set_size_request(width, height)
+        return self
     end
 
     ##
@@ -92,6 +94,7 @@
             }
         end
         boite.put(bouton, x, y)
+        return self
     end
     
 
@@ -144,4 +147,5 @@
     # * +css+       Le css a appliquer
     def ajouteTexteProvider(texte, css)
         texte.style_context.add_provider(css, Gtk::StyleProvider::PRIORITY_USER) 
+        return self
     end

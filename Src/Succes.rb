@@ -180,7 +180,7 @@ class Succes
             end
 
         end
-
+        return self
     end
 
 end

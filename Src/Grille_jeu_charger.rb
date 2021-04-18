@@ -82,20 +82,16 @@ class Grille_jeu_charger < Grille_jeu
 
     ##
     # Permet d'obtenir le temps de la Grille sur la sauvegarde du joueur
-    #
     ##
     # * return String du temps (m + s)
-    #
     def getChrono()
         return @data[1].to_s + "' " + @data[2].to_s + "''"
     end
 
     ##
     # Permet d'obtenir le temps des pénalités de la Grille sur la sauvegarde du joueur
-    #
     ##
     # * return String du temps (m + s)
-    #
     def getPenalites()
         return @data[3].to_s + "' " + @data[4].to_s + "''"
     end

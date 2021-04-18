@@ -83,6 +83,7 @@ class EcranJouer
     def vers_jeu()
         @win.remove(@layoutManager)
         Ecran_aventure.creer(@win)
+        return self
     end
 
     ##
@@ -90,6 +91,7 @@ class EcranJouer
     def vers_libre()
         @win.remove(@layoutManager)
         Ecran_libre.creer(@win)
+        return self
     end
 
     ##
@@ -97,5 +99,6 @@ class EcranJouer
     def vers_menu()
         @win.remove(@layoutManager)
         Ecran_menu.creer(@win)
+        return self
     end
 end

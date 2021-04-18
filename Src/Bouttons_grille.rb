@@ -8,6 +8,7 @@ load "coup_joue.rb"
 # * +indiceI+   Indice du bouton en x
 # * +indiceJ+   Indice du bouton en y
 # * +joues+     Tableau des coups joués
+# * +grille+    La grille dans laquelle est le bouton
 class Boutton_grille
 
     ##

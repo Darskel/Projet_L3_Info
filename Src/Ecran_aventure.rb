@@ -75,11 +75,13 @@ class Ecran_aventure
     def vers_menu()
         @win.remove(@layoutManager)
         @ecr = Ecran_menu.creer(@win)
+        return self
     end
 
     def vers_progression()
         @win.remove(@layoutManager)
         @ecr = Ecran_progression.creer(@win)
+        return self
     end
 
     ##
@@ -108,6 +110,7 @@ class Ecran_aventure
         end
 
         file.close
+        return self
     end
 
     ##

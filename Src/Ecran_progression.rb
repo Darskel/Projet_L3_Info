@@ -129,6 +129,7 @@ class Ecran_progression
         
         ajouteTexteProvider(label, css)
         bouton.add(label)
+        return self
     end
 
     ##
@@ -157,6 +158,7 @@ class Ecran_progression
         end
 
         @win.show_all
+        return self
     end
 
     ##

@@ -97,6 +97,7 @@ class Connexion
             combobox.append_text i
         end
         file.close
+        return self
     end
 
     ##
@@ -157,5 +158,6 @@ class Connexion
             File.write($userPath+"succes.txt", "false 0 0\n", mode: "a")
             i+=1
         end
+        return self
     end
 end

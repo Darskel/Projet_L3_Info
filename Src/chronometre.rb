@@ -87,12 +87,14 @@ class Chronometre
                 sleep(1)
             end
         }
+        return self
     end
 
     ##
     # Termine le Thread qui gère le chronomètre pour stopper l'avancer du temps
     def kill()
         Thread.kill(@thr)
+        return self
     end
 
     ##
@@ -111,6 +113,7 @@ class Chronometre
             @penaliteMin += @penaliteSec / 60
             @penaliteSec = @penaliteSec % 60
         end
+        return self
     end
 
     

@@ -135,6 +135,7 @@ class Ecran_libre
         
         ajouteTexteProvider(label, css)
         bouton.add(label)
+        return self
     end
 
     ##
@@ -162,6 +163,7 @@ class Ecran_libre
         end
 
         @win.show_all
+        return self
     end
 
     ##
