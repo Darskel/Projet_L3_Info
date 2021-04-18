@@ -457,6 +457,18 @@ class Grille_jeu
                         end
                     end
 
+                    if(coordValide(i, j) && @bouttons[i][j].contenu == '5' && coordValide(i, j-1) && @bouttons[i][j-1].contenu == '8')
+                        for a in -1..1
+                            if(coordValide(i+a, j+1) && @bouttons[i+a][j+1].couleur == "white" && @ligne_solution[(i+a) * @nbLignes + (j+1)].to_i == 0)
+                                @joues.push(Coup_joue.creer(i+a, j+1, "white"))
+                                @bouttons[i+a][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                                @joues.push(Coup_joue.creer(i+a, j+1, "black"))
+                                @bouttons[i+a][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                                return true
+                            end
+                        end
+                    end
+
                     if(coordValide(i, j) && @bouttons[i][j].contenu == '2' && coordValide(i-2, j) && @bouttons[i-2][j].contenu == '8')
                         for a in 0..1
                             for b in -1..1
