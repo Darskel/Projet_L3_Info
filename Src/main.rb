@@ -17,7 +17,11 @@ load "chronometre.rb"
 load "Classement.rb"
 load "Succes.rb"
 
+## Variables globales
+
+#chemin vers le dossier de l'utilisateur courant
 $userPath = "../Users/"
+#taille en hauteur et en largeur de l'écran
 $widthEcran = 1200
 $heightEcran = 675
 

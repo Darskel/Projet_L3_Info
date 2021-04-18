@@ -2,7 +2,15 @@
 # Représentation d'un écran de jeu, une partie de fill a pix
 ##
 # * +win+               La fenêtre graphique du programme
-# * +container+     Le layout principal pour le placement dans la fenetre
+# * +boite+             Le layout pour placer tous les boutons et afficher l'image de fond
+# * +retourMenu+        Bouton permettant de retourner au menu principal
+# * +map+               Nom du fichier de la grille utilisée
+# * +chronoLabel+       Label contenant le temps total du joueur sur une grille en cours
+# * +penalitesLabel+    Label contenant les pénalités du joueur sur une grille en cours
+# * +grille+            La grille de jeu affichée
+# * +nbLignes+          Le nombre de lignes du fichier
+# * +file_data+         Les données du fichier
+# * +i_chap+            Index du chapitre
 class Ecran_progression
     
     ##

@@ -1,5 +1,7 @@
 ##
-#   Déclaration de la classe Grille_jeu_charger qui est une sous classe de Grille_jeu
+#   Hérite de Grille jeu, permet de charger une sauvegarde
+##
+# * +data+      Les éléments dans le fichier de la sauvegarde
 class Grille_jeu_charger < Grille_jeu
     
     private_class_method :new

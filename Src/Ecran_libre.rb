@@ -88,9 +88,9 @@ class Ecran_libre
 
         # Ajoute label pour chrono des grilles sauvegardées
 
-        chronoLabel = Gtk::Label.new("")
-        ajouteTexteProvider(chronoLabel, cssChapitre)
-        @boite.put(chronoLabel, 1050, 70)
+        @chronoLabel = Gtk::Label.new("")
+        ajouteTexteProvider(@chronoLabel, cssChapitre)
+        @boite.put(@chronoLabel, 1050, 70)
 
 
 
@@ -102,10 +102,10 @@ class Ecran_libre
 
         if (Grille_jeu_charger.exist?(@map, 'Libre'))
             @grille = Grille_jeu_charger.creer(false, Array.new, @map, nil, 'Libre')
-            chronoLabel.label = @grille.getChrono()
+            @chronoLabel.label = @grille.getChrono()
         else
             @grille = Grille_jeu.creer(false, nil, @map)
-            chronoLabel.label = "0' 0''"
+            @chronoLabel.label = "0' 0''"
         end
         @boite.put(@grille.grille, ($widthEcran *0.37), $heightEcran * 0.16)
 
@@ -155,10 +155,10 @@ class Ecran_libre
         
         if (Grille_jeu_charger.exist?(@map, 'Libre'))
             @grille = Grille_jeu_charger.creer(false, Array.new, @map, nil, 'Libre')
-            chronoLabel.label = @grille.getChrono()
+            @chronoLabel.label = @grille.getChrono()
         else
             @grille = Grille_jeu.creer(false, nil, @map)
-            chronoLabel.label = "0' 0''"
+            @chronoLabel.label = "0' 0''"
         end
 
         if (@grille.nbLignes == 10)

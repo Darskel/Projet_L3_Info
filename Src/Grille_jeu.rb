@@ -8,7 +8,12 @@ load "Bouttons_grille.rb"
 # * +bouttons+      Tableau de boutons dans la grille
 # * +css+           Les différents CSS utilisables
 # * +joues+         Tableau des coups joués par l'utilisateur, permettant l'utilisationd de la fonctionnalité undo
-# * +nomGrille+    Le nom du fichier de la grille
+# * +nomGrille+     Le nom du fichier de la grille
+# * +redSquare+     Boolean permettant de savoir si le rectangle rouge est actif
+# * +boolFillNine+  Boolean permettant de savoir si un fill nine a été appelé
+# * +nbLignes+      Nombre de lignes du fichier
+# * +ligne_solution+ La ligne de la solution
+# * +nbColonnes+    Nombre de colonnes du fichier
 class Grille_jeu
 
     attr_reader :grille, :nbLignes, :boolFillNine, :nomSauvegarde

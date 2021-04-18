@@ -5,7 +5,13 @@ load "Utils.rb"
 # Classe qui permet d'accèder au menu principal
 ##
 # * +win+               La fenetre de l'application
-# * +box2+     Le layout principal pour le placement dans la fenetre
+# * +box2+              Le layout principal pour le placement dans la fenetre
+# * +boutonUndo+        Le bouton permettant d'annuler une action
+# * +boutonRemplissage+ Le bouton permettant de remplir automatiquement autour des chiffres 9 et 0 et 6 et 4 pour les coins
+# * +boutonCheck+       Le bouton qui permet de vérifier les réponses du joueur
+# * +boutonCurseur+     Bouton permettant d'afficher une zone de 8 cases autour du curseur
+# * +boutonCoupLogique+ Bouton qui permet de lancer un algo qui montrera au joueur un coup valide jouable dans la continuité des actions précédentes
+# * +cssCache+          Permet de cacher les boutons des règles précédents et suivantes selon la règle courante
 class Tuto
 
     private_class_method :new
