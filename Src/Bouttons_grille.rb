@@ -24,7 +24,6 @@ class Boutton_grille
     end
 
     private_class_method
-    attr_reader :boutton
     attr_accessor :couleur, :contenu, :boutton, :joues
 
     ##

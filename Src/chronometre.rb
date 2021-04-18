@@ -21,7 +21,7 @@ class Chronometre
 
     private_class_method :new
 
-    attr_reader :thr, :minutes, :secondes, :penaliteMin, :penaliteSec
+    attr_reader :thr, :penaliteMin, :penaliteSec
 
     attr_accessor :minutes, :secondes
 

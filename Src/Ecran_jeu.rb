@@ -12,7 +12,7 @@ load "Grille_jeu_charger.rb"
 class Ecran_jeu
     private_class_method :new
 
-    attr_reader :chrono, :grille
+    attr_reader :grille
 
     ##
     # Constructeur

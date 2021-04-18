@@ -16,7 +16,7 @@ load "Bouttons_grille.rb"
 # * +nbColonnes+    Nombre de colonnes du fichier
 class Grille_jeu
 
-    attr_reader :grille, :nbLignes, :boolFillNine, :nomSauvegarde
+    attr_reader :grille, :nbLignes, :boolFillNine
 
     ##
     # Constructeur de la classe
