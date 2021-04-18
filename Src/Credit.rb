@@ -1,6 +1,6 @@
 ##
 # La classe qui gère l'affichage et l'interaction avec les crédits qui affiche 
-#les noms des créateur de l'application
+# les noms des créateur de l'application
 
 ##
 # * +win+               La fenetre de l'application

@@ -2,7 +2,14 @@
 # Représentation d'un écran de jeu, une partie de fill a pix
 ##
 # * +win+               La fenêtre graphique du programme
-# * +layoutManager+     Le layout principal pour le placement dans la fenetre
+# * +map+               Le fichier de la carte actuelle
+# * +boite+             Le layout permettant d'ajouter tous les boutons et d'afficher une image de fond
+# * +container+         Le layout principal pour le placement dans la fenetre
+# * +grille+            La grille actuelle
+# * +nbLignes+          Nombre de lignes dans le fichier lu
+# * +file_data+         Données lues dans le fichier sélectionné
+# * +i_chap+            Index du chapitre
+
 class Ecran_libre
     
     ##

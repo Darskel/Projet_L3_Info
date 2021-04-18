@@ -16,7 +16,7 @@ class Connexion
     private_class_method :new
 
     ##
-    # Création du contenu de l'écran de connexion
+    # Création de l'objet
     ##
     # * +win+   La fenetre de l'application
     def initialize(win)
