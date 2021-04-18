@@ -50,7 +50,7 @@ class Succes
     end
 
     ##
-    # Permet de changer la fenetre pour aller afficher le menu principalm
+    # Permet de changer la fenetre pour aller afficher le menu principal
     def vers_menuSucces()
         @win.remove(@layoutManager)
         Ecran_menu.creer(@win)

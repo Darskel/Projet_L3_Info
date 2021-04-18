@@ -1,7 +1,7 @@
 ##
-# Représentation d'un écran de jeu, une partie de fill a pix
+# La classe qui gére l'affichage de la progression de l'utilisateur dans l'aventure
 ##
-# * +win+               La fenêtre graphique du programme
+# * +win+               La fenêtre de l'application
 # * +boite+             Le layout pour placer tous les boutons et afficher l'image de fond
 # * +retourMenu+        Bouton permettant de retourner au menu principal
 # * +map+               Nom du fichier de la grille utilisée
@@ -170,7 +170,7 @@ class Ecran_progression
     end
 
     ##
-    # Permet de changer les chapitres à l'appuie sur la flèche
+    # Permet de changer les chapitres à l'appuie de la flèche
     # * +lblChapitre+ Liste des labels à actualiser
     def actualiserChapitres(lblChapitre)
         lblChapitre.each {|lbl| lbl.label = nextChapitre() }
