@@ -437,6 +437,57 @@ class Grille_jeu
                             end
                         end
                     end
+                    if(coordValide(i, j) && @bouttons[i][j].contenu == '5' && coordValide(i-1, j) && @bouttons[i-1][j].contenu == '8')
+                        for a in -1..1
+                            if(coordValide(i+1, j+a) && @bouttons[i+1][j+a].couleur == "white" && @ligne_solution[(i+1) * @nbLignes + (j+a)].to_i == 0)
+                                @joues.push(Coup_joue.creer(i+1, j+a, "white"))
+                                @bouttons[i+1][j+a].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                                @joues.push(Coup_joue.creer(i+1, j+a, "black"))
+                                @bouttons[i+1][j+a].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                                return true
+                            end
+                        end
+                    end
+
+                    if(coordValide(i, j) && @bouttons[i][j].contenu == '2' && coordValide(i-2, j) && @bouttons[i-2][j].contenu == '8')
+                        for a in 0..1
+                            for b in -1..1
+                                if(coordValide(i+a, j+b) && @bouttons[i+a][j+b].couleur == "white" && @ligne_solution[(i+a) * @nbLignes + (j+b)].to_i == 0)
+                                    @joues.push(Coup_joue.creer(i+a, j+b, "white"))
+                                    @bouttons[i+a][j+b].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                                    @joues.push(Coup_joue.creer(i+a, j+b, "black"))
+                                    @bouttons[i+a][j+b].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                                    return true
+                                end
+                            end
+                        end
+                    end
+
+                    if(coordValide(i, j) && @bouttons[i][j].contenu == '3' && coordValide(i-1, j-1) && @bouttons[i-1][j-1].contenu == '8')
+                        for a in -1..1
+                            if(coordValide(i+1, j+a) && @bouttons[i+1][j+a].couleur == "white" && @ligne_solution[(i+1) * @nbLignes + (j+a)].to_i == 0)
+                                @joues.push(Coup_joue.creer(i+1, j+a, "white"))
+                                @bouttons[i+1][j+a].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                                @joues.push(Coup_joue.creer(i+1, j+a, "black"))
+                                @bouttons[i+1][j+a].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                                return true
+                            end
+                        end
+                        if(coordValide(i-1, j+1) && @bouttons[i-1][j+1].couleur == "white" && @ligne_solution[(i-1) * @nbLignes + (j+1)].to_i == 0)
+                            @joues.push(Coup_joue.creer(i-1, j+1, "white"))
+                            @bouttons[i-1][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                            @joues.push(Coup_joue.creer(i-1, j+1, "black"))
+                            @bouttons[i-1][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                            return true
+                        end
+                        if(coordValide(i, j+1) && @bouttons[i][j+1].couleur == "white" && @ligne_solution[(i) * @nbLignes + (j+1)].to_i == 0)
+                            @joues.push(Coup_joue.creer(i, j+1, "white"))
+                            @bouttons[i][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                            @joues.push(Coup_joue.creer(i, j+1, "black"))
+                            @bouttons[i][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                            return true
+                        end
+                    end
                 end
             end
         end
