@@ -20,6 +20,7 @@ class Ecran_menu
     # Création du contenu de l'écran du menu principal
     ##
     # * +win+   La fenetre de l'application
+    # * +layoutManager+     Le layout principal pour le placement dans la fenetre
     def initialize(win)
         @win = win
 

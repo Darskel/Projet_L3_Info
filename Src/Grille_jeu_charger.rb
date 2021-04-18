@@ -43,17 +43,17 @@ class Grille_jeu_charger < Grille_jeu
 
         @data = Marshal.load(File.binread(nomSauvegarde))
 
-        if (@joues != nil)
-            @joues.concat(@data[0])
-            @joues.each{|coup|
-                @bouttons[coup.indiceI][coup.indiceJ].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+        if (joues != nil)
+            joues.concat(@data[0])
+            joues.each{|coup|
+                joues[coup.indiceI][coup.indiceJ].change_couleur(@css.cssW, @css.cssB, @css.cssG)
             }
         end
 
-        @boolFillNine = @data[5]
+        boolFillNine = @data[5]
 
         #Si l'utilisateur avait utilisé l'aide remplissage, on la réactive
-        if(@boolFillNine)
+        if(boolFillNine)
             fillNine('0')
             fillNine('4')
             fillNine('6')

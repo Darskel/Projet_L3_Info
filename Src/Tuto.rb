@@ -228,6 +228,6 @@ class Tuto
             @techniqueText = "Cinquième aide disponible : Ce bouton vous\npermet d'afficher le prochain coup logique\nà faire lorsque vous êtes bloqués.Pensez d'abord\nà vérifier que toute votre grille est bonne !"
             @labelTechnique.set_text(@techniqueText)
         end
+        return self
     end
-    return self
 end

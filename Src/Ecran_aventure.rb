@@ -3,6 +3,7 @@
 ##
 # * +win+               La fenetre de l'application
 # * +layoutManager+     Le layout principal pour le placement dans la fenetre
+# * +map+               Nom de la grille
 class Ecran_aventure
     
     ##
@@ -74,13 +75,13 @@ class Ecran_aventure
     # Permet de changer la fenetre pour aller afficher l'écran de jeu
     def vers_menu()
         @win.remove(@layoutManager)
-        @ecr = Ecran_menu.creer(@win)
+        Ecran_menu.creer(@win)
         return self
     end
 
     def vers_progression()
         @win.remove(@layoutManager)
-        @ecr = Ecran_progression.creer(@win)
+        Ecran_progression.creer(@win)
         return self
     end
 
@@ -96,16 +97,16 @@ class Ecran_aventure
         file = File.open("chapitres.txt")
         file_data = file.readlines.map(&:chomp)
         nom_chapitre = file_data[chap]
-        @labelChapitre = Gtk::Label.new(nom_chapitre)
-        ajouteTexteProvider(@labelChapitre, chapitreTexte)
-        boite.put(@labelChapitre, (widhtEcran *0.25), 50)
+        labelChapitre = Gtk::Label.new(nom_chapitre)
+        ajouteTexteProvider(labelChapitre, chapitreTexte)
+        boite.put(labelChapitre, (widhtEcran *0.25), 50)
         placement = 170
 
         for i in chap+1..chap+4
             description = file_data[i]
-            @labelDescription = Gtk::Label.new(description)
-            ajouteTexteProvider(@labelDescription, descriptionTexte)
-            boite.put(@labelDescription, 30, placement)
+            labelDescription = Gtk::Label.new(description)
+            ajouteTexteProvider(labelDescription, descriptionTexte)
+            boite.put(labelDescription, 30, placement)
             placement += 30
         end
 

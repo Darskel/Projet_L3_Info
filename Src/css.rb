@@ -1,5 +1,17 @@
 ##
 # Classe représentant les différents css possibles
+##
+# * +cssW+              Css blanc pour les boutons basiques de la grille
+# * +cssB+              Css noir pour les boutons basiques de la grille
+# * +cssG+              Css gris pour les boutons basiques de la grille
+# * +cssWRedBorder+     Css blanc pour les boutons avec une erreur de la grille
+# * +cssBRedBorder+     Css noir pour les boutons avec une erreur de la grille
+# * +cssGRedBorder+     Css gris pour les boutons avec une erreur de la grille
+# * +falseReponse+      Css applique une bordure rouge sur tout bouton
+# * +cssWWide+          Css pour les boutons des très grandes grilles
+# * +cssWMed+           Css pour les boutons des grilles moyennes
+# * +cssWWidemenu+      Css pour les boutons des très grandes grilles dans le menu
+# * +cssWMedmenu+      Css pour les boutons des grilles moyennes dans le menu
 class Css
 
     ##

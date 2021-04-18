@@ -2,7 +2,7 @@
 # Représentation d'un écran de jeu, une partie de fill a pix
 ##
 # * +win+               La fenêtre graphique du programme
-# * +layoutManager+     Le layout principal pour le placement dans la fenetre
+# * +container+     Le layout principal pour le placement dans la fenetre
 class Ecran_progression
     
     ##
@@ -26,7 +26,7 @@ class Ecran_progression
         @win = win
         @map = "../Grilles/grille_chapitre1.txt"
         @boite = Gtk::Fixed.new()
-        @container = Gtk::Box.new(:vertical)
+        container = Gtk::Box.new(:vertical)
 
         @retourMenu = Gtk::Button.new(:label => "")
         defilerChapitres = Gtk::Button.new(:label => "")
@@ -54,7 +54,7 @@ class Ecran_progression
         # Chargement background
 
         @boite.add(Gtk::Image.new(:file => "../maquettes/menu-progression.png"))
-        @container.add(@boite)
+        container.add(@boite)
 
         # Création css texte labels
         cssChapitre = ajouteTexte(3)
@@ -70,7 +70,7 @@ class Ecran_progression
         # Ajout boutons retour vers menu et défiler chapitres
 
         ajouteBouton(@boite, defilerChapitres, 2, 45, 45, 230, 620, method(:actualiserChapitres), lblChapitre, nil)
-        ajouteBouton(@boite, @retourMenu, 2, 60, 60, 20, 5, method(:vers_menu), @win, @container)
+        ajouteBouton(@boite, @retourMenu, 2, 60, 60, 20, 5, method(:vers_menu), @win, container)
 
         # Ajoute label pour chrono des grilles sauvegardées
 
@@ -83,7 +83,7 @@ class Ecran_progression
         @boite.put(@penalitesLabel, 960, 615)
 
 
-        @win.add(@container)
+        @win.add(container)
 
         # Chargement de la grille 1
 
