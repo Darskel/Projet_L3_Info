@@ -2,7 +2,7 @@ load "Grille_jeu.rb"
 load "Utils.rb"
 
 ##
-# Classe qui permet d'accèder au menu principal
+# La classe Tuto permet au joueur de découvrir le jeu au travers d'un tuto qui explique les règles du jeu  
 ##
 # * +win+               La fenetre de l'application
 # * +box2+              Le layout principal pour le placement dans la fenetre
