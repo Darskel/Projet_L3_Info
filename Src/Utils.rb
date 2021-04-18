@@ -1,4 +1,9 @@
     ##
+    # Le fichier Utils.rb regroupe plusieurs fonctions utiles pour réaliser le projet, ces fonctions sont appelées dans plusieurs fichiers
+    # cela nous as permit d'éviter la redondance de code dans le projet. 
+    ##
+    
+    ##
     # Permet de passer à l'écran du menu
     ##
     # * +window+      Fenetre graphique de l'application
