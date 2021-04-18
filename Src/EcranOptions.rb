@@ -2,7 +2,6 @@
 ##
 # La classe qui gère l'affichage et l'interaction avec le menu options qui permet 
 #d'enlever le son, accéder au classement, aux credits et aux succès
-
 ##
 # * +win+               La fenetre de l'application
 # * +layoutManager+     Le layout principal pour le placement dans la fenetre
