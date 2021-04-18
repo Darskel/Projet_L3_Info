@@ -1,14 +1,40 @@
 load "Utils.rb"
 
 ##
-#   Déclaration de la classe Classement
+#   La classe Classement permet d'afficher le classement des 5 premiers utilisateurs en fonction du temps réalisé sur chacun des
+#   chapitres du mode libre
 ##
 # * +window+        la fenêtre de l'application
 # * +box+           le layout manager pour placer les éléments à l'écran
+# * +indexChapitre+ le numéro du chapitre 
+# * +titreChapitre+ le label du titre du chapitre actuel
+#
+# * +texte1er+      le label du joueur classé n°1
+# * +texte2e+       le label du joueur classé n°2
+# * +texte3e+       le label du joueur classé n°3
+# * +texte4e+       le label du joueur classé n°4
+# * +texte5e+       le label du joueur classé n°5
+#
+# * +place1+        le label du numéro 1
+# * +place2+        le label du numéro 2
+# * +place3+        le label du numéro 3
+# * +place4+        le label du numéro 4
+# * +place5+        le label du numéro 5
+#
+# * +temps1er+      le label du temps du joueur 1
+# * +temps2e+       le label du temps du joueur 2
+# * +temps3e+       le label du temps du joueur 3
+# * +temps4e+       le label du temps du joueur 4
+# * +temps5e+       le label du temps du joueur 5
+#
+# * +classementChapActuel+  Tableau regroupant les noms des joueurs ayant terminé le chapitre actuel
+# * +userMinutes+  Tableau regroupant les minutes des joueurs ayant terminé le chapitre actuel
+# * +userSecondes+  Tableau regroupant les secondes des joueurs ayant terminé le chapitre actuel
+
 class Classement
 
     ##
-    #  Déclaration de la fonction Classement.creer qui renvoie la méthode new
+    #  Constructeur de la classe Classement
     ##
     # * +win+   la fenêtre de l'application
     def Classement.creer(win)
@@ -16,10 +42,11 @@ class Classement
     end
 
     ##
-    #  Constructeur de Classement
+    #  Initialisation de l'instance
     ##
     # * +win+ Fenêtre dans laquelle on créer le classement
     def initialize(win)
+
         #Création de l'interface
         @window = win
         @box = Gtk::Fixed.new()
@@ -35,7 +62,7 @@ class Classement
         @texte4e = Gtk::Label.new()
         @texte5e = Gtk::Label.new()
         
-        #Création des labels pour le numéro de la place des joueurs dans le classement ( limitées à 5 )
+        #Création des labels pour le numéro de la place des joueurs dans le classement
         @place1 = Gtk::Label.new()
         @place2 = Gtk::Label.new()
         @place3 = Gtk::Label.new()
@@ -152,7 +179,7 @@ class Classement
     end
 
     ##
-    #   Fonction permettant de changer le nom du chapitre afficher dans le label @titreChapitre en fonction du numéro de chapitre
+    #   Fonction permettant de changer le nom du chapitre affiché dans le label @titreChapitre en fonction du numéro de chapitre @indexChapitre
     ## 
     # * +indexChapitre+ numéro du chapitre
     def changerTitreChapitre(indexChapitre)
