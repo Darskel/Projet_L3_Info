@@ -7,6 +7,7 @@
 # * +labelPenalite+     Le Gtk::Label qui accueil les pénalité
 # * +penaliteMin+  somme des pénalités en minutes reçue par le joueur
 # * +penaliteSec+  somme des pénalités en secondes reçue par le joueur
+# * +label+         Le label affichant le temps total
 class Chronometre
 
     ##
