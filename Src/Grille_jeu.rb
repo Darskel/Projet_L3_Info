@@ -5,9 +5,9 @@ load "Bouttons_grille.rb"
 # Représentation d'une grille de jeu
 ##
 # * +grille+        Une Gtk::Grid qui représente le plateau de jeu
-# * +bouttons+      Tableau de boutons dans la grille
+# * +boutons+      Tableau de boutons dans la grille
 # * +css+           Les différents CSS utilisables
-# * +joues+         Tableau des coups joués par l'utilisateur, permettant l'utilisationd de la fonctionnalité undo
+# * +joues+         Tableau des coups joués par l'utilisateur, permettant l'utilisation de la fonctionnalité undo
 # * +nomGrille+     Le nom du fichier de la grille
 # * +redSquare+     Boolean permettant de savoir si le rectangle rouge est actif
 # * +boolFillNine+  Boolean permettant de savoir si un fill nine a été appelé
@@ -16,7 +16,7 @@ load "Bouttons_grille.rb"
 # * +nbColonnes+    Nombre de colonnes du fichier
 class Grille_jeu
 
-    attr_reader :grille, :nbLignes, :boolFillNine, :nomSauvegarde
+    attr_reader :grille, :nbLignes, :boolFillNine
 
     ##
     # Constructeur de la classe
@@ -38,9 +38,9 @@ class Grille_jeu
     # * +nomGrille+     Le nom du fichier de la grille
     def initialize(estJouable, joues, nomGrille)
         @grille = Gtk::Grid.new()
-        @bouttons = Array.new(25)
+        @boutons = Array.new(25)
         0.upto(25) do |i|
-            @bouttons[i] = Array.new(25)
+            @boutons[i] = Array.new(25)
         end
         @joues = joues
 
@@ -62,7 +62,7 @@ class Grille_jeu
         0.upto(@nbLignes-1) do |i|
             0.upto(@nbColonnes-1) do |j|
                 #Rend le bouton non cliquable
-                @bouttons[i][j].boutton.sensitive = false
+                @boutons[i][j].boutton.sensitive = false
                 if @nbLignes == 20
                     csss = @css.cssWWidemenu
                 elsif @nbLignes == 15
@@ -70,7 +70,7 @@ class Grille_jeu
                 else 
                     csss = @css.cssW
                 end
-                @bouttons[i][j].boutton.style_context.add_provider(csss, Gtk::StyleProvider::PRIORITY_USER)
+                @boutons[i][j].boutton.style_context.add_provider(csss, Gtk::StyleProvider::PRIORITY_USER)
             end
         end
         return self
@@ -102,11 +102,11 @@ class Grille_jeu
         0.upto(@nbLignes-1) do |i|
             0.upto(@nbColonnes-1) do |j|
                 # création des boutons, connection des signaux et placement sur la grille
-                @bouttons[i][j] = Boutton_grille.creer(ligne_grille[i_bouton], csss, @joues, i, j, self)
+                @boutons[i][j] = Boutton_grille.creer(ligne_grille[i_bouton], csss, @joues, i, j, self)
                 i_bouton += 1
-                @bouttons[i][j].signal(@css.cssW, @css.cssB, @css.cssG)
+                @boutons[i][j].signal(@css.cssW, @css.cssB, @css.cssG)
 
-                @grille.attach(@bouttons[i][j].boutton, j, i, 1, 1)
+                @grille.attach(@boutons[i][j].boutton, j, i, 1, 1)
             end
         end
         return self
@@ -117,8 +117,8 @@ class Grille_jeu
     ##
     # * +coup+  le coup a restitué
     def undo(coup)
-        @bouttons[coup.indiceI][coup.indiceJ].couleur= coup.couleur
-        @bouttons[coup.indiceI][coup.indiceJ].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+        @boutons[coup.indiceI][coup.indiceJ].couleur= coup.couleur
+        @boutons[coup.indiceI][coup.indiceJ].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
         return self
     end
 
@@ -143,16 +143,16 @@ class Grille_jeu
         0.upto(@nbLignes-1) do |i|
             0.upto(@nbColonnes-1) do |j|
 
-                if @bouttons[i][j].couleur == "grey" && @ligne_solution[i * @nbLignes + j].to_i == 1
+                if @boutons[i][j].couleur == "grey" && @ligne_solution[i * @nbLignes + j].to_i == 1
                     succes = false
-                    @bouttons[i][j].mauvaiseReponse(@css.falseReponse)
+                    @boutons[i][j].mauvaiseReponse(@css.falseReponse)
                     mauvRep = true
-                elsif @bouttons[i][j].couleur == "white" && @ligne_solution[i * @nbLignes + j].to_i == 1
+                elsif @boutons[i][j].couleur == "white" && @ligne_solution[i * @nbLignes + j].to_i == 1
                     succes = false
                 end
-                if @bouttons[i][j].couleur == "black" && @ligne_solution[i * @nbLignes + j].to_i == 0
+                if @boutons[i][j].couleur == "black" && @ligne_solution[i * @nbLignes + j].to_i == 0
                     succes = false
-                    @bouttons[i][j].mauvaiseReponse(@css.falseReponse)
+                    @boutons[i][j].mauvaiseReponse(@css.falseReponse)
                     mauvRep = true
                 end
             end
@@ -180,7 +180,7 @@ class Grille_jeu
 
         0.upto(@nbLignes-1) do |i|
             0.upto(@nbColonnes-1) do |j|
-                if(@bouttons[i][j].contenu == nombre)
+                if(@boutons[i][j].contenu == nombre)
                     if(nombre == '4')
                         if((i-1 == -1 && j-1 == -1) || (i-1 == -1 && j+1 == @nbColonnes) || (i+1 == @nbLignes && j-1 == -1) || (i+1 == @nbLignes && j+1 == @nbColonnes))
                             possible = true
@@ -199,40 +199,40 @@ class Grille_jeu
 
                     if(possible == true)
                         if(coordValide(i-1, j-1))
-                            @bouttons[i-1][j-1].couleur= couleur
-                            @bouttons[i-1][j-1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                            @boutons[i-1][j-1].couleur= couleur
+                            @boutons[i-1][j-1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
                         end
                         if(coordValide(i-1, j))
-                            @bouttons[i-1][j].couleur= couleur
-                            @bouttons[i-1][j].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                            @boutons[i-1][j].couleur= couleur
+                            @boutons[i-1][j].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
                         end
                         if(coordValide(i-1, j+1))
-                            @bouttons[i-1][j+1].couleur= couleur
-                            @bouttons[i-1][j+1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                            @boutons[i-1][j+1].couleur= couleur
+                            @boutons[i-1][j+1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
                         end
                         if(coordValide(i, j-1))
-                            @bouttons[i][j-1].couleur= couleur
-                            @bouttons[i][j-1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                            @boutons[i][j-1].couleur= couleur
+                            @boutons[i][j-1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
                         end
                         if(coordValide(i, j))
-                            @bouttons[i][j].couleur= couleur
-                            @bouttons[i][j].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                            @boutons[i][j].couleur= couleur
+                            @boutons[i][j].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
                         end
                         if(coordValide(i, j+1))
-                            @bouttons[i][j+1].couleur= couleur
-                            @bouttons[i][j+1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                            @boutons[i][j+1].couleur= couleur
+                            @boutons[i][j+1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
                         end
                         if(coordValide(i+1, j-1))
-                            @bouttons[i+1][j-1].couleur= couleur
-                            @bouttons[i+1][j-1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                            @boutons[i+1][j-1].couleur= couleur
+                            @boutons[i+1][j-1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
                         end
                         if(coordValide(i+1, j))
-                            @bouttons[i+1][j].couleur= couleur
-                            @bouttons[i+1][j].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                            @boutons[i+1][j].couleur= couleur
+                            @boutons[i+1][j].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
                         end
                         if(coordValide(i+1, j+1))
-                            @bouttons[i+1][j+1].couleur= couleur
-                            @bouttons[i+1][j+1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
+                            @boutons[i+1][j+1].couleur= couleur
+                            @boutons[i+1][j+1].updateCouleur(@css.cssW, @css.cssB, @css.cssG)
                         end
                     end
                 end
@@ -297,8 +297,8 @@ class Grille_jeu
     end
 
     ##
-    #   Méthode qui appelle la méthode putRedSquare sur les 6 boutons valides 
-    #   entourant le bouton sur lequelle la souris de l'utilisateur se trouve
+    #   Méthode qui appelle la méthode putRedSquare sur les 8 boutons valides 
+    #   entourant le bouton sur lequel la souris de l'utilisateur se trouve
     #   
     ##
     # * +i+     coordonnées abscisse
@@ -306,38 +306,38 @@ class Grille_jeu
     def enterButton(i, j)
         if(@redSquare)
             if(coordValide(i-1, j-1))
-                putRedSquare(@bouttons[i-1][j-1])
+                putRedSquare(@boutons[i-1][j-1])
             end
             if(coordValide(i-1, j))
-                putRedSquare(@bouttons[i-1][j])
+                putRedSquare(@boutons[i-1][j])
             end
             if(coordValide(i-1, j+1))
-                putRedSquare(@bouttons[i-1][j+1])
+                putRedSquare(@boutons[i-1][j+1])
             end
             if(coordValide(i, j-1))
-                putRedSquare(@bouttons[i][j-1])
+                putRedSquare(@boutons[i][j-1])
             end
             if(coordValide(i, j))
-                putRedSquare(@bouttons[i][j])
+                putRedSquare(@boutons[i][j])
             end
             if(coordValide(i, j+1))
-                putRedSquare(@bouttons[i][j+1])
+                putRedSquare(@boutons[i][j+1])
             end
             if(coordValide(i+1, j-1))
-                putRedSquare(@bouttons[i+1][j-1])
+                putRedSquare(@boutons[i+1][j-1])
             end
             if(coordValide(i+1, j))
-                putRedSquare(@bouttons[i+1][j])
+                putRedSquare(@boutons[i+1][j])
             end
             if(coordValide(i+1, j+1))
-                putRedSquare(@bouttons[i+1][j+1])
+                putRedSquare(@boutons[i+1][j+1])
             end
         end
         return self
     end
 
     ##
-    #   Méthode qui appelle la méthode removeRedSquare sur les 6 boutons valides 
+    #   Méthode qui appelle la méthode removeRedSquare sur les 8 boutons valides 
     #   entourant le bouton sur lequelle la souris de l'utilisateur se trouvait
     #   (méthode appelée lorsque l'utilisateur quitte un bouton avec sa souris
     #   et que l'aide RedSquare est activée)
@@ -348,31 +348,31 @@ class Grille_jeu
     def leaveButton(i, j)
         if(@redSquare)
             if(coordValide(i-1, j-1))
-                removeRedSquare(@bouttons[i-1][j-1])
+                removeRedSquare(@boutons[i-1][j-1])
             end
             if(coordValide(i-1, j))
-                removeRedSquare(@bouttons[i-1][j])
+                removeRedSquare(@boutons[i-1][j])
             end
             if(coordValide(i-1, j+1))
-                removeRedSquare(@bouttons[i-1][j+1])
+                removeRedSquare(@boutons[i-1][j+1])
             end
             if(coordValide(i, j-1))
-                removeRedSquare(@bouttons[i][j-1])
+                removeRedSquare(@boutons[i][j-1])
             end
             if(coordValide(i, j))
-                removeRedSquare(@bouttons[i][j])
+                removeRedSquare(@boutons[i][j])
             end
             if(coordValide(i, j+1))
-                removeRedSquare(@bouttons[i][j+1])
+                removeRedSquare(@boutons[i][j+1])
             end
             if(coordValide(i+1, j-1))
-                removeRedSquare(@bouttons[i+1][j-1])
+                removeRedSquare(@boutons[i+1][j-1])
             end
             if(coordValide(i+1, j))
-                removeRedSquare(@bouttons[i+1][j])
+                removeRedSquare(@boutons[i+1][j])
             end
             if(coordValide(i+1, j+1))
-                removeRedSquare(@bouttons[i+1][j+1])
+                removeRedSquare(@boutons[i+1][j+1])
             end
         end
         return self
@@ -410,39 +410,39 @@ class Grille_jeu
     def nextMove()
         0.upto(@nbLignes-1) do |i|
             0.upto(@nbColonnes-1) do |j|
-                if(@bouttons[i][j].contenu != ' ')
+                if(@boutons[i][j].contenu != ' ')
                     nbNoir = 0
                     nbGris = 0
                     for x in -1..1
                         for y in -1..1
-                            if(coordValide(i+x, j+y) && @bouttons[i+x][j+y].couleur == "black")
+                            if(coordValide(i+x, j+y) && @boutons[i+x][j+y].couleur == "black")
                                 nbNoir += 1
                             end
 
-                            if(coordValide(i+x, j+y) && @bouttons[i+x][j+y].couleur == "grey")
+                            if(coordValide(i+x, j+y) && @boutons[i+x][j+y].couleur == "grey")
                                 nbGris += 1
                             end
 
-                            if((nbGris == 9 - @bouttons[i][j].contenu.to_i) || ((!coordValide(i-1, j) || !coordValide(i+1, j) || !coordValide(i, j-1) || !coordValide(i, j+1)) &&nbGris == 6 - @bouttons[i][j].contenu.to_i ))
+                            if((nbGris == 9 - @boutons[i][j].contenu.to_i) || ((!coordValide(i-1, j) || !coordValide(i+1, j) || !coordValide(i, j-1) || !coordValide(i, j+1)) &&nbGris == 6 - @boutons[i][j].contenu.to_i ))
                                 for a in -1..1
                                     for b in -1..1
-                                        if(coordValide(i+a, j+b) && @bouttons[i+a][j+b].couleur == "white" && @ligne_solution[(i+a) * @nbLignes + (j+b)].to_i == 1)
+                                        if(coordValide(i+a, j+b) && @boutons[i+a][j+b].couleur == "white" && @ligne_solution[(i+a) * @nbLignes + (j+b)].to_i == 1)
                                             @joues.push(Coup_joue.creer(i+a, j+b, "white"))
-                                            @bouttons[i+a][j+b].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                                            @boutons[i+a][j+b].change_couleur(@css.cssW, @css.cssB, @css.cssG)
                                             return true
                                         end
                                     end
                                 end
                             end
     
-                            if(nbNoir == @bouttons[i][j].contenu.to_i)
+                            if(nbNoir == @boutons[i][j].contenu.to_i)
                                 for a in -1..1
                                     for b in -1..1
-                                        if(coordValide(i+a, j+b) && @bouttons[i+a][j+b].couleur == "white" && @ligne_solution[(i+a) * @nbLignes + (j+b)].to_i == 0)
+                                        if(coordValide(i+a, j+b) && @boutons[i+a][j+b].couleur == "white" && @ligne_solution[(i+a) * @nbLignes + (j+b)].to_i == 0)
                                             @joues.push(Coup_joue.creer(i+a, j+b, "white"))
-                                            @bouttons[i+a][j+b].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                                            @boutons[i+a][j+b].change_couleur(@css.cssW, @css.cssB, @css.cssG)
                                             @joues.push(Coup_joue.creer(i+a, j+b, "black"))
-                                            @bouttons[i+a][j+b].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                                            @boutons[i+a][j+b].change_couleur(@css.cssW, @css.cssB, @css.cssG)
                                             return true
                                         end
                                     end
@@ -450,66 +450,66 @@ class Grille_jeu
                             end
                         end
                     end
-                    if(coordValide(i, j) && @bouttons[i][j].contenu == '5' && coordValide(i-1, j) && @bouttons[i-1][j].contenu == '8')
+                    if(coordValide(i, j) && @boutons[i][j].contenu == '5' && coordValide(i-1, j) && @boutons[i-1][j].contenu == '8')
                         for a in -1..1
-                            if(coordValide(i+1, j+a) && @bouttons[i+1][j+a].couleur == "white" && @ligne_solution[(i+1) * @nbLignes + (j+a)].to_i == 0)
+                            if(coordValide(i+1, j+a) && @boutons[i+1][j+a].couleur == "white" && @ligne_solution[(i+1) * @nbLignes + (j+a)].to_i == 0)
                                 @joues.push(Coup_joue.creer(i+1, j+a, "white"))
-                                @bouttons[i+1][j+a].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                                @boutons[i+1][j+a].change_couleur(@css.cssW, @css.cssB, @css.cssG)
                                 @joues.push(Coup_joue.creer(i+1, j+a, "black"))
-                                @bouttons[i+1][j+a].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                                @boutons[i+1][j+a].change_couleur(@css.cssW, @css.cssB, @css.cssG)
                                 return true
                             end
                         end
                     end
 
-                    if(coordValide(i, j) && @bouttons[i][j].contenu == '5' && coordValide(i, j-1) && @bouttons[i][j-1].contenu == '8')
+                    if(coordValide(i, j) && @boutons[i][j].contenu == '5' && coordValide(i, j-1) && @boutons[i][j-1].contenu == '8')
                         for a in -1..1
-                            if(coordValide(i+a, j+1) && @bouttons[i+a][j+1].couleur == "white" && @ligne_solution[(i+a) * @nbLignes + (j+1)].to_i == 0)
+                            if(coordValide(i+a, j+1) && @boutons[i+a][j+1].couleur == "white" && @ligne_solution[(i+a) * @nbLignes + (j+1)].to_i == 0)
                                 @joues.push(Coup_joue.creer(i+a, j+1, "white"))
-                                @bouttons[i+a][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                                @boutons[i+a][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
                                 @joues.push(Coup_joue.creer(i+a, j+1, "black"))
-                                @bouttons[i+a][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                                @boutons[i+a][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
                                 return true
                             end
                         end
                     end
 
-                    if(coordValide(i, j) && @bouttons[i][j].contenu == '2' && coordValide(i-2, j) && @bouttons[i-2][j].contenu == '8')
+                    if(coordValide(i, j) && @boutons[i][j].contenu == '2' && coordValide(i-2, j) && @boutons[i-2][j].contenu == '8')
                         for a in 0..1
                             for b in -1..1
-                                if(coordValide(i+a, j+b) && @bouttons[i+a][j+b].couleur == "white" && @ligne_solution[(i+a) * @nbLignes + (j+b)].to_i == 0)
+                                if(coordValide(i+a, j+b) && @boutons[i+a][j+b].couleur == "white" && @ligne_solution[(i+a) * @nbLignes + (j+b)].to_i == 0)
                                     @joues.push(Coup_joue.creer(i+a, j+b, "white"))
-                                    @bouttons[i+a][j+b].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                                    @boutons[i+a][j+b].change_couleur(@css.cssW, @css.cssB, @css.cssG)
                                     @joues.push(Coup_joue.creer(i+a, j+b, "black"))
-                                    @bouttons[i+a][j+b].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                                    @boutons[i+a][j+b].change_couleur(@css.cssW, @css.cssB, @css.cssG)
                                     return true
                                 end
                             end
                         end
                     end
 
-                    if(coordValide(i, j) && @bouttons[i][j].contenu == '3' && coordValide(i-1, j-1) && @bouttons[i-1][j-1].contenu == '8')
+                    if(coordValide(i, j) && @boutons[i][j].contenu == '3' && coordValide(i-1, j-1) && @boutons[i-1][j-1].contenu == '8')
                         for a in -1..1
-                            if(coordValide(i+1, j+a) && @bouttons[i+1][j+a].couleur == "white" && @ligne_solution[(i+1) * @nbLignes + (j+a)].to_i == 0)
+                            if(coordValide(i+1, j+a) && @boutons[i+1][j+a].couleur == "white" && @ligne_solution[(i+1) * @nbLignes + (j+a)].to_i == 0)
                                 @joues.push(Coup_joue.creer(i+1, j+a, "white"))
-                                @bouttons[i+1][j+a].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                                @boutons[i+1][j+a].change_couleur(@css.cssW, @css.cssB, @css.cssG)
                                 @joues.push(Coup_joue.creer(i+1, j+a, "black"))
-                                @bouttons[i+1][j+a].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                                @boutons[i+1][j+a].change_couleur(@css.cssW, @css.cssB, @css.cssG)
                                 return true
                             end
                         end
-                        if(coordValide(i-1, j+1) && @bouttons[i-1][j+1].couleur == "white" && @ligne_solution[(i-1) * @nbLignes + (j+1)].to_i == 0)
+                        if(coordValide(i-1, j+1) && @boutons[i-1][j+1].couleur == "white" && @ligne_solution[(i-1) * @nbLignes + (j+1)].to_i == 0)
                             @joues.push(Coup_joue.creer(i-1, j+1, "white"))
-                            @bouttons[i-1][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                            @boutons[i-1][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
                             @joues.push(Coup_joue.creer(i-1, j+1, "black"))
-                            @bouttons[i-1][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                            @boutons[i-1][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
                             return true
                         end
-                        if(coordValide(i, j+1) && @bouttons[i][j+1].couleur == "white" && @ligne_solution[(i) * @nbLignes + (j+1)].to_i == 0)
+                        if(coordValide(i, j+1) && @boutons[i][j+1].couleur == "white" && @ligne_solution[(i) * @nbLignes + (j+1)].to_i == 0)
                             @joues.push(Coup_joue.creer(i, j+1, "white"))
-                            @bouttons[i][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                            @boutons[i][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
                             @joues.push(Coup_joue.creer(i, j+1, "black"))
-                            @bouttons[i][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                            @boutons[i][j+1].change_couleur(@css.cssW, @css.cssB, @css.cssG)
                             return true
                         end
                     end

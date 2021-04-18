@@ -15,7 +15,7 @@ class Grille_jeu
     def initialize(nbLignes, nbColonnes)
         @grille = Gtk::Grid.new()
         @grille.set_vexpand(true) #étend la grille pour occuper la place disponible
-        @bouttons = Array.new(100)
+        @boutons = Array.new(100)
 
         @nbLignes = nbLignes
         @nbColonnes = nbColonnes
@@ -36,10 +36,10 @@ class Grille_jeu
         while j < nbLignes do
             k = 0
             while k < nbColonnes do
-                @bouttons[i] = Boutton_grille.creer(@css.cssW)
-                @bouttons[i].signal(@textBox, @bEtat)
+                @boutons[i] = Boutton_grille.creer(@css.cssW)
+                @boutons[i].signal(@textBox, @bEtat)
 
-                @grille.attach(@bouttons[i].boutton, k , j, 1, 1)
+                @grille.attach(@boutons[i].boutton, k , j, 1, 1)
                 k += 1
                 i += 1
             end
@@ -61,13 +61,13 @@ class Grille_jeu
 
         i = 0
         while i < nbBoutons do
-            File.write(nomFic, @bouttons[i].boutton.label, mode: "a")
+            File.write(nomFic, @boutons[i].boutton.label, mode: "a")
             i += 1
         end
         File.write(nomFic, "\n", mode: "a")
         i = 0
         while i < nbBoutons do
-            File.write(nomFic, (@bouttons[i].css == @css.cssW)? "0" : 1, mode: "a")
+            File.write(nomFic, (@boutons[i].css == @css.cssW)? "0" : 1, mode: "a")
             i += 1
         end
 

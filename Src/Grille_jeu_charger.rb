@@ -17,8 +17,6 @@ class Grille_jeu_charger < Grille_jeu
         new(estJouable, joues, map, chrono, modeJeu)
     end
 
-    attr_reader :nomSauvegarde
-
     ##
     #   Constructeur de Grille_jeu_charger
     #Constructeur sensiblement identique au constructeur de Grille_jeu
@@ -48,7 +46,7 @@ class Grille_jeu_charger < Grille_jeu
         if (@joues != nil)
             @joues.concat(@data[0])
             @joues.each{|coup|
-                @bouttons[coup.indiceI][coup.indiceJ].change_couleur(@css.cssW, @css.cssB, @css.cssG)
+                @boutons[coup.indiceI][coup.indiceJ].change_couleur(@css.cssW, @css.cssB, @css.cssG)
             }
         end
 

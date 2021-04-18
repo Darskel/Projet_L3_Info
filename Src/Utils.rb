@@ -22,7 +22,7 @@
 
         css = Gtk::CssProvider.new
 
-        if etat == 1 || etat == 2
+        if etat == 1
             css.load(data: <<-CSS)
             button {
                 opacity: 0;
