@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Ecran_progression - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-creer">::creer</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-actualiserChapitres">#actualiserChapitres</a>
+    
+    <li ><a href="#method-i-addChapitre">#addChapitre</a>
+    
+    <li ><a href="#method-i-eventChangerChapitre">#eventChangerChapitre</a>
+    
+    <li ><a href="#method-i-nextChapitre">#nextChapitre</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Ecran_progression">
+  <h1 id="class-Ecran_progression" class="class">
+    class Ecran_progression
+  </h1>
+
+  <section class="description">
+    
+<p>La classe qui gére l&#39;affichage de la progression de l&#39;utilisateur dans l&#39;aventure</p>
+<ul><li>
+<p><code>win</code>               La fenêtre de l&#39;application</p>
+</li><li>
+<p><code>boite</code>             Le layout pour placer tous les boutons et afficher l&#39;image de fond</p>
+</li><li>
+<p><code>retourMenu</code>        Bouton permettant de retourner au menu principal</p>
+</li><li>
+<p><code>map</code>               Nom du fichier de la grille utilisée</p>
+</li><li>
+<p><code>chronoLabel</code>       Label contenant le temps total du joueur sur une grille en cours</p>
+</li><li>
+<p><code>penalitesLabel</code>    Label contenant les pénalités du joueur sur une grille en cours</p>
+</li><li>
+<p><code>grille</code>            La grille de jeu affichée</p>
+</li><li>
+<p><code>nbLignes</code>          Le nombre de lignes du fichier</p>
+</li><li>
+<p><code>file_data</code>         Les données du fichier</p>
+</li><li>
+<p><code>i_chap</code>            Index du chapitre</p>
+</li></ul>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-creer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">creer</span><span
+            class="method-args">(win)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Constructeur de la classe</p>
+<ul><li>
+<p><code>win</code>   La fenetre de l&#39;application</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="creer-source">
+            <pre><span class="ruby-comment"># File Ecran_progression.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Ecran_progression</span>.<span class="ruby-identifier ruby-title">creer</span>(<span class="ruby-identifier">win</span>)
+    <span class="ruby-identifier">new</span>(<span class="ruby-identifier">win</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(win)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Construction de l&#39;instance</p>
+<ul><li>
+<p><code>win</code>   La fenetre de l&#39;application</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File Ecran_progression.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">win</span>)
+
+    <span class="ruby-comment"># init des composants</span>
+
+    <span class="ruby-ivar">@win</span> = <span class="ruby-identifier">win</span>
+    <span class="ruby-ivar">@map</span> = <span class="ruby-string">&quot;../Grilles/grille_chapitre1.txt&quot;</span>
+    <span class="ruby-ivar">@boite</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Fixed</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-identifier">container</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:vertical</span>)
+
+    <span class="ruby-ivar">@retourMenu</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:label</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-identifier">defilerChapitres</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:label</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;&quot;</span>)
+
+    <span class="ruby-comment"># Création tableau de boutons</span>
+
+    <span class="ruby-identifier">btnChapitre</span> = [
+        <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(),
+        <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(),
+        <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(),
+        <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(),
+        <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>()
+    ]
+
+    <span class="ruby-comment"># Création tableau de labels</span>
+
+    <span class="ruby-identifier">lblChapitre</span> = [
+        <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;&quot;</span>),
+        <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;&quot;</span>),
+        <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;&quot;</span>),
+        <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;&quot;</span>),
+        <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;&quot;</span>)
+    ]
+
+    <span class="ruby-comment"># Chargement background</span>
+
+    <span class="ruby-ivar">@boite</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:file</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;../maquettes/menu-progression.png&quot;</span>))
+    <span class="ruby-identifier">container</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@boite</span>)
+
+    <span class="ruby-comment"># Création css texte labels</span>
+    <span class="ruby-identifier">cssChapitre</span> = <span class="ruby-identifier">ajouteTexte</span>(<span class="ruby-value">3</span>)
+
+    <span class="ruby-comment"># Ajout des boutons dans la sidebar</span>
+
+    <span class="ruby-identifier">addChapitre</span>(<span class="ruby-identifier">btnChapitre</span>[<span class="ruby-value">0</span>], <span class="ruby-identifier">lblChapitre</span>[<span class="ruby-value">0</span>], <span class="ruby-value">13</span>, <span class="ruby-value">20</span>, <span class="ruby-identifier">cssChapitre</span>)
+    <span class="ruby-identifier">addChapitre</span>(<span class="ruby-identifier">btnChapitre</span>[<span class="ruby-value">1</span>], <span class="ruby-identifier">lblChapitre</span>[<span class="ruby-value">1</span>], <span class="ruby-value">13</span>, <span class="ruby-value">155</span>, <span class="ruby-identifier">cssChapitre</span>)
+    <span class="ruby-identifier">addChapitre</span>(<span class="ruby-identifier">btnChapitre</span>[<span class="ruby-value">2</span>], <span class="ruby-identifier">lblChapitre</span>[<span class="ruby-value">2</span>], <span class="ruby-value">13</span>, <span class="ruby-value">285</span>, <span class="ruby-identifier">cssChapitre</span>)
+    <span class="ruby-identifier">addChapitre</span>(<span class="ruby-identifier">btnChapitre</span>[<span class="ruby-value">3</span>], <span class="ruby-identifier">lblChapitre</span>[<span class="ruby-value">3</span>], <span class="ruby-value">13</span>, <span class="ruby-value">420</span>, <span class="ruby-identifier">cssChapitre</span>)
+    <span class="ruby-identifier">addChapitre</span>(<span class="ruby-identifier">btnChapitre</span>[<span class="ruby-value">4</span>], <span class="ruby-identifier">lblChapitre</span>[<span class="ruby-value">4</span>], <span class="ruby-value">13</span>, <span class="ruby-value">550</span>, <span class="ruby-identifier">cssChapitre</span>)
+
+    <span class="ruby-comment"># Ajout boutons retour vers menu et défiler chapitres</span>
+
+    <span class="ruby-identifier">ajouteBouton</span>(<span class="ruby-ivar">@boite</span>, <span class="ruby-identifier">defilerChapitres</span>, <span class="ruby-value">2</span>, <span class="ruby-value">45</span>, <span class="ruby-value">45</span>, <span class="ruby-value">230</span>, <span class="ruby-value">620</span>, <span class="ruby-identifier">method</span>(<span class="ruby-value">:actualiserChapitres</span>), <span class="ruby-identifier">lblChapitre</span>, <span class="ruby-keyword">nil</span>)
+    <span class="ruby-identifier">ajouteBouton</span>(<span class="ruby-ivar">@boite</span>, <span class="ruby-ivar">@retourMenu</span>, <span class="ruby-value">2</span>, <span class="ruby-value">60</span>, <span class="ruby-value">60</span>, <span class="ruby-value">20</span>, <span class="ruby-value">5</span>, <span class="ruby-identifier">method</span>(<span class="ruby-value">:vers_menu</span>), <span class="ruby-ivar">@win</span>, <span class="ruby-identifier">container</span>)
+
+    <span class="ruby-comment"># Ajoute label pour chrono des grilles sauvegardées</span>
+
+    <span class="ruby-ivar">@chronoLabel</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-identifier">ajouteTexteProvider</span>(<span class="ruby-ivar">@chronoLabel</span>, <span class="ruby-identifier">cssChapitre</span>)
+    <span class="ruby-ivar">@boite</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@chronoLabel</span>, <span class="ruby-value">500</span>, <span class="ruby-value">615</span>)
+
+    <span class="ruby-ivar">@penalitesLabel</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-identifier">ajouteTexteProvider</span>(<span class="ruby-ivar">@penalitesLabel</span>, <span class="ruby-identifier">cssChapitre</span>)
+    <span class="ruby-ivar">@boite</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@penalitesLabel</span>, <span class="ruby-value">960</span>, <span class="ruby-value">615</span>)
+
+
+    <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">container</span>)
+
+    <span class="ruby-comment"># Chargement de la grille 1</span>
+
+    <span class="ruby-keyword">if</span> (<span class="ruby-constant">Grille_jeu_charger</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-ivar">@map</span>, <span class="ruby-string">&#39;Aventure&#39;</span>))
+        <span class="ruby-ivar">@grille</span> = <span class="ruby-constant">Grille_jeu_charger</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-keyword">false</span>, <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>, <span class="ruby-ivar">@map</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-string">&#39;Aventure&#39;</span>)
+        <span class="ruby-ivar">@chronoLabel</span>.<span class="ruby-identifier">label</span> = <span class="ruby-ivar">@grille</span>.<span class="ruby-identifier">getChrono</span>()
+        <span class="ruby-ivar">@penalitesLabel</span>.<span class="ruby-identifier">label</span> = <span class="ruby-ivar">@grille</span>.<span class="ruby-identifier">getPenalites</span>()
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-ivar">@grille</span> = <span class="ruby-constant">Grille_jeu</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-keyword">false</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-ivar">@map</span>)
+        <span class="ruby-ivar">@chronoLabel</span>.<span class="ruby-identifier">label</span> = <span class="ruby-string">&quot;0&#39; 0&#39;&#39;&quot;</span>
+        <span class="ruby-ivar">@penalitesLabel</span>.<span class="ruby-identifier">label</span> = <span class="ruby-string">&quot;0&#39; 0&#39;&#39;&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@boite</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@grille</span>.<span class="ruby-identifier">grille</span>, (<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.37</span>), <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.16</span>)
+
+    <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&quot;chapitres.txt&quot;</span>)
+    <span class="ruby-identifier">lignes</span> = <span class="ruby-identifier">file</span>.<span class="ruby-identifier">readlines</span>
+    <span class="ruby-ivar">@nbLignes</span> = <span class="ruby-identifier">lignes</span>.<span class="ruby-identifier">size</span>
+    <span class="ruby-ivar">@file_data</span> = <span class="ruby-identifier">lignes</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:chomp</span>)
+
+    <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span>
+
+    <span class="ruby-ivar">@i_chap</span> = <span class="ruby-value">0</span>
+
+    <span class="ruby-comment"># Placement des bons labels de chapitres</span>
+    <span class="ruby-identifier">actualiserChapitres</span>(<span class="ruby-identifier">lblChapitre</span>)
+
+    <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">show_all</span>
+    <span class="ruby-constant">Gtk</span>.<span class="ruby-identifier">main</span>
+
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-actualiserChapitres" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">actualiserChapitres</span><span
+            class="method-args">(lblChapitre)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Permet de changer les chapitres à l&#39;appuie de la flèche</p>
+<ul><li>
+<p><code>lblChapitre</code> Liste des labels à actualiser</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="actualiserChapitres-source">
+            <pre><span class="ruby-comment"># File Ecran_progression.rb, line 175</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">actualiserChapitres</span>(<span class="ruby-identifier">lblChapitre</span>)
+    <span class="ruby-identifier">lblChapitre</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">lbl</span><span class="ruby-operator">|</span> <span class="ruby-identifier">lbl</span>.<span class="ruby-identifier">label</span> = <span class="ruby-identifier">nextChapitre</span>() }
+       
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-addChapitre" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">addChapitre</span><span
+            class="method-args">(bouton, label, x, y, css)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Ajoute un chapitre dans la boite</p>
+<ul><li>
+<p><code>bouton</code> Le bouton contenant le label</p>
+</li><li>
+<p><code>label</code>  Le label à styliser</p>
+</li><li>
+<p><code>css</code>    Le css a appliquer</p>
+</li><li>
+<p><code>x</code>      Position en abscisse</p>
+</li><li>
+<p><code>y</code>      Postion en ordonnée</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="addChapitre-source">
+            <pre><span class="ruby-comment"># File Ecran_progression.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">addChapitre</span>(<span class="ruby-identifier">bouton</span>, <span class="ruby-identifier">label</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>, <span class="ruby-identifier">css</span>) 
+    <span class="ruby-identifier">ajouteBouton</span>(<span class="ruby-ivar">@boite</span>, <span class="ruby-identifier">bouton</span>, <span class="ruby-value">3</span>, <span class="ruby-value">260</span>, <span class="ruby-value">115</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>, <span class="ruby-identifier">method</span>(<span class="ruby-value">:eventChangerChapitre</span>), <span class="ruby-identifier">label</span>, <span class="ruby-keyword">nil</span>)
+    
+    <span class="ruby-identifier">ajouteTexteProvider</span>(<span class="ruby-identifier">label</span>, <span class="ruby-identifier">css</span>)
+    <span class="ruby-identifier">bouton</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">label</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-eventChangerChapitre" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">eventChangerChapitre</span><span
+            class="method-args">(label)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Change la grille en fonction du chapitre sélectionné</p>
+<ul><li>
+<p><code>label</code> label du chapitre cliqué</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="eventChangerChapitre-source">
+            <pre><span class="ruby-comment"># File Ecran_progression.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">eventChangerChapitre</span>(<span class="ruby-identifier">label</span>)
+    <span class="ruby-comment">#Cherche le numéro du chapitre sélectionné dans le label</span>
+    <span class="ruby-ivar">@boite</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-ivar">@grille</span>.<span class="ruby-identifier">grille</span>)
+    <span class="ruby-ivar">@map</span> = <span class="ruby-string">&quot;../Grilles/grille_chapitre&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">label</span>.<span class="ruby-identifier">label</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/[^0-9]/</span>, <span class="ruby-string">&#39;&#39;</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;.txt&quot;</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-constant">Grille_jeu_charger</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-ivar">@map</span>, <span class="ruby-string">&#39;Aventure&#39;</span>))
+        <span class="ruby-ivar">@grille</span> = <span class="ruby-constant">Grille_jeu_charger</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-keyword">false</span>, <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>, <span class="ruby-ivar">@map</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-string">&#39;Aventure&#39;</span>)
+        <span class="ruby-ivar">@chronoLabel</span>.<span class="ruby-identifier">label</span> = <span class="ruby-ivar">@grille</span>.<span class="ruby-identifier">getChrono</span>()
+        <span class="ruby-ivar">@penalitesLabel</span>.<span class="ruby-identifier">label</span> = <span class="ruby-ivar">@grille</span>.<span class="ruby-identifier">getPenalites</span>()
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-ivar">@grille</span> = <span class="ruby-constant">Grille_jeu</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-keyword">false</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-ivar">@map</span>)
+        <span class="ruby-ivar">@chronoLabel</span>.<span class="ruby-identifier">label</span> = <span class="ruby-string">&quot;0&#39; 0&#39;&#39;&quot;</span>
+        <span class="ruby-ivar">@penalitesLabel</span>.<span class="ruby-identifier">label</span> = <span class="ruby-string">&quot;0&#39; 0&#39;&#39;&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@grille</span>.<span class="ruby-identifier">nbLignes</span> <span class="ruby-operator">==</span> <span class="ruby-value">10</span>)
+        <span class="ruby-ivar">@boite</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@grille</span>.<span class="ruby-identifier">grille</span>, (<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.37</span>), <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.16</span>)
+    <span class="ruby-keyword">elsif</span> (<span class="ruby-ivar">@grille</span>.<span class="ruby-identifier">nbLignes</span> <span class="ruby-operator">==</span> <span class="ruby-value">15</span>)
+        <span class="ruby-ivar">@boite</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@grille</span>.<span class="ruby-identifier">grille</span>, (<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.36</span>), <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.16</span>)
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-ivar">@boite</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@grille</span>.<span class="ruby-identifier">grille</span>, (<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.35</span>), <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.11</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">show_all</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-nextChapitre" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nextChapitre</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Charge le texte d&#39;un chapitre dans le label</p>
+          
+          
+
+          
+          <div class="method-source-code" id="nextChapitre-source">
+            <pre><span class="ruby-comment"># File Ecran_progression.rb, line 183</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">nextChapitre</span>()
+    <span class="ruby-keyword">until</span> (<span class="ruby-ivar">@file_data</span>[<span class="ruby-ivar">@i_chap</span>].<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;    &quot;</span>, <span class="ruby-string">&quot;&quot;</span>).<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&quot;Chapitre&quot;</span>))
+        <span class="ruby-ivar">@i_chap</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@i_chap</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@nbLignes</span>
+            <span class="ruby-ivar">@i_chap</span> = <span class="ruby-value">0</span>
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">str</span> = <span class="ruby-ivar">@file_data</span>[<span class="ruby-ivar">@i_chap</span>].<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;    &quot;</span>, <span class="ruby-string">&quot;&quot;</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;: &quot;</span>, <span class="ruby-string">&quot;\n&quot;</span>)
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">str</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">27</span>)
+        <span class="ruby-identifier">str</span> = <span class="ruby-identifier">str</span>[<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-value">-9</span>] <span class="ruby-operator">+</span> <span class="ruby-string">&quot;...&quot;</span>
+    <span class="ruby-keyword">elsif</span> (<span class="ruby-identifier">str</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">23</span>)
+        <span class="ruby-identifier">spaces</span> = <span class="ruby-string">&quot;&quot;</span>;
+        <span class="ruby-value">0</span>.<span class="ruby-identifier">upto</span>((<span class="ruby-value">14</span> <span class="ruby-operator">-</span> (<span class="ruby-identifier">str</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-value">10</span>)) <span class="ruby-operator">/</span> <span class="ruby-value">2</span> ) { <span class="ruby-identifier">spaces</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot; &quot;</span> }
+          
+        <span class="ruby-identifier">str</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-value">12</span>, <span class="ruby-string">&#39;♦&#39;</span>)
+        <span class="ruby-identifier">str</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;♦&quot;</span>, <span class="ruby-identifier">spaces</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-ivar">@i_chap</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;  &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">str</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

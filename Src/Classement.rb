@@ -8,25 +8,21 @@ load "Utils.rb"
 # * +box+           le layout manager pour placer les éléments à l'écran
 # * +indexChapitre+ le numéro du chapitre 
 # * +titreChapitre+ le label du titre du chapitre actuel
-#
 # * +texte1er+      le label du joueur classé n°1
 # * +texte2e+       le label du joueur classé n°2
 # * +texte3e+       le label du joueur classé n°3
 # * +texte4e+       le label du joueur classé n°4
 # * +texte5e+       le label du joueur classé n°5
-#
 # * +place1+        le label du numéro 1
 # * +place2+        le label du numéro 2
 # * +place3+        le label du numéro 3
 # * +place4+        le label du numéro 4
 # * +place5+        le label du numéro 5
-#
 # * +temps1er+      le label du temps du joueur 1
 # * +temps2e+       le label du temps du joueur 2
 # * +temps3e+       le label du temps du joueur 3
 # * +temps4e+       le label du temps du joueur 4
 # * +temps5e+       le label du temps du joueur 5
-#
 # * +classementChapActuel+  Tableau regroupant les noms des joueurs ayant terminé le chapitre actuel
 # * +userMinutes+  Tableau regroupant les minutes des joueurs ayant terminé le chapitre actuel
 # * +userSecondes+  Tableau regroupant les secondes des joueurs ayant terminé le chapitre actuel

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Connexion - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-creer">::creer</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-chargerExistants">#chargerExistants</a>
+    
+    <li ><a href="#method-i-checkUser">#checkUser</a>
+    
+    <li ><a href="#method-i-newUser">#newUser</a>
+    
+    <li ><a href="#method-i-vers_menu">#vers_menu</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Connexion">
+  <h1 id="class-Connexion" class="class">
+    class Connexion
+  </h1>
+
+  <section class="description">
+    
+<p>Ecran qui permet à l&#39;utilisateur de se connecter à ses sauvegardes</p>
+<ul><li>
+<p><code>win</code>               La fenetre de l&#39;application</p>
+</li><li>
+<p><code>layoutManager</code>     Le layout principal pour le placement dans la fenetre</p>
+</li></ul>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-creer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">creer</span><span
+            class="method-args">(win)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Constructeur</p>
+<ul><li>
+<p><code>win</code>   Fenetre de l&#39;application</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="creer-source">
+            <pre><span class="ruby-comment"># File Connexion.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Connexion</span>.<span class="ruby-identifier ruby-title">creer</span>(<span class="ruby-identifier">win</span>)
+    <span class="ruby-identifier">new</span>(<span class="ruby-identifier">win</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(win)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Création de l&#39;objet</p>
+<ul><li>
+<p><code>win</code>   La fenetre de l&#39;application</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File Connexion.rb, line 22</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">win</span>)
+
+        <span class="ruby-ivar">@win</span> = <span class="ruby-identifier">win</span>
+        <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">set_title</span>(<span class="ruby-string">&quot;Connexion&quot;</span>)
+        <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">set_default_size</span>(<span class="ruby-value">600</span>, <span class="ruby-value">600</span>)
+
+        <span class="ruby-identifier">boite</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Fixed</span>.<span class="ruby-identifier">new</span>()
+        <span class="ruby-ivar">@layoutManager</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:vertical</span>)
+
+        <span class="ruby-identifier">boite</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:file</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;../maquettes/connexion.png&quot;</span>))
+
+        <span class="ruby-ivar">@layoutManager</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">boite</span>)
+        <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@layoutManager</span>)
+
+        <span class="ruby-identifier">saisie</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Entry</span>.<span class="ruby-identifier">new</span>()
+        <span class="ruby-identifier">valider</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:label</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot; &quot;</span>)
+        <span class="ruby-identifier">choixExistant</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">ComboBoxText</span>.<span class="ruby-identifier">new</span>
+
+        <span class="ruby-identifier">choixExistant</span>.<span class="ruby-identifier">append_text</span> <span class="ruby-string">&quot;Sélectionner votre session&quot;</span>
+        <span class="ruby-identifier">choixExistant</span>.<span class="ruby-identifier">active</span>= <span class="ruby-value">0</span>
+
+        <span class="ruby-identifier">chargerExistants</span>(<span class="ruby-identifier">choixExistant</span>)
+
+        <span class="ruby-identifier">valider</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;clicked&quot;</span>){
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">saisie</span>.<span class="ruby-identifier">text</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">choixExistant</span>.<span class="ruby-identifier">active</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>
+                    <span class="ruby-identifier">$userPath</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">choixExistant</span>.<span class="ruby-identifier">active_text</span><span class="ruby-string">+&quot;/&quot;</span>
+                    <span class="ruby-identifier">vers_menu</span>()
+                <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">else</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">checkUser</span>(<span class="ruby-identifier">saisie</span>.<span class="ruby-identifier">text</span>)
+                    <span class="ruby-identifier">newUser</span>(<span class="ruby-identifier">saisie</span>.<span class="ruby-identifier">text</span>)
+                <span class="ruby-keyword">else</span>
+                    <span class="ruby-identifier">$userPath</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">saisie</span>.<span class="ruby-identifier">text</span><span class="ruby-string">+&quot;/&quot;</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-identifier">vers_menu</span>()
+            <span class="ruby-keyword">end</span>
+        }
+
+        <span class="ruby-identifier">widthEcran</span> = <span class="ruby-value">600</span>
+        <span class="ruby-identifier">heightEcran</span> = <span class="ruby-value">600</span>
+
+        <span class="ruby-identifier">css</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">CssProvider</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-identifier">css</span>.<span class="ruby-identifier">load</span>(<span class="ruby-value">data:</span> <span class="ruby-identifier">&lt;&lt;-CSS</span>)
+<span class="ruby-value">            button {
+                opacity: 0;
+                border: unset;
+                color: black;
+            }
+            button:hover {
+                opacity: 0.1;
+                border: 1px solid black;
+            }
+</span><span class="ruby-identifier">        CSS</span>
+
+        <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">valider</span>, <span class="ruby-identifier">css</span>, <span class="ruby-value">270</span>, <span class="ruby-value">70</span>)
+
+        <span class="ruby-identifier">boite</span>.<span class="ruby-identifier">put</span>(<span class="ruby-identifier">valider</span>, (<span class="ruby-identifier">widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.51</span>), <span class="ruby-identifier">heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.86</span>)
+        <span class="ruby-identifier">boite</span>.<span class="ruby-identifier">put</span>(<span class="ruby-identifier">choixExistant</span>, (<span class="ruby-identifier">widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.47</span>), <span class="ruby-identifier">heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.715</span>)
+        <span class="ruby-identifier">boite</span>.<span class="ruby-identifier">put</span>(<span class="ruby-identifier">saisie</span>, (<span class="ruby-identifier">widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.47</span>), <span class="ruby-identifier">heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.36</span>)
+
+
+        <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">show_all</span>
+        <span class="ruby-constant">Gtk</span>.<span class="ruby-identifier">main</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-chargerExistants" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">chargerExistants</span><span
+            class="method-args">(combobox)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Charge les utilisateurs dans la combobox</p>
+<ul><li>
+<p><code>combobox</code>  La combobox à remplir</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="chargerExistants-source">
+            <pre><span class="ruby-comment"># File Connexion.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">chargerExistants</span>(<span class="ruby-identifier">combobox</span>)
+    <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">$userPath</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;users.txt&quot;</span>)
+    <span class="ruby-identifier">file_data</span> = <span class="ruby-identifier">file</span>.<span class="ruby-identifier">readlines</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:chomp</span>)
+
+    <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">file_data</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">combobox</span>.<span class="ruby-identifier">append_text</span> <span class="ruby-identifier">i</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-checkUser" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">checkUser</span><span
+            class="method-args">(nom)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Vérifie si l&#39;utilisateur existe déjà. Retourne vrai si l&#39;utilisateur n&#39;existe pas encore</p>
+<ul><li>
+<p><code>nom</code>   Saisie de l&#39;utilisateur</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="checkUser-source">
+            <pre><span class="ruby-comment"># File Connexion.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">checkUser</span>(<span class="ruby-identifier">nom</span>)
+
+    <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">$userPath</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;users.txt&quot;</span>)
+    <span class="ruby-identifier">file_data</span> = <span class="ruby-identifier">file</span>.<span class="ruby-identifier">readlines</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:chomp</span>)
+
+    <span class="ruby-keyword">for</span> <span class="ruby-identifier">elem</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">file_data</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">nom</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">elem</span>
+            <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-newUser" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">newUser</span><span
+            class="method-args">(nom)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Ajout d&#39;un nouvel utilisateur</p>
+<ul><li>
+<p><code>nom</code>   nom de l&#39;utilisateur</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="newUser-source">
+            <pre><span class="ruby-comment"># File Connexion.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">newUser</span>(<span class="ruby-identifier">nom</span>)
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">$userPath</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;users.txt&quot;</span>, <span class="ruby-string">&quot;a&quot;</span>)
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">chmod</span>(<span class="ruby-value">0777</span>,<span class="ruby-identifier">$userPath</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;users.txt&quot;</span>)
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">$userPath</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;users.txt&quot;</span>, <span class="ruby-identifier">nom</span><span class="ruby-string">+&quot;\n&quot;</span>, <span class="ruby-value">mode:</span> <span class="ruby-string">&quot;a&quot;</span>)
+
+    <span class="ruby-comment">##Ajout des dossiers &#39;Libre&#39; et &#39;Aventure&#39;</span>
+    <span class="ruby-comment">##qui contiendront les sauvegardes de ces modes respectifs</span>
+    <span class="ruby-identifier">$userPath</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">nom</span><span class="ruby-string">+&quot;/&quot;</span>
+    <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">mkdir</span>(<span class="ruby-identifier">$userPath</span>)
+    <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">mkdir</span>(<span class="ruby-identifier">$userPath</span><span class="ruby-string">+&quot;Libre/&quot;</span>)
+    <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">mkdir</span>(<span class="ruby-identifier">$userPath</span><span class="ruby-string">+&quot;Aventure/&quot;</span>)
+    <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">mkdir</span>(<span class="ruby-identifier">$userPath</span><span class="ruby-string">+&quot;Tuto/&quot;</span>)
+
+    <span class="ruby-comment">##Ajout des premiers fichiers nécessaires pour un nouvel utilisateur</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">$userPath</span><span class="ruby-string">+&quot;Libre/config.txt&quot;</span>, <span class="ruby-string">&quot;w&quot;</span>)
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">$userPath</span><span class="ruby-string">+&quot;Aventure/config.txt&quot;</span>, <span class="ruby-string">&quot;w&quot;</span>)
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">$userPath</span><span class="ruby-string">+&quot;Tuto/config.txt&quot;</span>, <span class="ruby-string">&quot;w&quot;</span>)
+
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">$userPath</span><span class="ruby-string">+&quot;succes.txt&quot;</span>, <span class="ruby-string">&quot;w&quot;</span>)
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">chmod</span>(<span class="ruby-value">0777</span>,<span class="ruby-identifier">$userPath</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;succes.txt&quot;</span>)
+    <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
+    <span class="ruby-keyword">while</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">11</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">$userPath</span><span class="ruby-string">+&quot;succes.txt&quot;</span>, <span class="ruby-string">&quot;false 0 0\n&quot;</span>, <span class="ruby-value">mode:</span> <span class="ruby-string">&quot;a&quot;</span>)
+        <span class="ruby-identifier">i</span><span class="ruby-operator">+=</span><span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-vers_menu" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">vers_menu</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Redirige vers le menu principal</p>
+          
+          
+
+          
+          <div class="method-source-code" id="vers_menu-source">
+            <pre><span class="ruby-comment"># File Connexion.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">vers_menu</span>
+    <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">set_title</span>(<span class="ruby-string">&quot;FILL A PIX&quot;</span>)
+    <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">set_default_size</span>(<span class="ruby-identifier">$widthEcran</span>, <span class="ruby-identifier">$heightEcran</span>)
+    
+    <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-ivar">@layoutManager</span>)
+
+    <span class="ruby-constant">Ecran_menu</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-ivar">@win</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

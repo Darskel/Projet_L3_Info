@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Classement - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-creer">::creer</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-affichageClassement">#affichageClassement</a>
+    
+    <li ><a href="#method-i-changerTitreChapitre">#changerTitreChapitre</a>
+    
+    <li ><a href="#method-i-clearClassement">#clearClassement</a>
+    
+    <li ><a href="#method-i-comparerTemps">#comparerTemps</a>
+    
+    <li ><a href="#method-i-placementClassement">#placementClassement</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Classement">
+  <h1 id="class-Classement" class="class">
+    class Classement
+  </h1>
+
+  <section class="description">
+    
+<pre>La classe Classement permet d&#39;afficher le classement des 5 premiers utilisateurs en fonction du temps réalisé sur chacun des
+chapitres du mode libre</pre>
+<ul><li>
+<p><code>window</code>        la fenêtre de l&#39;application</p>
+</li><li>
+<p><code>box</code>           le layout manager pour placer les éléments à l&#39;écran</p>
+</li><li>
+<p><code>indexChapitre</code> le numéro du chapitre </p>
+</li><li>
+<p><code>titreChapitre</code> le label du titre du chapitre actuel</p>
+</li><li>
+<p><code>texte1er</code>      le label du joueur classé n°1</p>
+</li><li>
+<p><code>texte2e</code>       le label du joueur classé n°2</p>
+</li><li>
+<p><code>texte3e</code>       le label du joueur classé n°3</p>
+</li><li>
+<p><code>texte4e</code>       le label du joueur classé n°4</p>
+</li><li>
+<p><code>texte5e</code>       le label du joueur classé n°5</p>
+</li><li>
+<p><code>place1</code>        le label du numéro 1</p>
+</li><li>
+<p><code>place2</code>        le label du numéro 2</p>
+</li><li>
+<p><code>place3</code>        le label du numéro 3</p>
+</li><li>
+<p><code>place4</code>        le label du numéro 4</p>
+</li><li>
+<p><code>place5</code>        le label du numéro 5</p>
+</li><li>
+<p><code>temps1er</code>      le label du temps du joueur 1</p>
+</li><li>
+<p><code>temps2e</code>       le label du temps du joueur 2</p>
+</li><li>
+<p><code>temps3e</code>       le label du temps du joueur 3</p>
+</li><li>
+<p><code>temps4e</code>       le label du temps du joueur 4</p>
+</li><li>
+<p><code>temps5e</code>       le label du temps du joueur 5</p>
+</li><li>
+<p><code>classementChapActuel</code>  Tableau regroupant les noms des joueurs ayant terminé le chapitre actuel</p>
+</li><li>
+<p><code>userMinutes</code>  Tableau regroupant les minutes des joueurs ayant terminé le chapitre actuel</p>
+</li><li>
+<p><code>userSecondes</code>  Tableau regroupant les secondes des joueurs ayant terminé le chapitre actuel</p>
+</li></ul>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-creer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">creer</span><span
+            class="method-args">(win)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <pre class="ruby"><span class="ruby-constant">Constructeur</span> <span class="ruby-identifier">de</span> <span class="ruby-identifier">la</span> <span class="ruby-identifier">classe</span> <span class="ruby-constant">Classement</span>
+</pre>
+<ul><li>
+<p><code>win</code>   la fenêtre de l&#39;application</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="creer-source">
+            <pre><span class="ruby-comment"># File Classement.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Classement</span>.<span class="ruby-identifier ruby-title">creer</span>(<span class="ruby-identifier">win</span>)
+    <span class="ruby-identifier">new</span>(<span class="ruby-identifier">win</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(win)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <pre>Initialisation de l&#39;instance</pre>
+<ul><li>
+<p><code>win</code> Fenêtre dans laquelle on créer le classement</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File Classement.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">win</span>)
+
+    <span class="ruby-comment">#Création de l&#39;interface</span>
+    <span class="ruby-ivar">@window</span> = <span class="ruby-identifier">win</span>
+    <span class="ruby-ivar">@box</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Fixed</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-identifier">boiteInterieure</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:horizontal</span>)
+    <span class="ruby-ivar">@indexChapitre</span> = <span class="ruby-value">1</span>
+    <span class="ruby-ivar">@titreChapitre</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-ivar">@titreChapitre</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;Chapitre &quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@indexChapitre</span>.<span class="ruby-identifier">to_s</span>()<span class="ruby-string">+&quot; : Hawaï&quot;</span>)
+    
+    <span class="ruby-comment">#Création des labels pour le nom de joueurs dans le classement</span>
+    <span class="ruby-ivar">@texte1er</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-ivar">@texte2e</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-ivar">@texte3e</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-ivar">@texte4e</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-ivar">@texte5e</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>()
+    
+    <span class="ruby-comment">#Création des labels pour le numéro de la place des joueurs dans le classement</span>
+    <span class="ruby-ivar">@place1</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-ivar">@place2</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-ivar">@place3</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-ivar">@place4</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-ivar">@place5</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>()
+    
+    <span class="ruby-comment">#Création des labels pour le temps des joueurs dans le classement</span>
+    <span class="ruby-ivar">@temps1er</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-ivar">@temps2e</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-ivar">@temps3e</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-ivar">@temps4e</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-ivar">@temps5e</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>()
+
+    <span class="ruby-comment">#Création des boutons permettant de retourner au menu et de changer les chapitres</span>
+    <span class="ruby-identifier">boutonFlecheSuivant</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-identifier">boutonFlechePrecedent</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>()  
+    <span class="ruby-identifier">boutonMenu</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>()
+
+    <span class="ruby-comment">#Création des différents tableaux pour le stockage du classement</span>
+    <span class="ruby-ivar">@classementChapActuel</span> = []
+    <span class="ruby-ivar">@userMinutes</span> = []
+    <span class="ruby-ivar">@userSecondes</span> = []
+
+    <span class="ruby-identifier">affichageClassement</span>()
+    <span class="ruby-identifier">comparerTemps</span>()
+    <span class="ruby-identifier">placementClassement</span>()
+
+    <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:file</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;../maquettes/classement.png&quot;</span>))
+
+    <span class="ruby-identifier">cssChapitre</span> = <span class="ruby-identifier">ajouteTexte</span>(<span class="ruby-value">3</span>)
+    <span class="ruby-identifier">ajouteTexteProvider</span>(<span class="ruby-ivar">@titreChapitre</span>,<span class="ruby-identifier">cssChapitre</span>)
+    
+    
+    <span class="ruby-identifier">ajouteBouton</span>(<span class="ruby-ivar">@box</span>,<span class="ruby-identifier">boutonMenu</span>,<span class="ruby-value">1</span>,<span class="ruby-value">55</span>,<span class="ruby-value">45</span>,(<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.015</span>),<span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.025</span>,<span class="ruby-keyword">nil</span>,<span class="ruby-ivar">@window</span>,<span class="ruby-identifier">boiteInterieure</span>)
+    <span class="ruby-identifier">ajouteBouton</span>(<span class="ruby-ivar">@box</span>,<span class="ruby-identifier">boutonFlechePrecedent</span>,<span class="ruby-value">1</span>,<span class="ruby-value">55</span>,<span class="ruby-value">45</span>,(<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.015</span>),<span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.24</span>,<span class="ruby-keyword">nil</span>,<span class="ruby-ivar">@window</span>,<span class="ruby-identifier">boiteInterieure</span>)
+    <span class="ruby-identifier">ajouteBouton</span>(<span class="ruby-ivar">@box</span>,<span class="ruby-identifier">boutonFlecheSuivant</span>,<span class="ruby-value">1</span>,<span class="ruby-value">55</span>,<span class="ruby-value">45</span>,(<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.935</span>),<span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.24</span>,<span class="ruby-keyword">nil</span>,<span class="ruby-ivar">@window</span>,<span class="ruby-identifier">boiteInterieure</span>)
+
+    <span class="ruby-comment">#Signal du bouton menu pour retourner vers le menu</span>
+    <span class="ruby-identifier">boutonMenu</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;clicked&quot;</span>){
+        <span class="ruby-identifier">vers_menu</span>(<span class="ruby-ivar">@window</span>,<span class="ruby-ivar">@box</span>)
+    }
+
+    <span class="ruby-comment">#Signal du bouton flèche précédent pour changer le numéro du chapitre</span>
+    <span class="ruby-identifier">boutonFlechePrecedent</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;clicked&quot;</span>){
+        <span class="ruby-ivar">@classementChapActuel</span> = []
+        <span class="ruby-ivar">@userMinutes</span> = []
+        <span class="ruby-ivar">@userSecondes</span> = []
+        <span class="ruby-ivar">@indexChapitre</span> = <span class="ruby-ivar">@indexChapitre</span><span class="ruby-value">-1</span>
+        
+        <span class="ruby-identifier">clearClassement</span>()
+        <span class="ruby-identifier">affichageClassement</span>()
+        <span class="ruby-identifier">comparerTemps</span>()
+        <span class="ruby-identifier">placementClassement</span>()
+        
+        <span class="ruby-comment">#Modification de l&#39;attribut sensitive des boutons en fonction de l&#39;indiceChapitre</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@indexChapitre</span><span class="ruby-operator">==</span><span class="ruby-value">1</span>
+            <span class="ruby-identifier">boutonFlechePrecedent</span>.<span class="ruby-identifier">sensitive</span> = <span class="ruby-keyword">false</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@indexChapitre</span><span class="ruby-operator">&gt;</span><span class="ruby-value">1</span>
+            <span class="ruby-identifier">boutonFlecheSuivant</span>.<span class="ruby-identifier">sensitive</span> = <span class="ruby-keyword">true</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">changerTitreChapitre</span>(<span class="ruby-ivar">@indexChapitre</span>)
+    }
+
+    <span class="ruby-comment">#Signal du bouton flèche suivant pour changer le numéro du chapitre</span>
+    <span class="ruby-identifier">boutonFlecheSuivant</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;clicked&quot;</span>){
+        <span class="ruby-ivar">@classementChapActuel</span> = []
+        <span class="ruby-ivar">@userMinutes</span> = []
+        <span class="ruby-ivar">@userSecondes</span> = []
+        <span class="ruby-ivar">@indexChapitre</span> = <span class="ruby-ivar">@indexChapitre</span><span class="ruby-value">+1</span>
+        
+        <span class="ruby-identifier">clearClassement</span>()
+        <span class="ruby-identifier">affichageClassement</span>()
+        <span class="ruby-identifier">comparerTemps</span>()
+        <span class="ruby-identifier">placementClassement</span>()
+
+        <span class="ruby-comment">#Modification de l&#39;attribut sensitive des boutons en fonction de l&#39;indiceChapitre</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@indexChapitre</span><span class="ruby-operator">&lt;</span><span class="ruby-value">10</span>
+            <span class="ruby-identifier">boutonFlechePrecedent</span>.<span class="ruby-identifier">sensitive</span> = <span class="ruby-keyword">true</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@indexChapitre</span><span class="ruby-operator">==</span><span class="ruby-value">10</span>
+            <span class="ruby-identifier">boutonFlecheSuivant</span>.<span class="ruby-identifier">sensitive</span> = <span class="ruby-keyword">false</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">changerTitreChapitre</span>(<span class="ruby-ivar">@indexChapitre</span>)
+    }
+
+    <span class="ruby-comment">#Placement de tous les éléments sur la fenêtre</span>
+    <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@titreChapitre</span>,(<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.3</span>), <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.24</span>)
+    
+    <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@place1</span>,(<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.05</span>), <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.5</span>)
+    <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@place2</span>,(<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.05</span>), <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.6</span>)
+    <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@place3</span>,(<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.05</span>), <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.7</span>)
+    <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@place4</span>,(<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.05</span>), <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.8</span>)
+    <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@place5</span>,(<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.05</span>), <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.9</span>)
+
+    <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@texte1er</span>,(<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.12</span>), <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.5</span>)
+    <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@texte2e</span>,(<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.12</span>), <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.6</span>)
+    <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@texte3e</span>,(<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.12</span>), <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.7</span>)
+    <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@texte4e</span>,(<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.12</span>), <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.8</span>)
+    <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@texte5e</span>,(<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.12</span>), <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.9</span>)
+
+    <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@temps1er</span>,(<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.6</span>), <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.5</span>)
+    <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@temps2e</span>,(<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.6</span>), <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.6</span>)
+    <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@temps3e</span>,(<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.6</span>), <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.7</span>)
+    <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@temps4e</span>,(<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.6</span>), <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.8</span>)
+    <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@temps5e</span>,(<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.6</span>), <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.9</span>)
+
+    <span class="ruby-ivar">@box</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">boiteInterieure</span>)
+
+    <span class="ruby-ivar">@window</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@box</span>)
+    <span class="ruby-ivar">@window</span>.<span class="ruby-identifier">show_all</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-affichageClassement" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">affichageClassement</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fonction permettant la récupération des données pour réaliser le classement</p>
+          
+          
+
+          
+          <div class="method-source-code" id="affichageClassement-source">
+            <pre><span class="ruby-comment"># File Classement.rb, line 209</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">affichageClassement</span>()
+    <span class="ruby-identifier">fileUsers</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&quot;../Users/users.txt&quot;</span>,<span class="ruby-string">&quot;r&quot;</span>) 
+    <span class="ruby-identifier">file_data</span> = <span class="ruby-identifier">fileUsers</span>.<span class="ruby-identifier">readlines</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:chomp</span>)
+    <span class="ruby-comment">#Parcours du fichier contenant tous les utilisateurs</span>
+    <span class="ruby-keyword">for</span> <span class="ruby-identifier">elem</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">file_data</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">fileUtilisateur</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&quot;../Users/&quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">elem</span>.<span class="ruby-identifier">to_s</span>()<span class="ruby-string">+&quot;/succes.txt&quot;</span>)
+        <span class="ruby-identifier">lignesFichierUtilisateur</span> = <span class="ruby-identifier">fileUtilisateur</span>.<span class="ruby-identifier">readlines</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:chomp</span>)
+        <span class="ruby-identifier">tabLigne</span> = <span class="ruby-identifier">lignesFichierUtilisateur</span>[<span class="ruby-ivar">@indexChapitre</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>)
+        <span class="ruby-keyword">if</span>( (<span class="ruby-identifier">tabLigne</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;0&quot;</span>  <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">tabLigne</span>[<span class="ruby-value">2</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&quot;0&quot;</span>) <span class="ruby-operator">||</span> (  <span class="ruby-identifier">tabLigne</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&quot;0&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">tabLigne</span>[<span class="ruby-value">2</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;0&quot;</span>) <span class="ruby-operator">||</span> (  <span class="ruby-identifier">tabLigne</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&quot;0&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">tabLigne</span>[<span class="ruby-value">2</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&quot;0&quot;</span>))
+            <span class="ruby-ivar">@classementChapActuel</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-identifier">elem</span>.<span class="ruby-identifier">to_s</span>
+            <span class="ruby-ivar">@userMinutes</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-identifier">tabLigne</span>[<span class="ruby-value">1</span>]
+            <span class="ruby-ivar">@userSecondes</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-identifier">tabLigne</span>[<span class="ruby-value">2</span>]
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-changerTitreChapitre" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">changerTitreChapitre</span><span
+            class="method-args">(indexChapitre)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <pre>Fonction permettant de changer le nom du chapitre affiché dans le label @titreChapitre en fonction du numéro de chapitre @indexChapitre</pre>
+<ul><li>
+<p><code>indexChapitre</code> numéro du chapitre</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="changerTitreChapitre-source">
+            <pre><span class="ruby-comment"># File Classement.rb, line 181</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">changerTitreChapitre</span>(<span class="ruby-identifier">indexChapitre</span>)
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">indexChapitre</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">1</span> 
+        <span class="ruby-ivar">@titreChapitre</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;Chapitre &quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">indexChapitre</span>.<span class="ruby-identifier">to_s</span>()<span class="ruby-string">+&quot; : Hawaï&quot;</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">2</span>
+        <span class="ruby-ivar">@titreChapitre</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;Chapitre &quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">indexChapitre</span>.<span class="ruby-identifier">to_s</span>()<span class="ruby-string">+&quot; : Polynésie Française&quot;</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">3</span>
+        <span class="ruby-ivar">@titreChapitre</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;Chapitre &quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">indexChapitre</span>.<span class="ruby-identifier">to_s</span>()<span class="ruby-string">+&quot; : Île de Pâques&quot;</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">4</span>
+        <span class="ruby-ivar">@titreChapitre</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;Chapitre &quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">indexChapitre</span>.<span class="ruby-identifier">to_s</span>()<span class="ruby-string">+&quot; : Santorin&quot;</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">5</span>
+        <span class="ruby-ivar">@titreChapitre</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;Chapitre &quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">indexChapitre</span>.<span class="ruby-identifier">to_s</span>()<span class="ruby-string">+&quot; : Mykonos&quot;</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">6</span>
+        <span class="ruby-ivar">@titreChapitre</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;Chapitre &quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">indexChapitre</span>.<span class="ruby-identifier">to_s</span>()<span class="ruby-string">+&quot; : Corse&quot;</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">7</span>
+        <span class="ruby-ivar">@titreChapitre</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;Chapitre &quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">indexChapitre</span>.<span class="ruby-identifier">to_s</span>()<span class="ruby-string">+&quot; : Maldives&quot;</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">8</span>
+        <span class="ruby-ivar">@titreChapitre</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;Chapitre &quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">indexChapitre</span>.<span class="ruby-identifier">to_s</span>()<span class="ruby-string">+&quot; : Cuba&quot;</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">9</span>
+        <span class="ruby-ivar">@titreChapitre</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;Chapitre &quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">indexChapitre</span>.<span class="ruby-identifier">to_s</span>()<span class="ruby-string">+&quot; : Sumatra&quot;</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">10</span>
+        <span class="ruby-ivar">@titreChapitre</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;Chapitre &quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">indexChapitre</span>.<span class="ruby-identifier">to_s</span>()<span class="ruby-string">+&quot; : Les Galapagos&quot;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-clearClassement" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clearClassement</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fonction permettant de vider les labels du classement</p>
+          
+          
+
+          
+          <div class="method-source-code" id="clearClassement-source">
+            <pre><span class="ruby-comment"># File Classement.rb, line 276</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">clearClassement</span>()
+    <span class="ruby-ivar">@place1</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-ivar">@texte1er</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-ivar">@temps1er</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-ivar">@place2</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-ivar">@texte2e</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-ivar">@temps2e</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-ivar">@place3</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-ivar">@texte3e</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-ivar">@temps3e</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-ivar">@place4</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-ivar">@texte4e</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-ivar">@temps4e</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-ivar">@place5</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-ivar">@texte5e</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-ivar">@temps5e</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-ivar">@window</span>.<span class="ruby-identifier">show_all</span>()
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-comparerTemps" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">comparerTemps</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fonction permettant de comparer le temps des utilisateurs afin de réaliser un classement dynamique</p>
+          
+          
+
+          
+          <div class="method-source-code" id="comparerTemps-source">
+            <pre><span class="ruby-comment"># File Classement.rb, line 298</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">comparerTemps</span>()
+    <span class="ruby-identifier">changementEffectue</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">while</span>(<span class="ruby-identifier">changementEffectue</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>)
+        <span class="ruby-identifier">changementEffectue</span> = <span class="ruby-keyword">false</span>
+        <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> <span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-ivar">@classementChapActuel</span>.<span class="ruby-identifier">length</span>()<span class="ruby-value">-2</span>
+            <span class="ruby-keyword">if</span>(<span class="ruby-ivar">@userMinutes</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@userMinutes</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>])
+                <span class="ruby-identifier">changementEffectue</span> = <span class="ruby-keyword">true</span>
+
+                <span class="ruby-identifier">userMinTmp</span> = <span class="ruby-ivar">@userMinutes</span>[<span class="ruby-identifier">i</span>]
+                <span class="ruby-ivar">@userMinutes</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-ivar">@userMinutes</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>]
+                <span class="ruby-ivar">@userMinutes</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>] = <span class="ruby-identifier">userMinTmp</span>
+
+                <span class="ruby-identifier">userSecTmp</span> = <span class="ruby-ivar">@userSecondes</span>[<span class="ruby-identifier">i</span>]
+                <span class="ruby-ivar">@userSecondes</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-ivar">@userSecondes</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>]
+                <span class="ruby-ivar">@userSecondes</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>] = <span class="ruby-identifier">userSecTmp</span>
+
+                <span class="ruby-identifier">classementChapTmp</span> = <span class="ruby-ivar">@classementChapActuel</span>[<span class="ruby-identifier">i</span>]
+                <span class="ruby-ivar">@classementChapActuel</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-ivar">@classementChapActuel</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>]
+                <span class="ruby-ivar">@classementChapActuel</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>] = <span class="ruby-identifier">classementChapTmp</span>
+                
+            <span class="ruby-keyword">elsif</span>(<span class="ruby-ivar">@userMinutes</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@userMinutes</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>])
+                <span class="ruby-keyword">if</span>(<span class="ruby-ivar">@userSecondes</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@userSecondes</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>])
+                    <span class="ruby-identifier">changementEffectue</span> = <span class="ruby-keyword">true</span>
+
+                    <span class="ruby-identifier">userSecTmp</span> = <span class="ruby-ivar">@userSecondes</span>[<span class="ruby-identifier">i</span>]
+                    <span class="ruby-ivar">@userSecondes</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-ivar">@userSecondes</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>]
+                    <span class="ruby-ivar">@userSecondes</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>] = <span class="ruby-identifier">userSecTmp</span>
+
+                    <span class="ruby-identifier">classementChapTmp</span> = <span class="ruby-ivar">@classementChapActuel</span>[<span class="ruby-identifier">i</span>]
+                    <span class="ruby-ivar">@classementChapActuel</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-ivar">@classementChapActuel</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>]
+                    <span class="ruby-ivar">@classementChapActuel</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>] = <span class="ruby-identifier">classementChapTmp</span>
+                <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>   
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-placementClassement" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">placementClassement</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fonction permettant le placement des données dans les différents labels</p>
+          
+          
+
+          
+          <div class="method-source-code" id="placementClassement-source">
+            <pre><span class="ruby-comment"># File Classement.rb, line 228</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">placementClassement</span>()
+    <span class="ruby-identifier">cssTexteClassement</span> = <span class="ruby-identifier">ajouteTexte</span>(<span class="ruby-value">3</span>)
+    <span class="ruby-comment">#Affichage du classement</span>
+    <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> <span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-ivar">@classementChapActuel</span>.<span class="ruby-identifier">length</span>()<span class="ruby-value">-1</span>
+        <span class="ruby-keyword">case</span> <span class="ruby-identifier">i</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-value">0</span>
+            <span class="ruby-identifier">ajouteTexteProvider</span>(<span class="ruby-ivar">@place1</span>,<span class="ruby-identifier">cssTexteClassement</span>)
+            <span class="ruby-identifier">ajouteTexteProvider</span>(<span class="ruby-ivar">@texte1er</span>,<span class="ruby-identifier">cssTexteClassement</span>)
+            <span class="ruby-identifier">ajouteTexteProvider</span>(<span class="ruby-ivar">@temps1er</span>,<span class="ruby-identifier">cssTexteClassement</span>)
+            <span class="ruby-ivar">@place1</span>.<span class="ruby-identifier">set_text</span>((<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>).<span class="ruby-identifier">to_s</span>())
+            <span class="ruby-ivar">@texte1er</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-ivar">@classementChapActuel</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">to_s</span>())
+            <span class="ruby-ivar">@temps1er</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-ivar">@userMinutes</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">to_s</span>() <span class="ruby-operator">+</span> <span class="ruby-string">&quot; minutes &quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@userSecondes</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">to_s</span>()<span class="ruby-operator">+</span> <span class="ruby-string">&quot; secondes &quot;</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">1</span> 
+            <span class="ruby-identifier">ajouteTexteProvider</span>(<span class="ruby-ivar">@place2</span>,<span class="ruby-identifier">cssTexteClassement</span>)
+            <span class="ruby-identifier">ajouteTexteProvider</span>(<span class="ruby-ivar">@texte2e</span>,<span class="ruby-identifier">cssTexteClassement</span>)
+            <span class="ruby-identifier">ajouteTexteProvider</span>(<span class="ruby-ivar">@temps2e</span>,<span class="ruby-identifier">cssTexteClassement</span>)
+            <span class="ruby-ivar">@place2</span>.<span class="ruby-identifier">set_text</span>((<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>).<span class="ruby-identifier">to_s</span>())
+            <span class="ruby-ivar">@texte2e</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-ivar">@classementChapActuel</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">to_s</span>())
+            <span class="ruby-ivar">@temps2e</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-ivar">@userMinutes</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">to_s</span>() <span class="ruby-operator">+</span> <span class="ruby-string">&quot; minutes &quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@userSecondes</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">to_s</span>()<span class="ruby-operator">+</span> <span class="ruby-string">&quot; secondes &quot;</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">2</span>
+            <span class="ruby-identifier">ajouteTexteProvider</span>(<span class="ruby-ivar">@place3</span>,<span class="ruby-identifier">cssTexteClassement</span>)
+            <span class="ruby-identifier">ajouteTexteProvider</span>(<span class="ruby-ivar">@texte3e</span>,<span class="ruby-identifier">cssTexteClassement</span>)
+            <span class="ruby-identifier">ajouteTexteProvider</span>(<span class="ruby-ivar">@temps3e</span>,<span class="ruby-identifier">cssTexteClassement</span>)
+            <span class="ruby-ivar">@place3</span>.<span class="ruby-identifier">set_text</span>((<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>).<span class="ruby-identifier">to_s</span>())
+            <span class="ruby-ivar">@texte3e</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-ivar">@classementChapActuel</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">to_s</span>())
+            <span class="ruby-ivar">@temps3e</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-ivar">@userMinutes</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">to_s</span>() <span class="ruby-operator">+</span> <span class="ruby-string">&quot; minutes &quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@userSecondes</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">to_s</span>()<span class="ruby-operator">+</span> <span class="ruby-string">&quot; secondes &quot;</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">3</span>
+            <span class="ruby-identifier">ajouteTexteProvider</span>(<span class="ruby-ivar">@place4</span>,<span class="ruby-identifier">cssTexteClassement</span>)
+            <span class="ruby-identifier">ajouteTexteProvider</span>(<span class="ruby-ivar">@texte4e</span>,<span class="ruby-identifier">cssTexteClassement</span>)
+            <span class="ruby-identifier">ajouteTexteProvider</span>(<span class="ruby-ivar">@temps4e</span>,<span class="ruby-identifier">cssTexteClassement</span>)
+            <span class="ruby-ivar">@place4</span>.<span class="ruby-identifier">set_text</span>((<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>).<span class="ruby-identifier">to_s</span>())
+            <span class="ruby-ivar">@texte4e</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-ivar">@classementChapActuel</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">to_s</span>())
+            <span class="ruby-ivar">@temps4e</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-ivar">@userMinutes</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">to_s</span>() <span class="ruby-operator">+</span> <span class="ruby-string">&quot; minutes &quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@userSecondes</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">to_s</span>()<span class="ruby-operator">+</span> <span class="ruby-string">&quot; secondes &quot;</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">4</span>
+            <span class="ruby-identifier">ajouteTexteProvider</span>(<span class="ruby-ivar">@place5</span>,<span class="ruby-identifier">cssTexteClassement</span>)
+            <span class="ruby-identifier">ajouteTexteProvider</span>(<span class="ruby-ivar">@texte5e</span>,<span class="ruby-identifier">cssTexteClassement</span>)
+            <span class="ruby-identifier">ajouteTexteProvider</span>(<span class="ruby-ivar">@temps5e</span>,<span class="ruby-identifier">cssTexteClassement</span>)
+            <span class="ruby-ivar">@place5</span>.<span class="ruby-identifier">set_text</span>((<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>).<span class="ruby-identifier">to_s</span>())
+            <span class="ruby-ivar">@texte5e</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-ivar">@classementChapActuel</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">to_s</span>())
+            <span class="ruby-ivar">@temps5e</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-ivar">@userMinutes</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">to_s</span>() <span class="ruby-operator">+</span> <span class="ruby-string">&quot; minutes &quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@userSecondes</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">to_s</span>()<span class="ruby-operator">+</span> <span class="ruby-string">&quot; secondes &quot;</span>)
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@window</span>.<span class="ruby-identifier">show_all</span>()
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

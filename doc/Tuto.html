@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Tuto - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-creer">::creer</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-changerTexteRegle">#changerTexteRegle</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Tuto">
+  <h1 id="class-Tuto" class="class">
+    class Tuto
+  </h1>
+
+  <section class="description">
+    
+<p>La classe <a href="Tuto.html"><code>Tuto</code></a> permet au joueur de découvrir le jeu au travers d&#39;un tuto qui explique les règles du jeu</p>
+<ul><li>
+<p><code>win</code>               La fenetre de l&#39;application</p>
+</li><li>
+<p><code>box2</code>              Le layout principal pour le placement dans la fenetre</p>
+</li><li>
+<p><code>boutonUndo</code>        Le bouton permettant d&#39;annuler une action</p>
+</li><li>
+<p><code>boutonRemplissage</code> Le bouton permettant de remplir automatiquement autour des chiffres 9 et 0 et 6 et 4 pour les coins</p>
+</li><li>
+<p><code>boutonCheck</code>       Le bouton qui permet de vérifier les réponses du joueur</p>
+</li><li>
+<p><code>boutonCurseur</code>     Bouton permettant d&#39;afficher une zone de 8 cases autour du curseur</p>
+</li><li>
+<p><code>boutonCoupLogique</code> Bouton qui permet de lancer un algo qui montrera au joueur un coup valide jouable dans la continuité des actions précédentes</p>
+</li><li>
+<p><code>cssCache</code>          Permet de cacher les boutons des règles précédents et suivantes selon la règle courante</p>
+</li></ul>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-creer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">creer</span><span
+            class="method-args">(win)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Constructeur</p>
+<ul><li>
+<p><code>win</code>       Fenetre graphique de l&#39;application</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="creer-source">
+            <pre><span class="ruby-comment"># File Tuto.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Tuto</span>.<span class="ruby-identifier ruby-title">creer</span>(<span class="ruby-identifier">win</span>)
+    <span class="ruby-identifier">new</span>(<span class="ruby-identifier">win</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(win)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Construction de l&#39;instance</p>
+<ul><li>
+<p><code>win</code>       Fenetre graphique de l&#39;application</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File Tuto.rb, line 31</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">win</span>)
+        <span class="ruby-comment">#Création de l&#39;interface</span>
+        <span class="ruby-ivar">@window</span> = <span class="ruby-identifier">win</span>
+        <span class="ruby-identifier">box</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Fixed</span>.<span class="ruby-identifier">new</span>()
+        <span class="ruby-ivar">@box2</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:horizontal</span>)
+        <span class="ruby-identifier">suivant</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:label</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;Règle suivante&quot;</span>)        
+        <span class="ruby-identifier">precedent</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:label</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;Règle précédente&quot;</span>)
+        <span class="ruby-identifier">retourMenu</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>()
+        <span class="ruby-ivar">@boutonUndo</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>()
+        <span class="ruby-ivar">@boutonRemplissage</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>()
+        <span class="ruby-ivar">@boutonCheck</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>()
+        <span class="ruby-ivar">@boutonCurseur</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>()
+        <span class="ruby-ivar">@boutonCoupLogique</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>();
+
+
+        <span class="ruby-comment">#Css des boutons</span>
+        <span class="ruby-ivar">@cssCache</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">CssProvider</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-identifier">cssVoir</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">CssProvider</span>.<span class="ruby-identifier">new</span>
+
+        <span class="ruby-identifier">cssVoir</span>.<span class="ruby-identifier">load</span>(<span class="ruby-value">data:</span> <span class="ruby-identifier">&lt;&lt;-CSS</span>)
+<span class="ruby-value">        button {
+            opacity:1;
+        }
+</span><span class="ruby-identifier">        CSS</span>
+
+        <span class="ruby-ivar">@cssCache</span>.<span class="ruby-identifier">load</span>(<span class="ruby-value">data:</span> <span class="ruby-identifier">&lt;&lt;-CSS</span>)
+<span class="ruby-value">        button {
+            opacity:0;
+        }
+</span><span class="ruby-identifier">        CSS</span>
+
+        <span class="ruby-comment">#Numero de la regle active</span>
+        <span class="ruby-identifier">index</span> = <span class="ruby-value">1</span>;
+
+
+        <span class="ruby-identifier">joues</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span> <span class="ruby-comment">#tableau des coups joués par l&#39;utilisateur pour le undo</span>
+
+        <span class="ruby-comment">#Ajout du fond</span>
+        <span class="ruby-identifier">box</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:file</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;../maquettes/Tutoriel.png&quot;</span>))
+        <span class="ruby-ivar">@box2</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">box</span>)
+
+        <span class="ruby-comment">#Ajout des différents boutons, de leur css respectif ainsi que de leurs évents liés</span>
+        <span class="ruby-identifier">ajouteBouton</span>(<span class="ruby-identifier">box</span>,<span class="ruby-identifier">retourMenu</span>,<span class="ruby-value">1</span>,<span class="ruby-value">55</span>,<span class="ruby-value">45</span>,(<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.015</span>), <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.025</span>,<span class="ruby-identifier">method</span>(<span class="ruby-value">:vers_menu</span>),<span class="ruby-ivar">@window</span>,<span class="ruby-ivar">@box2</span>)
+        <span class="ruby-identifier">ajouteBouton</span>(<span class="ruby-identifier">box</span>,<span class="ruby-ivar">@boutonCoupLogique</span>,<span class="ruby-value">1</span>,<span class="ruby-value">60</span>,<span class="ruby-value">60</span>,(<span class="ruby-identifier">$widthEcran</span><span class="ruby-operator">*</span><span class="ruby-value">0.899</span>), <span class="ruby-identifier">$heightEcran</span><span class="ruby-operator">*</span><span class="ruby-value">0.015</span>,<span class="ruby-keyword">nil</span>,<span class="ruby-ivar">@window</span>,<span class="ruby-ivar">@box2</span>)
+        <span class="ruby-identifier">ajouteBouton</span>(<span class="ruby-identifier">box</span>,<span class="ruby-ivar">@boutonCheck</span>,<span class="ruby-value">1</span>,<span class="ruby-value">60</span>,<span class="ruby-value">60</span>,(<span class="ruby-identifier">$widthEcran</span><span class="ruby-operator">*</span><span class="ruby-value">0.855</span>), <span class="ruby-identifier">$heightEcran</span><span class="ruby-operator">*</span><span class="ruby-value">0.015</span>,<span class="ruby-keyword">nil</span>,<span class="ruby-ivar">@window</span>,<span class="ruby-ivar">@box2</span>)
+        <span class="ruby-identifier">ajouteBouton</span>(<span class="ruby-identifier">box</span>,<span class="ruby-ivar">@boutonCurseur</span>,<span class="ruby-value">1</span>,<span class="ruby-value">60</span>,<span class="ruby-value">60</span>,(<span class="ruby-identifier">$widthEcran</span><span class="ruby-operator">*</span><span class="ruby-value">0.812</span>), <span class="ruby-identifier">$heightEcran</span><span class="ruby-operator">*</span><span class="ruby-value">0.015</span>,<span class="ruby-keyword">nil</span>,<span class="ruby-ivar">@window</span>,<span class="ruby-ivar">@box2</span>)
+        <span class="ruby-identifier">ajouteBouton</span>(<span class="ruby-identifier">box</span>,<span class="ruby-ivar">@boutonUndo</span>,<span class="ruby-value">1</span>,<span class="ruby-value">60</span>,<span class="ruby-value">60</span>,(<span class="ruby-identifier">$widthEcran</span><span class="ruby-operator">*</span><span class="ruby-value">0.767</span>), <span class="ruby-identifier">$heightEcran</span><span class="ruby-operator">*</span><span class="ruby-value">0.015</span>,<span class="ruby-keyword">nil</span>,<span class="ruby-ivar">@window</span>,<span class="ruby-ivar">@box2</span>)
+        <span class="ruby-identifier">ajouteBouton</span>(<span class="ruby-identifier">box</span>,<span class="ruby-ivar">@boutonRemplissage</span>,<span class="ruby-value">1</span>,<span class="ruby-value">60</span>,<span class="ruby-value">60</span>,(<span class="ruby-identifier">$widthEcran</span><span class="ruby-operator">*</span><span class="ruby-value">0.942</span>), <span class="ruby-identifier">$heightEcran</span><span class="ruby-operator">*</span><span class="ruby-value">0.015</span>,<span class="ruby-keyword">nil</span>,<span class="ruby-ivar">@window</span>,<span class="ruby-ivar">@box2</span>)
+        <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">suivant</span>,<span class="ruby-identifier">cssVoir</span>,<span class="ruby-value">150</span>,<span class="ruby-value">25</span>)
+        <span class="ruby-identifier">box</span>.<span class="ruby-identifier">put</span>(<span class="ruby-identifier">suivant</span>,(<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.84</span>), <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.4</span>)
+        <span class="ruby-identifier">ajouteBouton</span>(<span class="ruby-identifier">box</span>,<span class="ruby-identifier">precedent</span>,<span class="ruby-value">1</span>,<span class="ruby-value">150</span>,<span class="ruby-value">25</span>,(<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.05</span>),<span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.4</span>,<span class="ruby-keyword">nil</span>,<span class="ruby-ivar">@window</span>,<span class="ruby-ivar">@box2</span>)
+        
+        <span class="ruby-comment">#Placement du texte dans la bulle du capitaine</span>
+        <span class="ruby-identifier">techniqueTextCss</span> = <span class="ruby-identifier">ajouteTexte</span>(<span class="ruby-value">2</span>)
+        <span class="ruby-ivar">@techniqueText</span> = <span class="ruby-string">&quot;Première règle : Aucune case autour \nd&#39;une case 0 n&#39;est valide.&quot;</span>
+        <span class="ruby-ivar">@labelTechnique</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@techniqueText</span>)
+        <span class="ruby-comment">#ajouteTexteProvider(@labelTechnique,techniqueTextCss,60,60)</span>
+        <span class="ruby-identifier">ajouteTexteProvider</span>(<span class="ruby-ivar">@labelTechnique</span>,<span class="ruby-identifier">techniqueTextCss</span>)
+        <span class="ruby-identifier">box</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@labelTechnique</span>,(<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.3</span>), <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.84</span>)
+
+        <span class="ruby-ivar">@grilleTuto</span> = <span class="ruby-constant">Grille_jeu</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">joues</span>, <span class="ruby-string">&quot;../Grilles/tuto.txt&quot;</span>)
+
+        <span class="ruby-comment">#signal pour activer le rectangle rouge autour du curseur</span>
+        <span class="ruby-ivar">@boutonCurseur</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;clicked&quot;</span>){
+            <span class="ruby-ivar">@grilleTuto</span>.<span class="ruby-identifier">activeRedSquare</span>()
+        }
+
+        <span class="ruby-comment">#signal qui remplit les cases faciles (9, 0)</span>
+        <span class="ruby-ivar">@boutonRemplissage</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;clicked&quot;</span>){
+            <span class="ruby-ivar">@grilleTuto</span>.<span class="ruby-identifier">fillNine</span>(<span class="ruby-string">&#39;9&#39;</span>)
+            <span class="ruby-ivar">@grilleTuto</span>.<span class="ruby-identifier">fillNine</span>(<span class="ruby-string">&#39;4&#39;</span>)
+            <span class="ruby-ivar">@grilleTuto</span>.<span class="ruby-identifier">fillNine</span>(<span class="ruby-string">&#39;6&#39;</span>)
+            <span class="ruby-ivar">@grilleTuto</span>.<span class="ruby-identifier">fillNine</span>(<span class="ruby-string">&#39;0&#39;</span>)
+        }
+
+        <span class="ruby-comment">#signal du bouton undo afin de retourner au coup précédemment joué</span>
+        <span class="ruby-ivar">@boutonUndo</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;clicked&quot;</span>){ <span class="ruby-comment"># signal pour le bouton undo</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">joues</span>.<span class="ruby-identifier">empty?</span>
+                <span class="ruby-identifier">coup</span> = <span class="ruby-identifier">joues</span>.<span class="ruby-identifier">pop</span>()
+                <span class="ruby-ivar">@grilleTuto</span>.<span class="ruby-identifier">undo</span>(<span class="ruby-identifier">coup</span>)
+            <span class="ruby-keyword">end</span>
+        }
+
+        <span class="ruby-comment">#signal qui vérifie la grille</span>
+        <span class="ruby-ivar">@boutonCheck</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;clicked&quot;</span>){
+            <span class="ruby-identifier">fini</span> = <span class="ruby-ivar">@grilleTuto</span>.<span class="ruby-identifier">check</span>()
+
+            <span class="ruby-keyword">if</span>(<span class="ruby-identifier">fini</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>)
+                <span class="ruby-identifier">text</span> = <span class="ruby-string">&quot;Félicitations ! \nVous avez terminé la grille du tutoriel\n&quot;</span>
+                <span class="ruby-ivar">@labelTechnique</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-identifier">text</span>)
+
+                <span class="ruby-identifier">lines</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">readlines</span>(<span class="ruby-identifier">$userPath</span><span class="ruby-string">+&quot;succes.txt&quot;</span>)
+                <span class="ruby-identifier">lines</span>[<span class="ruby-value">10</span>] = <span class="ruby-string">&quot;true 0 0\n&quot;</span>
+                <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">$userPath</span><span class="ruby-string">+&quot;succes.txt&quot;</span>, <span class="ruby-string">&#39;w&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">lines</span>.<span class="ruby-identifier">join</span>) }
+            <span class="ruby-keyword">end</span>
+        }
+
+        <span class="ruby-comment">#Signal du prochain coup logique</span>
+        <span class="ruby-ivar">@boutonCoupLogique</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;clicked&quot;</span>){
+            <span class="ruby-identifier">verif</span> = <span class="ruby-ivar">@grilleTuto</span>.<span class="ruby-identifier">check</span>()
+            <span class="ruby-keyword">if</span>(<span class="ruby-identifier">verif</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">verif</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span>)
+                <span class="ruby-ivar">@grilleTuto</span>.<span class="ruby-identifier">nextMove</span>()
+            <span class="ruby-keyword">end</span>
+        }
+        
+        <span class="ruby-comment">#signal pour le bouton regle suivante permettant de passer à la règle suivante</span>
+        <span class="ruby-identifier">suivant</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;clicked&quot;</span>){
+            <span class="ruby-identifier">index</span> = <span class="ruby-identifier">index</span><span class="ruby-value">+1</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">index</span><span class="ruby-operator">&gt;</span><span class="ruby-value">1</span>
+                <span class="ruby-identifier">precedent</span>.<span class="ruby-identifier">sensitive</span> = <span class="ruby-keyword">true</span>
+                <span class="ruby-identifier">precedent</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-identifier">cssVoir</span>,<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+            <span class="ruby-keyword">end</span>
+
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">index</span><span class="ruby-operator">&gt;=</span><span class="ruby-value">11</span>
+                <span class="ruby-identifier">suivant</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-ivar">@cssCache</span>,<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+                <span class="ruby-identifier">suivant</span>.<span class="ruby-identifier">sensitive</span> = <span class="ruby-keyword">false</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">changerTexteRegle</span>(<span class="ruby-identifier">index</span>)
+        }
+
+        <span class="ruby-comment">#Signal pour le bouton regle precedente permettant de revenir à la règle précédente</span>
+        <span class="ruby-identifier">precedent</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;clicked&quot;</span>){
+            <span class="ruby-identifier">index</span> = <span class="ruby-identifier">index</span><span class="ruby-value">-1</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">index</span><span class="ruby-operator">&lt;</span><span class="ruby-value">2</span>
+                <span class="ruby-identifier">precedent</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-ivar">@cssCache</span>,<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+                <span class="ruby-identifier">precedent</span>.<span class="ruby-identifier">sensitive</span> = <span class="ruby-keyword">false</span>
+            <span class="ruby-keyword">end</span>
+
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">index</span><span class="ruby-operator">&lt;</span><span class="ruby-value">11</span>
+                <span class="ruby-identifier">suivant</span>.<span class="ruby-identifier">sensitive</span> = <span class="ruby-keyword">true</span>
+                <span class="ruby-identifier">suivant</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-identifier">cssVoir</span>,<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">changerTexteRegle</span>(<span class="ruby-identifier">index</span>)
+        }
+        
+        <span class="ruby-identifier">box</span>.<span class="ruby-identifier">put</span>(<span class="ruby-ivar">@grilleTuto</span>.<span class="ruby-identifier">grille</span>, (<span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.28</span>), <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.16</span>)
+
+        <span class="ruby-ivar">@window</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@box2</span>)
+        <span class="ruby-ivar">@window</span>.<span class="ruby-identifier">show_all</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-changerTexteRegle" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">changerTexteRegle</span><span
+            class="method-args">(index)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fonction permettant de changer le texte présent dans le label de la bulle du capitaine en fonction du numéro de la règle</p>
+<ul><li>
+<p><code>index</code>     Numéro de la règle</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="changerTexteRegle-source">
+            <pre><span class="ruby-comment"># File Tuto.rb, line 176</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">changerTexteRegle</span>(<span class="ruby-identifier">index</span>)
+        
+        <span class="ruby-identifier">cssAidePresentee</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">CssProvider</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-identifier">cssAidePresentee</span>.<span class="ruby-identifier">load</span>(<span class="ruby-value">data:</span> <span class="ruby-identifier">&lt;&lt;-CSS</span>)
+<span class="ruby-value">        button {
+            opacity: 0.5;
+            border: 1px groove red;
+            box-shadow: 0 0 0 5px red inset;
+        }
+</span><span class="ruby-identifier">        CSS</span>
+        
+        <span class="ruby-keyword">case</span> <span class="ruby-identifier">index</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-value">1</span> 
+            <span class="ruby-ivar">@techniqueText</span> = <span class="ruby-string">&quot;Première règle : Aucune case autour \nd&#39;une case 0 n&#39;est valide.&quot;</span>
+            <span class="ruby-ivar">@labelTechnique</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-ivar">@techniqueText</span>)  
+        <span class="ruby-keyword">when</span> <span class="ruby-value">2</span>
+            <span class="ruby-ivar">@techniqueText</span> = <span class="ruby-string">&quot;Deuxième règle : Toutes les cases autour \nd&#39;une case 9 sont noires.&quot;</span>
+            <span class="ruby-ivar">@labelTechnique</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-ivar">@techniqueText</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">3</span> 
+            <span class="ruby-ivar">@techniqueText</span> = <span class="ruby-string">&quot;Troisième règle : Si une case 6 se trouve \nsur un bord de la grille alors toutes les cases\nautour sont noires.&quot;</span>
+            <span class="ruby-ivar">@labelTechnique</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-ivar">@techniqueText</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">4</span> 
+            <span class="ruby-ivar">@techniqueText</span> = <span class="ruby-string">&quot;Quatrième règle : Si une case 4 se trouve \ndans un coin de la grille alors toutes les cases\nautour sont noires.&quot;</span>
+            <span class="ruby-ivar">@labelTechnique</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-ivar">@techniqueText</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">5</span> 
+            <span class="ruby-ivar">@techniqueText</span> = <span class="ruby-string">&quot;Cinquième règle : A partir des cases déjà \nremplies, de nouvelles possibilités s&#39;offre à\nvous alors vérifiez la grille à nouveau !&quot;</span>
+            <span class="ruby-ivar">@labelTechnique</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-ivar">@techniqueText</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">6</span> 
+            <span class="ruby-ivar">@boutonUndo</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-ivar">@cssCache</span>,<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+            <span class="ruby-ivar">@techniqueText</span> = <span class="ruby-string">&quot;Passons maintenant aux aides que vous\npouvez utiliser !&quot;</span>
+            <span class="ruby-ivar">@labelTechnique</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-ivar">@techniqueText</span>)
+
+        <span class="ruby-keyword">when</span> <span class="ruby-value">7</span> 
+            <span class="ruby-ivar">@boutonCheck</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-ivar">@cssCache</span>,<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+            <span class="ruby-ivar">@boutonUndo</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-identifier">cssAidePresentee</span>,<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+            <span class="ruby-ivar">@techniqueText</span> = <span class="ruby-string">&quot;Première aide disponible : Ce bouton vous\npermet d&#39;annuler le coup que vous venez de\nréaliser, vous revenez ainsi en arrière.&quot;</span>
+            <span class="ruby-ivar">@labelTechnique</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-ivar">@techniqueText</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">8</span>
+            <span class="ruby-ivar">@boutonUndo</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-ivar">@cssCache</span>,<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+            <span class="ruby-ivar">@boutonCurseur</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-ivar">@cssCache</span>,<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+            <span class="ruby-ivar">@boutonCheck</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-identifier">cssAidePresentee</span>,<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+            <span class="ruby-ivar">@techniqueText</span> = <span class="ruby-string">&quot;Deuxième aide disponible : Ce bouton vous\npermet de vérifier si tous les coups que\nvous avez joué sont corrects ou non.&quot;</span>
+            <span class="ruby-ivar">@labelTechnique</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-ivar">@techniqueText</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">9</span>
+            <span class="ruby-ivar">@boutonCheck</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-ivar">@cssCache</span>,<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+            <span class="ruby-ivar">@boutonRemplissage</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-ivar">@cssCache</span>,<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+            <span class="ruby-ivar">@boutonCurseur</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-identifier">cssAidePresentee</span>,<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+            <span class="ruby-ivar">@techniqueText</span> = <span class="ruby-string">&quot;Troisième aide disponible : Ce bouton vous\npermet d&#39;afficher votre curseur en\nsélectionnant un carré de 3 cases par 3.&quot;</span>
+            <span class="ruby-ivar">@labelTechnique</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-ivar">@techniqueText</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">10</span> 
+            <span class="ruby-ivar">@boutonCurseur</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-ivar">@cssCache</span>,<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+            <span class="ruby-ivar">@boutonCoupLogique</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-ivar">@cssCache</span>,<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+            <span class="ruby-ivar">@boutonRemplissage</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-identifier">cssAidePresentee</span>,<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+            <span class="ruby-ivar">@techniqueText</span> = <span class="ruby-string">&quot;Quatrième aide disponible : En cliquant ici\nvous pouvez remplir automatiquement les\ncases 9,6,4 et 0 via la case à cocher.&quot;</span>
+            <span class="ruby-ivar">@labelTechnique</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-ivar">@techniqueText</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">11</span>
+            <span class="ruby-ivar">@boutonRemplissage</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-ivar">@cssCache</span>,<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+            <span class="ruby-ivar">@boutonCoupLogique</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-identifier">cssAidePresentee</span>,<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+            <span class="ruby-ivar">@techniqueText</span> = <span class="ruby-string">&quot;Cinquième aide disponible : Ce bouton vous\npermet d&#39;afficher le prochain coup logique\nà faire lorsque vous êtes bloqués.Pensez d&#39;abord\nà vérifier que toute votre grille est bonne !&quot;</span>
+            <span class="ruby-ivar">@labelTechnique</span>.<span class="ruby-identifier">set_text</span>(<span class="ruby-ivar">@techniqueText</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

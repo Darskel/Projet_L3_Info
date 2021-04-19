@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Succes - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-creer">::creer</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-afficherSucces">#afficherSucces</a>
+    
+    <li ><a href="#method-i-vers_menuSucces">#vers_menuSucces</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Succes">
+  <h1 id="class-Succes" class="class">
+    class Succes
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-creer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">creer</span><span
+            class="method-args">(win)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Constructeur de la classe</p>
+<ul><li>
+<p><code>win</code>   La fenetre de l&#39;application</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="creer-source">
+            <pre><span class="ruby-comment"># File Succes.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Succes</span>.<span class="ruby-identifier ruby-title">creer</span>(<span class="ruby-identifier">win</span>)
+    <span class="ruby-identifier">new</span>(<span class="ruby-identifier">win</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(win)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Placement et chargement des objets de l&#39;écran, connection des signaux</p>
+<ul><li>
+<p><code>win</code>   La fenetre de l&#39;application</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File Succes.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">win</span>)
+    <span class="ruby-ivar">@win</span> = <span class="ruby-identifier">win</span>
+
+    <span class="ruby-identifier">boite</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Fixed</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-ivar">@layoutManager</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:vertical</span>)
+    
+    <span class="ruby-identifier">flecheRetour</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:label</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;&quot;</span>)
+
+    <span class="ruby-identifier">boite</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:file</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;../maquettes/succes.png&quot;</span>))
+    <span class="ruby-ivar">@layoutManager</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">boite</span>)
+
+    <span class="ruby-comment">##</span>
+    <span class="ruby-comment"># Ajout du sigal du bouton retour</span>
+    <span class="ruby-identifier">flecheRetour</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;clicked&quot;</span>){
+        <span class="ruby-identifier">vers_menuSucces</span>()
+    }
+    
+    <span class="ruby-identifier">width</span> = <span class="ruby-value">31</span>
+    <span class="ruby-identifier">height</span> = <span class="ruby-value">19</span>
+
+    <span class="ruby-identifier">ajouteBouton</span>(<span class="ruby-identifier">boite</span>, <span class="ruby-identifier">flecheRetour</span>, <span class="ruby-value">2</span>, <span class="ruby-value">65</span>, <span class="ruby-value">60</span>, <span class="ruby-value">20</span>, <span class="ruby-value">10</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>)
+
+    <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@layoutManager</span>)
+
+    <span class="ruby-identifier">afficherSucces</span>(<span class="ruby-identifier">boite</span>)
+    <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">show_all</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-afficherSucces" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">afficherSucces</span><span
+            class="method-args">(boite)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Affiche les succès en faisant varier la couleur de police afin de voir quels sont les succès validés par l&#39;utilisateur et ceux qu&#39;il n&#39;a pas encore accompli</p>
+<ul><li>
+<p><code>boite</code>     Gtk::box qui contiendra les différents lablels des succes</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="afficherSucces-source">
+            <pre><span class="ruby-comment"># File Succes.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">afficherSucces</span>(<span class="ruby-identifier">boite</span>)
+    <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">$userPath</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;succes.txt&quot;</span>)
+    <span class="ruby-identifier">file_data</span> = <span class="ruby-identifier">file</span>.<span class="ruby-identifier">readlines</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:chomp</span>)
+
+    <span class="ruby-identifier">positionText</span> = <span class="ruby-identifier">$widthEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.1</span>
+
+    <span class="ruby-identifier">succesTuto</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Vous avez fini le tutoriel !&quot;</span>)
+    <span class="ruby-identifier">succes1</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Niveau 1 terminé ! Bravo matelot !&quot;</span>)
+    <span class="ruby-identifier">succes2</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Niveau 2 terminé ! &quot;</span>)
+    <span class="ruby-identifier">succes3</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Niveau 3 terminé ! Vous passez officier !&quot;</span>)
+    <span class="ruby-identifier">succes4</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Niveau 4 terminé ! Félicitation !&quot;</span>)
+    <span class="ruby-identifier">succes5</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Niveau 5 terminé ! Promotion : lieutenant&quot;</span>)
+    <span class="ruby-identifier">succes6</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Niveau 6 terminé ! &quot;</span>)
+    <span class="ruby-identifier">succes7</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Niveau 7 terminé ! Quel parcours incroyable !&quot;</span>)
+    <span class="ruby-identifier">succes8</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Niveau 8 terminé ! Promotion : capitaine&quot;</span>)
+    <span class="ruby-identifier">succes9</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Niveau 9 terminé ! Juste trop fort !&quot;</span>)
+    <span class="ruby-identifier">succes10</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Niveau 10 terminé ! Vous êtes désormais vice-amiral !&quot;</span>)
+    <span class="ruby-identifier">succesAll</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Vous avez terminé tous les succès et êtes au plus haut rang possible dans la marine!!!&quot;</span>)
+
+    <span class="ruby-identifier">cssNoir</span> = <span class="ruby-identifier">ajouteTexte</span>(<span class="ruby-value">3</span>)
+    <span class="ruby-identifier">cssGris</span> = <span class="ruby-identifier">ajouteTexte</span>(<span class="ruby-value">4</span>)
+
+    <span class="ruby-keyword">for</span> <span class="ruby-identifier">numLigne</span> <span class="ruby-keyword">in</span> (<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">11</span>) <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">ligneFich</span> = <span class="ruby-identifier">file_data</span>[<span class="ruby-identifier">numLigne</span>].<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>)
+        <span class="ruby-identifier">res</span> = <span class="ruby-identifier">ligneFich</span>[<span class="ruby-value">0</span>]
+
+        <span class="ruby-comment">##</span>
+        <span class="ruby-comment"># Application d&#39;un css noir si l&#39;utilisateur a validé le succès</span>
+        <span class="ruby-keyword">case</span> <span class="ruby-identifier">numLigne</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-value">0</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">res</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;true&quot;</span> <span class="ruby-keyword">then</span>
+                <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">succes1</span>, <span class="ruby-identifier">cssNoir</span>, <span class="ruby-value">1000</span>,<span class="ruby-value">25</span>)
+            <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">succes1</span>, <span class="ruby-identifier">cssGris</span>, <span class="ruby-value">1000</span>,<span class="ruby-value">25</span>)
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">boite</span>.<span class="ruby-identifier">put</span>(<span class="ruby-identifier">succes1</span>, <span class="ruby-identifier">positionText</span>, <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.29</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">res</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;true&quot;</span> <span class="ruby-keyword">then</span>
+                <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">succes2</span>, <span class="ruby-identifier">cssNoir</span>, <span class="ruby-value">1000</span>,<span class="ruby-value">25</span>)
+            <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">succes2</span>, <span class="ruby-identifier">cssGris</span>, <span class="ruby-value">1000</span>,<span class="ruby-value">25</span>)
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">boite</span>.<span class="ruby-identifier">put</span>(<span class="ruby-identifier">succes2</span>, <span class="ruby-identifier">positionText</span>, <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.35</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">2</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">res</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;true&quot;</span> <span class="ruby-keyword">then</span>
+                <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">succes3</span>, <span class="ruby-identifier">cssNoir</span>, <span class="ruby-value">1000</span>,<span class="ruby-value">25</span>)
+            <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">succes3</span>, <span class="ruby-identifier">cssGris</span>, <span class="ruby-value">1000</span>,<span class="ruby-value">25</span>)
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">boite</span>.<span class="ruby-identifier">put</span>(<span class="ruby-identifier">succes3</span>, <span class="ruby-identifier">positionText</span>, <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.41</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">3</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">res</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;true&quot;</span> <span class="ruby-keyword">then</span>
+                <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">succes4</span>, <span class="ruby-identifier">cssNoir</span>, <span class="ruby-value">1000</span>,<span class="ruby-value">25</span>)
+            <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">succes4</span>, <span class="ruby-identifier">cssGris</span>, <span class="ruby-value">1000</span>,<span class="ruby-value">25</span>)
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">boite</span>.<span class="ruby-identifier">put</span>(<span class="ruby-identifier">succes4</span>, <span class="ruby-identifier">positionText</span>, <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.47</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">4</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">res</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;true&quot;</span> <span class="ruby-keyword">then</span>
+                <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">succes5</span>, <span class="ruby-identifier">cssNoir</span>, <span class="ruby-value">1000</span>,<span class="ruby-value">25</span>)
+            <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">succes5</span>, <span class="ruby-identifier">cssGris</span>, <span class="ruby-value">1000</span>,<span class="ruby-value">25</span>)
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">boite</span>.<span class="ruby-identifier">put</span>(<span class="ruby-identifier">succes5</span>, <span class="ruby-identifier">positionText</span>, <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.53</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">5</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">res</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;true&quot;</span> <span class="ruby-keyword">then</span>
+                <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">succes6</span>, <span class="ruby-identifier">cssNoir</span>, <span class="ruby-value">1000</span>,<span class="ruby-value">25</span>)
+            <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">succes6</span>, <span class="ruby-identifier">cssGris</span>, <span class="ruby-value">1000</span>,<span class="ruby-value">25</span>)
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">boite</span>.<span class="ruby-identifier">put</span>(<span class="ruby-identifier">succes6</span>, <span class="ruby-identifier">positionText</span>, <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.59</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">6</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">res</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;true&quot;</span> <span class="ruby-keyword">then</span>
+                <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">succes7</span>, <span class="ruby-identifier">cssNoir</span>, <span class="ruby-value">1000</span>,<span class="ruby-value">25</span>)
+            <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">succes7</span>, <span class="ruby-identifier">cssGris</span>, <span class="ruby-value">1000</span>,<span class="ruby-value">25</span>)
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">boite</span>.<span class="ruby-identifier">put</span>(<span class="ruby-identifier">succes7</span>, <span class="ruby-identifier">positionText</span>, <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.65</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">7</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">res</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;true&quot;</span> <span class="ruby-keyword">then</span>
+                <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">succes8</span>, <span class="ruby-identifier">cssNoir</span>, <span class="ruby-value">1000</span>,<span class="ruby-value">25</span>)
+            <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">succes8</span>, <span class="ruby-identifier">cssGris</span>, <span class="ruby-value">1000</span>,<span class="ruby-value">25</span>)
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">boite</span>.<span class="ruby-identifier">put</span>(<span class="ruby-identifier">succes8</span>, <span class="ruby-identifier">positionText</span>, <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.71</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">8</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">res</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;true&quot;</span> <span class="ruby-keyword">then</span>
+                <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">succes9</span>, <span class="ruby-identifier">cssNoir</span>, <span class="ruby-value">1000</span>,<span class="ruby-value">25</span>)
+            <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">succes9</span>, <span class="ruby-identifier">cssGris</span>, <span class="ruby-value">1000</span>,<span class="ruby-value">25</span>)
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">boite</span>.<span class="ruby-identifier">put</span>(<span class="ruby-identifier">succes9</span>, <span class="ruby-identifier">positionText</span>, <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.77</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">9</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">res</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;true&quot;</span> <span class="ruby-keyword">then</span>
+                <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">succes10</span>, <span class="ruby-identifier">cssNoir</span>, <span class="ruby-value">1000</span>,<span class="ruby-value">25</span>)
+            <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">succes10</span>, <span class="ruby-identifier">cssGris</span>, <span class="ruby-value">1000</span>,<span class="ruby-value">25</span>)
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">boite</span>.<span class="ruby-identifier">put</span>(<span class="ruby-identifier">succes10</span>, <span class="ruby-identifier">positionText</span>, <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.83</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">10</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">res</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;true&quot;</span> <span class="ruby-keyword">then</span>
+                <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">succesTuto</span>, <span class="ruby-identifier">cssNoir</span>, <span class="ruby-value">1000</span>,<span class="ruby-value">25</span>)
+            <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">succesTuto</span>, <span class="ruby-identifier">cssGris</span>, <span class="ruby-value">1000</span>,<span class="ruby-value">25</span>)
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">boite</span>.<span class="ruby-identifier">put</span>(<span class="ruby-identifier">succesTuto</span>, <span class="ruby-identifier">positionText</span>, <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.23</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">11</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">res</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;true&quot;</span> <span class="ruby-keyword">then</span>
+                <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">succesAll</span>, <span class="ruby-identifier">cssNoir</span>, <span class="ruby-value">1000</span>,<span class="ruby-value">25</span>)
+                <span class="ruby-identifier">boite</span>.<span class="ruby-identifier">put</span>(<span class="ruby-identifier">succesAll</span>, <span class="ruby-identifier">positionText</span>, <span class="ruby-identifier">$heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.89</span>)
+            <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-vers_menuSucces" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">vers_menuSucces</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Permet de changer la fenetre pour aller afficher le menu principal</p>
+          
+          
+
+          
+          <div class="method-source-code" id="vers_menuSucces-source">
+            <pre><span class="ruby-comment"># File Succes.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">vers_menuSucces</span>()
+    <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-ivar">@layoutManager</span>)
+    <span class="ruby-constant">Ecran_menu</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-ivar">@win</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

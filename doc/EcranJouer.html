@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class EcranJouer - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-creer">::creer</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-vers_jeu">#vers_jeu</a>
+    
+    <li ><a href="#method-i-vers_libre">#vers_libre</a>
+    
+    <li ><a href="#method-i-vers_menu">#vers_menu</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-EcranJouer">
+  <h1 id="class-EcranJouer" class="class">
+    class EcranJouer
+  </h1>
+
+  <section class="description">
+    
+<p>La classe qui gère l&#39;affichage et l&#39;interaction avec le menu qui permet de rejoindre l&#39;aventure ou le mode libre</p>
+<ul><li>
+<p><code>win</code>               La fenetre de l&#39;application</p>
+</li><li>
+<p><code>layoutManager</code>     Le layout principal pour le placement dans la fenetre</p>
+</li></ul>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-creer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">creer</span><span
+            class="method-args">(win)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Constructeur de la classe</p>
+<ul><li>
+<p><code>win</code>   La fenetre de l&#39;application</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="creer-source">
+            <pre><span class="ruby-comment"># File EcranJouer.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">EcranJouer</span>.<span class="ruby-identifier ruby-title">creer</span>(<span class="ruby-identifier">win</span>)
+    <span class="ruby-identifier">new</span>(<span class="ruby-identifier">win</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(win)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Placement et chargement des objets de l&#39;écran, connection des signaux</p>
+<ul><li>
+<p><code>win</code>   La fenetre de l&#39;application</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File EcranJouer.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">win</span>)
+    <span class="ruby-ivar">@win</span> = <span class="ruby-identifier">win</span>
+
+    <span class="ruby-identifier">boite</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Fixed</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-ivar">@layoutManager</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Box</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:vertical</span>)
+
+    <span class="ruby-identifier">aventure</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:label</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-identifier">libre</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:label</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-identifier">fermer</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:label</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;&quot;</span>)
+
+    <span class="ruby-identifier">boite</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:file</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;../maquettes/menu_jouer.png&quot;</span>))
+    <span class="ruby-ivar">@layoutManager</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">boite</span>)
+
+    <span class="ruby-comment">##</span>
+    <span class="ruby-comment"># Ajout des signaux des boutons</span>
+    <span class="ruby-identifier">fermer</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;clicked&quot;</span>){
+        <span class="ruby-identifier">vers_menu</span>()
+    }
+    <span class="ruby-identifier">aventure</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;clicked&quot;</span>){
+        <span class="ruby-identifier">vers_jeu</span>()
+    }
+    <span class="ruby-identifier">libre</span>.<span class="ruby-identifier">signal_connect</span>(<span class="ruby-string">&quot;clicked&quot;</span>){
+        <span class="ruby-identifier">vers_libre</span>()
+    }
+
+    <span class="ruby-comment">##</span>
+    <span class="ruby-comment"># Création des CSS pour les boutons</span>
+    <span class="ruby-identifier">aventureImage</span> = <span class="ruby-identifier">ajouteCss</span>(<span class="ruby-value">2</span>)
+    <span class="ruby-identifier">libreImage</span> = <span class="ruby-identifier">ajouteCss</span>(<span class="ruby-value">2</span>)
+    <span class="ruby-identifier">fermerImage</span> = <span class="ruby-identifier">ajouteCss</span>(<span class="ruby-value">1</span>)
+
+    <span class="ruby-identifier">widthOptionsPrincipales</span> = <span class="ruby-value">307</span>
+    <span class="ruby-identifier">heightOptionsPrincipales</span> = <span class="ruby-value">68</span>
+    <span class="ruby-identifier">width</span> = <span class="ruby-value">31</span>
+    <span class="ruby-identifier">height</span> = <span class="ruby-value">19</span>
+
+    <span class="ruby-identifier">widthEcran</span> = <span class="ruby-identifier">$widthEcran</span>
+    <span class="ruby-identifier">heightEcran</span> = <span class="ruby-identifier">$heightEcran</span>
+
+    <span class="ruby-comment">##</span>
+    <span class="ruby-comment"># Ajout du CSS aux bouton et on leur donne leur taille</span>
+    <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">aventure</span>, <span class="ruby-identifier">aventureImage</span>, <span class="ruby-identifier">widthOptionsPrincipales</span>, <span class="ruby-identifier">heightOptionsPrincipales</span>)
+    <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">libre</span>, <span class="ruby-identifier">libreImage</span>, <span class="ruby-identifier">widthOptionsPrincipales</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.7</span>, <span class="ruby-identifier">heightOptionsPrincipales</span>)
+    <span class="ruby-identifier">ajoutecssProvider</span>(<span class="ruby-identifier">fermer</span>, <span class="ruby-identifier">fermerImage</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
+
+    <span class="ruby-comment">##</span>
+    <span class="ruby-comment">#Ajout des boutons et box dans les containers</span>
+    <span class="ruby-identifier">boite</span>.<span class="ruby-identifier">put</span>(<span class="ruby-identifier">aventure</span>, (<span class="ruby-identifier">widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.355</span>), <span class="ruby-identifier">heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.53</span>)
+    <span class="ruby-identifier">boite</span>.<span class="ruby-identifier">put</span>(<span class="ruby-identifier">libre</span>, (<span class="ruby-identifier">widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.39</span>), <span class="ruby-identifier">heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.68</span>)
+    <span class="ruby-identifier">boite</span>.<span class="ruby-identifier">put</span>(<span class="ruby-identifier">fermer</span>, (<span class="ruby-identifier">widthEcran</span> <span class="ruby-operator">*</span><span class="ruby-value">0.63</span>), <span class="ruby-identifier">heightEcran</span> <span class="ruby-operator">*</span> <span class="ruby-value">0.24</span>)
+
+    <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@layoutManager</span>)
+
+    <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">show_all</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-vers_jeu" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">vers_jeu</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Permet de changer la fenetre pour aller afficher l&#39;écran aventure</p>
+          
+          
+
+          
+          <div class="method-source-code" id="vers_jeu-source">
+            <pre><span class="ruby-comment"># File EcranJouer.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">vers_jeu</span>()
+    <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-ivar">@layoutManager</span>)
+    <span class="ruby-constant">Ecran_aventure</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-ivar">@win</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-vers_libre" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">vers_libre</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Permet de changer la fenetre pour aller afficher l&#39;écran libre</p>
+          
+          
+
+          
+          <div class="method-source-code" id="vers_libre-source">
+            <pre><span class="ruby-comment"># File EcranJouer.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">vers_libre</span>()
+    <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-ivar">@layoutManager</span>)
+    <span class="ruby-constant">Ecran_libre</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-ivar">@win</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-vers_menu" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">vers_menu</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Permet de changer la fenetre pour aller afficher l&#39;écran de jeu</p>
+          
+          
+
+          
+          <div class="method-source-code" id="vers_menu-source">
+            <pre><span class="ruby-comment"># File EcranJouer.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">vers_menu</span>()
+    <span class="ruby-ivar">@win</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-ivar">@layoutManager</span>)
+    <span class="ruby-constant">Ecran_menu</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-ivar">@win</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Grille_jeu - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-creer">::creer</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-activeRedSquare">#activeRedSquare</a>
+    
+    <li ><a href="#method-i-charger">#charger</a>
+    
+    <li ><a href="#method-i-check">#check</a>
+    
+    <li ><a href="#method-i-coordValide">#coordValide</a>
+    
+    <li ><a href="#method-i-enterButton">#enterButton</a>
+    
+    <li ><a href="#method-i-fillNine">#fillNine</a>
+    
+    <li ><a href="#method-i-leaveButton">#leaveButton</a>
+    
+    <li ><a href="#method-i-nextMove">#nextMove</a>
+    
+    <li ><a href="#method-i-putRedSquare">#putRedSquare</a>
+    
+    <li ><a href="#method-i-removeRedSquare">#removeRedSquare</a>
+    
+    <li ><a href="#method-i-rendreNonJouable">#rendreNonJouable</a>
+    
+    <li ><a href="#method-i-sauveProgression">#sauveProgression</a>
+    
+    <li ><a href="#method-i-undo">#undo</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Grille_jeu">
+  <h1 id="class-Grille_jeu" class="class">
+    class Grille_jeu
+  </h1>
+
+  <section class="description">
+    
+<p>Représentation d&#39;une grille de jeu</p>
+<ul><li>
+<p><code>grille</code>        Une Gtk::Grid qui représente le plateau de jeu</p>
+</li><li>
+<p><code>boutons</code>      Tableau de boutons dans la grille</p>
+</li><li>
+<p><code>css</code>           Les différents CSS utilisables</p>
+</li><li>
+<p><code>joues</code>         Tableau des coups joués par l&#39;utilisateur, permettant l&#39;utilisation de la fonctionnalité undo</p>
+</li><li>
+<p><code>nomGrille</code>     Le nom du fichier de la grille</p>
+</li><li>
+<p><code>redSquare</code>     Boolean permettant de savoir si le rectangle rouge est actif</p>
+</li><li>
+<p><code>boolFillNine</code>  Boolean permettant de savoir si un fill nine a été appelé</p>
+</li><li>
+<p><code>nbLignes</code>      Nombre de lignes du fichier</p>
+</li><li>
+<p><code>ligne_solution</code> La ligne de la solution</p>
+</li><li>
+<p><code>nbColonnes</code>    Nombre de colonnes du fichier</p>
+</li></ul>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-boolFillNine" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">boolFillNine</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-grille" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">grille</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-nbLignes" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">nbLignes</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-creer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">creer</span><span
+            class="method-args">(estJouable, joues, nomGrille)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Constructeur de la classe</p>
+<ul><li>
+<p><code>estJouable</code>    Boolean qui permet de rendre les boutons de la grille clickaque ou non</p>
+</li><li>
+<p><code>joues</code>         Tableau contenant les coups joues par l&#39;utilisateur</p>
+</li><li>
+<p><code>nomGrille</code>     Le nom du fichier de la grille</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="creer-source">
+            <pre><span class="ruby-comment"># File Grille_jeu.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Grille_jeu</span>.<span class="ruby-identifier ruby-title">creer</span>(<span class="ruby-identifier">estJouable</span>, <span class="ruby-identifier">joues</span>, <span class="ruby-identifier">nomGrille</span>)
+    <span class="ruby-identifier">new</span>(<span class="ruby-identifier">estJouable</span>, <span class="ruby-identifier">joues</span>, <span class="ruby-identifier">nomGrille</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(estJouable, joues, nomGrille)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Création de la grille</p>
+<ul><li>
+<p><code>estJouable</code>    Boolean qui permet de rendre les boutons de la grille clickaque ou non</p>
+</li><li>
+<p><code>joues</code>         Tableau contenant les coups joues par l&#39;utilisateur</p>
+</li><li>
+<p><code>nomGrille</code>     Le nom du fichier de la grille</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File Grille_jeu.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">estJouable</span>, <span class="ruby-identifier">joues</span>, <span class="ruby-identifier">nomGrille</span>)
+    <span class="ruby-ivar">@grille</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Grid</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-ivar">@boutons</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">25</span>)
+    <span class="ruby-value">0</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-value">25</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">25</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@joues</span> = <span class="ruby-identifier">joues</span>
+
+    <span class="ruby-ivar">@css</span> = <span class="ruby-constant">Css</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-ivar">@redSquare</span> = <span class="ruby-keyword">false</span>
+
+    <span class="ruby-ivar">@boolFillNine</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-identifier">charger</span>(<span class="ruby-identifier">nomGrille</span>)
+    <span class="ruby-ivar">@nomGrille</span> = <span class="ruby-identifier">nomGrille</span>
+
+    <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">estJouable</span>)
+        <span class="ruby-identifier">rendreNonJouable</span>()
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-activeRedSquare" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">activeRedSquare</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Méthode qui change la valeur du boolean @redSquare</p>
+          
+          
+
+          
+          <div class="method-source-code" id="activeRedSquare-source">
+            <pre><span class="ruby-comment"># File Grille_jeu.rb, line 258</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">activeRedSquare</span>()
+    <span class="ruby-keyword">if</span>(<span class="ruby-ivar">@redSquare</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span>)
+        <span class="ruby-ivar">@redSquare</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-ivar">@redSquare</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-charger" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">charger</span><span
+            class="method-args">(nomGrille)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Charge la grille spécifiée en paramètre</p>
+<ul><li>
+<p><code>nomGrille</code>    Le nom du fichier a charger</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="charger-source">
+            <pre><span class="ruby-comment"># File Grille_jeu.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">charger</span>(<span class="ruby-identifier">nomGrille</span>)
+    <span class="ruby-ivar">@nomGrille</span> = <span class="ruby-identifier">nomGrille</span>
+    <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">nomGrille</span>)
+    <span class="ruby-identifier">file_data</span> = <span class="ruby-identifier">file</span>.<span class="ruby-identifier">readlines</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:chomp</span>)
+    <span class="ruby-identifier">ligne_grille</span> = <span class="ruby-identifier">file_data</span>[<span class="ruby-value">1</span>]
+    <span class="ruby-identifier">@@ligne_solution</span> = <span class="ruby-identifier">file_data</span>[<span class="ruby-value">2</span>]
+    <span class="ruby-ivar">@nbLignes</span> = <span class="ruby-identifier">file_data</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39; &#39;</span>)[<span class="ruby-value">0</span>].<span class="ruby-identifier">to_i</span>
+    <span class="ruby-ivar">@nbColonnes</span> = <span class="ruby-identifier">file_data</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39; &#39;</span>)[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_i</span>
+    <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@nbLignes</span> <span class="ruby-operator">==</span> <span class="ruby-value">20</span>
+        <span class="ruby-identifier">csss</span> = <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssWWide</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@nbLignes</span> <span class="ruby-operator">==</span> <span class="ruby-value">15</span>
+        <span class="ruby-identifier">csss</span> = <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssWMed</span>
+    <span class="ruby-keyword">else</span> 
+        <span class="ruby-identifier">csss</span> = <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>
+    <span class="ruby-keyword">end</span>
+    
+    <span class="ruby-identifier">i_bouton</span> = <span class="ruby-value">0</span>
+    <span class="ruby-value">0</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@nbLignes</span><span class="ruby-value">-1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+        <span class="ruby-value">0</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@nbColonnes</span><span class="ruby-value">-1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+            <span class="ruby-comment"># création des boutons, connection des signaux et placement sur la grille</span>
+            <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>] = <span class="ruby-constant">Boutton_grille</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-identifier">ligne_grille</span>[<span class="ruby-identifier">i_bouton</span>], <span class="ruby-identifier">csss</span>, <span class="ruby-ivar">@joues</span>, <span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span>, <span class="ruby-keyword">self</span>)
+            <span class="ruby-identifier">i_bouton</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+            <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">signal</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+
+            <span class="ruby-ivar">@grille</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">boutton</span>, <span class="ruby-identifier">j</span>, <span class="ruby-identifier">i</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-check" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Vérification de la grille demandée par l&#39;utilisateur, retourne un tableau contenant  en case 0 : false si la grille contient des erreurs/n&#39;est pas terminée en case 1 : vrai si l&#39;utilisateur a fait une ou plusieurs erreur</p>
+          
+          
+
+          
+          <div class="method-source-code" id="check-source">
+            <pre><span class="ruby-comment"># File Grille_jeu.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">check</span>()
+    <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-ivar">@nomGrille</span>)
+
+    <span class="ruby-identifier">file_data</span> = <span class="ruby-identifier">file</span>.<span class="ruby-identifier">readlines</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:chomp</span>)
+        
+    <span class="ruby-ivar">@ligne_solution</span> = <span class="ruby-identifier">file_data</span>[<span class="ruby-value">2</span>]
+
+    <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span>
+
+    <span class="ruby-identifier">tab</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2</span>)
+
+    <span class="ruby-identifier">succes</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">mauvRep</span> = <span class="ruby-keyword">false</span>
+
+    <span class="ruby-value">0</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@nbLignes</span><span class="ruby-value">-1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+        <span class="ruby-value">0</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@nbColonnes</span><span class="ruby-value">-1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+
+            <span class="ruby-keyword">if</span> <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">couleur</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;grey&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@ligne_solution</span>[<span class="ruby-identifier">i</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@nbLignes</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">j</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+                <span class="ruby-identifier">succes</span> = <span class="ruby-keyword">false</span>
+                <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">mauvaiseReponse</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">falseReponse</span>)
+                <span class="ruby-identifier">mauvRep</span> = <span class="ruby-keyword">true</span>
+            <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">couleur</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;white&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@ligne_solution</span>[<span class="ruby-identifier">i</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@nbLignes</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">j</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+                <span class="ruby-identifier">succes</span> = <span class="ruby-keyword">false</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">couleur</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;black&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@ligne_solution</span>[<span class="ruby-identifier">i</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@nbLignes</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">j</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+                <span class="ruby-identifier">succes</span> = <span class="ruby-keyword">false</span>
+                <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">mauvaiseReponse</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">falseReponse</span>)
+                <span class="ruby-identifier">mauvRep</span> = <span class="ruby-keyword">true</span>
+            <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">tab</span>[<span class="ruby-value">0</span>] = <span class="ruby-identifier">succes</span>
+    <span class="ruby-identifier">tab</span>[<span class="ruby-value">1</span>] = <span class="ruby-identifier">mauvRep</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">tab</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-coordValide" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">coordValide</span><span
+            class="method-args">(i, j)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Retourne vrai si les coordonnées passées en paramètre sont valides (ne sortent pas du tableau)</p>
+<ul><li>
+<p><code>i</code> Coordonnée en abscisse</p>
+</li><li>
+<p><code>j</code> Coordonnée en ordonnée</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="coordValide-source">
+            <pre><span class="ruby-comment"># File Grille_jeu.rb, line 249</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">coordValide</span>(<span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span>)
+    <span class="ruby-keyword">if</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">&gt;=</span><span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">i</span><span class="ruby-operator">&lt;</span><span class="ruby-ivar">@nbLignes</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">j</span><span class="ruby-operator">&gt;=</span><span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">j</span><span class="ruby-operator">&lt;</span><span class="ruby-ivar">@nbColonnes</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>;
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-enterButton" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">enterButton</span><span
+            class="method-args">(i, j)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <pre>Méthode qui appelle la méthode putRedSquare sur les 8 boutons valides 
+entourant le bouton sur lequel la souris de l&#39;utilisateur se trouve</pre>
+<ul><li>
+<p><code>i</code>     coordonnées abscisse</p>
+</li><li>
+<p><code>j</code>     coordonnées ordonnée</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="enterButton-source">
+            <pre><span class="ruby-comment"># File Grille_jeu.rb, line 306</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">enterButton</span>(<span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span>)
+    <span class="ruby-keyword">if</span>(<span class="ruby-ivar">@redSquare</span>)
+        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>, <span class="ruby-identifier">j</span><span class="ruby-value">-1</span>))
+            <span class="ruby-identifier">putRedSquare</span>(<span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>][<span class="ruby-identifier">j</span><span class="ruby-value">-1</span>])
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>, <span class="ruby-identifier">j</span>))
+            <span class="ruby-identifier">putRedSquare</span>(<span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>][<span class="ruby-identifier">j</span>])
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>, <span class="ruby-identifier">j</span><span class="ruby-value">+1</span>))
+            <span class="ruby-identifier">putRedSquare</span>(<span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>][<span class="ruby-identifier">j</span><span class="ruby-value">+1</span>])
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span><span class="ruby-value">-1</span>))
+            <span class="ruby-identifier">putRedSquare</span>(<span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span><span class="ruby-value">-1</span>])
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span>))
+            <span class="ruby-identifier">putRedSquare</span>(<span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>])
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span><span class="ruby-value">+1</span>))
+            <span class="ruby-identifier">putRedSquare</span>(<span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span><span class="ruby-value">+1</span>])
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>, <span class="ruby-identifier">j</span><span class="ruby-value">-1</span>))
+            <span class="ruby-identifier">putRedSquare</span>(<span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>][<span class="ruby-identifier">j</span><span class="ruby-value">-1</span>])
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>, <span class="ruby-identifier">j</span>))
+            <span class="ruby-identifier">putRedSquare</span>(<span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>][<span class="ruby-identifier">j</span>])
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>, <span class="ruby-identifier">j</span><span class="ruby-value">+1</span>))
+            <span class="ruby-identifier">putRedSquare</span>(<span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>][<span class="ruby-identifier">j</span><span class="ruby-value">+1</span>])
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fillNine" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fillNine</span><span
+            class="method-args">(nombre)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Rempli l&#39;espace autour d&#39;un nombre de cases noires ou grises selon le paramètre</p>
+<ul><li>
+<p><code>nombre</code>    Le nombre que l&#39;on souhaite voir être entouré de cases noires ou grises</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="fillNine-source">
+            <pre><span class="ruby-comment"># File Grille_jeu.rb, line 169</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">fillNine</span>(<span class="ruby-identifier">nombre</span>)
+
+    <span class="ruby-ivar">@boolFillNine</span> = <span class="ruby-keyword">true</span>
+    
+    <span class="ruby-keyword">if</span>(<span class="ruby-identifier">nombre</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;0&#39;</span>)
+        <span class="ruby-identifier">couleur</span> = <span class="ruby-string">&quot;black&quot;</span>
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">couleur</span> = <span class="ruby-string">&quot;grey&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">possible</span> = <span class="ruby-keyword">true</span>
+
+    <span class="ruby-value">0</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@nbLignes</span><span class="ruby-value">-1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+        <span class="ruby-value">0</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@nbColonnes</span><span class="ruby-value">-1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword">if</span>(<span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">contenu</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">nombre</span>)
+                <span class="ruby-keyword">if</span>(<span class="ruby-identifier">nombre</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;4&#39;</span>)
+                    <span class="ruby-keyword">if</span>((<span class="ruby-identifier">i</span><span class="ruby-value">-1</span> <span class="ruby-operator">==</span> <span class="ruby-value">-1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">j</span><span class="ruby-value">-1</span> <span class="ruby-operator">==</span> <span class="ruby-value">-1</span>) <span class="ruby-operator">||</span> (<span class="ruby-identifier">i</span><span class="ruby-value">-1</span> <span class="ruby-operator">==</span> <span class="ruby-value">-1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">j</span><span class="ruby-value">+1</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@nbColonnes</span>) <span class="ruby-operator">||</span> (<span class="ruby-identifier">i</span><span class="ruby-value">+1</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@nbLignes</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">j</span><span class="ruby-value">-1</span> <span class="ruby-operator">==</span> <span class="ruby-value">-1</span>) <span class="ruby-operator">||</span> (<span class="ruby-identifier">i</span><span class="ruby-value">+1</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@nbLignes</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">j</span><span class="ruby-value">+1</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@nbColonnes</span>))
+                        <span class="ruby-identifier">possible</span> = <span class="ruby-keyword">true</span>
+                    <span class="ruby-keyword">else</span>
+                        <span class="ruby-identifier">possible</span> = <span class="ruby-keyword">false</span>
+                    <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+
+                <span class="ruby-keyword">if</span>(<span class="ruby-identifier">nombre</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;6&#39;</span>)
+                    <span class="ruby-keyword">if</span>(<span class="ruby-identifier">i</span><span class="ruby-value">-1</span> <span class="ruby-operator">==</span> <span class="ruby-value">-1</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">i</span><span class="ruby-value">+1</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@nbLignes</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">j</span><span class="ruby-value">-1</span> <span class="ruby-operator">==</span> <span class="ruby-value">-1</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">j</span><span class="ruby-value">+1</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@nbColonnes</span>)
+                        <span class="ruby-identifier">possible</span> = <span class="ruby-keyword">true</span>
+                    <span class="ruby-keyword">else</span>
+                        <span class="ruby-identifier">possible</span> = <span class="ruby-keyword">false</span>
+                    <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+
+                <span class="ruby-keyword">if</span>(<span class="ruby-identifier">possible</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>)
+                    <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>, <span class="ruby-identifier">j</span><span class="ruby-value">-1</span>))
+                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>][<span class="ruby-identifier">j</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">couleur</span>= <span class="ruby-identifier">couleur</span>
+                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>][<span class="ruby-identifier">j</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">updateCouleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+                    <span class="ruby-keyword">end</span>
+                    <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>, <span class="ruby-identifier">j</span>))
+                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">couleur</span>= <span class="ruby-identifier">couleur</span>
+                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">updateCouleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+                    <span class="ruby-keyword">end</span>
+                    <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>, <span class="ruby-identifier">j</span><span class="ruby-value">+1</span>))
+                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>][<span class="ruby-identifier">j</span><span class="ruby-value">+1</span>].<span class="ruby-identifier">couleur</span>= <span class="ruby-identifier">couleur</span>
+                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>][<span class="ruby-identifier">j</span><span class="ruby-value">+1</span>].<span class="ruby-identifier">updateCouleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+                    <span class="ruby-keyword">end</span>
+                    <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span><span class="ruby-value">-1</span>))
+                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">couleur</span>= <span class="ruby-identifier">couleur</span>
+                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">updateCouleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+                    <span class="ruby-keyword">end</span>
+                    <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span>))
+                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">couleur</span>= <span class="ruby-identifier">couleur</span>
+                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">updateCouleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+                    <span class="ruby-keyword">end</span>
+                    <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span><span class="ruby-value">+1</span>))
+                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span><span class="ruby-value">+1</span>].<span class="ruby-identifier">couleur</span>= <span class="ruby-identifier">couleur</span>
+                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span><span class="ruby-value">+1</span>].<span class="ruby-identifier">updateCouleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+                    <span class="ruby-keyword">end</span>
+                    <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>, <span class="ruby-identifier">j</span><span class="ruby-value">-1</span>))
+                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>][<span class="ruby-identifier">j</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">couleur</span>= <span class="ruby-identifier">couleur</span>
+                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>][<span class="ruby-identifier">j</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">updateCouleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+                    <span class="ruby-keyword">end</span>
+                    <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>, <span class="ruby-identifier">j</span>))
+                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">couleur</span>= <span class="ruby-identifier">couleur</span>
+                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">updateCouleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+                    <span class="ruby-keyword">end</span>
+                    <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>, <span class="ruby-identifier">j</span><span class="ruby-value">+1</span>))
+                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>][<span class="ruby-identifier">j</span><span class="ruby-value">+1</span>].<span class="ruby-identifier">couleur</span>= <span class="ruby-identifier">couleur</span>
+                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>][<span class="ruby-identifier">j</span><span class="ruby-value">+1</span>].<span class="ruby-identifier">updateCouleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+                    <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-leaveButton" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">leaveButton</span><span
+            class="method-args">(i, j)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <pre>Méthode qui appelle la méthode removeRedSquare sur les 8 boutons valides 
+entourant le bouton sur lequelle la souris de l&#39;utilisateur se trouvait
+(méthode appelée lorsque l&#39;utilisateur quitte un bouton avec sa souris
+et que l&#39;aide RedSquare est activée)</pre>
+<ul><li>
+<p><code>i</code>     coordonnées abscisse</p>
+</li><li>
+<p><code>j</code>     coordonnées ordonnée</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="leaveButton-source">
+            <pre><span class="ruby-comment"># File Grille_jeu.rb, line 348</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">leaveButton</span>(<span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span>)
+    <span class="ruby-keyword">if</span>(<span class="ruby-ivar">@redSquare</span>)
+        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>, <span class="ruby-identifier">j</span><span class="ruby-value">-1</span>))
+            <span class="ruby-identifier">removeRedSquare</span>(<span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>][<span class="ruby-identifier">j</span><span class="ruby-value">-1</span>])
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>, <span class="ruby-identifier">j</span>))
+            <span class="ruby-identifier">removeRedSquare</span>(<span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>][<span class="ruby-identifier">j</span>])
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>, <span class="ruby-identifier">j</span><span class="ruby-value">+1</span>))
+            <span class="ruby-identifier">removeRedSquare</span>(<span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>][<span class="ruby-identifier">j</span><span class="ruby-value">+1</span>])
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span><span class="ruby-value">-1</span>))
+            <span class="ruby-identifier">removeRedSquare</span>(<span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span><span class="ruby-value">-1</span>])
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span>))
+            <span class="ruby-identifier">removeRedSquare</span>(<span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>])
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span><span class="ruby-value">+1</span>))
+            <span class="ruby-identifier">removeRedSquare</span>(<span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span><span class="ruby-value">+1</span>])
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>, <span class="ruby-identifier">j</span><span class="ruby-value">-1</span>))
+            <span class="ruby-identifier">removeRedSquare</span>(<span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>][<span class="ruby-identifier">j</span><span class="ruby-value">-1</span>])
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>, <span class="ruby-identifier">j</span>))
+            <span class="ruby-identifier">removeRedSquare</span>(<span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>][<span class="ruby-identifier">j</span>])
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>, <span class="ruby-identifier">j</span><span class="ruby-value">+1</span>))
+            <span class="ruby-identifier">removeRedSquare</span>(<span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>][<span class="ruby-identifier">j</span><span class="ruby-value">+1</span>])
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-nextMove" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nextMove</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Méthode qui va jouer le prochain coup logique du joueur</p>
+          
+          
+
+          
+          <div class="method-source-code" id="nextMove-source">
+            <pre><span class="ruby-comment"># File Grille_jeu.rb, line 410</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">nextMove</span>()
+    <span class="ruby-value">0</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@nbLignes</span><span class="ruby-value">-1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+        <span class="ruby-value">0</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@nbColonnes</span><span class="ruby-value">-1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword">if</span>(<span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">contenu</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&#39; &#39;</span>)
+                <span class="ruby-identifier">nbNoir</span> = <span class="ruby-value">0</span>
+                <span class="ruby-identifier">nbGris</span> = <span class="ruby-value">0</span>
+                <span class="ruby-keyword">for</span> <span class="ruby-identifier">x</span> <span class="ruby-keyword">in</span> <span class="ruby-value">-1</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>
+                    <span class="ruby-keyword">for</span> <span class="ruby-identifier">y</span> <span class="ruby-keyword">in</span> <span class="ruby-value">-1</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>
+                        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">x</span>, <span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">y</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">x</span>][<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">y</span>].<span class="ruby-identifier">couleur</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;black&quot;</span>)
+                            <span class="ruby-identifier">nbNoir</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+                        <span class="ruby-keyword">end</span>
+
+                        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">x</span>, <span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">y</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">x</span>][<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">y</span>].<span class="ruby-identifier">couleur</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;grey&quot;</span>)
+                            <span class="ruby-identifier">nbGris</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+                        <span class="ruby-keyword">end</span>
+
+                        <span class="ruby-keyword">if</span>((<span class="ruby-identifier">nbGris</span> <span class="ruby-operator">==</span> <span class="ruby-value">9</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">contenu</span>.<span class="ruby-identifier">to_i</span>) <span class="ruby-operator">||</span> ((<span class="ruby-operator">!</span><span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>, <span class="ruby-identifier">j</span>) <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>, <span class="ruby-identifier">j</span>) <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span><span class="ruby-value">-1</span>) <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span><span class="ruby-value">+1</span>)) <span class="ruby-operator">&amp;&amp;</span><span class="ruby-identifier">nbGris</span> <span class="ruby-operator">==</span> <span class="ruby-value">6</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">contenu</span>.<span class="ruby-identifier">to_i</span> ))
+                            <span class="ruby-keyword">for</span> <span class="ruby-identifier">a</span> <span class="ruby-keyword">in</span> <span class="ruby-value">-1</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>
+                                <span class="ruby-keyword">for</span> <span class="ruby-identifier">b</span> <span class="ruby-keyword">in</span> <span class="ruby-value">-1</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>
+                                    <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>, <span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">b</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>][<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">b</span>].<span class="ruby-identifier">couleur</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;white&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@ligne_solution</span>[(<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>) <span class="ruby-operator">*</span> <span class="ruby-ivar">@nbLignes</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">b</span>)].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>)
+                                        <span class="ruby-ivar">@joues</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">Coup_joue</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>, <span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">b</span>, <span class="ruby-string">&quot;white&quot;</span>))
+                                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>][<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">b</span>].<span class="ruby-identifier">change_couleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+                                        <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+                                    <span class="ruby-keyword">end</span>
+                                <span class="ruby-keyword">end</span>
+                            <span class="ruby-keyword">end</span>
+                        <span class="ruby-keyword">end</span>
+
+                        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">nbNoir</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">contenu</span>.<span class="ruby-identifier">to_i</span>)
+                            <span class="ruby-keyword">for</span> <span class="ruby-identifier">a</span> <span class="ruby-keyword">in</span> <span class="ruby-value">-1</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>
+                                <span class="ruby-keyword">for</span> <span class="ruby-identifier">b</span> <span class="ruby-keyword">in</span> <span class="ruby-value">-1</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>
+                                    <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>, <span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">b</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>][<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">b</span>].<span class="ruby-identifier">couleur</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;white&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@ligne_solution</span>[(<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>) <span class="ruby-operator">*</span> <span class="ruby-ivar">@nbLignes</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">b</span>)].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>)
+                                        <span class="ruby-ivar">@joues</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">Coup_joue</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>, <span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">b</span>, <span class="ruby-string">&quot;white&quot;</span>))
+                                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>][<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">b</span>].<span class="ruby-identifier">change_couleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+                                        <span class="ruby-ivar">@joues</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">Coup_joue</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>, <span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">b</span>, <span class="ruby-string">&quot;black&quot;</span>))
+                                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>][<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">b</span>].<span class="ruby-identifier">change_couleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+                                        <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+                                    <span class="ruby-keyword">end</span>
+                                <span class="ruby-keyword">end</span>
+                            <span class="ruby-keyword">end</span>
+                        <span class="ruby-keyword">end</span>
+                    <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">contenu</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;5&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>, <span class="ruby-identifier">j</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">contenu</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;8&#39;</span>)
+                    <span class="ruby-keyword">for</span> <span class="ruby-identifier">a</span> <span class="ruby-keyword">in</span> <span class="ruby-value">-1</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>
+                        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>, <span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>][<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>].<span class="ruby-identifier">couleur</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;white&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@ligne_solution</span>[(<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>) <span class="ruby-operator">*</span> <span class="ruby-ivar">@nbLignes</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>)].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>)
+                            <span class="ruby-ivar">@joues</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">Coup_joue</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>, <span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>, <span class="ruby-string">&quot;white&quot;</span>))
+                            <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>][<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>].<span class="ruby-identifier">change_couleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+                            <span class="ruby-ivar">@joues</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">Coup_joue</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>, <span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>, <span class="ruby-string">&quot;black&quot;</span>))
+                            <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>][<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>].<span class="ruby-identifier">change_couleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+                            <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+                        <span class="ruby-keyword">end</span>
+                    <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+
+                <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">contenu</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;5&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span><span class="ruby-value">-1</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">contenu</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;8&#39;</span>)
+                    <span class="ruby-keyword">for</span> <span class="ruby-identifier">a</span> <span class="ruby-keyword">in</span> <span class="ruby-value">-1</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>
+                        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>, <span class="ruby-identifier">j</span><span class="ruby-value">+1</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>][<span class="ruby-identifier">j</span><span class="ruby-value">+1</span>].<span class="ruby-identifier">couleur</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;white&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@ligne_solution</span>[(<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>) <span class="ruby-operator">*</span> <span class="ruby-ivar">@nbLignes</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">j</span><span class="ruby-value">+1</span>)].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>)
+                            <span class="ruby-ivar">@joues</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">Coup_joue</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>, <span class="ruby-identifier">j</span><span class="ruby-value">+1</span>, <span class="ruby-string">&quot;white&quot;</span>))
+                            <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>][<span class="ruby-identifier">j</span><span class="ruby-value">+1</span>].<span class="ruby-identifier">change_couleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+                            <span class="ruby-ivar">@joues</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">Coup_joue</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>, <span class="ruby-identifier">j</span><span class="ruby-value">+1</span>, <span class="ruby-string">&quot;black&quot;</span>))
+                            <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>][<span class="ruby-identifier">j</span><span class="ruby-value">+1</span>].<span class="ruby-identifier">change_couleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+                            <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+                        <span class="ruby-keyword">end</span>
+                    <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+
+                <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">contenu</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;2&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">-2</span>, <span class="ruby-identifier">j</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">-2</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">contenu</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;8&#39;</span>)
+                    <span class="ruby-keyword">for</span> <span class="ruby-identifier">a</span> <span class="ruby-keyword">in</span> <span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>
+                        <span class="ruby-keyword">for</span> <span class="ruby-identifier">b</span> <span class="ruby-keyword">in</span> <span class="ruby-value">-1</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>
+                            <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>, <span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">b</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>][<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">b</span>].<span class="ruby-identifier">couleur</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;white&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@ligne_solution</span>[(<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>) <span class="ruby-operator">*</span> <span class="ruby-ivar">@nbLignes</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">b</span>)].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>)
+                                <span class="ruby-ivar">@joues</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">Coup_joue</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>, <span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">b</span>, <span class="ruby-string">&quot;white&quot;</span>))
+                                <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>][<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">b</span>].<span class="ruby-identifier">change_couleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+                                <span class="ruby-ivar">@joues</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">Coup_joue</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>, <span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">b</span>, <span class="ruby-string">&quot;black&quot;</span>))
+                                <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>][<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">b</span>].<span class="ruby-identifier">change_couleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+                                <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+                            <span class="ruby-keyword">end</span>
+                        <span class="ruby-keyword">end</span>
+                    <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+
+                <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">contenu</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;3&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>, <span class="ruby-identifier">j</span><span class="ruby-value">-1</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>][<span class="ruby-identifier">j</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">contenu</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;8&#39;</span>)
+                    <span class="ruby-keyword">for</span> <span class="ruby-identifier">a</span> <span class="ruby-keyword">in</span> <span class="ruby-value">-1</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>
+                        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>, <span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>][<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>].<span class="ruby-identifier">couleur</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;white&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@ligne_solution</span>[(<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>) <span class="ruby-operator">*</span> <span class="ruby-ivar">@nbLignes</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>)].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>)
+                            <span class="ruby-ivar">@joues</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">Coup_joue</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>, <span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>, <span class="ruby-string">&quot;white&quot;</span>))
+                            <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>][<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>].<span class="ruby-identifier">change_couleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+                            <span class="ruby-ivar">@joues</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">Coup_joue</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>, <span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>, <span class="ruby-string">&quot;black&quot;</span>))
+                            <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">+1</span>][<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">a</span>].<span class="ruby-identifier">change_couleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+                            <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+                        <span class="ruby-keyword">end</span>
+                    <span class="ruby-keyword">end</span>
+                    <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>, <span class="ruby-identifier">j</span><span class="ruby-value">+1</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>][<span class="ruby-identifier">j</span><span class="ruby-value">+1</span>].<span class="ruby-identifier">couleur</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;white&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@ligne_solution</span>[(<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>) <span class="ruby-operator">*</span> <span class="ruby-ivar">@nbLignes</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">j</span><span class="ruby-value">+1</span>)].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>)
+                        <span class="ruby-ivar">@joues</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">Coup_joue</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>, <span class="ruby-identifier">j</span><span class="ruby-value">+1</span>, <span class="ruby-string">&quot;white&quot;</span>))
+                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>][<span class="ruby-identifier">j</span><span class="ruby-value">+1</span>].<span class="ruby-identifier">change_couleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+                        <span class="ruby-ivar">@joues</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">Coup_joue</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>, <span class="ruby-identifier">j</span><span class="ruby-value">+1</span>, <span class="ruby-string">&quot;black&quot;</span>))
+                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span><span class="ruby-value">-1</span>][<span class="ruby-identifier">j</span><span class="ruby-value">+1</span>].<span class="ruby-identifier">change_couleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+                        <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+                    <span class="ruby-keyword">end</span>
+                    <span class="ruby-keyword">if</span>(<span class="ruby-identifier">coordValide</span>(<span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span><span class="ruby-value">+1</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span><span class="ruby-value">+1</span>].<span class="ruby-identifier">couleur</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;white&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@ligne_solution</span>[(<span class="ruby-identifier">i</span>) <span class="ruby-operator">*</span> <span class="ruby-ivar">@nbLignes</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">j</span><span class="ruby-value">+1</span>)].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>)
+                        <span class="ruby-ivar">@joues</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">Coup_joue</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span><span class="ruby-value">+1</span>, <span class="ruby-string">&quot;white&quot;</span>))
+                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span><span class="ruby-value">+1</span>].<span class="ruby-identifier">change_couleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+                        <span class="ruby-ivar">@joues</span>.<span class="ruby-identifier">push</span>(<span class="ruby-constant">Coup_joue</span>.<span class="ruby-identifier">creer</span>(<span class="ruby-identifier">i</span>, <span class="ruby-identifier">j</span><span class="ruby-value">+1</span>, <span class="ruby-string">&quot;black&quot;</span>))
+                        <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span><span class="ruby-value">+1</span>].<span class="ruby-identifier">change_couleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+                        <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+                    <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-putRedSquare" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">putRedSquare</span><span
+            class="method-args">(boutton)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <pre>Méthode qui ajoute un css avec bordure rouge au bouton en paramètre selon sa couleur de base
+Cette méthode est appelée lorsque l&#39;utilisateur a activé l&#39;aide RedSquare et que sa souris survole un boutton</pre>
+<ul><li>
+<p><code>boutton</code>   Le bouton du carré</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="putRedSquare-source">
+            <pre><span class="ruby-comment"># File Grille_jeu.rb, line 271</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">putRedSquare</span>(<span class="ruby-identifier">boutton</span>)
+    <span class="ruby-keyword">if</span>(<span class="ruby-identifier">boutton</span>.<span class="ruby-identifier">couleur</span><span class="ruby-operator">==</span><span class="ruby-string">&quot;white&quot;</span>)
+        <span class="ruby-identifier">boutton</span>.<span class="ruby-identifier">boutton</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssWRedBorder</span>, <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+    <span class="ruby-keyword">elsif</span>(<span class="ruby-identifier">boutton</span>.<span class="ruby-identifier">couleur</span><span class="ruby-operator">==</span><span class="ruby-string">&quot;black&quot;</span>)
+        <span class="ruby-identifier">boutton</span>.<span class="ruby-identifier">boutton</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssBRedBorder</span>, <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+    <span class="ruby-keyword">else</span>    
+        <span class="ruby-identifier">boutton</span>.<span class="ruby-identifier">boutton</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssGRedBorder</span>, <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-removeRedSquare" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">removeRedSquare</span><span
+            class="method-args">(boutton)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <pre>Méthode qui enlève un css avec bordure rouge au bouton en paramètre selon sa couleur de base
+Cette méthode est appelée lorsque l&#39;utilisateur a activé l&#39;aide RedSquare
+et que sa souris quitte un boutton</pre>
+<ul><li>
+<p><code>boutton</code>   Le bouton du carré</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="removeRedSquare-source">
+            <pre><span class="ruby-comment"># File Grille_jeu.rb, line 288</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">removeRedSquare</span>(<span class="ruby-identifier">boutton</span>)
+    <span class="ruby-keyword">if</span>(<span class="ruby-identifier">boutton</span>.<span class="ruby-identifier">couleur</span><span class="ruby-operator">==</span><span class="ruby-string">&quot;white&quot;</span>)
+        <span class="ruby-identifier">boutton</span>.<span class="ruby-identifier">boutton</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+    <span class="ruby-keyword">elsif</span>(<span class="ruby-identifier">boutton</span>.<span class="ruby-identifier">couleur</span><span class="ruby-operator">==</span><span class="ruby-string">&quot;black&quot;</span>)
+        <span class="ruby-identifier">boutton</span>.<span class="ruby-identifier">boutton</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">boutton</span>.<span class="ruby-identifier">boutton</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>, <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rendreNonJouable" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rendreNonJouable</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Rend tous les boutons de la grille non clickable</p>
+          
+          
+
+          
+          <div class="method-source-code" id="rendreNonJouable-source">
+            <pre><span class="ruby-comment"># File Grille_jeu.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">rendreNonJouable</span>()
+    <span class="ruby-value">0</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@nbLignes</span><span class="ruby-value">-1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+        <span class="ruby-value">0</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-ivar">@nbColonnes</span><span class="ruby-value">-1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+            <span class="ruby-comment">#Rend le bouton non cliquable</span>
+            <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">boutton</span>.<span class="ruby-identifier">sensitive</span> = <span class="ruby-keyword">false</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-ivar">@nbLignes</span> <span class="ruby-operator">==</span> <span class="ruby-value">20</span>
+                <span class="ruby-identifier">csss</span> = <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssWWidemenu</span>
+            <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@nbLignes</span> <span class="ruby-operator">==</span> <span class="ruby-value">15</span>
+                <span class="ruby-identifier">csss</span> = <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssWMedmenu</span>
+            <span class="ruby-keyword">else</span> 
+                <span class="ruby-identifier">csss</span> = <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>].<span class="ruby-identifier">boutton</span>.<span class="ruby-identifier">style_context</span>.<span class="ruby-identifier">add_provider</span>(<span class="ruby-identifier">csss</span>, <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">StyleProvider</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIORITY_USER</span>)
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sauveProgression" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sauveProgression</span><span
+            class="method-args">(chrono, modeJeu)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Cette méthode sauvegarde la progression de l&#39;utilisateur sur cette grille</p>
+<ul><li>
+<p><code>chrono</code> le temps passé sur la grille</p>
+</li><li>
+<p><code>modeJeu</code> le mode de jeu sur lequel se trouve l&#39;utilisateur</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="sauveProgression-source">
+            <pre><span class="ruby-comment"># File Grille_jeu.rb, line 386</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sauveProgression</span>(<span class="ruby-identifier">chrono</span>, <span class="ruby-identifier">modeJeu</span>)
+    <span class="ruby-identifier">nomSauvegarde</span> = (<span class="ruby-identifier">$userPath</span><span class="ruby-operator">+</span><span class="ruby-identifier">modeJeu</span><span class="ruby-string">+&#39;/&#39;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@nomGrille</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;/&quot;</span>)[<span class="ruby-value">2</span>]).<span class="ruby-identifier">delete_suffix</span>(<span class="ruby-string">&quot;.txt&quot;</span>)
+    <span class="ruby-identifier">data</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+
+    <span class="ruby-comment">#Ecriture d&#39;un tableau sérializé dans un fichier</span>
+    <span class="ruby-comment">#L&#39;indice 0 contient de tableau @joues (le tableau des coups joués)</span>
+    <span class="ruby-comment">#L&#39;indice 1 et 2 contiennent respectivement les minutes et les secondes du chrono (temps passé sur la grille)</span>
+    <span class="ruby-comment">#L&#39;indice 3 est le boolean qui indique si l&#39;utilisateur a demandé l&#39;aide du remplissage auto</span>
+    <span class="ruby-identifier">data</span>[<span class="ruby-value">0</span>] = <span class="ruby-ivar">@joues</span>
+    <span class="ruby-identifier">data</span>[<span class="ruby-value">1</span>] = <span class="ruby-identifier">chrono</span>.<span class="ruby-identifier">minutes</span>
+    <span class="ruby-identifier">data</span>[<span class="ruby-value">2</span>] = <span class="ruby-identifier">chrono</span>.<span class="ruby-identifier">secondes</span>
+    <span class="ruby-identifier">data</span>[<span class="ruby-value">3</span>] = <span class="ruby-identifier">chrono</span>.<span class="ruby-identifier">penaliteMin</span>
+    <span class="ruby-identifier">data</span>[<span class="ruby-value">4</span>] = <span class="ruby-identifier">chrono</span>.<span class="ruby-identifier">penaliteSec</span>
+    <span class="ruby-identifier">data</span>[<span class="ruby-value">5</span>] = <span class="ruby-ivar">@boolFillNine</span>
+    
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">nomSauvegarde</span>, <span class="ruby-string">&#39;w&#39;</span>)
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">chmod</span>(<span class="ruby-value">0777</span>, <span class="ruby-identifier">nomSauvegarde</span>)
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">binwrite</span>(<span class="ruby-identifier">nomSauvegarde</span>, <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">data</span>))
+    
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-undo" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">undo</span><span
+            class="method-args">(coup)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remet la couleur du bouton après un undo</p>
+<ul><li>
+<p><code>coup</code>  le coup a restitué</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="undo-source">
+            <pre><span class="ruby-comment"># File Grille_jeu.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">undo</span>(<span class="ruby-identifier">coup</span>)
+    <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">coup</span>.<span class="ruby-identifier">indiceI</span>][<span class="ruby-identifier">coup</span>.<span class="ruby-identifier">indiceJ</span>].<span class="ruby-identifier">couleur</span>= <span class="ruby-identifier">coup</span>.<span class="ruby-identifier">couleur</span>
+    <span class="ruby-ivar">@boutons</span>[<span class="ruby-identifier">coup</span>.<span class="ruby-identifier">indiceI</span>][<span class="ruby-identifier">coup</span>.<span class="ruby-identifier">indiceJ</span>].<span class="ruby-identifier">updateCouleur</span>(<span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssW</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssB</span>, <span class="ruby-ivar">@css</span>.<span class="ruby-identifier">cssG</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

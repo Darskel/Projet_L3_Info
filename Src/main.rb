@@ -1,3 +1,5 @@
+##
+# Le main  du programme
 require 'gtk3'
 
 Gtk.init
